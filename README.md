@@ -1,2 +1,1 @@
-# BF-grading-range
- Blast furnace grading range
+高炉顺行参数的打分范围提取.
