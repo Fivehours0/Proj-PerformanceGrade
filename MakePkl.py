@@ -24,6 +24,7 @@ file_list = ['西昌2#高炉-炉渣成分表.xlsx',
              '西昌2#高炉-上料质量表.xlsx',
              '西昌2#高炉-铁水实绩表.xlsx',
              '西昌2#高炉-上料实绩表.xlsx',
+             '西昌2#高炉-铁水成分表.xlsx',
              '西昌2#高炉采集数据表_喷吹系统.xlsx']
 for file in file_list:
     df = load_excel(path+file)
