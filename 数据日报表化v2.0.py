@@ -139,7 +139,7 @@ class DailyDate():
         None.
 
         '''
-        df_slag = pd.read_pickle(PATH_DICT[2]+'西昌2#高炉-炉渣成分表.pkl')
+        df_slag = pd.read_pickle(file_pkl)
         df_slag = df_slag[df_slag['铁次号']>='20000000'] # 提取出#2高炉的数据
         df_slag = df_slag[df_slag['铁次号']<'30000000']    
         df = df_slag
@@ -181,8 +181,10 @@ class DailyDate():
         '''
         Parameters
         ----------
-        file_pkl : TYPE str
-             文件路径
+        file_pkl1 : TYPE str
+             上料实绩表 文件路径
+        file_pkl2 : TYPE str
+             西昌2#高炉采集数据表_喷吹系统 文件路径
         Returns
         -------
         None.
@@ -218,14 +220,24 @@ class DailyDate():
 if __name__ == '__main__':
     
     index = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
-    daily19 = DailyDate(index)
+    daily20 = DailyDate(index)
+    daily20.get_yield(PATH_DICT[2]+'西昌2#高炉-铁水实绩表.pkl')
+    daily20.get_coke(PATH_DICT[2]+'西昌2#高炉-上料质量表.pkl')
+    daily20.get_molten_iron(PATH_DICT[2]+'西昌2#高炉-铁水成分表.pkl')
+    daily20.get_slag(PATH_DICT[2]+'西昌2#高炉-炉渣成分表.pkl')
+    daily20.get_ratio(PATH_DICT[2]+'西昌2#高炉-上料实绩表.pkl', PATH_DICT[2]+'西昌2#高炉采集数据表_喷吹系统.pkl')
+    res = daily20.res
     
-    daily19.get_yield(PATH_DICT[2]+'西昌2#高炉-铁水实绩表.pkl')
-    daily19.get_coke(PATH_DICT[2]+'西昌2#高炉-上料质量表.pkl')
-    daily19.get_molten_iron(PATH_DICT[2]+'西昌2#高炉-铁水成分表.pkl')
-    daily19.get_slag(PATH_DICT[2]+'西昌2#高炉-炉渣成分表.pkl')
-    daily19.get_ratio(PATH_DICT[2]+'西昌2#高炉-上料实绩表.pkl', PATH_DICT[2]+'西昌2#高炉采集数据表_喷吹系统.pkl')
-    res = daily19.res
+    index = pd.date_range('2019-10-01 00:00:00', '2019-11-30 23:59:59', freq='1D')
+    daily19 = DailyDate(index)
+    daily19.get_yield(PATH_DICT[0]+'铁水实绩表.pkl')
+    daily19.get_coke(PATH_DICT[0]+'上料质量表.pkl')
+    daily19.get_molten_iron(PATH_DICT[0]+'铁水成分表.pkl')
+    daily19.get_slag(PATH_DICT[0]+'炉渣成分表.pkl')
+    daily19.get_ratio(PATH_DICT[0]+'上料实绩表.pkl', PATH_DICT[0]+'西昌2#高炉采集数据表_喷吹系统.pkl')
+
+    res = pd.concat([daily19.res, daily20.res])
+    
     
 
     
