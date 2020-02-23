@@ -6,7 +6,7 @@ import pandas as pd
 整理19年10月-20年2月数据
 需要以下目录文件:
 ./data/西昌2#高炉数据19年10-11月/pkl/
-    西昌2#高炉采集数据表_渣铁系统.pkl
+    西昌2#高炉采集数据表_喷吹系统.pkl
     铁水实绩表.pkl
     上料实绩表.pkl
     铁水成分表.pkl
@@ -128,6 +128,93 @@ class DailyDate():
             self.res[param] = temp1['采集项值'].copy()    
         return None
     
+    def get_slag(self, file_pkl):
+        '''
+        Parameters
+        ----------
+        file_pkl : TYPE str
+             西昌2#高炉-炉渣成分表.pkl 文件路径
+        Returns
+        -------
+        None.
+
+        '''
+        df_slag = pd.read_pickle(PATH_DICT[2]+'西昌2#高炉-炉渣成分表.pkl')
+        df_slag = df_slag[df_slag['铁次号']>='20000000'] # 提取出#2高炉的数据
+        df_slag = df_slag[df_slag['铁次号']<'30000000']    
+        df = df_slag
+        
+        df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
+        df['采集项值'] = pd.to_numeric(df['采集项值'])
+        
+        param_list = [
+                '(CaO)',
+                '(SiO2)',
+                '(MgO)',
+                '(TiO2)',
+                '(Al2O3)']
+    
+        for param in param_list:
+            temp = df.groupby('采集项名称').get_group(param)  
+            temp1 = temp.groupby('业务处理时间').mean()
+    
+            self.res[param] = temp1['采集项值'].copy()
+        
+        self.res['R2'] = self.res['(CaO)']/self.res['(SiO2)']
+        self.res['R3'] = (self.res['(CaO)'] + self.res['(MgO)']) / self.res['(SiO2)']
+        self.res['镁铝比'] =  self.res['(MgO)']/self.res['(Al2O3)']
+        
+        
+        # DeltaR2处理
+        CaO = df.groupby('采集项名称').get_group('(CaO)') # 筛选
+        CaO2 = CaO.groupby(['铁次号','业务处理时间'], as_index=False).mean().set_index('铁次号')
+        
+        SiO = df.groupby('采集项名称').get_group('(SiO2)') # 筛选
+        SiO2 = SiO.groupby('铁次号').mean()
+        
+        CaO2['SiO2'] = SiO2['采集项值']
+        CaO2['R2'] = CaO2['采集项值'] / CaO2['SiO2']
+        self.res['DeltaR2'] = CaO2.groupby('业务处理时间')['R2'].mean()        
+        return None
+    
+    def get_ratio(self, file_pkl1, file_pkl2):
+        '''
+        Parameters
+        ----------
+        file_pkl : TYPE str
+             文件路径
+        Returns
+        -------
+        None.
+
+        '''    
+        ### 焦比
+        df = pd.read_pickle(file_pkl1)
+        df['采集项值'] = pd.to_numeric(df['采集项值'])
+        df['业务处理时间'] = pd.to_datetime(df['业务处理时间']).dt.floor('d')    
+        df1 = df.groupby('采集项名称').get_group('冶金焦（自产）')
+        df2 = df.groupby('采集项名称').get_group('小块焦')
+        
+        self.res['焦比'] = df1.groupby('业务处理时间').sum()['采集项值'] \
+                        + df2.groupby('业务处理时间').sum()['采集项值']
+        self.res['焦比'] = self.res['焦比'] / self.res['日产量'] * 1000
+        
+        # #  煤比  
+        # 喷吹速率
+        df = pd.read_pickle(file_pkl2)    
+        df['采集项值'] = pd.to_numeric(df['采集项值']) # 格式化
+        df['业务处理时间'] = pd.to_datetime(df['业务处理时间']) # 格式化
+        df = df.groupby('采集项名称').get_group('喷吹速率')[['业务处理时间','采集项值']]
+        df = df.set_index('业务处理时间').sort_index()
+        df['采集项值'][df['采集项值'] > 1e4] = None # 去除1e9
+        df_1T = df.resample('1T').mean()
+        df_1T = df_1T.interpolate(method='linear')
+        daily = df_1T.resample('1D').sum()
+        self.res['煤比'] = daily.采集项值 / self.res.日产量 * 20
+        
+        self.res['燃料比'] = self.res['焦比'] + self.res['煤比']
+        return None
+    
 if __name__ == '__main__':
     
     index = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
@@ -136,9 +223,10 @@ if __name__ == '__main__':
     daily19.get_yield(PATH_DICT[2]+'西昌2#高炉-铁水实绩表.pkl')
     daily19.get_coke(PATH_DICT[2]+'西昌2#高炉-上料质量表.pkl')
     daily19.get_molten_iron(PATH_DICT[2]+'西昌2#高炉-铁水成分表.pkl')
+    daily19.get_slag(PATH_DICT[2]+'西昌2#高炉-炉渣成分表.pkl')
+    daily19.get_ratio(PATH_DICT[2]+'西昌2#高炉-上料实绩表.pkl', PATH_DICT[2]+'西昌2#高炉采集数据表_喷吹系统.pkl')
     res = daily19.res
     
-
 
     
       
