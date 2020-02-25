@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 '''
-待补充
+
 整理19年10月-20年2月数据
 需要以下目录文件:
 ./data/西昌2#高炉数据19年10-11月/pkl/
@@ -59,13 +59,13 @@ class DailyDate():
 
         '''
         df = pd.read_pickle(file_pkl)
-        # 格式转换
+        # 格式转换   
         df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
         df['采集项值'] = pd.to_numeric(df['采集项值'])
-        df = df[['业务处理时间','采集项值']]
-        df = df.groupby('业务处理时间').sum()
-        self.res['日产量'] = df['采集项值']        
-            
+        df1 = df[['业务处理时间','采集项值','铁次号','罐号']].set_index('业务处理时间')
+        df2 = df1.drop_duplicates() # 去除重复数据
+        df3 = df2.groupby('业务处理时间').sum()
+        self.res['日产量'] = df3['采集项值']    
         return None
     
     def get_coke(self, file_pkl):
@@ -193,14 +193,19 @@ class DailyDate():
         ### 焦比
         df = pd.read_pickle(file_pkl1)
         df['采集项值'] = pd.to_numeric(df['采集项值'])
-        df['业务处理时间'] = pd.to_datetime(df['业务处理时间']).dt.floor('d')    
-        df1 = df.groupby('采集项名称').get_group('冶金焦（自产）')
-        df2 = df.groupby('采集项名称').get_group('小块焦')
+        df['业务处理时间'] = pd.to_datetime(df['业务处理时间']).dt.floor('d')
         
-        self.res['焦比'] = df1.groupby('业务处理时间').sum()['采集项值'] \
-                        + df2.groupby('业务处理时间').sum()['采集项值']
+        df_dict = {}
+        for param in ['冶金焦（自产）', '小块焦']:    
+            df1 = df.groupby('采集项名称').get_group(param)
+            df1_1 = df1[['业务处理时间','采集项值','上料批号']].set_index('业务处理时间')
+            df1_2 = df1_1.drop_duplicates() # 去除重复数据
+            df1_3 = df1_2.groupby('业务处理时间').sum()['采集项值']
+            df_dict[param] = df1_3
+                        
+        self.res['焦比'] = df_dict['冶金焦（自产）'] + df_dict['小块焦']
         self.res['焦比'] = self.res['焦比'] / self.res['日产量'] * 1000
-        
+               
         # #  煤比  
         # 喷吹速率
         df = pd.read_pickle(file_pkl2)    
@@ -217,8 +222,7 @@ class DailyDate():
         self.res['燃料比'] = self.res['焦比'] + self.res['煤比']
         return None
     
-if __name__ == '__main__':
-    
+def main():
     index = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
     daily20 = DailyDate(index)
     daily20.get_yield(PATH_DICT[2]+'西昌2#高炉-铁水实绩表.pkl')
@@ -226,7 +230,6 @@ if __name__ == '__main__':
     daily20.get_molten_iron(PATH_DICT[2]+'西昌2#高炉-铁水成分表.pkl')
     daily20.get_slag(PATH_DICT[2]+'西昌2#高炉-炉渣成分表.pkl')
     daily20.get_ratio(PATH_DICT[2]+'西昌2#高炉-上料实绩表.pkl', PATH_DICT[2]+'西昌2#高炉采集数据表_喷吹系统.pkl')
-    res = daily20.res
     
     index = pd.date_range('2019-10-01 00:00:00', '2019-11-30 23:59:59', freq='1D')
     daily19 = DailyDate(index)
@@ -237,7 +240,39 @@ if __name__ == '__main__':
     daily19.get_ratio(PATH_DICT[0]+'上料实绩表.pkl', PATH_DICT[0]+'西昌2#高炉采集数据表_喷吹系统.pkl')
 
     res = pd.concat([daily19.res, daily20.res])
+    return res
     
+if __name__ == '__main__':
+    res = main()
+    
+    
+    
+    
+    
+    # index = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
+    # res = pd.DataFrame(data=None,index=index)
+    # daily20 = DailyDate(index)
+    # daily20.get_yield(PATH_DICT[2]+'西昌2#高炉-铁水实绩表.pkl')
+    # res['日产量'] = daily20.res['日产量']
+    
+    
+    # file_pkl1 = PATH_DICT[2]+'西昌2#高炉-上料实绩表.pkl'
+    # df = pd.read_pickle(file_pkl1)
+    # df['采集项值'] = pd.to_numeric(df['采集项值'])
+    # df['业务处理时间'] = pd.to_datetime(df['业务处理时间']).dt.floor('d')  
+    
+    # df_dict = {}
+    # for param in ['冶金焦（自产）', '小块焦']:    
+    #     df1 = df.groupby('采集项名称').get_group(param)
+    #     df1_1 = df1[['业务处理时间','采集项值','上料批号']].set_index('业务处理时间')
+    #     df1_2 = df1_1.drop_duplicates() # 去除重复数据
+    #     df1_3 = df1_2.groupby('业务处理时间').sum()['采集项值']
+    #     df_dict[param] = df1_3
+        
+        
+    # res['焦比'] = df_dict['冶金焦（自产）'] + df_dict['小块焦']
+    # res['焦比'] = res['焦比'] / res['日产量'] * 1000
+
     
 
     
