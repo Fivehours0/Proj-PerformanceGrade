@@ -245,33 +245,38 @@ def main():
 if __name__ == '__main__':
     res = main()
     
+    # 因为重复采集
+    # 删除 DeltaR2,R2,R3,TiO2,,煤铝比 19-12-27的数据
     
     
     
     
-    # index = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
+    # file_pkl=PATH_DICT[0]+'炉渣成分表.pkl'
+    # index = pd.date_range('2019-10-01 00:00:00', '2019-11-30 23:59:59', freq='1D')
     # res = pd.DataFrame(data=None,index=index)
-    # daily20 = DailyDate(index)
-    # daily20.get_yield(PATH_DICT[2]+'西昌2#高炉-铁水实绩表.pkl')
-    # res['日产量'] = daily20.res['日产量']
     
-    
-    # file_pkl1 = PATH_DICT[2]+'西昌2#高炉-上料实绩表.pkl'
-    # df = pd.read_pickle(file_pkl1)
+    # df_slag = pd.read_pickle(file_pkl)
+    # df_slag = df_slag[df_slag['铁次号']>='20000000'] # 提取出#2高炉的数据
+    # df_slag = df_slag[df_slag['铁次号']<'30000000']    
+    # df = df_slag    
+    # df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
     # df['采集项值'] = pd.to_numeric(df['采集项值'])
-    # df['业务处理时间'] = pd.to_datetime(df['业务处理时间']).dt.floor('d')  
     
-    # df_dict = {}
-    # for param in ['冶金焦（自产）', '小块焦']:    
-    #     df1 = df.groupby('采集项名称').get_group(param)
-    #     df1_1 = df1[['业务处理时间','采集项值','上料批号']].set_index('业务处理时间')
-    #     df1_2 = df1_1.drop_duplicates() # 去除重复数据
-    #     df1_3 = df1_2.groupby('业务处理时间').sum()['采集项值']
-    #     df_dict[param] = df1_3
-        
-        
-    # res['焦比'] = df_dict['冶金焦（自产）'] + df_dict['小块焦']
-    # res['焦比'] = res['焦比'] / res['日产量'] * 1000
+    # # DeltaR2处理
+    # CaO = df.groupby('采集项名称').get_group('(CaO)') # 筛选
+    # CaO2 = CaO.groupby(['铁次号','业务处理时间'], as_index=False).mean().set_index('铁次号')
+    
+    # SiO = df.groupby('采集项名称').get_group('(SiO2)') # 筛选
+    # SiO2 = SiO.groupby('铁次号').mean()
+    
+    # CaO2['SiO2'] = SiO2['采集项值']
+    # CaO2['R2'] = CaO2['采集项值'] / CaO2['SiO2']
+    # res['DeltaR2'] = CaO2.groupby('业务处理时间')['R2'].mean()    
+    
+    
+    
+    
+
 
     
 
