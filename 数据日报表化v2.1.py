@@ -297,7 +297,7 @@ def main():
     return res
     
 if __name__ == '__main__':
-    res = main()
+    # res = main()
     
     # index = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
     # daily20 = DailyDate(index)
@@ -308,4 +308,42 @@ if __name__ == '__main__':
     # daily19.get_wind(PATH_DICT[0]+'西昌2#高炉采集数据表_送风系统.pkl')
     # res = pd.concat([daily19.res, daily20.res])
     
- 
+    """
+    探尺差
+    西昌2#高炉采集数据表_上料系统
+    """
+    df = pd.read_pickle(PATH_DICT[0]+'西昌2#高炉采集数据表_上料系统.pkl') # 导入
+    
+    # 格式化
+    df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
+    df['采集项值'] = pd.to_numeric(df['采集项值'])
+       
+    # 把三个探尺高度筛选出来
+    brothel = ['探尺（南）','探尺（东）','探尺（西）']
+    hookers = []
+    for hooker_name in brothel:
+        hooker = df.groupby('采集项名称').get_group(hooker_name).set_index('业务处理时间') # 筛选
+        hooker.drop(columns=['采集项编码','采集项名称'], inplace=True) 
+        hooker.rename(columns={'采集项值':hooker_name}, inplace=True)
+
+        hooker[hooker_name][hooker[hooker_name] > 1e7] = None # 去除1e7 的异常值
+        hooker[hooker_name].drop_duplicates(keep=False, inplace=True) # 去除数据源中同一时刻的重复采样
+        hookers.append(hooker)
+    
+    # 找出 所有 在同一时刻 三个探尺高度数据都不缺失的样本
+    temp = pd.merge(hookers[0], hookers[1], how="inner", left_index=True, right_index=True)
+    blondie = pd.merge(temp, hookers[2], how="inner", left_index=True, right_index=True)
+    # 计算极差
+    blondie['探尺差'] = blondie.max(axis=1) - blondie.min(axis=1)
+    # 日平均
+    wife = blondie['探尺差'].resample("24h").mean()
+
+
+    
+    
+    
+    
+    
+    
+    
+    

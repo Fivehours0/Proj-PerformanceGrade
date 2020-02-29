@@ -22,29 +22,29 @@ df = pd.concat([df18, df19])
 # 去掉 日产量 燃料比 有缺失得样本
 df = df.drop(index=df.index[np.any(df.loc[:,df.columns[0:2]].isna(), axis=1)])
 
-# 聚类
-kmeans = KMeans(n_clusters=3)
-kmeans.fit(df.iloc[:,:2])
+# # 聚类
+# kmeans = KMeans(n_clusters=3)
+# kmeans.fit(df.iloc[:,:2])
 
-# 画聚类图
-# plt.scatter(x=df.iloc[:,0], y=df.iloc[:,1],c=kmeans.labels_,cmap='viridis')
-# plt.colorbar()
-# plt.savefig("./result/5划分/聚类.png")
+# # 画聚类图
+# # plt.scatter(x=df.iloc[:,0], y=df.iloc[:,1],c=kmeans.labels_,cmap='viridis')
+# # plt.colorbar()
+# # plt.savefig("./result/5划分/聚类.png")
 
-df['label'] = kmeans.labels_
-df['time'] = df.index # 把index 添加到column中 有助于调用sactter()
+# df['label'] = kmeans.labels_
+# df['time'] = df.index # 把index 添加到column中 有助于调用sactter()
 
 
-# Only draw the best and worst points.
-label0 = df.groupby('label').get_group(0)
-label2 = df.groupby('label').get_group(2)
-for i in range(0,36):
-    plt.scatter(x=label0.time, y=label0.iloc[:,i], label=0)
-    plt.scatter(x=label2.time, y=label2.iloc[:,i], label=2)
-    plt.title(df.columns[i])
-    plt.legend()
-    plt.savefig('./result/BestAndWorst/'+str(i)+".png")
-    plt.close()
+# # Only draw the best and worst points.
+# label0 = df.groupby('label').get_group(0)
+# label2 = df.groupby('label').get_group(2)
+# for i in range(0,36):
+#     plt.scatter(x=label0.time, y=label0.iloc[:,i], label=0)
+#     plt.scatter(x=label2.time, y=label2.iloc[:,i], label=2)
+#     plt.title(df.columns[i])
+#     plt.legend()
+#     plt.savefig('./result/BestAndWorst/'+str(i)+".png")
+#     plt.close()
 
 # draw all the points.
 # for i in range(0,36):
