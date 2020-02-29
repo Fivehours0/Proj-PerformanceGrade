@@ -7,11 +7,16 @@ v2.1 更新说明
 
 import numpy as np
 import pandas as pd
+from matplotlib import pyplot as plt
+
+plt.rcParams['font.sans-serif']=['SimHei']
+plt.rcParams['axes.unicode_minus']=False
 '''
 
 整理19年10月-20年2月数据
 需要以下目录文件:
 ./data/西昌2#高炉数据19年10-11月/pkl/
+    西昌2#高炉采集数据表_送风系统.pkl
     西昌2#高炉采集数据表_喷吹系统.pkl
     铁水实绩表.pkl
     上料实绩表.pkl
@@ -23,6 +28,7 @@ import pandas as pd
 ./data/西昌2#高炉数据19年12月-20年2月/origin/
     铁次时间.xlsx
 ./data/西昌2#高炉数据19年12月-20年2月/pkl/
+    西昌2#高炉采集数据表_送风系统.pkl
     西昌2#高炉采集数据表_喷吹系统.pkl
     西昌2#高炉-炉渣成分表.pkl   
     西昌2#高炉-上料实绩表.pkl
@@ -228,45 +234,78 @@ class DailyDate():
         self.res['燃料比'] = self.res['焦比'] + self.res['煤比']
         return None
     
+    def get_wind(self, file_pkl):
+        '''        
+        file_pkl1 : TYPE str
+             西昌2#高炉采集数据表_送风系统 文件路径
+             
+        '标准风速'
+        '西昌2#高炉采集数据表_送风系统'
+        
+        实际风速=标准风速*(0.101325/273)*((273+风温)/(风压/10+0.101325))
+        
+        标准风速 245   m3/s   标准风速
+        风温    1212  摄氏度	 热风温度
+        风压    3.45  0.1MPa	 热风压力
+        
+        18年的实际风速平均 298
+        '''
+        # path = PATH_DICT[0] 
+        # file = '西昌2#高炉采集数据表_送风系统.pkl'
+        df = pd.read_pickle(file_pkl)
+        
+        # 格式化
+        df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
+        df['采集项值'] = pd.to_numeric(df['采集项值'])
+        
+        res = []
+        param_list = ['标准风速', '热风温度', '热风压力']
+        for param in param_list:
+            temp = df.groupby('采集项名称').get_group(param).set_index('业务处理时间')    
+            temp.rename(columns={'采集项值':param}, inplace=True)
+            temp[param][temp[param] > 1e7] = None
+            res.append(temp.resample('24h').mean())
+        cat = pd.concat(res, axis=1)
+          
+        cat['实际风速'] = cat['标准风速']*(0.101325/273)*((273+cat['热风温度'])/(cat['热风压力']/1000+0.101325))
+        self.res['实际风速'] = cat['实际风速']
+
+        return None
+    
 def main():
-    index = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
-    daily20 = DailyDate(index)
+    index20 = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
+    daily20 = DailyDate(index20)
+    
+    index19 = pd.date_range('2019-10-01 00:00:00', '2019-11-30 23:59:59', freq='1D')
+    daily19 = DailyDate(index19)
+    
     daily20.get_yield(PATH_DICT[2]+'西昌2#高炉-铁水实绩表.pkl')
     daily20.get_coke(PATH_DICT[2]+'西昌2#高炉-上料质量表.pkl')
     daily20.get_molten_iron(PATH_DICT[2]+'西昌2#高炉-铁水成分表.pkl')
     daily20.get_slag(PATH_DICT[2]+'西昌2#高炉-炉渣成分表.pkl')
     daily20.get_ratio(PATH_DICT[2]+'西昌2#高炉-上料实绩表.pkl', PATH_DICT[2]+'西昌2#高炉采集数据表_喷吹系统.pkl')
+    daily20.get_wind(PATH_DICT[2]+'西昌2#高炉采集数据表_送风系统.pkl')
     
-    index = pd.date_range('2019-10-01 00:00:00', '2019-11-30 23:59:59', freq='1D')
-    daily19 = DailyDate(index)
     daily19.get_yield(PATH_DICT[0]+'铁水实绩表.pkl')
     daily19.get_coke(PATH_DICT[0]+'上料质量表.pkl')
     daily19.get_molten_iron(PATH_DICT[0]+'铁水成分表.pkl')
     daily19.get_slag(PATH_DICT[0]+'炉渣成分表.pkl')
     daily19.get_ratio(PATH_DICT[0]+'上料实绩表.pkl', PATH_DICT[0]+'西昌2#高炉采集数据表_喷吹系统.pkl')
-
+    daily19.get_wind(PATH_DICT[0]+'西昌2#高炉采集数据表_送风系统.pkl')
+    
     res = pd.concat([daily19.res, daily20.res])
     return res
     
 if __name__ == '__main__':
-    # res = main()
-    '''
-    '标准风速'
-    '西昌2#高炉采集数据表_送风系统'
+    res = main()
     
-    实际风速=标准风速*(0.101325/273)*((273+风温)/(风压/10+0.101325))
+    # index = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
+    # daily20 = DailyDate(index)
+    # daily20.get_wind(PATH_DICT[2]+'西昌2#高炉采集数据表_送风系统.pkl')
     
-    标准风速 245   m3/s   标准风速	
-    风温    1212  摄氏度	 热风温度
-    风压    3.45  0.1MPa	 热风压力
-    '''
-    path = PATH_DICT[0]
-    file = '西昌2#高炉采集数据表_送风系统'
-    df = pd.read_pickle(path+file)
-
+    # index = pd.date_range('2019-10-01 00:00:00', '2019-11-30 23:59:59', freq='1D')
+    # daily19 = DailyDate(index)
+    # daily19.get_wind(PATH_DICT[0]+'西昌2#高炉采集数据表_送风系统.pkl')
+    # res = pd.concat([daily19.res, daily20.res])
     
-
-    
-      
  
-
