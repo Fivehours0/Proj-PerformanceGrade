@@ -271,6 +271,40 @@ class DailyDate():
         self.res['实际风速'] = cat['实际风速']
 
         return None
+
+    def get_rod_range(self, file_pkl):
+        """
+        计算探尺差
+        探尺差
+        西昌2#高炉采集数据表_上料系统
+        """
+        df = pd.read_pickle(file_pkl) # 导入
+        
+        # 格式化
+        df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
+        df['采集项值'] = pd.to_numeric(df['采集项值'])
+           
+        # 把三个探尺高度筛选出来
+        brothel = ['探尺（南）','探尺（东）','探尺（西）']
+        hookers = []
+        for hooker_name in brothel:
+            hooker = df.groupby('采集项名称').get_group(hooker_name).set_index('业务处理时间') # 筛选
+            hooker.drop(columns=['采集项编码','采集项名称'], inplace=True) 
+            hooker.rename(columns={'采集项值':hooker_name}, inplace=True)
+    
+            hooker[hooker_name][hooker[hooker_name] > 1e7] = None # 去除1e7 的异常值
+            hooker[hooker_name].drop_duplicates(keep=False, inplace=True) # 去除数据源中同一时刻的重复采样
+            hookers.append(hooker)
+        
+        # 找出 所有 在同一时刻 三个探尺高度数据都不缺失的样本
+        temp = pd.merge(hookers[0], hookers[1], how="inner", left_index=True, right_index=True)
+        blondie = pd.merge(temp, hookers[2], how="inner", left_index=True, right_index=True)
+        # 计算极差
+        blondie['探尺差'] = blondie.max(axis=1) - blondie.min(axis=1)
+        # 日平均
+        wife = blondie['探尺差'].resample("24h").mean()
+        self.res['探尺差'] = wife        
+        return None
     
 def main():
     index20 = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
@@ -285,6 +319,7 @@ def main():
     daily20.get_slag(PATH_DICT[2]+'西昌2#高炉-炉渣成分表.pkl')
     daily20.get_ratio(PATH_DICT[2]+'西昌2#高炉-上料实绩表.pkl', PATH_DICT[2]+'西昌2#高炉采集数据表_喷吹系统.pkl')
     daily20.get_wind(PATH_DICT[2]+'西昌2#高炉采集数据表_送风系统.pkl')
+    daily20.get_rod_range(PATH_DICT[2]+'西昌2#高炉采集数据表_上料系统.pkl')
     
     daily19.get_yield(PATH_DICT[0]+'铁水实绩表.pkl')
     daily19.get_coke(PATH_DICT[0]+'上料质量表.pkl')
@@ -292,53 +327,25 @@ def main():
     daily19.get_slag(PATH_DICT[0]+'炉渣成分表.pkl')
     daily19.get_ratio(PATH_DICT[0]+'上料实绩表.pkl', PATH_DICT[0]+'西昌2#高炉采集数据表_喷吹系统.pkl')
     daily19.get_wind(PATH_DICT[0]+'西昌2#高炉采集数据表_送风系统.pkl')
+    daily19.get_rod_range(PATH_DICT[0]+'西昌2#高炉采集数据表_上料系统.pkl')
     
     res = pd.concat([daily19.res, daily20.res])
     return res
     
 if __name__ == '__main__':
-    # res = main()
+    res = main()
     
-    # index = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
-    # daily20 = DailyDate(index)
-    # daily20.get_wind(PATH_DICT[2]+'西昌2#高炉采集数据表_送风系统.pkl')
+    # index20 = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
+    # daily20 = DailyDate(index20)
     
-    # index = pd.date_range('2019-10-01 00:00:00', '2019-11-30 23:59:59', freq='1D')
-    # daily19 = DailyDate(index)
-    # daily19.get_wind(PATH_DICT[0]+'西昌2#高炉采集数据表_送风系统.pkl')
+    # index19 = pd.date_range('2019-10-01 00:00:00', '2019-11-30 23:59:59', freq='1D')
+    # daily19 = DailyDate(index19)    
+
+    #
+    #
+    
     # res = pd.concat([daily19.res, daily20.res])
     
-    """
-    探尺差
-    西昌2#高炉采集数据表_上料系统
-    """
-    df = pd.read_pickle(PATH_DICT[0]+'西昌2#高炉采集数据表_上料系统.pkl') # 导入
-    
-    # 格式化
-    df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
-    df['采集项值'] = pd.to_numeric(df['采集项值'])
-       
-    # 把三个探尺高度筛选出来
-    brothel = ['探尺（南）','探尺（东）','探尺（西）']
-    hookers = []
-    for hooker_name in brothel:
-        hooker = df.groupby('采集项名称').get_group(hooker_name).set_index('业务处理时间') # 筛选
-        hooker.drop(columns=['采集项编码','采集项名称'], inplace=True) 
-        hooker.rename(columns={'采集项值':hooker_name}, inplace=True)
-
-        hooker[hooker_name][hooker[hooker_name] > 1e7] = None # 去除1e7 的异常值
-        hooker[hooker_name].drop_duplicates(keep=False, inplace=True) # 去除数据源中同一时刻的重复采样
-        hookers.append(hooker)
-    
-    # 找出 所有 在同一时刻 三个探尺高度数据都不缺失的样本
-    temp = pd.merge(hookers[0], hookers[1], how="inner", left_index=True, right_index=True)
-    blondie = pd.merge(temp, hookers[2], how="inner", left_index=True, right_index=True)
-    # 计算极差
-    blondie['探尺差'] = blondie.max(axis=1) - blondie.min(axis=1)
-    # 日平均
-    wife = blondie['探尺差'].resample("24h").mean()
-
-
     
     
     
