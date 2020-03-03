@@ -22,7 +22,7 @@ def load_excel(path, sheets = 2):
 path = './data/西昌2#高炉数据19年12月-20年2月/origin/'
 
 ## 单打独斗
-file = '西昌2#高炉采集数据表_上料系统.xlsx'
+file = '西昌2#高炉采集数据表_高炉本体(炉顶,炉喉,炉身,炉腹).xlsx'
 df = load_excel(path+file)
 df.to_pickle('./data/西昌2#高炉数据19年12月-20年2月/pkl/'+file[:-5]+'.pkl')
 
@@ -34,6 +34,7 @@ df.to_pickle('./data/西昌2#高炉数据19年12月-20年2月/pkl/'+file[:-5]+'.
 #              '西昌2#高炉-铁水成分表.xlsx',
 #              '西昌2#高炉采集数据表_送风系统.xlsx',
 #              '西昌2#高炉采集数据表_上料系统.xlsx',
+#              '西昌2#高炉采集数据表_高炉本体(炉顶,炉喉,炉身,炉腹).xlsx',
 #              '西昌2#高炉采集数据表_喷吹系统.xlsx']
 # for file in file_list:
 #     df = load_excel(path+file)
