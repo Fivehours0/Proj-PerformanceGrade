@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 v2.1 更新说明
-补充 探尺差, 实际风速等
-自动生成 结果表
+补充 探尺差, 实际风速, 炉腹煤气指数等
+
 """
 
 import numpy as np
@@ -306,6 +306,29 @@ class DailyDate():
         self.res['探尺差'] = wife        
         return None
     
+    def get_gas(self, file_pkl):
+        '''
+        炉腹煤气指数计算:
+            
+        炉腹煤气发生量/(9.5*9.5*3.14/4)
+        
+        文件名:
+        西昌2#高炉采集数据表_高炉本体(炉顶,炉喉,炉身,炉腹)
+        '''
+        
+        df = pd.read_pickle(file_pkl)
+        df = df.groupby("采集项名称").get_group('炉腹煤气发生量')
+        
+        # 格式化
+        df.loc[:,'业务处理时间'] = pd.to_datetime(df['业务处理时间'])
+        df.loc[:,'采集项值'] = pd.to_numeric(df['采集项值'])
+        df.set_index('业务处理时间', inplace=True)
+        df['采集项值'][df['采集项值'] > 1e7] = None
+        taylor = df.resample("24h").mean()
+        self.res['炉腹煤气指数'] = taylor /(9.5*9.5*3.14/4)        
+        
+        return None
+    
 def main():
     index20 = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
     daily20 = DailyDate(index20)
@@ -329,10 +352,19 @@ def main():
     daily19.get_wind(PATH_DICT[0]+'西昌2#高炉采集数据表_送风系统.pkl')
     daily19.get_rod_range(PATH_DICT[0]+'西昌2#高炉采集数据表_上料系统.pkl')
     
+    daily19.get_gas(PATH_DICT[0]+'西昌2#高炉采集数据表_高炉本体(炉顶,炉喉,炉身,炉腹).pkl')
+    daily20.get_gas(PATH_DICT[2]+'西昌2#高炉采集数据表_高炉本体(炉顶,炉喉,炉身,炉腹).pkl')
+    
     res = pd.concat([daily19.res, daily20.res])
     return res
     
 if __name__ == '__main__':
+    
+    # 各个指标的处理说明
+    # https://docs.qq.com/sheet/DTnRobmxQbUxIUU9a?tab=5u26wg&c=A1A0A0
+    
+    
+    
     res = main()
     
     # index20 = pd.date_range('2019-12-01 00:00:00', '2020-2-15 00:00:00', freq='1D')
@@ -340,11 +372,17 @@ if __name__ == '__main__':
     
     # index19 = pd.date_range('2019-10-01 00:00:00', '2019-11-30 23:59:59', freq='1D')
     # daily19 = DailyDate(index19)    
-
-    #
-    #
+    
+    
+    # daily19.get_gas(PATH_DICT[0]+'西昌2#高炉采集数据表_高炉本体(炉顶,炉喉,炉身,炉腹).pkl')
+    # daily20.get_gas(PATH_DICT[2]+'西昌2#高炉采集数据表_高炉本体(炉顶,炉喉,炉身,炉腹).pkl')
     
     # res = pd.concat([daily19.res, daily20.res])
+    
+    
+    
+    
+    
     
     
     
