@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resouce/refer/计算公式的参考链接.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.demo/演示与学习笔记.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MakePkl.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checkHanData/HANdata_analyze.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checkHanData/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/drowDocPic/DrawDocPic.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/drowDocPic/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/standard_daily.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/数据异常散点分析.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/数据日报表化v2.1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/聚类与范围提取v2.1.py" beforeDir="false" />
+    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="整理">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/StandardDaily.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/proj-DailyData/StandardData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/proj-DrowDocPic/DrawDocPic.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/proj-DrowDocPic/DrawDocPic.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,10 +13,35 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/project/proj-DailyData/StandardData.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="e#47#53#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/proj-DrowDocPic/DrawDocPic.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="110" column="45" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/project/proj-DailyData/StandardData.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -32,12 +49,15 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/数据日报表化v2.1.py" />
         <option value="$PROJECT_DIR$/standard_daily" />
+        <option value="$PROJECT_DIR$/project/StandardData.py" />
+        <option value="$PROJECT_DIR$/project/proj-DrowDocPic/DrawDocPic.py" />
+        <option value="$PROJECT_DIR$/project/proj-DailyData/StandardData.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="88" />
-    <option name="y" value="47" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="29" />
+    <option name="y" value="19" />
     <option name="width" value="1205" />
     <option name="height" value="646" />
   </component>
@@ -46,7 +66,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -54,10 +73,28 @@
               <item name="BF-grading-range" type="b2602c69:ProjectViewProjectNode" />
               <item name="BF-grading-range" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="BF-grading-range" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BF-grading-range" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BF-grading-range" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BF-grading-range" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="proj-DailyData" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BF-grading-range" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BF-grading-range" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="proj-DrowDocPic" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -71,6 +108,11 @@
       </console-settings>
     </option>
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\proj-DailyData" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -83,7 +125,46 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.standard_daily">
+  <component name="RunManager" selected="Python.StandardData">
+    <configuration name="StandardData (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project/proj-DailyData" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/proj-DailyData/StandardData.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="StandardData" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project/proj-DailyData" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/proj-DailyData/StandardData.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="standard_daily" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -128,11 +209,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.standard_daily" />
-        <item itemvalue="Python.standard_daily" />
-        <item itemvalue="Python.数据日报表化v2.1" />
-        <item itemvalue="Python.数据日报表化v2.1" />
-        <item itemvalue="Python.数据日报表化v2.1" />
+        <item itemvalue="Python.StandardData" />
+        <item itemvalue="Python.StandardData" />
+        <item itemvalue="Python.StandardData" />
+        <item itemvalue="Python.StandardData" />
+        <item itemvalue="Python.StandardData" />
       </list>
     </recent_temporary>
   </component>
@@ -188,9 +269,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="88" y="47" width="1205" height="646" extended-state="0" />
+    <frame x="29" y="19" width="1205" height="646" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33161953" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18680377" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -200,10 +282,10 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49785775" weight="0.328125" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.6623822" visible="true" weight="0.33398438" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.6623822" weight="0.36132812" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49871466" weight="0.36914062" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50042844" side_tool="true" weight="0.328125" />
-      <window_info anchor="bottom" x="576" y="115" width="704" height="502" id="Python Console" order="10" type="FLOATING" weight="0.3283859" />
+      <window_info anchor="bottom" x="598" y="128" width="679" height="478" id="Python Console" order="10" type="FLOATING" weight="0.3283859" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -268,44 +350,25 @@
         <state relative-caret-position="-216" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/数据日报表化v2.1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="383" column="56" selection-start-line="383" selection-start-column="56" selection-end-line="383" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/standard_daily">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#47#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/聚类与范围提取v2.1.py">
+    <entry file="file://$PROJECT_DIR$/数据日报表化v2.1.py" />
+    <entry file="file://$PROJECT_DIR$/standard_daily" />
+    <entry file="file://$PROJECT_DIR$/聚类与范围提取v2.1.py" />
+    <entry file="file://$PROJECT_DIR$/standard_daily.py" />
+    <entry file="file://$PROJECT_DIR$/src/standard_daily.py" />
+    <entry file="file://$PROJECT_DIR$/project/proj-DrowDocPic/DrawDocPic.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="54" />
+          <caret line="110" column="45" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/proj-DailyData/StandardData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
-            <element signature="e#51#70#0" expanded="true" />
+            <element signature="e#47#53#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/standard_daily.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/standard_daily.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
         </state>
       </provider>
     </entry>
