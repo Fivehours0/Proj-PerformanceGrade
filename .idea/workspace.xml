@@ -2,26 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/DrawDocPic.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MakePkl.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/演示与学习笔记.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/history/task-6HoursData/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/history/task-6HoursData/qazplm.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/history/task-6HoursData/数据6小时化.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/history/task-6HoursData/没有处理异常.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/history/task-GetIndexRange/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/history/task-GetIndexRange/打分范围提取.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/history/temp.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/history/数据日报表化v2.0.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/standard_daily" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-CheckHanTeacherData/HANdata_analyze.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-CheckHanTeacherData/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-DaliyData/数据日报表化_old.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-DaliyData/新版每日数据整理-加入新数据-异常分析.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据异常散点分析.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/数据日报表化v2.1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/聚类与范围提取v2.0.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/聚类与范围提取v2.1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resouce/refer/计算公式的参考链接.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.demo/演示与学习笔记.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MakePkl.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/checkHanData/HANdata_analyze.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/checkHanData/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/drowDocPic/DrawDocPic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/drowDocPic/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/standard_daily.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/数据异常散点分析.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/数据日报表化v2.1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/聚类与范围提取v2.1.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,17 +21,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/standard_daily.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,7 +35,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="88" />
     <option name="y" value="47" />
     <option name="width" value="1205" />
@@ -72,11 +53,6 @@
             <path>
               <item name="BF-grading-range" type="b2602c69:ProjectViewProjectNode" />
               <item name="BF-grading-range" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BF-grading-range" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BF-grading-range" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -209,8 +185,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="88" y="47" width="1205" height="646" extended-state="1" />
-    <editor active="true" />
+    <frame x="88" y="47" width="1205" height="646" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33161953" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
