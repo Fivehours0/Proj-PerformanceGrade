@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="整理">
-      <change afterPath="$PROJECT_DIR$/standard_daily" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-6HoursData/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-6HoursData/qazplm.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-6HoursData/数据6小时化.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-6HoursData/没有处理异常.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-GetIndexRange/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-GetIndexRange/打分范围提取.py" beforeDir="false" />
+    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/DrawDocPic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MakePkl.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/演示与学习笔记.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/history/task-6HoursData/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/history/task-6HoursData/qazplm.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/history/task-6HoursData/数据6小时化.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/history/task-6HoursData/没有处理异常.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/history/task-GetIndexRange/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/history/task-GetIndexRange/打分范围提取.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/history/temp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/history/数据日报表化v2.0.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/standard_daily" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-CheckHanTeacherData/HANdata_analyze.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-CheckHanTeacherData/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-DaliyData/数据日报表化_old.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-DaliyData/新版每日数据整理-加入新数据-异常分析.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/数据异常散点分析.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/数据日报表化v2.1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/聚类与范围提取v2.0.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/聚类与范围提取v2.1.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,35 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/数据日报表化v2.1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="383" column="56" selection-start-line="383" selection-start-column="56" selection-end-line="383" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/聚类与范围提取v2.1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="54" />
-              <folding>
-                <element signature="e#51#70#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/standard_daily">
+        <entry file="file://$PROJECT_DIR$/src/standard_daily.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="e#47#66#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="108">
+              <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -66,9 +54,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="34" />
-    <option name="y" value="13" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="88" />
+    <option name="y" value="47" />
     <option name="width" value="1205" />
     <option name="height" value="646" />
   </component>
@@ -88,7 +76,7 @@
             <path>
               <item name="BF-grading-range" type="b2602c69:ProjectViewProjectNode" />
               <item name="BF-grading-range" type="462c0819:PsiDirectoryNode" />
-              <item name="result" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -201,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583481080912</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="整理">
+      <created>1583481523136</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1583481523136</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -214,10 +209,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="34" y="13" width="1205" height="646" extended-state="0" />
+    <frame x="88" y="47" width="1205" height="646" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24678664" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33161953" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -227,10 +222,10 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49785775" weight="0.328125" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.6623822" weight="0.33398438" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.6623822" visible="true" weight="0.33398438" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49871466" weight="0.36914062" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50042844" side_tool="true" weight="0.328125" />
-      <window_info active="true" anchor="bottom" x="576" y="115" width="704" height="502" id="Python Console" order="10" type="FLOATING" visible="true" weight="0.3283859" />
+      <window_info anchor="bottom" x="576" y="115" width="704" height="502" id="Python Console" order="10" type="FLOATING" weight="0.3283859" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -302,9 +297,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/standard_daily">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#47#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/聚类与范围提取v2.1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
+        <state relative-caret-position="126">
           <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="54" />
           <folding>
             <element signature="e#51#70#0" expanded="true" />
@@ -312,13 +317,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/standard_daily">
+    <entry file="file://$PROJECT_DIR$/standard_daily.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
+        <state relative-caret-position="183">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#47#66#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/standard_daily.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
         </state>
       </provider>
     </entry>
