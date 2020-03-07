@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="整理">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/StandardDaily.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/proj-DailyData/StandardData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/proj-DrowDocPic/DrawDocPic.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/proj-DrowDocPic/DrawDocPic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/proj-DailyData/StandardData.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/proj-DailyData/StandardData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/聚类与范围提取v2.1.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/聚类与范围提取v2.1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,10 +18,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/proj-DailyData/StandardData.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="340">
+              <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
               <folding>
-                <element signature="e#47#53#0" expanded="true" />
+                <element signature="e#59#77#0" expanded="true" />
+                <element signature="e#398#1014#0" />
               </folding>
             </state>
           </provider>
@@ -29,8 +31,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/proj-DrowDocPic/DrawDocPic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="110" column="45" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="45" />
+            <state relative-caret-position="318">
+              <caret line="119" column="22" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/聚类与范围提取v2.1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="30" selection-start-line="30" selection-end-line="31" selection-end-column="14" />
+              <folding>
+                <element signature="e#51#70#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,13 +65,14 @@
         <option value="$PROJECT_DIR$/standard_daily" />
         <option value="$PROJECT_DIR$/project/StandardData.py" />
         <option value="$PROJECT_DIR$/project/proj-DrowDocPic/DrawDocPic.py" />
+        <option value="$PROJECT_DIR$/project/聚类与范围提取v2.1.py" />
         <option value="$PROJECT_DIR$/project/proj-DailyData/StandardData.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="29" />
-    <option name="y" value="19" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="146" />
+    <option name="y" value="26" />
     <option name="width" value="1205" />
     <option name="height" value="646" />
   </component>
@@ -269,10 +284,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="29" y="19" width="1205" height="646" extended-state="0" />
+    <frame x="52" y="24" width="1205" height="646" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18680377" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18680377" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -285,7 +300,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.6623822" weight="0.36132812" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49871466" weight="0.36914062" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50042844" side_tool="true" weight="0.328125" />
-      <window_info anchor="bottom" x="598" y="128" width="679" height="478" id="Python Console" order="10" type="FLOATING" weight="0.3283859" />
+      <window_info anchor="bottom" x="242" y="123" width="824" height="447" id="Python Console" order="10" type="FLOATING" weight="0.3283859" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -357,17 +372,28 @@
     <entry file="file://$PROJECT_DIR$/src/standard_daily.py" />
     <entry file="file://$PROJECT_DIR$/project/proj-DrowDocPic/DrawDocPic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="110" column="45" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="45" />
+        <state relative-caret-position="318">
+          <caret line="119" column="22" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/聚类与范围提取v2.1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="30" selection-start-line="30" selection-end-line="31" selection-end-column="14" />
+          <folding>
+            <element signature="e#51#70#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/proj-DailyData/StandardData.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="340">
+          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
           <folding>
-            <element signature="e#47#53#0" expanded="true" />
+            <element signature="e#59#77#0" expanded="true" />
+            <element signature="e#398#1014#0" />
           </folding>
         </state>
       </provider>
