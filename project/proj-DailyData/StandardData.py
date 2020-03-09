@@ -68,7 +68,7 @@ class MyCluster:
             temp = X.groupby('label').get_group(j)
             ax.scatter(temp.iloc[:, 0], temp.iloc[:, 1], temp.iloc[:, 2], c=colors[j], label=str(j), marker='^')
         # ax.scatter(X.iloc[:, 0], X.iloc[:, 1], X.iloc[:, 2], c=X.iloc[:, 3], label=X.iloc[:, 3], marker='^') # 一次性画 无法添加 legend
-        ax.view_init(elev=elev, azim=azim)
+        ax.view_init(elev=elev, azim=azim) # learn from https://blog.csdn.net/noah_cyz/article/details/79125640?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
         ax.set_xlabel(X.columns[0])
         ax.set_ylabel(X.columns[1])
         ax.set_zlabel(X.columns[2])
@@ -122,7 +122,7 @@ if __name__ == '__main__':
         mc.draw3Dcluster(i, n,azim=0)
         plt.savefig("./img/3D/" + str(i)+'_3')
         plt.close()
-    
+
     # for i in range(3,37):
     #     mc.draw2Dcluster(i, n)
     #     plt.savefig("./img/2D"+str(i))
