@@ -42,7 +42,7 @@ file_list0 = [
     '西昌2#高炉采集数据表_上料系统.pkl',
     '西昌2#高炉采集数据表_高炉本体(炉顶,炉喉,炉身,炉腹).pkl',
     '西昌2#高炉采集数据表_喷吹系统.pkl']
-
+#############耗费很多时间
 # # get 19年数据中的指标名称
 # out = pd.DataFrame()
 # for i in range(len(file_list0)):
@@ -55,7 +55,7 @@ file_list0 = [
 # out.to_excel("./19数据表各个名称罗列.xlsx")
 
 
-
+#############耗费很多时间
 # get 20年数据中的指标名称
 out = pd.DataFrame()
 for i in range(len(file_list1)):
@@ -63,6 +63,6 @@ for i in range(len(file_list1)):
     ans = pd.DataFrame()
     df = pd.read_pickle(path1 + file_list1[i])
     temp = set(df['采集项名称'])
-    ans[file_list0[i][:-4]] = sorted(temp)
+    ans[file_list1[i][:-4]] = sorted(temp)
     out = pd.merge(out, ans, how='outer', left_index=True, right_index=True)
 out.to_excel("./20数据表各个名称罗列.xlsx")
