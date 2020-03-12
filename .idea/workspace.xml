@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/preproccess.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShowIndex.py" beforeDir="false" afterPath="$PROJECT_DIR$/ShowIndex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preproccess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,7 @@
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\proj-DailyData" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.preproccess">
+  <component name="RunManager" selected="Python.preprocess">
     <configuration name="ShowIndex" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -93,28 +92,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="preproccess (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preproccess.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="preproccess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -126,6 +103,44 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preproccess.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="preprocess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocess.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="preprocess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\preprocess.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -157,19 +172,18 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.preproccess" />
       <item itemvalue="Python.ShowIndex" />
       <item itemvalue="Python.StandardData" />
       <item itemvalue="Python.数据日报表化v2.1" />
-      <item itemvalue="Python.preproccess (1)" />
+      <item itemvalue="Python.preprocess" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.preproccess" />
-        <item itemvalue="Python.preproccess" />
-        <item itemvalue="Python.preproccess" />
-        <item itemvalue="Python.preproccess" />
-        <item itemvalue="Python.preproccess" />
+        <item itemvalue="Python.preprocess" />
+        <item itemvalue="Python.preprocess" />
+        <item itemvalue="Python.preprocess" />
+        <item itemvalue="Python.preprocess" />
+        <item itemvalue="Python.preprocess" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +197,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582971071108</updated>
-      <workItem from="1583915079868" duration="8206000" />
+      <workItem from="1583915079868" duration="16448000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -241,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583841983447</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="预处理">
+      <created>1583923383972</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1583923383972</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -301,25 +322,54 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1583915452431" />
-    <state width="1323" height="112" key="GridCell.Tab.0.bottom" timestamp="1583918744580">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1583923381584">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="112" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583918744580" />
-    <state width="1323" height="112" key="GridCell.Tab.0.center" timestamp="1583918744580">
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1583923381584" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1583982464537">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="112" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583918744580" />
-    <state width="1323" height="112" key="GridCell.Tab.0.left" timestamp="1583918744580">
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1583982464537" />
+    <state width="709" height="402" key="GridCell.Tab.0.bottom" timestamp="1583988047586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="112" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583918744580" />
-    <state width="1323" height="112" key="GridCell.Tab.0.right" timestamp="1583918744580">
+    <state width="709" height="402" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583988047586" />
+    <state width="709" height="402" key="GridCell.Tab.0.center" timestamp="1583988047586">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="112" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583918744580" />
+    <state width="709" height="402" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583988047586" />
+    <state width="709" height="402" key="GridCell.Tab.0.left" timestamp="1583988047586">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="709" height="402" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583988047586" />
+    <state width="709" height="402" key="GridCell.Tab.0.right" timestamp="1583988047586">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="709" height="402" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583988047586" />
+    <state width="709" height="402" key="GridCell.Tab.1.bottom" timestamp="1583988047586">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="709" height="402" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583988047586" />
+    <state width="709" height="402" key="GridCell.Tab.1.center" timestamp="1583988047585">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="709" height="402" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1583988047585" />
+    <state width="709" height="402" key="GridCell.Tab.1.left" timestamp="1583988047585">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="709" height="402" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1583988047585" />
+    <state width="709" height="402" key="GridCell.Tab.1.right" timestamp="1583988047586">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1583988047586" />
+    <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1583988530556">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1583988530556" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BF_grading_range$preproccess.coverage" NAME="preproccess Coverage Results" MODIFIED="1583916298704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/proj-IornOrderData" />
+    <SUITE FILE_PATH="coverage/BF_grading_range$preprocess.coverage" NAME="preprocess Coverage Results" MODIFIED="1583987984775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BF_grading_range$preproccess__1_.coverage" NAME="preproccess (1) Coverage Results" MODIFIED="1583917078971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="masterDetails">
