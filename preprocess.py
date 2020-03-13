@@ -31,7 +31,15 @@ def find_table(name, table):
     elif table == 20:
         path = './20数据表各个名称罗列.xlsx'
     dic = pd.read_excel(path)
-    return dic[dic.isin([name])].dropna(axis=1, how='all').columns[0]
+    temp = dic[dic.isin([name])].dropna(axis=1, how='all')
+    if temp.values.shape[1] == 0:
+        print("表:", table, "无", name, "!!!!")
+        return None
+    elif temp.values.shape[1] == 1:
+        return temp.columns[0]
+    elif temp.values.shape[1] > 1:
+        print("表:", table, "有大于一个的", name, "自动返回发现的第一个")
+        return temp.columns[0]
 
 
 class Solution:
@@ -72,13 +80,15 @@ class Solution:
         """
         df['业务处理时间'] = df['业务处理时间'].astype('datetime64')
         df.sort_values('业务处理时间', inplace=True)
+
         df['铁次号'] = 0
         if five_lag:
             df['业务处理时间'] = df['业务处理时间'] - pd.to_timedelta('5h')
-        time = df['业务处理时间']  # 注意 temp 与 df['业务处理时间'] 一个地址
+        # time = df['业务处理时间']  # 注意 temp 与 df['业务处理时间'] 一个地址
+        df.set_index('业务处理时间', inplace=True)
         for i in range(self.time_table.shape[0]):
             start, end = self.time_table['受铁开始时间'].iloc[i], self.time_table['受铁结束时间'].iloc[i]
-            df.loc[time[start < time][time < end].index, '铁次号'] = self.time_table.index[i]
+            df.loc[start:end, '铁次号'] = self.time_table.index[i]
         return df
 
     def process_big_time(self, param, df=None):
@@ -145,13 +155,15 @@ class Solution:
         # df = self.get_df(param_list[0])
 
         df['铁次号'] = pd.to_numeric(df['铁次号'])
-        df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])  # 格式化
+        # df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])  # 格式化
         df['采集项值'] = pd.to_numeric(df['采集项值'])  # 格式化
         df = df[df['铁次号'] >= 20000000]  # 提取出#2高炉的数据
         df = df[df['铁次号'] < 30000000]
 
         # 这里假设 param_list 中的指标都在一个表里
         for param in param_list:
+            if not any(df["采集项名称"].isin([param])):
+                raise KeyError("df 中 没有 param", df.shape, param)
             df_pure = df.groupby("采集项名称").get_group(param)  # 筛选 都在同一个表里
             df_pure = df_pure.groupby('铁次号').agg(agg_func).rename(columns={'采集项值': param})
             res = pd.merge(res, df_pure, how="outer", left_index=True, right_index=True)
@@ -231,7 +243,73 @@ class Solution:
         res['炉顶压力'] = res2.mean(axis=1)
         res['实际风速'] = res['标准风速'] * (0.101325 / 273) * ((273 + res['热风温度']) / (res['热风压力'] / 1000 + 0.101325))
         res['透气性指数'] = res['送风风量'] / (res['热风压力'] - res['炉顶压力']) * 100
-        return res, res2
+
+        self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
+
+        return res
+
+    def get_gas(self):
+        """
+        炉腹煤气发生量, 炉腹煤气指数
+        :return:
+        """
+        res = self.process_big_time('炉腹煤气发生量')
+        res['炉腹煤气量指数'] = res['炉腹煤气发生量'] / (9.5 * 9.5 * 3.14 / 4)
+        self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
+        return res
+
+    def get_chemical(self):
+        """
+        数据特点, 没有 业务处理时间 有上料批次号
+        焦炭热性能_CSR 这玩意 一天一采集, 必须以数据为模板
+        """
+
+        def to_time(x):
+            """
+            cost many time
+            191013D000402-2401 处理成 2019-10-14 00:01:00 提供apply 使用
+            """
+            if x[-4:-2] != '24':
+                return pd.to_datetime('20' + x[0:6] + x[-4:])
+            else:
+                return pd.to_datetime('20' + x[0:6] + '00' + x[-2:]) + pd.to_timedelta('1D')
+
+        list2 = "M40 焦炭粒度、冷强度_M40 \
+        M10 焦炭粒度、冷强度_M10 \
+        CRI 焦炭热性能_CRI \
+        CSR 焦炭热性能_CSR \
+        St 焦炭工分_St \
+        Ad 焦炭工分_Ad \
+        Mt 焦炭水分_Mt \
+        喷吹煤Ad,%  喷吹煤粉_Ad \
+        喷吹煤St，%  喷吹煤粉_St \
+        喷吹煤Vd，%  喷吹煤粉_Vdaf \
+        喷吹煤灰中K2O,% 瓦斯灰_K2O \
+        喷吹煤灰中Na2O,% 瓦斯灰_Na2O \
+        烧结矿K2O,%  酸性烧结矿_K 20年没有 \
+        烧结矿Na2O,% 酸性烧结矿_Na \
+        烧结矿ZnO,% 酸性烧结矿_Zn \
+        烧结矿转鼓强度,% 烧结矿性能样(粒度、强度)_转鼓指数 \
+        球团矿K2O,% 白马球团_K \
+        球团矿Na2O,% 白马球团_Na \
+        球团矿ZnO,% 白马球团_Zn".split()
+        list3 = list2[0::2]
+        list1 = list2[1::2]
+        # dic = dict(zip(list0, list1))
+
+        # 指标在表中有没有呀?
+        param_path = [find_table(list1[i], self.table) for i in range(len(list1))]
+
+        df = pd.concat([self.get_df('焦炭粒度、冷强度_M40'), self.get_df('白马球团_Zn')])
+        df['业务处理时间'] = df['上料批号'].apply(to_time)
+        df_iron = self.time2order(df, five_lag=False)  # bug
+        res = pd.DataFrame()
+        for i, item in enumerate(param_path):
+            if item is not None:
+                temp = self.process_iron(df_iron, [list1[i]], np.mean) # (30635, 9)
+                res = pd.merge(res, temp, how="outer", left_index=True, right_index=True)
+        self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
+        return res
 
 
 def main():
@@ -255,4 +333,4 @@ if __name__ == "__main__":
     '''
     # ans = main()
     solv19 = Solution(19)
-    ans = solv19.get_wind()
+    ans = solv19.get_chemical()
