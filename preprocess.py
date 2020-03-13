@@ -22,6 +22,9 @@ IRON_TIME = {19: './data/西昌2#高炉数据19年10-11月/铁次时间.xlsx',
 def find_table(name, table):
     """
     给出指标 自动寻找在那个表里
+    :param name: 要寻找的指标名
+    :param table 数据源选择 取值 19 或者 20
+    :return 表名
     """
     if table == 19:
         path = './19数据表各个名称罗列.xlsx'
@@ -29,34 +32,6 @@ def find_table(name, table):
         path = './20数据表各个名称罗列.xlsx'
     dic = pd.read_excel(path)
     return dic[dic.isin([name])].dropna(axis=1, how='all').columns[0]
-
-
-def time2order(df, table, five_lag=False):
-    """
-    :param five_lag: 是否滞后, 将业务处理时间推前5小时
-    :param df: 要生成铁次号的 DataFrame
-    :param table: 同 Solution.__init__()
-    :return: 添加了 铁次号的 DataFrame
-    """
-    df['业务处理时间'] = df['业务处理时间'].astype('datetime64')
-    df.sort_values('业务处理时间', inplace=True)
-
-    df['铁次号'] = 0
-    if five_lag:
-        df['业务处理时间'] = df['业务处理时间'] - pd.to_timedelta('5h')
-
-    time = df['业务处理时间']  # 注意 temp 与 df['业务处理时间'] 一个地址
-    time_table = pd.read_excel(IRON_TIME[table])
-    time_table['受铁开始时间'] = time_table['受铁开始时间'].astype('datetime64')
-    time_table['受铁结束时间'] = time_table['受铁结束时间'].astype('datetime64')
-    time_table['铁次号'] = time_table['铁次号'].astype('int64')
-    time_table = time_table[time_table['铁次号'] >= 20000000]  # 提取出#2高炉的数据
-    time_table = time_table[time_table['铁次号'] < 30000000]
-
-    for i in range(time_table.shape[0]):
-        start, end = time_table.iloc[i, 1], time_table.iloc[i, 2]
-        df.loc[time[start < time][time < end].index, '铁次号'] = time_table.iloc[i, 0]
-    return df
 
 
 class Solution:
@@ -67,6 +42,66 @@ class Solution:
         """
         self.table = table
         self.res = pd.DataFrame()
+        self.time_table = self.get_time_table()
+
+    def get_time_table(self):
+        """
+        获取 铁次时间表的 DataFrame 型
+        其中 index 是其 铁次
+        :return:
+        """
+        time_table = pd.read_excel(IRON_TIME[self.table])
+
+        # 格式化
+        time_table['受铁开始时间'] = time_table['受铁开始时间'].astype('datetime64')
+        time_table['受铁结束时间'] = time_table['受铁结束时间'].astype('datetime64')
+        time_table['铁次号'] = time_table['铁次号'].astype('int64')
+
+        # 提取出#2高炉的数据
+        time_table = time_table[time_table['铁次号'] >= 20000000]
+        time_table = time_table[time_table['铁次号'] < 30000000]
+        time_table = time_table.set_index('铁次号').sort_index()
+
+        return time_table
+
+    def time2order(self, df, five_lag=False):
+        """
+        :param five_lag: 是否滞后, 将业务处理时间推前5小时
+        :param df: 要生成铁次号的 DataFrame
+        :return: 添加了 铁次号的 DataFrame
+        """
+        df['业务处理时间'] = df['业务处理时间'].astype('datetime64')
+        df.sort_values('业务处理时间', inplace=True)
+        df['铁次号'] = 0
+        if five_lag:
+            df['业务处理时间'] = df['业务处理时间'] - pd.to_timedelta('5h')
+        time = df['业务处理时间']  # 注意 temp 与 df['业务处理时间'] 一个地址
+        for i in range(self.time_table.shape[0]):
+            start, end = self.time_table['受铁开始时间'].iloc[i], self.time_table['受铁结束时间'].iloc[i]
+            df.loc[time[start < time][time < end].index, '铁次号'] = self.time_table.index[i]
+        return df
+
+    def process_big_time(self, param):
+        """
+        适合数据量 100万以上的
+        :param param: 要被处理的指标
+        :return:
+        """
+        # param = '炉顶压力1' 比如炉顶压力这种
+        df = solv19.get_df(param)
+        df = df.groupby("采集项名称").get_group(param)
+
+        df['采集项值'] = df['采集项值'].apply(pd.to_numeric)
+        df['业务处理时间'] = df['业务处理时间'].astype('datetime64')
+        df = df[['采集项值', '业务处理时间']]
+        df = df.set_index('业务处理时间').sort_index()
+
+        df = df.resample('1T').mean()  # 缩小数据大小 1分钟 一次的
+        # def func(x):
+        #     start, end = x['受铁开始时间'], x['受铁结束时间']
+        #     return df.loc[start:end, '采集项值'].mean()
+        self.res[param] = self.time_table.apply(lambda x: df.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(),
+                                                axis=1)
 
     def get_df(self, param):
         """
@@ -141,7 +176,8 @@ class Solution:
         param_list = ['冶金焦（自产）', '小块焦']
         param = param_list[0]
         df_coke = self.get_df(param)
-        df_coke = time2order(df_coke, self.table)
+        df_coke = self.time2order(df_coke)
+        temp_res = self.process_iron(df_coke)
         return df_coke
 
 
@@ -162,63 +198,4 @@ if __name__ == "__main__":
     19年表: 20128288-20129016
     '''
     solv19 = Solution(19)
-
-    df = solv19.get_df('炉顶压力1')
-    df = df.groupby("采集项名称").get_group('炉顶压力1')
-
-    df['采集项值'] = df['采集项值'].apply(pd.to_numeric)
-    df['业务处理时间'] = df['业务处理时间'].astype('datetime64')
-    df = df[['采集项值', '业务处理时间']]
-    df = df.set_index('业务处理时间').sort_index()
-
-    df = df.resample('1T').mean()  # 缩小数据大小 1分钟 一次的
-    # df['铁次号'] = 0
-    table = 19
-    # time = df['业务处理时间']  # 注意 temp 与 df['业务处理时间'] 一个地址
-    time_table = pd.read_excel(IRON_TIME[table])
-    time_table['受铁开始时间'] = time_table['受铁开始时间'].astype('datetime64')
-    time_table['受铁结束时间'] = time_table['受铁结束时间'].astype('datetime64')
-    time_table['铁次号'] = time_table['铁次号'].astype('int64')
-    time_table = time_table[time_table['铁次号'] >= 20000000]  # 提取出#2高炉的数据
-    time_table = time_table[time_table['铁次号'] < 30000000]
-    time_table = time_table.set_index('铁次号').sort_index()
-    #
-    # res = pd.DataFrame(data=0, index=time_table['铁次号'], columns=['炉顶压力1'])
-    res = pd.DataFrame()
-
-
-    def func(x):
-        start, end = x['受铁开始时间'], x['受铁结束时间']
-        return df.loc[start:end, '采集项值'].mean()
-    res['炉顶压力1'] = time_table.apply(func, axis=1)
-    # for i in range(time_table.shape[0]):
-    #     start, end = time_table.iloc[i, 1], time_table.iloc[i, 2]
-    #     df.loc[start:end,'采集项值'].mean()
-    #     df.loc[time[start < time][time < end].index, '铁次号'] = time_table.iloc[i, 0]
-
-    # def func(x):
-    #
-    #     def func2(y):
-    #         if y.受铁开始时间 <= time <= y.受铁结束时间:
-    #             return y['铁次号']
-    #         else:
-    #             return None
-    #
-    #     time = x
-    #     try:
-    #         ans = time_table.apply(func2, axis=1).dropna()[0]
-    #     except(KeyError, IndexError):
-    #         ans = None
-    #     return ans
-    #
-
-    # df = pd.DataFrame(data=None, index=df['业务处理时间'])
-    # df['铁次号'] = 0
-    # t_idx = 0
-    # for idx, item in enumerate(df.index):
-    #     if  < item
-
-    # ans = df.resample('1T').mean()
-    # df.set_index('业务处理时间', inplace=True)
-    # ans = df.groupby(func).agg(np.mean)
-    # ans = time2order(df,19)
+    ans =solv19.get_ratio()
