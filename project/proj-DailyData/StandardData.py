@@ -28,7 +28,7 @@ class MyCluster:
         """
         std = StandardScaler()
 
-        file = './西昌#2高炉每日整理数据v2.2.xlsx'
+        file = '西昌#2高炉每日整理数据v2.2.xlsx'
         df = pd.read_excel(file)
 
         df_std = df.copy()
@@ -38,7 +38,7 @@ class MyCluster:
             arrMean = df_std.iloc[:, i].mean()
             df_std.iloc[:, i] = df_std.iloc[:, i].apply(lambda x: (x - arrMean) / arrStd)
         if out_xlxs:
-            df_std.to_excel("西昌#2高炉每日整理数据v2.2_标准化.xlsx")  # 输出文件
+            df_std.to_excel("./project/proj-DailyData/西昌#2高炉每日整理数据v2.2_标准化.xlsx")  # 输出文件
 
         return df_std
 

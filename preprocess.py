@@ -258,7 +258,7 @@ class Solution:
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
-    def get_chemical(self):
+    def process_chemical(self, list2, df):
         """
         数据特点, 没有 业务处理时间 有上料批次号
         焦炭热性能_CSR 这玩意 一天一采集, 必须以数据为模板
@@ -274,6 +274,35 @@ class Solution:
             else:
                 return pd.to_datetime('20' + x[0:6] + '00' + x[-2:]) + pd.to_timedelta('1D')
 
+        list3 = list2[0::2]
+        list1 = list2[1::2]
+
+        # 指标在表中有没有呀?
+        param_path = [find_table(list1[i], self.table) for i in range(len(list1))]
+
+        df['业务处理时间'] = df['上料批号'].apply(to_time)
+        df['采集项值'] = df['采集项值'].apply(pd.to_numeric)
+        res = pd.DataFrame()
+        for i, item in enumerate(param_path):
+            param = list3[i]
+            if item is not None:
+                # 需要对 检化验数据 写单独的处理函数
+                df_grouped = df.groupby("采集项名称").get_group(param)
+                df_grouped.set_index('业务处理时间', inplace=True)
+                df_rsp = df_grouped.resample('1T').mean().ffill()
+                res[param] = self.time_table.apply(lambda x: df_rsp.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(),
+                                                   axis=1)
+                res[param] = res[param].ffill()
+            else:
+                res[param] = None
+
+        return res
+
+    def get_chemical(self):
+        """
+        数据特点, 没有 业务处理时间 有上料批次号
+        焦炭热性能_CSR 这玩意 一天一采集, 必须以数据为模板
+        """
         list2 = "M40 焦炭粒度、冷强度_M40 \
         M10 焦炭粒度、冷强度_M10 \
         CRI 焦炭热性能_CRI \
@@ -284,31 +313,44 @@ class Solution:
         喷吹煤Ad,%  喷吹煤粉_Ad \
         喷吹煤St，%  喷吹煤粉_St \
         喷吹煤Vd，%  喷吹煤粉_Vdaf \
-        喷吹煤灰中K2O,% 瓦斯灰_K2O \
-        喷吹煤灰中Na2O,% 瓦斯灰_Na2O \
-        烧结矿K2O,%  酸性烧结矿_K 20年没有 \
-        烧结矿Na2O,% 酸性烧结矿_Na \
-        烧结矿ZnO,% 酸性烧结矿_Zn \
-        烧结矿转鼓强度,% 烧结矿性能样(粒度、强度)_转鼓指数 \
-        球团矿K2O,% 白马球团_K \
-        球团矿Na2O,% 白马球团_Na \
-        球团矿ZnO,% 白马球团_Zn".split()
-        list3 = list2[0::2]
-        list1 = list2[1::2]
-        # dic = dict(zip(list0, list1))
-
-        # 指标在表中有没有呀?
-        param_path = [find_table(list1[i], self.table) for i in range(len(list1))]
-
+        烧结矿转鼓强度,% 烧结矿性能样(粒度、强度)_转鼓指数".split()
         df = pd.concat([self.get_df('焦炭粒度、冷强度_M40'), self.get_df('白马球团_Zn')])
-        df['业务处理时间'] = df['上料批号'].apply(to_time)
-        df_iron = self.time2order(df, five_lag=False)  # bug
-        res = pd.DataFrame()
-        for i, item in enumerate(param_path):
-            if item is not None:
-                temp = self.process_iron(df_iron, [list1[i]], np.mean) # (30635, 9)
-                res = pd.merge(res, temp, how="outer", left_index=True, right_index=True)
+        res = self.process_chemical(list2, df)
         self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
+        return res
+
+    def get_slag_amount(self):
+        """
+        铁次渣量:
+        [40赤块_CaO*40赤块+冶金焦综合样_CaO*冶金焦（自产）+南非块矿_CaO*南非块矿+小块焦_CaO*小块焦+
+        烧结矿成分_CaO*烧结矿+白马球团_CaO*白马球团+酸性烧结矿_CaO*酸性烧结矿]/(CaO)
+
+        渣铁比,kg/t = 铁次渣量 / 铁次铁量
+        :return:
+        """
+        res = pd.DataFrame()
+        list1 = "40赤块_CaO 40赤块_CaO 冶金焦综合样_CaO 冶金焦综合样_CaO 南非块矿_CaO 南非块矿_CaO " \
+                "小块焦_CaO 小块焦_CaO 烧结矿成分_CaO 烧结矿成分_CaO 白马球团_CaO 白马球团_CaO 酸性烧结矿_CaO 酸性烧结矿_CaO".split()
+        df = self.get_df(list1[0])
+
+        res = self.process_chemical(list1, df)
+        # df1.merge(df2, how='left')
+
+        param_list = "40赤块 冶金焦（自产） 南非块矿 小块焦 烧结矿 白马球团 酸性烧结矿".split()
+        param = param_list[0]
+        df_coke = self.get_df(param)
+        df_coke = self.time2order(df_coke, five_lag=False)
+        df_coke = self.process_iron(df_coke, param_list, np.sum)
+        # res['焦比'] = (df_coke['冶金焦（自产）'] + df_coke['小块焦'])
+        res.fillna(0, inplace=True)
+        df_coke.fillna(0, inplace=True)
+        res['铁次渣量'] = 0
+        for i in range(7):
+            res['铁次渣量'] = res['铁次渣量'] + res.iloc[:, i] * df_coke.iloc[:, i]
+        res['铁次渣量'] = res['铁次渣量'] / self.res['(CaO)']  # 问题: 铁次区间没有 加矿呢???
+        res['铁次渣量 / 铁次铁量'] = res['铁次渣量'] / self.res['铁次铁量']
+        self.res = pd.merge(res.loc[:, ['铁次渣量', '铁次渣量 / 铁次铁量']], self.res, how="outer", left_index=True,
+                            right_index=True)
         return res
 
 
@@ -333,4 +375,11 @@ if __name__ == "__main__":
     '''
     # ans = main()
     solv19 = Solution(19)
-    ans = solv19.get_chemical()
+    solv19.get_slag()
+    solv19.get_ratio()
+    ans = solv19.get_slag_amount()
+
+    # param = '钒钛球团_K'
+    # # find_table(param, 20)
+    # df = self.get_df('瓦斯灰_K2O')
+    # print(df.groupby("采集项名称").get_group(param).shape)
