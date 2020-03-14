@@ -12,11 +12,11 @@ plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 
 # excel 文件处理成 pkl文件后 的存放路径
-PRE_PATH = {19: './data/西昌2#高炉数据19年10-11月/pkl/',
-            20: './data/西昌2#高炉数据19年12月-20年2月/pkl/'}
+PRE_PATH = {19: 'data/西昌2#高炉数据19年10-11月/pkl/',
+            20: 'data/西昌2#高炉数据19年12月-20年2月/pkl/'}
 # 铁次时间表的存放路径
-IRON_TIME = {19: './data/西昌2#高炉数据19年10-11月/铁次时间.xlsx',
-             20: './data/西昌2#高炉数据19年12月-20年2月/origin/铁次时间.xlsx'}
+IRON_TIME = {19: 'data/西昌2#高炉数据19年10-11月/铁次时间.xlsx',
+             20: 'data/西昌2#高炉数据19年12月-20年2月/origin/铁次时间.xlsx'}
 
 
 def find_table(name, table):
@@ -27,9 +27,9 @@ def find_table(name, table):
     :return 表名
     """
     if table == 19:
-        path = './19数据表各个名称罗列.xlsx'
+        path = 'data/19数据表各个名称罗列.xlsx'
     elif table == 20:
-        path = './20数据表各个名称罗列.xlsx'
+        path = 'data/20数据表各个名称罗列.xlsx'
     dic = pd.read_excel(path)
     temp = dic[dic.isin([name])].dropna(axis=1, how='all')
     if temp.values.shape[1] == 0:
@@ -199,7 +199,7 @@ class Solution:
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
-    def get_ratio(self):
+    def get_ratio(self, five_lag=False):
         """
         铁次铁量,喷吹速率,焦比,煤比,燃料比,出铁次数/出铁时间
         :return:
@@ -213,7 +213,7 @@ class Solution:
         param_list = ['冶金焦（自产）', '小块焦']
         param = param_list[0]
         df_coke = self.get_df(param)
-        df_coke = self.time2order(df_coke, five_lag=False)
+        df_coke = self.time2order(df_coke, five_lag=five_lag)
         df_coke = self.process_iron(df_coke, param_list, np.sum)
         res['焦比'] = (df_coke['冶金焦（自产）'] + df_coke['小块焦']) / res['铁次铁量'] * 1000
 
@@ -258,9 +258,9 @@ class Solution:
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
-    def process_chemical(self, list2, df):
+    def process_chemical(self, list2, df, five_lag=False):
         """
-        数据特点, 没有 业务处理时间 有上料批次号
+        数据特点, 没有 业务处理时间 有上料批次号 处理料的化验
         焦炭热性能_CSR 这玩意 一天一采集, 必须以数据为模板
         """
 
@@ -280,14 +280,20 @@ class Solution:
         # 指标在表中有没有呀?
         param_path = [find_table(list1[i], self.table) for i in range(len(list1))]
 
-        df['业务处理时间'] = df['上料批号'].apply(to_time)
+        # df['业务处理时间'] = df['上料批号'].apply(to_time)
         df['采集项值'] = df['采集项值'].apply(pd.to_numeric)
         res = pd.DataFrame()
         for i, item in enumerate(param_path):
             param = list3[i]
+            group_name = list1[i]
             if item is not None:
                 # 需要对 检化验数据 写单独的处理函数
-                df_grouped = df.groupby("采集项名称").get_group(param)
+                df_grouped = df.groupby("采集项名称").get_group(group_name)
+                df_grouped['业务处理时间'] = df_grouped['上料批号'].apply(to_time)  # 应该确保上料批次号符合这样的格式: 191013xxxxxxx-2401
+
+                if five_lag:  # 如果需要滞后
+                    df['业务处理时间'] = df['业务处理时间'] - pd.to_timedelta('5h')
+
                 df_grouped.set_index('业务处理时间', inplace=True)
                 df_rsp = df_grouped.resample('1T').mean().ffill()
                 res[param] = self.time_table.apply(lambda x: df_rsp.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(),
@@ -298,7 +304,7 @@ class Solution:
 
         return res
 
-    def get_chemical(self):
+    def get_chemical(self, five_lag=False):
         """
         数据特点, 没有 业务处理时间 有上料批次号
         焦炭热性能_CSR 这玩意 一天一采集, 必须以数据为模板
@@ -314,12 +320,13 @@ class Solution:
         喷吹煤St，%  喷吹煤粉_St \
         喷吹煤Vd，%  喷吹煤粉_Vdaf \
         烧结矿转鼓强度,% 烧结矿性能样(粒度、强度)_转鼓指数".split()
-        df = pd.concat([self.get_df('焦炭粒度、冷强度_M40'), self.get_df('白马球团_Zn')])
-        res = self.process_chemical(list2, df)
+        # df = pd.concat([self.get_df('焦炭粒度、冷强度_M40'), self.get_df('白马球团_Zn')])
+        df = self.get_df('焦炭粒度、冷强度_M40')
+        res = self.process_chemical(list2, df, five_lag)
         self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
         return res
 
-    def get_slag_amount(self):
+    def get_slag_amount(self, five_lag=False):
         """
         铁次渣量:
         [40赤块_CaO*40赤块+冶金焦综合样_CaO*冶金焦（自产）+南非块矿_CaO*南非块矿+小块焦_CaO*小块焦+
@@ -333,13 +340,13 @@ class Solution:
                 "小块焦_CaO 小块焦_CaO 烧结矿成分_CaO 烧结矿成分_CaO 白马球团_CaO 白马球团_CaO 酸性烧结矿_CaO 酸性烧结矿_CaO".split()
         df = self.get_df(list1[0])
 
-        res = self.process_chemical(list1, df)
+        res = self.process_chemical(list1, df, five_lag)
         # df1.merge(df2, how='left')
 
         param_list = "40赤块 冶金焦（自产） 南非块矿 小块焦 烧结矿 白马球团 酸性烧结矿".split()
         param = param_list[0]
         df_coke = self.get_df(param)
-        df_coke = self.time2order(df_coke, five_lag=False)
+        df_coke = self.time2order(df_coke, five_lag=five_lag)
         df_coke = self.process_iron(df_coke, param_list, np.sum)
         # res['焦比'] = (df_coke['冶金焦（自产）'] + df_coke['小块焦'])
         res.fillna(0, inplace=True)
@@ -353,19 +360,72 @@ class Solution:
                             right_index=True)
         return res
 
+    def get_rule(self):
+        """
+        # 计算探尺差
+        # 探尺差
+        # 西昌2#高炉采集数据表_上料系统
+        """
+        if self.table == 20:
+            path = 'data/西昌2#高炉数据19年12月-20年2月/pkl/西昌2#高炉采集数据表_上料系统.pkl'
+        elif self.table == 19:
+            path = 'data/西昌2#高炉数据19年10-11月/pkl/西昌2#高炉采集数据表_上料系统.pkl'
+
+        df = pd.read_pickle(path)  # 导入
+
+        # 格式化
+        df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
+        df['采集项值'] = pd.to_numeric(df['采集项值'])
+
+        # 把三个探尺高度筛选出来
+        brothel = ['探尺（南）', '探尺（东）', '探尺（西）']
+        hookers = []
+        for hooker_name in brothel:
+            hooker = df.groupby('采集项名称').get_group(hooker_name).set_index('业务处理时间')  # 筛选
+            hooker.drop(columns=['采集项编码', '采集项名称'], inplace=True)
+            hooker.rename(columns={'采集项值': hooker_name}, inplace=True)
+
+            hooker[hooker_name][hooker[hooker_name] > 1e7] = None  # 去除1e7 的异常值
+            hooker[hooker_name].drop_duplicates(keep=False, inplace=True)  # 去除数据源中同一时刻的重复采样
+            hookers.append(hooker)
+
+        # 找出 所有 在同一时刻 三个探尺高度数据都不缺失的样本
+        temp = pd.merge(hookers[0], hookers[1], how="inner", left_index=True, right_index=True)
+        blondie = pd.merge(temp, hookers[2], how="inner", left_index=True, right_index=True)
+        # 计算极差
+        wife = pd.DataFrame()
+        wife['采集项值'] = blondie.max(axis=1) - blondie.min(axis=1)
+
+        self.res['探尺差'] = self.time_table.apply(lambda x: wife.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(),
+                                                axis=1)
+
+        return self.res['探尺差']
+
 
 def main():
     solv19 = Solution(19)
     solv19.get_molten_iron()
     solv19.get_slag()
     solv19.get_ratio()
+    solv19.get_wind()
+    solv19.get_chemical()
+    solv19.get_gas()
+    solv19.get_slag_amount()
+    solv19.get_rule()
 
     solv20 = Solution(20)
     solv20.get_molten_iron()
     solv20.get_slag()
     solv20.get_ratio()
+    solv20.get_wind()
+    solv20.get_chemical()  # bug
+    solv20.get_gas()
+    solv20.get_slag_amount()
+    solv20.get_rule()
+
     ans = pd.concat([solv19.res, solv20.res])
-    ans.to_excel("铁次结果.xlsx")  # 因为铁次产量为0 搞出不少 inf
+    ans[ans == np.inf] = np.nan
+    ans.to_excel("data/铁次结果_无滞后处理.xlsx")  # 因为铁次产量为0 搞出不少 inf
     return ans
 
 
@@ -373,13 +433,5 @@ if __name__ == "__main__":
     '''
     19年表: 20128288-20129016
     '''
-    # ans = main()
-    solv19 = Solution(19)
-    solv19.get_slag()
-    solv19.get_ratio()
-    ans = solv19.get_slag_amount()
-
-    # param = '钒钛球团_K'
-    # # find_table(param, 20)
-    # df = self.get_df('瓦斯灰_K2O')
-    # print(df.groupby("采集项名称").get_group(param).shape)
+    ans = main()
+    # self = Solution(20)

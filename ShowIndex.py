@@ -52,7 +52,7 @@ file_list0 = [
 #     temp = set(df['采集项名称'])
 #     ans[file_list0[i][:-4]] = sorted(temp)
 #     out = pd.merge(out, ans, how='outer', left_index=True, right_index=True)
-# out.to_excel("./19数据表各个名称罗列.xlsx")
+# out.to_excel("data/19数据表各个名称罗列.xlsx")
 
 
 #############耗费很多时间
@@ -65,5 +65,5 @@ for i in range(len(file_list1)):
     temp = set(df['采集项名称'])
     ans[file_list1[i][:-4]] = sorted(temp)
     out = pd.merge(out, ans, how='outer', left_index=True, right_index=True)
-out.to_excel("./20数据表各个名称罗列.xlsx")
+out.to_excel("data/20数据表各个名称罗列.xlsx")
 ##  需要手动删除 '西昌2#高炉-上料实绩表' 中的 炉顶压力1 炉顶压力2

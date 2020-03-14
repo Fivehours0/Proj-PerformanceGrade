@@ -4,12 +4,27 @@
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ShowIndex.py" beforeDir="false" afterPath="$PROJECT_DIR$/ShowIndex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/do_cluster.py" beforeDir="false" afterPath="$PROJECT_DIR$/do_cluster.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -44,6 +59,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\proj-DailyData" />
     </key>
@@ -84,7 +100,26 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/proj-DailyData/StandardData.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\proj-DailyData\StandardData.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="do_cluster" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/do_cluster.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,6 +212,7 @@
       <item itemvalue="Python.StandardData" />
       <item itemvalue="Python.数据日报表化v2.1" />
       <item itemvalue="Python.preprocess" />
+      <item itemvalue="Python.do_cluster" />
     </list>
     <recent_temporary>
       <list>
@@ -198,7 +234,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582971071108</updated>
-      <workItem from="1583915079868" duration="49485000" />
+      <workItem from="1583915079868" duration="86270000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -284,7 +320,28 @@
       <option name="project" value="LOCAL" />
       <updated>1584074078224</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="save">
+      <created>1584095163058</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1584095163059</updated>
+    </task>
+    <task id="LOCAL-00014" summary="备份">
+      <created>1584108280459</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1584108280459</updated>
+    </task>
+    <task id="LOCAL-00015" summary="备份">
+      <created>1584165728473</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1584165728478</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -334,7 +391,8 @@
     <MESSAGE value="添加注释" />
     <MESSAGE value="预处理" />
     <MESSAGE value="save" />
-    <option name="LAST_COMMIT_MESSAGE" value="save" />
+    <MESSAGE value="备份" />
+    <option name="LAST_COMMIT_MESSAGE" value="备份" />
   </component>
   <component name="WindowStateProjectService">
     <state x="136" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583916362496">
@@ -345,77 +403,82 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1583915452431" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1584074076574">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1584165726570">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1584074076574" />
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1583982464537">
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1584165726570" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1584168208998">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1583982464537" />
-    <state width="709" height="402" key="GridCell.Tab.0.bottom" timestamp="1584083777332">
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1584168208998" />
+    <state x="463" y="104" key="FileChooserDialogImpl" timestamp="1584164910502">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584083777332" />
-    <state width="709" height="402" key="GridCell.Tab.0.center" timestamp="1584083777332">
+    <state x="463" y="104" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1584164910502" />
+    <state width="709" height="402" key="GridCell.Tab.0.bottom" timestamp="1584177259962">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1584083777332" />
-    <state width="709" height="402" key="GridCell.Tab.0.left" timestamp="1584083777332">
+    <state width="709" height="402" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584177259962" />
+    <state width="709" height="402" key="GridCell.Tab.0.center" timestamp="1584177259962">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1584083777332" />
-    <state width="709" height="402" key="GridCell.Tab.0.right" timestamp="1584083777332">
+    <state width="709" height="402" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1584177259962" />
+    <state width="709" height="402" key="GridCell.Tab.0.left" timestamp="1584177259962">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1584083777332" />
-    <state width="709" height="402" key="GridCell.Tab.1.bottom" timestamp="1584083777332">
+    <state width="709" height="402" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1584177259962" />
+    <state width="709" height="402" key="GridCell.Tab.0.right" timestamp="1584177259962">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584083777332" />
-    <state width="709" height="402" key="GridCell.Tab.1.center" timestamp="1584083777331">
+    <state width="709" height="402" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1584177259962" />
+    <state width="709" height="402" key="GridCell.Tab.1.bottom" timestamp="1584177259961">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1584083777331" />
-    <state width="709" height="402" key="GridCell.Tab.1.left" timestamp="1584083777331">
+    <state width="709" height="402" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584177259961" />
+    <state width="709" height="402" key="GridCell.Tab.1.center" timestamp="1584177259961">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1584083777331" />
-    <state width="709" height="402" key="GridCell.Tab.1.right" timestamp="1584083777331">
+    <state width="709" height="402" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1584177259961" />
+    <state width="709" height="402" key="GridCell.Tab.1.left" timestamp="1584177259960">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584083777331" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1584074096731">
+    <state width="709" height="402" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1584177259960" />
+    <state width="709" height="402" key="GridCell.Tab.1.right" timestamp="1584177259961">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1584074096731" />
-    <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584084012624">
+    <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584177259961" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1584165747133">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1584084012624" />
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1584015945331">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1584165747133" />
+    <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584150195164">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1584015945331" />
+    <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1584150195164" />
+    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584103483303">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1584103483303" />
+    <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog" timestamp="1584095174721">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog/0.0.1366.728@0.0.1366.728" timestamp="1584095174721" />
+    <state x="424" y="6" key="refactoring.ChangeSignatureDialog" timestamp="1584108656492">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="424" y="6" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1584108656492" />
+    <state x="277" y="22" key="scopes" timestamp="1584170700910">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="277" y="22" key="scopes/0.0.1366.728@0.0.1366.728" timestamp="1584170700910" />
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1584154138671">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1584154138671" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BF_grading_range$preproccess.coverage" NAME="preproccess Coverage Results" MODIFIED="1583916298704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/proj-IornOrderData" />
     <SUITE FILE_PATH="coverage/BF_grading_range$preprocess.coverage" NAME="preprocess Coverage Results" MODIFIED="1584083582830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BF_grading_range$preproccess__1_.coverage" NAME="preproccess (1) Coverage Results" MODIFIED="1583917078971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>
