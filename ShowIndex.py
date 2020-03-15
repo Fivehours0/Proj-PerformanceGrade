@@ -59,11 +59,17 @@ file_list0 = [
 # get 20年数据中的指标名称
 out = pd.DataFrame()
 for i in range(len(file_list1)):
-
     ans = pd.DataFrame()
     df = pd.read_pickle(path1 + file_list1[i])
     temp = set(df['采集项名称'])
     ans[file_list1[i][:-4]] = sorted(temp)
     out = pd.merge(out, ans, how='outer', left_index=True, right_index=True)
+
+## 因为 '西昌2#高炉-上料实绩表' 中的 炉顶压力1 炉顶压力2 探尺东南西 无用, 把他放在out表中最后列
+loc = out.shape[1] - 1
+beifen = out['西昌2#高炉-上料实绩表']  # 备份要删除的值
+out = out.drop(columns='西昌2#高炉-上料实绩表', axis=1)
+out.insert(loc, '西昌2#高炉-上料实绩表', beifen)
+
 out.to_excel("data/20数据表各个名称罗列.xlsx")
-##  需要手动删除 '西昌2#高炉-上料实绩表' 中的 炉顶压力1 炉顶压力2
+

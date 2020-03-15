@@ -141,6 +141,9 @@ class Solution:
         table_name = find_table(param, self.table)
         path = PRE_PATH[self.table] + table_name + '.pkl'
         df = pd.read_pickle(path)
+        if '系统接收时间' in df.columns:
+            df.drop(columns='系统接收时间', inplace=True)
+        df.drop_duplicates(inplace=True)
         return df
 
     def process_iron(self, df, param_list, agg_func):
@@ -177,6 +180,7 @@ class Solution:
         param_list = ['[C]', '[Ti]', '[Si]', '[S]']
         df = self.get_df(param_list[0])
         res = self.process_iron(df, param_list, np.mean)
+        res['[Ti]+[Si]'] = res['[Ti]'] + res['[Si]']
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -206,6 +210,7 @@ class Solution:
         """
         # 计算铁量
         df = self.get_df('受铁重量')
+
         res = self.process_iron(df, ['受铁重量'], np.sum)
         res.rename(columns={'受铁重量': '铁次铁量'}, inplace=True)  # 发现有一些铁次铁量是 0, 需要后期核查
 
@@ -366,12 +371,14 @@ class Solution:
         # 探尺差
         # 西昌2#高炉采集数据表_上料系统
         """
-        if self.table == 20:
-            path = 'data/西昌2#高炉数据19年12月-20年2月/pkl/西昌2#高炉采集数据表_上料系统.pkl'
-        elif self.table == 19:
-            path = 'data/西昌2#高炉数据19年10-11月/pkl/西昌2#高炉采集数据表_上料系统.pkl'
-        df = pd.read_pickle(path)  # 导入
+        # if self.table == 20:
+        # path = 'data/西昌2#高炉数据19年12月-20年2月/pkl/西昌2#高炉采集数据表_上料系统.pkl'
+        # elif self.table == 19:
+        # path = 'data/西昌2#高炉数据19年10-11月/pkl/西昌2#高炉采集数据表_上料系统.pkl'
+        # df = pd.read_pickle(path)  # 导入
+        # df.drop_duplicates(inplace=True)  # 去除重复采集值
 
+        df = self.get_df('探尺（南）')
         # 格式化
         df['采集项值'] = pd.to_numeric(df['采集项值'])
         df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
@@ -404,7 +411,6 @@ class Solution:
 
 
 def main(five_lag=False):
-
     obj19 = Solution(19)
     obj20 = Solution(20)
     objs = [obj19, obj20]
@@ -429,7 +435,7 @@ def main(five_lag=False):
 
 
 if __name__ == "__main__":
-    # ans = main(five_lag=False)
+    ans = main(five_lag=False)
     ans_lag = main(five_lag=True)
 
     # self = Solution(20)
