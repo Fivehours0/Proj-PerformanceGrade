@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShowIndex.py" beforeDir="false" afterPath="$PROJECT_DIR$/ShowIndex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/do_cluster.py" beforeDir="false" afterPath="$PROJECT_DIR$/do_cluster.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +155,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocess.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\preprocess.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -176,7 +174,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\preprocess.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocess.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -234,7 +232,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582971071108</updated>
-      <workItem from="1583915079868" duration="86270000" />
+      <workItem from="1583915079868" duration="91864000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -341,7 +339,21 @@
       <option name="project" value="LOCAL" />
       <updated>1584165728478</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="备份">
+      <created>1584178628079</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1584178628080</updated>
+    </task>
+    <task id="LOCAL-00017" summary="备份">
+      <created>1584178817258</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1584178817258</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -403,10 +415,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1583915452431" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1584178625353">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1584178814635">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1584178625353" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1584178814635" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1584168208998">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -447,10 +459,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584177259961" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1584178794530">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1584178851242">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1584178794530" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1584178851242" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584150195164">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

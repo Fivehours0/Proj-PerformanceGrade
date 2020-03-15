@@ -292,7 +292,7 @@ class Solution:
                 df_grouped['业务处理时间'] = df_grouped['上料批号'].apply(to_time)  # 应该确保上料批次号符合这样的格式: 191013xxxxxxx-2401
 
                 if five_lag:  # 如果需要滞后
-                    df['业务处理时间'] = df['业务处理时间'] - pd.to_timedelta('5h')
+                    df_grouped['业务处理时间'] = df_grouped['业务处理时间'] - pd.to_timedelta('5h')
 
                 df_grouped.set_index('业务处理时间', inplace=True)
                 df_rsp = df_grouped.resample('1T').mean().ffill()
@@ -360,7 +360,7 @@ class Solution:
                             right_index=True)
         return res
 
-    def get_rule(self):
+    def get_rule(self, five_lag=False):
         """
         # 计算探尺差
         # 探尺差
@@ -370,12 +370,13 @@ class Solution:
             path = 'data/西昌2#高炉数据19年12月-20年2月/pkl/西昌2#高炉采集数据表_上料系统.pkl'
         elif self.table == 19:
             path = 'data/西昌2#高炉数据19年10-11月/pkl/西昌2#高炉采集数据表_上料系统.pkl'
-
         df = pd.read_pickle(path)  # 导入
 
         # 格式化
-        df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
         df['采集项值'] = pd.to_numeric(df['采集项值'])
+        df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
+        if five_lag:  # 如果需要滞后
+            df['业务处理时间'] = df['业务处理时间'] - pd.to_timedelta('5h')
 
         # 把三个探尺高度筛选出来
         brothel = ['探尺（南）', '探尺（东）', '探尺（西）']
@@ -402,36 +403,33 @@ class Solution:
         return self.res['探尺差']
 
 
-def main():
-    solv19 = Solution(19)
-    solv19.get_molten_iron()
-    solv19.get_slag()
-    solv19.get_ratio()
-    solv19.get_wind()
-    solv19.get_chemical()
-    solv19.get_gas()
-    solv19.get_slag_amount()
-    solv19.get_rule()
+def main(five_lag=False):
 
-    solv20 = Solution(20)
-    solv20.get_molten_iron()
-    solv20.get_slag()
-    solv20.get_ratio()
-    solv20.get_wind()
-    solv20.get_chemical()  # bug
-    solv20.get_gas()
-    solv20.get_slag_amount()
-    solv20.get_rule()
+    obj19 = Solution(19)
+    obj20 = Solution(20)
+    objs = [obj19, obj20]
 
-    ans = pd.concat([solv19.res, solv20.res])
-    ans[ans == np.inf] = np.nan
-    ans.to_excel("data/铁次结果_无滞后处理.xlsx")  # 因为铁次产量为0 搞出不少 inf
+    for obj in objs:  # 对每个数据对象循环
+        obj.get_molten_iron()
+        obj.get_slag()
+        obj.get_wind()
+        obj.get_gas()
+        obj.get_ratio(five_lag)
+        obj.get_chemical(five_lag)
+        obj.get_rule(five_lag)
+        obj.get_slag_amount(five_lag)
+
+    ans = pd.concat([obj19.res, obj20.res])
+    ans[ans == np.inf] = np.nan  # 因为有些铁次铁量为0 从而导致一些煤比 焦比等铁量衍生指标 算出 inf, np.nan填充
+    if not five_lag:
+        ans.to_excel("data/铁次结果_无滞后处理.xlsx")  # 因为铁次产量为0 搞出不少 inf
+    else:
+        ans.to_excel("data/铁次结果_5h滞后处理.xlsx")  # 因为铁次产量为0 搞出不少 inf
     return ans
 
 
 if __name__ == "__main__":
-    '''
-    19年表: 20128288-20129016
-    '''
-    ans = main()
+    # ans = main(five_lag=False)
+    ans_lag = main(five_lag=True)
+
     # self = Solution(20)
