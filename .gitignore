@@ -14,4 +14,5 @@
 *.pptx
 *.ppt
 
-data
+/data
+/.idea
