@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShowIndex.py" beforeDir="false" afterPath="$PROJECT_DIR$/ShowIndex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,12 +214,12 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.preproccess" />
       <item itemvalue="Python.ShowIndex" />
       <item itemvalue="Python.StandardData" />
-      <item itemvalue="Python.do_cluster" />
-      <item itemvalue="Python.preproccess" />
-      <item itemvalue="Python.preprocess" />
       <item itemvalue="Python.数据日报表化v2.1" />
+      <item itemvalue="Python.preprocess" />
+      <item itemvalue="Python.do_cluster" />
     </list>
     <recent_temporary>
       <list>
@@ -244,6 +242,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582971071108</updated>
       <workItem from="1583915079868" duration="98917000" />
+      <workItem from="1584268851376" duration="1293000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -371,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584251567771</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="备份">
+      <created>1584268894584</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1584268894586</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -433,10 +439,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1583915452431" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1584251564661">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1584268882451">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1584251564661" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1584268882451" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1584168208998">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -477,10 +483,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1584251575389">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1584268940700">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1584251575389" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1584268940700" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584150195164">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
