@@ -22,7 +22,7 @@ class MyCluster:
         self.params = params
         self.n = n
         # 创建类的时候就把标准化数据整理好了,不需要反复标准化
-        file = './project/proj-DailyData/西昌#2高炉每日整理数据v2.2.xlsx'
+        file = 'project/proj-DailyData/西昌#2高炉每日整理数据v2.2.xlsx'
         self.df = pd.read_excel(file)
         self.df['焦比'] = self.df['燃料比,kg/t'] - self.df['煤比,kg/t']
 
@@ -61,13 +61,13 @@ class MyCluster:
             plt.figure()
             for j in range(self.n):
                 temp = data_origin.groupby('label').get_group(j)
-                plt.scatter(temp[params[0]], temp[params[1]], c=COLORS[j], label=j)
-            plt.xlabel(params[0])
-            plt.ylabel(params[1])
+                plt.scatter(temp[self.params[0]], temp[self.params[1]], c=COLORS[j], label=j)
+            plt.xlabel(self.params[0])
+            plt.ylabel(self.params[1])
             plt.title("2D聚类散点图")
             plt.legend()
 
-            plt.savefig("./img/透气性指数+焦比2D_{:d}分类图".format(n_clusters))
+            plt.savefig("./img/透气性指数+焦比2D_{:d}分类图".format(self.n))
             plt.show()
             plt.close()
 
