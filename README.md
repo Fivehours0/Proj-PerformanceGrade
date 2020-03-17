@@ -6,7 +6,7 @@
 
 ## 数据中指标展示
 
-[ShowIndex.py](./ShowIndex.py.py)
+[ShowIndex.py](./ShowIndex.py)
 
 ## 铁次化数据整理(部分)
 
