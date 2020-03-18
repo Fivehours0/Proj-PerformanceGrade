@@ -228,7 +228,7 @@ class Solution:
         df_mei['d'] = d / pd.to_timedelta('1min')
 
         res['喷吹速率'] = df_mei['喷吹速率']
-        res['出铁次数/出铁时间,min'] = df_mei['d']
+        res['出铁次数/出铁时间,min'] = 1 / df_mei['d']
         res['煤比'] = df_mei['d'] * df_mei['喷吹速率'] / res['铁次铁量'] * 20
         # 燃料比
         res['燃料比'] = res['煤比'] + res['焦比']

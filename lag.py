@@ -146,7 +146,6 @@ def process_iron_order_data(params):
 
 
 def get_datas():
-
     ## 测试代码: 查验各个指标是在哪个表里 集中处理更有效率
     # param_list = "热风温度 送风风量 热风压力 富氧量\
     #               焦炭负荷 炉顶压力1 炉顶压力2\
@@ -235,9 +234,10 @@ def get_datas():
      
     
     """
-    param_list = "40赤块 冶金焦（自产） 南非块矿 小块焦 烧结矿 白马球团 酸性烧结矿".split()
+    # param_list = "40赤块 冶金焦（自产） 南非块矿 小块焦 烧结矿 白马球团 酸性烧结矿".split()
+    param_list = "40赤块 南非块矿 烧结矿 酸性烧结矿 白马球团".split()
     # temp = process_time_data(param_list)
-    param = param_list[0]
+    # param = param_list[0]
 
     df19 = get_df(param_list[0], 19)
     df20 = get_df(param_list[0], 20)
@@ -252,21 +252,24 @@ def get_datas():
         grouped = grouped.set_index('业务处理时间')
         resampled = grouped.resample('2h').agg(np.sum).rename(columns={'采集项值': param})  # 重采样1min
         res_tmp = pd.merge(res_tmp, resampled, how="outer", left_index=True, right_index=True)
-
+    res_tmp['块矿比例'] = res_tmp['40赤块'] + res_tmp['南非块矿']
+    res_tmp['烧结比例'] = res_tmp['烧结矿'] + res_tmp['酸性烧结矿']
+    res_tmp['球团比例'] = res_tmp['白马球团']
+    res_tmp = res_tmp.loc[:, ['块矿比例', '烧结比例', '球团比例']]
     # 计算比例
     res_sum = res_tmp.sum(axis=1)
-    for param in param_list:
+    for param in ['块矿比例', '烧结比例', '球团比例']:
         res_tmp[param] = res_tmp[param] / res_sum
     res = pd.merge(res, res_tmp, how="outer", left_index=True, right_index=True)
 
     # nan值填充
-    for param in param_list:
-        res[param] = res[param].ffill()
-
+    for param in ['块矿比例', '烧结比例', '球团比例']:
+        # res[param] = res[param].ffill()
+        res[param] = res[param].interpolate(method='quadratic')
     return res
 
 
-def lag_analysis(i, j, lag_min, lag_max):
+def lag_analysis(i, j, lag_min, lag_max, img_show = False):
     """
     i: 控制参数的序号
     j: 生产参数的序号
@@ -284,7 +287,10 @@ def lag_analysis(i, j, lag_min, lag_max):
     plt.legend()
 
     plt.savefig('img/滞后/' + "{}与{}的波动图(未滞后处理)".format(products[j], controls[i]))
-    plt.close()
+    if img_show:
+        plt.show()
+    else:
+        plt.close()
 
     ##  滞后图
 
@@ -305,8 +311,10 @@ def lag_analysis(i, j, lag_min, lag_max):
 
     print("{}与{}的滞后时间分析图(滞后结果:{}min)".format(products[j], controls[i], lag_time))
     plt.savefig('img/滞后/' + "{}与{}的滞后时间分析图".format(products[j], controls[i], lag_time))
-    plt.close()
-
+    if img_show:
+        plt.show()
+    else:
+        plt.close()
     ## 滞后处理后的图
     fig_name3 = "{}与{}的波动图(滞后处理后)".format(products[j], controls[i])
     plt.figure()
@@ -317,46 +325,27 @@ def lag_analysis(i, j, lag_min, lag_max):
 
     plt.legend()
     plt.savefig('img/滞后/' + fig_name3)
-    plt.close()
+    if img_show:
+        plt.show()
+    else:
+        plt.close()
     return lag_time
 
 
 if __name__ == "__main__":
     res = get_datas()
 
-    # 这里填写控制指标参数 40赤块 冶金焦（自产） 等意思为 "2小时矿石比例"
-    controls = "热风温度 送风风量 热风压力 富氧量 喷吹速率 鼓风动能\
-        40赤块 冶金焦（自产） 南非块矿 小块焦 烧结矿 白马球团 酸性烧结矿".split()
-
-    #    指标参数名 时间滞后最小值  时间滞后最大值
-    tbl = "焦炭负荷        4  6 \
-        透气性指数         0  6 \
-        炉腹煤气发生量     0  6 \
-        理论燃烧温度       0  6 \
-        炉顶温度(极差)     0  6 \
-        炉喉温度(极差)     0  6  \
-        煤气利用率         0  6 \
-        [铁水温度]         4  6 \
-        [Si]+[Ti]         4  6 \
-        [S]               4  6 \
-        R2                4  6 ".split()
-
-    # 设置导入程序中
-    prod_min = [int(item) for item in tbl[1::3]]
-    prod_max = [int(item) for item in tbl[2::3]]
-    products = tbl[0::3]
-
-    # 未处理滞后的图
-    # i, j = 0, 0
-    # lag_min = 4
-    # lag_max = 6
-    # lag_analysis(i,j,lag_min,lag_max)
+    # read config
+    config = pd.read_excel('lag_config.xlsx', index_col=0, header=[0, 1])
+    controls = config.index
+    products = [i[0] for i in config.columns][::2]
 
     lag_res_table = pd.DataFrame(data=0, index=controls, columns=products)
     for j in range(len(products)):
-        lag_min = prod_min[j]
-        lag_max = prod_max[j]
+
         for i in range(len(controls)):
+            lag_min = config.loc[controls[i], (products[j], 'min')]
+            lag_max = config.loc[controls[i], (products[j], 'max')]
             lag_res_table.loc[controls[i], products[j]] = lag_analysis(i, j, lag_min, lag_max)
 
     # save table to excel
