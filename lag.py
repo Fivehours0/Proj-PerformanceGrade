@@ -336,7 +336,7 @@ if __name__ == "__main__":
     res = get_datas()
 
     # read config
-    config = pd.read_excel('lag_config.xlsx', index_col=0, header=[0, 1])
+    config = pd.read_csv('lag_config.csv', index_col=0, header=[0, 1])
     controls = config.index
     products = [i[0] for i in config.columns][::2]
 
