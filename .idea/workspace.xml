@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="update README.md and lag.py&#10;add commit">
+    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lag.py" beforeDir="false" afterPath="$PROJECT_DIR$/lag.py" afterDir="false" />
     </list>
@@ -201,7 +201,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.lag" />
-        <item itemvalue="Python.make_data2stu" />
+        <item itemvalue="Python.lag" />
         <item itemvalue="Python.make_data2stu" />
         <item itemvalue="Python.make_data2stu" />
         <item itemvalue="Python.make_data2stu" />
@@ -223,7 +223,8 @@
       <workItem from="1584323787112" duration="7763000" />
       <workItem from="1584350089863" duration="95000" />
       <workItem from="1584435501901" duration="7610000" />
-      <workItem from="1584515646637" duration="12142000" />
+      <workItem from="1584515646637" duration="13197000" />
+      <workItem from="1584588204002" duration="5603000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -379,7 +380,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584543057407</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="update README.md and lag.py&#10;add commit">
+      <created>1584544701226</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1584544701226</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView">
@@ -434,6 +442,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="update README.md and lag.py&#10;add commit" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1584545120704" />
     <state x="136" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583916362496">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -446,10 +458,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1584544403011">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1584544699909">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1584544403011" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1584544699909" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1584168208998">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -490,14 +502,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1584500586734">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1584544720960">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1584500586734" />
-    <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584150195164">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1584544720960" />
+    <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1584150195164" />
+    <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1584599253025" />
     <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584103483303">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

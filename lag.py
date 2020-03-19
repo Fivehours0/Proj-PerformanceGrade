@@ -269,21 +269,33 @@ def get_datas():
     return res
 
 
-def lag_analysis(i, j, lag_min, lag_max, img_show = False):
+def lag_analysis(i, j, lag_min, lag_max, img_show=False, draw_range='small'):
     """
     i: 控制参数的序号
     j: 生产参数的序号
+    lag_min: 最小滞后时间
+    lag_max: 最大滞后时间
+    img_show: 是否展示图像, 默认False
+    draw_range: 默认 'small'(画2月1日到2日 这两天得图); 'big': 画四个月得图
     """
+    # 画图得开始与结束时间 设定:
+
+    if draw_range == 'big':
+        draw_start, draw_end = '2019-10-01', '2020-02-14'
+    else:
+        draw_start, draw_end = '2020-02-01', '2020-02-02'
+
     ctrl = res[controls[i]]
     prod = res[products[j]]
 
-    plt.figure()
+    plt.figure()  # 绘制没有进行滞后处理的散点图
     ctrl_std = (ctrl - ctrl.mean()) / ctrl.std()
-    ctrl_std['2020-02-01':'2020-02-02'].plot(label=controls[i])
+
+    ctrl_std[draw_start:draw_end].plot(label=controls[i])
     prod_std = (prod - prod.mean()) / prod.std()
-    prod_std['2020-02-01':'2020-02-02'].plot(label=products[j])
+    prod_std[draw_start:draw_end].plot(label=products[j])
     plt.title("{}与{}的波动图(未滞后处理)".format(products[j], controls[i]))
-    plt.xlabel("正态标准化数值")
+    plt.ylabel("正态标准化数值")
     plt.legend()
 
     plt.savefig('img/滞后/' + "{}与{}的波动图(未滞后处理)".format(products[j], controls[i]))
@@ -318,10 +330,10 @@ def lag_analysis(i, j, lag_min, lag_max, img_show = False):
     ## 滞后处理后的图
     fig_name3 = "{}与{}的波动图(滞后处理后)".format(products[j], controls[i])
     plt.figure()
-    ctrl_std['2020-02-01':'2020-02-02'].shift(lag_time).plot(label=controls[i])
-    prod_std['2020-02-01':'2020-02-02'].plot(label=products[j])
+    ctrl_std[draw_start:draw_end].shift(lag_time).plot(label=controls[i])
+    prod_std[draw_start:draw_end].plot(label=products[j])
     plt.title(fig_name3)
-    plt.xlabel("正态标准化数值")
+    plt.ylabel("正态标准化数值")
 
     plt.legend()
     plt.savefig('img/滞后/' + fig_name3)
@@ -336,7 +348,7 @@ if __name__ == "__main__":
     res = get_datas()
 
     # read config
-    config = pd.read_csv('lag_config.csv', index_col=0, header=[0, 1])
+    config = pd.read_csv('lag_config.lagfig', index_col=0, header=[0, 1])
     controls = config.index
     products = [i[0] for i in config.columns][::2]
 
@@ -346,7 +358,10 @@ if __name__ == "__main__":
         for i in range(len(controls)):
             lag_min = config.loc[controls[i], (products[j], 'min')]
             lag_max = config.loc[controls[i], (products[j], 'max')]
-            lag_res_table.loc[controls[i], products[j]] = lag_analysis(i, j, lag_min, lag_max)
+            if products[j] in ['焦炭负荷', '[铁水温度]']:  # 对于'焦炭负荷','[铁水温度]' 这样的指标 要画大尺度时间的散点波动图
+                lag_res_table.loc[controls[i], products[j]] = lag_analysis(i, j, lag_min, lag_max, draw_range='big')
+            else:
+                lag_res_table.loc[controls[i], products[j]] = lag_analysis(i, j, lag_min, lag_max)
 
     # save table to excel
     lag_res_table.to_excel('滞后结果表.xlsx')
