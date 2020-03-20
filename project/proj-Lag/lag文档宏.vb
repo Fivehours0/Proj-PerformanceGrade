@@ -53,6 +53,10 @@ Sub main()
     
     Selection.TypeText Text:="根据所采集的数据，" + prod + "与" + ctrl + "的原始变化曲线如图" + Str(picIdx) + ".1所示，从图中可直观看出二者之间存在一定的相关关系。"
     Selection.Style = ActiveDocument.Styles("正文样式")
+    If (prod <> "焦炭负荷" And prod <> "[铁水温度]") Then
+        Selection.TypeText Text:="另外，为了更好地体现时滞处理的效果，我们选取了某月中两天的变化趋势进行比较。"
+        Selection.Style = ActiveDocument.Styles("正文样式")
+    End If
     Selection.TypeParagraph
     
     
@@ -94,8 +98,11 @@ Sub main()
     Selection.Style = ActiveDocument.Styles("正文样式")
     Selection.TypeParagraph
     
-    Selection.TypeText Text:="根据所获得的两个变量的时滞分析结果，对两个原始曲线进行调整，即将焦炭负荷往前调整" + Str(time(j * 9 + i)) + _
-                            "分钟，可以获得两个变量的对应曲线，如图" + Str(picIdx) + ".3所示，从结果中可以看出，经过时滞处理后，两个曲线之间具有较好的对应关系。"
+    Selection.TypeText Text:="根据所获得的两个变量的时滞分析结果，对两个原始曲线进行调整，即将生产指标参数" + prod + "往前调整" + Str(time(j * 9 + i)) + _
+                            "分钟，可以获得两个变量的对应曲线。"
+    
+    '，如图" + Str(picIdx) + ".3所示，从结果中可以看出，经过时滞处理后，两个曲线之间具有较好的对应关系。"
+    
     Selection.Style = ActiveDocument.Styles("正文样式")
     Selection.TypeParagraph
     
