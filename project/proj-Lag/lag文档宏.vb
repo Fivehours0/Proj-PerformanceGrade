@@ -51,7 +51,7 @@ Sub main()
     Selection.Style = ActiveDocument.Styles("正文样式")
     Selection.TypeParagraph
     
-    Selection.TypeText Text:="根据所采集的数据，" + prod + "与" + ctrl + "的原始变化曲线如图" + Str(picIdx) + ".1所示，从图中可直观看出二者之间存在一定的相关关系。"
+    Selection.TypeText Text:="根据所采集的数据，" + prod + "与" + ctrl + "的原始变化曲线如图" + Str(picIdx) + ".1所示。为方便对比，对两指标参数的数值进行了标准化处理。"
     Selection.Style = ActiveDocument.Styles("正文样式")
     If (prod <> "焦炭负荷" And prod <> "[铁水温度]") Then
         Selection.TypeText Text:="另外，为了更好地体现时滞处理的效果，我们选取了某月中两天的变化趋势进行比较。"
@@ -117,16 +117,8 @@ Sub main()
     Selection.Style = ActiveDocument.Styles("图注样式")
     Selection.TypeParagraph
     
-    
-    
     Next i
     Next j
-    
-    
-    
-    
-    
-
 
 End Sub
 Sub 调整图大小()
@@ -145,4 +137,6 @@ Sub 调整图大小()
     ActiveDocument.InlineShapes(n).Width = 10.67 * 28.35 '设置图片宽度 6cm
     
     Next n
+    
 End Sub
+
