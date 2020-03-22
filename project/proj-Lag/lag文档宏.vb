@@ -24,7 +24,9 @@ Sub main()
                    240, 261, 316, 258, 240, 240, 360, 240, 240, _
                    240, 281, 360, 360, 360, 240, 360, 360, 360, _
                    240, 281, 297, 360, 240, 240, 240, 360, 360)
-
+    Dim FilePath As String
+    
+    FilePath = Application.Path
     
     Dim ctrl As String
     Dim prod As String
@@ -61,7 +63,7 @@ Sub main()
     
     
     Selection.InlineShapes.AddPicture FileName:= _
-        "C:\Users\Administrator\Desktop\时间滞后分析结果v1.0\滞后\" + prod + "与" + ctrl + "的波动图(未滞后处理).png", _
+        FilePath + "\滞后\" + prod + "与" + ctrl + "的波动图(未滞后处理).png", _
          LinkToFile:=False, SaveWithDocument:=True
         Selection.ParagraphFormat.Alignment = wdAlignParagraphCenter '居中
     Selection.TypeParagraph
@@ -82,7 +84,7 @@ Sub main()
     Selection.TypeParagraph
     
     Selection.InlineShapes.AddPicture FileName:= _
-        "C:\Users\Administrator\Desktop\时间滞后分析结果v1.0\滞后\" + prod + "与" + ctrl + "的滞后时间分析图.png", _
+         FilePath + "\滞后\" + prod + "与" + ctrl + "的滞后时间分析图.png", _
          LinkToFile:=False, SaveWithDocument:=True
         Selection.ParagraphFormat.Alignment = wdAlignParagraphCenter '居中
     Selection.TypeParagraph
@@ -107,7 +109,7 @@ Sub main()
     Selection.TypeParagraph
     
     Selection.InlineShapes.AddPicture FileName:= _
-        "C:\Users\Administrator\Desktop\时间滞后分析结果v1.0\滞后\" + prod + "与" + ctrl + "的波动图(滞后处理后).png", _
+        FilePath + "\滞后\" + prod + "与" + ctrl + "的波动图(滞后处理后).png", _
          LinkToFile:=False, SaveWithDocument:=True
         Selection.ParagraphFormat.Alignment = wdAlignParagraphCenter '居中
     Selection.TypeParagraph
@@ -139,4 +141,14 @@ Sub 调整图大小()
     Next n
     
 End Sub
+
+Sub 打印路径()
+    Dim FilePath As String
+    
+    FilePath = ActiveDocument.AttachedTemplate.Path
+    Selection.TypeText Text:=FilePath
+End Sub
+
+
+
 
