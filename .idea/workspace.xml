@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mymo/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/get_things.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CheckResult.py" beforeDir="false" afterPath="$PROJECT_DIR$/CheckResult.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/check_origin.py" beforeDir="false" afterPath="$PROJECT_DIR$/check_origin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lag.py" beforeDir="false" afterPath="$PROJECT_DIR$/lag.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +68,7 @@
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.CheckResult">
+  <component name="RunManager" selected="Python.check_origin">
     <configuration name="CheckResult" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,6 +83,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CheckResult.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="check_origin" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/check_origin.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -110,42 +132,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="make_data2stu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project/proj-MakeDataForStudent" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/proj-MakeDataForStudent/make_data2stu.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="preprocess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\preprocess.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocess.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -196,19 +193,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.make_data2stu" />
       <item itemvalue="Python.preprocess" />
       <item itemvalue="Python.数据日报表化v2.1" />
       <item itemvalue="Python.lag" />
       <item itemvalue="Python.CheckResult" />
+      <item itemvalue="Python.check_origin" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.check_origin" />
+        <item itemvalue="Python.preprocess" />
         <item itemvalue="Python.CheckResult" />
         <item itemvalue="Python.lag" />
         <item itemvalue="Python.lag" />
-        <item itemvalue="Python.make_data2stu" />
-        <item itemvalue="Python.make_data2stu" />
       </list>
     </recent_temporary>
   </component>
@@ -231,7 +228,7 @@
       <workItem from="1584588204002" duration="6205000" />
       <workItem from="1584715238519" duration="670000" />
       <workItem from="1584882998396" duration="6201000" />
-      <workItem from="1584964553875" duration="804000" />
+      <workItem from="1584964553875" duration="8963000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -394,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584544701226</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="添加新指标">
+      <created>1584965550138</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1584965550138</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -446,7 +450,8 @@
     <MESSAGE value="save" />
     <MESSAGE value="备份" />
     <MESSAGE value="update README.md and lag.py&#10;add commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="update README.md and lag.py&#10;add commit" />
+    <MESSAGE value="添加新指标" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加新指标" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -457,18 +462,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="136" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1583916362496" />
-    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583915452431">
+    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584967379547">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1583915452431" />
+    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1584967379547" />
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1584325312830">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1584544699909">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1584965547123">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1584544699909" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1584965547123" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1584168208998">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -509,10 +514,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1584544720960">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1584965566106">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1584544720960" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1584965566106" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -525,6 +530,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog/0.0.1366.728@0.0.1366.728" timestamp="1584095174721" />
+    <state x="316" y="98" width="700" height="530" key="recent.locations.popup" timestamp="1584972729803">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="316" y="98" width="700" height="530" key="recent.locations.popup/0.0.1366.728@0.0.1366.728" timestamp="1584972729803" />
     <state x="424" y="6" key="refactoring.ChangeSignatureDialog" timestamp="1584108656492">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

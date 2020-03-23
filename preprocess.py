@@ -6,40 +6,40 @@
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
+from mymo.get_things import find_table
+from mymo.get_things import get_df
+from mymo.get_things import get_time_table
 
 # 修补画图时 中文乱码的问题
 plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 
-# excel 文件处理成 pkl文件后 的存放路径
-PRE_PATH = {19: 'data/西昌2#高炉数据19年10-11月/pkl/',
-            20: 'data/西昌2#高炉数据19年12月-20年2月/pkl/'}
-# 铁次时间表的存放路径
-IRON_TIME = {19: 'data/西昌2#高炉数据19年10-11月/铁次时间.xlsx',
-             20: 'data/西昌2#高炉数据19年12月-20年2月/origin/铁次时间.xlsx'}
 
+def process_iron(df, param_list, agg_func):
+    """
+    对铁次型数据 预处理
+    :param df: 要传入的表
+    :param agg_func: 聚合函数 传入类型: 一个函数对象
+    :param param_list: 要处理的指标列表 类型: list
+    :return:
+    """
+    res = pd.DataFrame()
+    # df = self.get_df(param_list[0])
 
-def find_table(name, table):
-    """
-    给出指标 自动寻找在那个表里
-    :param name: 要寻找的指标名
-    :param table 数据源选择 取值 19 或者 20
-    :return 表名
-    """
-    if table == 19:
-        path = 'data/19数据表各个名称罗列.xlsx'
-    elif table == 20:
-        path = 'data/20数据表各个名称罗列.xlsx'
-    dic = pd.read_excel(path)
-    temp = dic[dic.isin([name])].dropna(axis=1, how='all')
-    if temp.values.shape[1] == 0:
-        print("表:", table, "无", name, "!!!!")
-        return None
-    elif temp.values.shape[1] == 1:
-        return temp.columns[0]
-    elif temp.values.shape[1] > 1:
-        print("表:", table, "有大于一个的", name, "自动返回发现的第一个")
-        return temp.columns[0]
+    df['铁次号'] = pd.to_numeric(df['铁次号'])
+    # df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])  # 格式化
+    df['采集项值'] = pd.to_numeric(df['采集项值'])  # 格式化
+    df = df[df['铁次号'] >= 20000000]  # 提取出#2高炉的数据
+    df = df[df['铁次号'] < 30000000]
+
+    # 这里假设 param_list 中的指标都在一个表里
+    for param in param_list:
+        if not any(df["采集项名称"].isin([param])):
+            raise KeyError("df 中 没有 param", df.shape, param)
+        df_pure = df.groupby("采集项名称").get_group(param)  # 筛选 都在同一个表里
+        df_pure = df_pure.groupby('铁次号').agg(agg_func).rename(columns={'采集项值': param})
+        res = pd.merge(res, df_pure, how="outer", left_index=True, right_index=True)
+    return res
 
 
 class Solution:
@@ -55,22 +55,8 @@ class Solution:
     def get_time_table(self):
         """
         获取 铁次时间表的 DataFrame 型
-        其中 index 是其 铁次
-        :return:
         """
-        time_table = pd.read_excel(IRON_TIME[self.table])
-
-        # 格式化
-        time_table['受铁开始时间'] = time_table['受铁开始时间'].astype('datetime64')
-        time_table['受铁结束时间'] = time_table['受铁结束时间'].astype('datetime64')
-        time_table['铁次号'] = time_table['铁次号'].astype('int64')
-
-        # 提取出#2高炉的数据
-        time_table = time_table[time_table['铁次号'] >= 20000000]
-        time_table = time_table[time_table['铁次号'] < 30000000]
-        time_table = time_table.set_index('铁次号').sort_index()
-
-        return time_table
+        return get_time_table(self.table)
 
     def time2order(self, df, five_lag=False):
         """
@@ -138,39 +124,15 @@ class Solution:
         :param param: 指标名
         :return:
         """
-        table_name = find_table(param, self.table)
-        path = PRE_PATH[self.table] + table_name + '.pkl'
-        df = pd.read_pickle(path)
-        if '系统接收时间' in df.columns:
-            df.drop(columns='系统接收时间', inplace=True)
-        df.drop_duplicates(inplace=True)
-        return df
-
-    def process_iron(self, df, param_list, agg_func):
-        """
-        对铁次型数据 预处理
-        :param df: 要传入的表
-        :param agg_func: 聚合函数 传入类型: 一个函数对象
-        :param param_list: 要处理的指标列表 类型: list
-        :return:
-        """
-        res = pd.DataFrame()
-        # df = self.get_df(param_list[0])
-
-        df['铁次号'] = pd.to_numeric(df['铁次号'])
-        # df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])  # 格式化
-        df['采集项值'] = pd.to_numeric(df['采集项值'])  # 格式化
-        df = df[df['铁次号'] >= 20000000]  # 提取出#2高炉的数据
-        df = df[df['铁次号'] < 30000000]
-
-        # 这里假设 param_list 中的指标都在一个表里
-        for param in param_list:
-            if not any(df["采集项名称"].isin([param])):
-                raise KeyError("df 中 没有 param", df.shape, param)
-            df_pure = df.groupby("采集项名称").get_group(param)  # 筛选 都在同一个表里
-            df_pure = df_pure.groupby('铁次号').agg(agg_func).rename(columns={'采集项值': param})
-            res = pd.merge(res, df_pure, how="outer", left_index=True, right_index=True)
-        return res
+        # table_name = find_table(param, self.table)
+        # path = PRE_PATH[self.table] + table_name + '.pkl'
+        # df = pd.read_pickle(path)
+        #
+        # # 为了去除冗余
+        # if '系统接收时间' in df.columns:
+        #     df.drop(columns='系统接收时间', inplace=True)
+        # df.drop_duplicates(inplace=True)
+        return get_df(param, self.table)  # df
 
     def get_molten_iron(self):
         """
@@ -180,7 +142,7 @@ class Solution:
         """
         param_list = ['[C]', '[Ti]', '[Si]', '[S]']
         df = self.get_df(param_list[0])
-        res = self.process_iron(df, param_list, np.mean)
+        res = process_iron(df, param_list, np.mean)
         res['[Ti]+[Si]'] = res['[Ti]'] + res['[Si]']
         res['delta[Ti]'] = res['[Ti]'].diff()
 
@@ -196,7 +158,7 @@ class Solution:
         """
         param_list = ['(TiO2)', '(SiO2)', '(CaO)', '(MgO)', '(Al2O3)']
         df = self.get_df(param_list[0])
-        res = self.process_iron(df, param_list, np.mean)
+        res = process_iron(df, param_list, np.mean)
 
         res['R2'] = res['(CaO)'] / res['(SiO2)']
         res['R3'] = (res['(CaO)'] + res['(MgO)']) / res['(SiO2)']
@@ -216,7 +178,7 @@ class Solution:
         # 计算铁量
         df = self.get_df('受铁重量')
 
-        res = self.process_iron(df, ['受铁重量'], np.sum)
+        res = process_iron(df, ['受铁重量'], np.sum)
         res.rename(columns={'受铁重量': '铁次铁量'}, inplace=True)  # 发现有一些铁次铁量是 0, 需要后期核查
 
         # 计算焦量, 焦比
@@ -224,7 +186,7 @@ class Solution:
         param = param_list[0]
         df_coke = self.get_df(param)
         df_coke = self.time2order(df_coke, five_lag=five_lag)
-        df_coke = self.process_iron(df_coke, param_list, np.sum)
+        df_coke = process_iron(df_coke, param_list, np.sum)
         res['焦比'] = (df_coke['冶金焦（自产）'] + df_coke['小块焦']) / res['铁次铁量'] * 1000
 
         # 计算喷煤 煤比
@@ -360,7 +322,7 @@ class Solution:
         param = param_list[0]
         df_coke = self.get_df(param)
         df_coke = self.time2order(df_coke, five_lag=five_lag)
-        df_coke = self.process_iron(df_coke, param_list, np.sum)
+        df_coke = process_iron(df_coke, param_list, np.sum)
         # res['焦比'] = (df_coke['冶金焦（自产）'] + df_coke['小块焦'])
         res.fillna(0, inplace=True)
         df_coke.fillna(0, inplace=True)
