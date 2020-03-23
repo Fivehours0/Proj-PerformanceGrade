@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="" />
+    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CheckResult.py" beforeDir="false" afterPath="$PROJECT_DIR$/CheckResult.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +47,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PanSteelBlastFurnace" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
@@ -61,8 +65,8 @@
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.lag">
-    <configuration name="do_cluster" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.CheckResult">
+    <configuration name="CheckResult" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -75,7 +79,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\proj-DailyData\do_cluster.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CheckResult.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -88,6 +92,9 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -189,17 +196,17 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.do_cluster" />
       <item itemvalue="Python.make_data2stu" />
       <item itemvalue="Python.preprocess" />
       <item itemvalue="Python.数据日报表化v2.1" />
       <item itemvalue="Python.lag" />
+      <item itemvalue="Python.CheckResult" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.CheckResult" />
         <item itemvalue="Python.lag" />
         <item itemvalue="Python.lag" />
-        <item itemvalue="Python.make_data2stu" />
         <item itemvalue="Python.make_data2stu" />
         <item itemvalue="Python.make_data2stu" />
       </list>
@@ -222,6 +229,9 @@
       <workItem from="1584435501901" duration="7610000" />
       <workItem from="1584515646637" duration="13197000" />
       <workItem from="1584588204002" duration="6205000" />
+      <workItem from="1584715238519" duration="670000" />
+      <workItem from="1584882998396" duration="6201000" />
+      <workItem from="1584964553875" duration="804000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -463,10 +473,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1584168208998" />
-    <state x="532" y="118" key="FileChooserDialogImpl" timestamp="1584350181770">
+    <state x="532" y="118" key="FileChooserDialogImpl" timestamp="1584929254266">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="532" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1584350181770" />
+    <state x="532" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1584929254266" />
     <state width="709" height="402" key="GridCell.Tab.0.bottom" timestamp="1584264493031">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

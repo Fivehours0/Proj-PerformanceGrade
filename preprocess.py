@@ -1,7 +1,7 @@
 """
 :describe 按照铁次整理数据
 :author 夏尚梓
-:version v1.0
+:version v1.1 add new 指标
 """
 import numpy as np
 import pandas as pd
@@ -175,12 +175,15 @@ class Solution:
     def get_molten_iron(self):
         """
         '[C]', '[Ti]', '[Si]', '[S]'
+        delta[Ti]  后一个减去前一个。
         :return:
         """
         param_list = ['[C]', '[Ti]', '[Si]', '[S]']
         df = self.get_df(param_list[0])
         res = self.process_iron(df, param_list, np.mean)
         res['[Ti]+[Si]'] = res['[Ti]'] + res['[Si]']
+        res['delta[Ti]'] = res['[Ti]'].diff()
+
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -188,7 +191,7 @@ class Solution:
         """
         (TiO2) (SiO2) (CaO) (MgO) (Al2O3)
         R2 = CaO/SiO2  R3 = (CaO+MgO)/SiO2  R4 = (CaO+MgO)/(SiO2+Al2O3) 镁铝比 = MgO / Al2O3
-        δR2 搞不了
+        δR2 同 delta[Ti]
         :return:
         """
         param_list = ['(TiO2)', '(SiO2)', '(CaO)', '(MgO)', '(Al2O3)']
@@ -199,13 +202,15 @@ class Solution:
         res['R3'] = (res['(CaO)'] + res['(MgO)']) / res['(SiO2)']
         res['R4'] = (res['(CaO)'] + res['(MgO)']) / (res['(SiO2)'] + res['(Al2O3)'])
         res['镁铝比'] = res['(MgO)'] / res['(Al2O3)']  # 有一条明显比较怪的数据, 需要后期核查
-
+        res['deltaR2'] = res['R2'].diff()
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
     def get_ratio(self, five_lag=False):
         """
-        铁次铁量,喷吹速率,焦比,煤比,燃料比,出铁次数/出铁时间
+        铁次铁量,喷吹速率,焦比,煤比,燃料比,出铁次数/出铁时间  粉焦比
+
+        日喷煤量： 用喷吹速率推算 铁次煤量
         :return:
         """
         # 计算铁量
@@ -229,10 +234,12 @@ class Solution:
 
         res['喷吹速率'] = df_mei['喷吹速率']
         res['出铁次数/出铁时间,min'] = 1 / df_mei['d']
+        res['日喷煤量'] = df_mei['d'] * df_mei['喷吹速率']
         res['煤比'] = df_mei['d'] * df_mei['喷吹速率'] / res['铁次铁量'] * 20
         # 燃料比
         res['燃料比'] = res['煤比'] + res['焦比']
 
+        res['粉焦比'] = res['煤比'] / res['焦比']
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -241,6 +248,7 @@ class Solution:
         送风风量,热风压力,炉顶压力,标准风速,热风温度
         实际风速 = 标准风速*(0.101325/273)*((273+风温)/(风压/10+0.101325))
         透气性指数 = 送风风量 / (热风压力 - 炉顶压力1,2) * 100
+        压差
         :return:
         """
         res = self.process_big_time(['送风风量', '热风压力', '标准风速', '热风温度'], self.get_df('送风风量'))
@@ -248,7 +256,7 @@ class Solution:
         res['炉顶压力'] = res2.mean(axis=1)
         res['实际风速'] = res['标准风速'] * (0.101325 / 273) * ((273 + res['热风温度']) / (res['热风压力'] / 1000 + 0.101325))
         res['透气性指数'] = res['送风风量'] / (res['热风压力'] - res['炉顶压力']) * 100
-
+        res['压差'] = res['热风压力'] - res['炉顶压力']
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
 
         return res
@@ -367,6 +375,8 @@ class Solution:
 
     def get_rule(self, five_lag=False):
         """
+        # 计算的不对
+        
         # 计算探尺差
         # 探尺差
         # 西昌2#高炉采集数据表_上料系统
