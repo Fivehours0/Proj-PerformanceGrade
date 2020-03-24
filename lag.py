@@ -280,7 +280,7 @@ if __name__ == "__main__":
     res = get_datas()
 
     # read config
-    config = pd.read_csv('lag_config.lagfig', index_col=0, header=[0, 1])
+    config = pd.read_csv('lag_config.lagfig', index_col=0, header=[0, 1]) # lag_config.lagfig 其实是CSV 文件
     controls = config.index
     products = [i[0] for i in config.columns][::2]
 
@@ -296,4 +296,4 @@ if __name__ == "__main__":
                 lag_res_table.loc[controls[i], products[j]] = lag_analysis(i, j, lag_min, lag_max)
 
     # save table to excel
-    lag_res_table.to_excel('滞后结果表.xlsx')
+    lag_res_table.to_excel('data/滞后结果表.xlsx')

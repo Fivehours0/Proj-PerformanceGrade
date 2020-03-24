@@ -343,13 +343,6 @@ class Solution:
         # 探尺差
         # 西昌2#高炉采集数据表_上料系统
         """
-        # if self.table == 20:
-        # path = 'data/西昌2#高炉数据19年12月-20年2月/pkl/西昌2#高炉采集数据表_上料系统.pkl'
-        # elif self.table == 19:
-        # path = 'data/西昌2#高炉数据19年10-11月/pkl/西昌2#高炉采集数据表_上料系统.pkl'
-        # df = pd.read_pickle(path)  # 导入
-        # df.drop_duplicates(inplace=True)  # 去除重复采集值
-
         df = self.get_df('探尺（南）')
         # 格式化
         df['采集项值'] = pd.to_numeric(df['采集项值'])
@@ -367,6 +360,20 @@ class Solution:
 
             hooker[hooker_name][hooker[hooker_name] > 1e7] = None  # 去除1e7 的异常值
             hooker[hooker_name].drop_duplicates(keep=False, inplace=True)  # 去除数据源中同一时刻的重复采样
+
+            # 计算有没有悬料：
+            xuan = hooker.sort_index()
+
+            xuan['diff'] = xuan.diff()
+            temp = xuan.where(xuan['diff'] == 0).dropna()
+            xuan_res = temp.where(temp[hooker_name] > 1.5).dropna()
+
+            xuan_time_table = self.time_table
+            xuan_time_table['next_start'] = xuan_time_table['受铁开始时间'].shift(-1)
+
+            self.res[hooker_name + '悬料'] = xuan_time_table.apply(
+                lambda x: xuan_res.loc[x['受铁开始时间']:x['next_start'], :].shape[0], axis=1)
+
             hookers.append(hooker)
 
         # 找出 所有 在同一时刻 三个探尺高度数据都不缺失的样本
@@ -411,3 +418,4 @@ if __name__ == "__main__":
     ans_lag = main(five_lag=True)
 
     # self = Solution(20)
+    # print("test")
