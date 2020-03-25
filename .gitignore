@@ -14,5 +14,7 @@
 *.pptx
 *.ppt
 
+*.ffs_db
+
 data
 img
