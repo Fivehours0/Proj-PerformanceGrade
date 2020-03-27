@@ -1,14 +1,9 @@
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-
-"""
-如果有新的数据来的时候需要拓展！！！
-"""
-# 修补画图时 中文乱码的问题
-plt.rcParams['font.sans-serif'] = ['SimHei']
-plt.rcParams['axes.unicode_minus'] = False
-
+# # 修补画图时 中文乱码的问题
+# plt.rcParams['font.sans-serif'] = ['SimHei']
+# plt.rcParams['axes.unicode_minus'] = False
 # excel 文件处理成 pkl文件后 的存放路径
 PRE_PATH = {19: 'data/西昌2#高炉数据19年10-11月/pkl/',
             20: 'data/西昌2#高炉数据19年12月-20年2月/pkl/'}

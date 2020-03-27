@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/second_process.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/get_things.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/get_things.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mymo/myPCA.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/myPCA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
     </list>
@@ -61,34 +62,13 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\一次性" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\proj-DailyData" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.myPCA">
-    <configuration name="CheckResult" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CheckResult.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.preprocess">
     <configuration name="check_origin" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -115,6 +95,9 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -134,9 +117,6 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -163,6 +143,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocess.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="second_process" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mymo/second_process.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -195,18 +194,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.preprocess" />
-      <item itemvalue="Python.CheckResult" />
       <item itemvalue="Python.check_origin" />
       <item itemvalue="Python.myPCA" />
       <item itemvalue="Python.setup" />
+      <item itemvalue="Python.second_process" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.myPCA" />
-        <item itemvalue="Python.setup" />
-        <item itemvalue="Python.myPCA" />
         <item itemvalue="Python.preprocess" />
+        <item itemvalue="Python.second_process" />
+        <item itemvalue="Python.second_process" />
         <item itemvalue="Python.preprocess" />
+        <item itemvalue="Python.myPCA" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +231,9 @@
       <workItem from="1584964553875" duration="23611000" />
       <workItem from="1585121391578" duration="9440000" />
       <workItem from="1585142587201" duration="676000" />
-      <workItem from="1585149678210" duration="3786000" />
+      <workItem from="1585149678210" duration="4554000" />
+      <workItem from="1585189884081" duration="3171000" />
+      <workItem from="1585293858200" duration="8206000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -423,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585131264536</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="update pca code">
+      <created>1585153817633</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1585153817633</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -479,7 +487,8 @@
     <MESSAGE value="create mymo" />
     <MESSAGE value="优化代码" />
     <MESSAGE value="复现PCA文献" />
-    <option name="LAST_COMMIT_MESSAGE" value="复现PCA文献" />
+    <MESSAGE value="update pca code" />
+    <option name="LAST_COMMIT_MESSAGE" value="update pca code" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -490,26 +499,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="136" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1583916362496" />
-    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585121780876">
+    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585300290884">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1585121780876" />
+    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1585300290884" />
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1584325312830">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1585131262324">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1585153815315">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585131262324" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585153815315" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1584168208998">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1584168208998" />
-    <state x="532" y="118" key="FileChooserDialogImpl" timestamp="1585150943946">
+    <state x="532" y="118" key="FileChooserDialogImpl" timestamp="1585197682036">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="532" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585150943946" />
+    <state x="532" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585197682036" />
     <state width="709" height="402" key="GridCell.Tab.0.bottom" timestamp="1584264493031">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -542,10 +551,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1585131342332">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1585315606722">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1585131342332" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1585315606721" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

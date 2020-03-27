@@ -181,6 +181,16 @@ class Solution:
         res = process_iron(df, ['受铁重量'], np.sum)
         res.rename(columns={'受铁重量': '铁次铁量'}, inplace=True)  # 发现有一些铁次铁量是 0, 需要后期核查
 
+        # 高炉每小时利用率
+        d = self.time_table['受铁开始时间'].shift(-1) - self.time_table['受铁开始时间']
+        # temp_d = d.where(d > pd.to_timedelta('1min'))
+        res['每小时高炉利用系数'] = res['铁次铁量'] / (d / pd.to_timedelta('60min')) / 1750
+        # res['每小时高炉利用系数(受铁重量)'] = res['铁次铁量'] / d / pd.to_timedelta('60min')
+
+        # df_iron_speed = self.get_df("出铁速率")  # 出铁速率记录时间太少了。
+        # df_iron_speed2 = self.time2order(df_iron_speed)
+        # df_iron_speed3 = process_iron(df_iron_speed2,)
+
         # 计算焦量, 焦比
         param_list = ['冶金焦（自产）', '小块焦']
         param = param_list[0]
@@ -414,8 +424,8 @@ def main(five_lag=False):
 
 
 if __name__ == "__main__":
-    ans = main(five_lag=False)
-    ans_lag = main(five_lag=True)
-
-    # self = Solution(20)
-    # print("test")
+    # ans = main(five_lag=False)
+    # ans_lag = main(five_lag=True)
+    obj19 = Solution(19)
+    obj20 = Solution(20)
+    ans = pd.concat([obj19.get_ratio(), obj20.get_ratio()])
