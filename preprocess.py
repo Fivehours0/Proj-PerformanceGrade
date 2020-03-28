@@ -181,15 +181,12 @@ class Solution:
         res = process_iron(df, ['受铁重量'], np.sum)
         res.rename(columns={'受铁重量': '铁次铁量'}, inplace=True)  # 发现有一些铁次铁量是 0, 需要后期核查
 
-        # 高炉每小时利用率
-        d = self.time_table['受铁开始时间'].shift(-1) - self.time_table['受铁开始时间']
-        # temp_d = d.where(d > pd.to_timedelta('1min'))
-        res['每小时高炉利用系数'] = res['铁次铁量'] / (d / pd.to_timedelta('60min')) / 1750
-        # res['每小时高炉利用系数(受铁重量)'] = res['铁次铁量'] / d / pd.to_timedelta('60min')
-
-        # df_iron_speed = self.get_df("出铁速率")  # 出铁速率记录时间太少了。
-        # df_iron_speed2 = self.time2order(df_iron_speed)
-        # df_iron_speed3 = process_iron(df_iron_speed2,)
+        # # 高炉每小时利用率
+        # # d = self.time_table['受铁开始时间'].shift(-1) - self.time_table['受铁开始时间']
+        # d = self.time_table['受铁结束时间'].shift(-1) - self.time_table['受铁结束时间']
+        # # temp_d = d.where(d > pd.to_timedelta('1min'))
+        # res['每小时高炉利用系数'] = res['铁次铁量'] / (d / pd.to_timedelta('60min')) / 1750
+        # # res['每小时高炉利用系数(受铁重量)'] = res['铁次铁量'] / d / pd.to_timedelta('60min')
 
         # 计算焦量, 焦比
         param_list = ['冶金焦（自产）', '小块焦']
@@ -424,8 +421,32 @@ def main(five_lag=False):
 
 
 if __name__ == "__main__":
+
+    # 主入口
     # ans = main(five_lag=False)
     # ans_lag = main(five_lag=True)
+
+
+    # 拓展功能
+
+    # # 计算高炉利用系数
     obj19 = Solution(19)
     obj20 = Solution(20)
-    ans = pd.concat([obj19.get_ratio(), obj20.get_ratio()])
+
+    # 考虑弃用代码！
+    #
+    #
+    # def foo(self):
+    #     # self = obj19
+    #     df = self.get_df('受铁重量')
+    #     res = process_iron(df, ['受铁重量'], np.sum)
+    #     res.rename(columns={'受铁重量': '铁次铁量'}, inplace=True)  # 发现有一些铁次铁量是 0, 需要后期核查
+    #     # 高炉每小时利用率
+    #     time_table = self.time_table
+    #     time_table['d'] = time_table['受铁结束时间'].diff()
+    #     time_table['hour'] = time_table['d'] / pd.to_timedelta('60min')
+    #     res['每小时高炉利用系数'] = res['铁次铁量'] / time_table['hour'] / 1750
+    #     return res
+    # ans = pd.concat([foo(obj19), foo(obj20)])
+    # ans['每小时高炉利用系数'].to_excel(r"C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\钢研院指标的铁次化数据抽取"
+    #                           + r"\每小时高炉利用系数.xlsx")
