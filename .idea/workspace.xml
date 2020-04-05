@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mymo/myCluster/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/myCluster/myClusterv2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/myPCA/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/myPCA/myPCA2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/get_things.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/get_things.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/pan_index.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/pan_index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/second_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/second_process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/refer/计算公式的参考链接.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/myPCA.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/myPCA/myPCA.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,13 +66,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myPCA" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\一次性" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\proj-DailyData" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.preprocess">
+  <component name="RunManager" selected="Python.myPCA2">
     <configuration name="iron_product_speed" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -87,6 +88,44 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mymo/iron_product_speed.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="myClusterv2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo/myCluster" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mymo/myCluster/myClusterv2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="myPCA2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo/myPCA" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mymo/myPCA/myPCA2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -121,6 +160,9 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -155,64 +197,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="second_process" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mymo/second_process.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/setup.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.preprocess" />
-      <item itemvalue="Python.setup" />
-      <item itemvalue="Python.second_process" />
       <item itemvalue="Python.iron_product_speed" />
       <item itemvalue="Python.pan_index" />
+      <item itemvalue="Python.myPCA2" />
+      <item itemvalue="Python.myClusterv2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.preprocess" />
-        <item itemvalue="Python.preprocess" />
-        <item itemvalue="Python.preprocess" />
-        <item itemvalue="Python.preprocess" />
-        <item itemvalue="Python.setup" />
+        <item itemvalue="Python.myPCA2" />
+        <item itemvalue="Python.myClusterv2" />
+        <item itemvalue="Python.myClusterv2" />
+        <item itemvalue="Python.myClusterv2" />
+        <item itemvalue="Python.myClusterv2" />
       </list>
     </recent_temporary>
   </component>
@@ -244,7 +242,8 @@
       <workItem from="1585362271846" duration="6189000" />
       <workItem from="1585379608642" duration="14720000" />
       <workItem from="1585798849875" duration="776000" />
-      <workItem from="1586056808780" duration="3643000" />
+      <workItem from="1586056808780" duration="3834000" />
+      <workItem from="1586087816722" duration="5967000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -456,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585405804934</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="preprocess:&#10;  增加高炉利用率">
+      <created>1586075328238</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1586075328238</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -515,7 +521,8 @@
     <MESSAGE value="update pca code" />
     <MESSAGE value="二次处理" />
     <MESSAGE value="pan-standard-iron-order-data-process" />
-    <option name="LAST_COMMIT_MESSAGE" value="pan-standard-iron-order-data-process" />
+    <MESSAGE value="preprocess:&#10;  增加高炉利用率" />
+    <option name="LAST_COMMIT_MESSAGE" value="preprocess:&#10;  增加高炉利用率" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -534,18 +541,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1585405802535">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586075325176">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585405802535" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586075325176" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1584168208998">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1584168208998" />
-    <state x="532" y="118" key="FileChooserDialogImpl" timestamp="1585197682036">
+    <state x="532" y="118" key="FileChooserDialogImpl" timestamp="1586093723169">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="532" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585197682036" />
+    <state x="532" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586093723169" />
     <state width="709" height="402" key="GridCell.Tab.0.bottom" timestamp="1584264493031">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -582,10 +589,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585799025550" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1585405852327">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586075363479">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1585405852327" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586075363479" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
