@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mymo/iron_product_speed.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mymo/pan_index.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/get_things.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/get_things.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/pan_index.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/pan_index.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mymo/second_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/second_process.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/refer/计算公式的参考链接.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +55,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -72,11 +72,14 @@
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.setup">
+  <component name="RunManager" selected="Python.preprocess">
     <configuration name="iron_product_speed" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -156,6 +159,9 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -175,6 +181,9 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -199,11 +208,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.preprocess" />
+        <item itemvalue="Python.preprocess" />
+        <item itemvalue="Python.preprocess" />
+        <item itemvalue="Python.preprocess" />
         <item itemvalue="Python.setup" />
-        <item itemvalue="Python.setup" />
-        <item itemvalue="Python.second_process" />
-        <item itemvalue="Python.setup" />
-        <item itemvalue="Python.iron_product_speed" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +242,9 @@
       <workItem from="1585189884081" duration="3171000" />
       <workItem from="1585293858200" duration="8839000" />
       <workItem from="1585362271846" duration="6189000" />
-      <workItem from="1585379608642" duration="12832000" />
+      <workItem from="1585379608642" duration="14720000" />
+      <workItem from="1585798849875" duration="776000" />
+      <workItem from="1586056808780" duration="3643000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -438,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585315630118</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="pan-standard-iron-order-data-process">
+      <created>1585405804933</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1585405804934</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView">
@@ -496,7 +514,8 @@
     <MESSAGE value="复现PCA文献" />
     <MESSAGE value="update pca code" />
     <MESSAGE value="二次处理" />
-    <option name="LAST_COMMIT_MESSAGE" value="二次处理" />
+    <MESSAGE value="pan-standard-iron-order-data-process" />
+    <option name="LAST_COMMIT_MESSAGE" value="pan-standard-iron-order-data-process" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -515,10 +534,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1585315627880">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1585405802535">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585315627880" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585405802535" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1584168208998">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -559,10 +578,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1585315640226">
+    <state x="186" y="6" key="SettingsEditor" timestamp="1585799025550">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1585315640226" />
+    <state x="186" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585799025550" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1585405852327">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1585405852327" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -571,10 +594,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1585396376314" />
-    <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog" timestamp="1584095174721">
+    <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog" timestamp="1585405846327">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog/0.0.1366.728@0.0.1366.728" timestamp="1584095174721" />
+    <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog/0.0.1366.728@0.0.1366.728" timestamp="1585405846327" />
     <state x="316" y="98" width="700" height="530" key="recent.locations.popup" timestamp="1584972729803">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

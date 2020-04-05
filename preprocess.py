@@ -2,6 +2,9 @@
 :describe 按照铁次整理数据
 :author 夏尚梓
 :version v1.1 add new 指标
+
+进来新数据时需要 运行MakePickle.py 转成pkl文件， 第二需要 运行ShowIndex.py 整理出指标excel对照表。
+
 """
 import numpy as np
 import pandas as pd
@@ -9,6 +12,7 @@ from matplotlib import pyplot as plt
 from mymo.get_things import find_table
 from mymo.get_things import get_df
 from mymo.get_things import get_time_table
+from mymo.iron_product_speed import get_iron_speed
 
 # 修补画图时 中文乱码的问题
 plt.rcParams['font.sans-serif'] = ['SimHei']
@@ -395,6 +399,14 @@ class Solution:
 
         return self.res['探尺差']
 
+    def get_use_ratio(self):
+        """
+        获取高炉每小时利用系数
+        :return:
+        """
+        self.res['每小时高炉利用系数'], _ = get_iron_speed(self.table)
+        return self.res['每小时高炉利用系数']
+
 
 def main(five_lag=False):
     obj19 = Solution(19)
@@ -410,6 +422,7 @@ def main(five_lag=False):
         obj.get_chemical(five_lag)
         obj.get_rule(five_lag)
         obj.get_slag_amount(five_lag)
+        obj.get_use_ratio()
 
     ans = pd.concat([obj19.res, obj20.res])
     ans[ans == np.inf] = np.nan  # 因为有些铁次铁量为0 从而导致一些煤比 焦比等铁量衍生指标 算出 inf, np.nan填充
@@ -421,32 +434,12 @@ def main(five_lag=False):
 
 
 if __name__ == "__main__":
-
     # 主入口
-    # ans = main(five_lag=False)
-    # ans_lag = main(five_lag=True)
-
+    ans = main(five_lag=False)
+    ans_lag = main(five_lag=True)
 
     # 拓展功能
 
     # # 计算高炉利用系数
-    obj19 = Solution(19)
-    obj20 = Solution(20)
-
-    # 考虑弃用代码！
-    #
-    #
-    # def foo(self):
-    #     # self = obj19
-    #     df = self.get_df('受铁重量')
-    #     res = process_iron(df, ['受铁重量'], np.sum)
-    #     res.rename(columns={'受铁重量': '铁次铁量'}, inplace=True)  # 发现有一些铁次铁量是 0, 需要后期核查
-    #     # 高炉每小时利用率
-    #     time_table = self.time_table
-    #     time_table['d'] = time_table['受铁结束时间'].diff()
-    #     time_table['hour'] = time_table['d'] / pd.to_timedelta('60min')
-    #     res['每小时高炉利用系数'] = res['铁次铁量'] / time_table['hour'] / 1750
-    #     return res
-    # ans = pd.concat([foo(obj19), foo(obj20)])
-    # ans['每小时高炉利用系数'].to_excel(r"C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\钢研院指标的铁次化数据抽取"
-    #                           + r"\每小时高炉利用系数.xlsx")
+    # obj19 = Solution(19)
+    # obj20 = Solution(20)

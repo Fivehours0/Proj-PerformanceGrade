@@ -15,12 +15,12 @@ def generate_gyy_table(file, output_file):
     :return:
     """
 
-    file_add = 'data/钢研院指标的铁次化数据抽取/每小时高炉利用系数(出铁速率版).xlsx'
+    # file_add = 'data/钢研院指标的铁次化数据抽取/每小时高炉利用系数(出铁速率版).xlsx'
 
-    df_first = pd.read_excel(file, index_col=0)
-    df_addition = pd.read_excel(file_add, index_col=0)
+    df = pd.read_excel(file, index_col=0)
+    # df_addition = pd.read_excel(file_add, index_col=0)
 
-    df = pd.merge(df_addition, df_first, how='outer', left_index=True, right_index=True)
+    # df = pd.merge(df_addition, df_first, how='outer', left_index=True, right_index=True)
 
     contrast = pd.read_excel("data/钢研院指标的铁次化数据抽取/钢研院参数对照表.xlsx")  # 读入对照表
     list_need = contrast['我们的铁次参数']
@@ -36,9 +36,10 @@ def generate_all_gyy_table():
     :return:
     """
 
-    input_file = 'data/铁次结果汇总_无滞后处理v2.0.xlsx'
+    input_file = 'data/铁次结果汇总_无滞后处理v2.1.xlsx'
     output_file = "data/钢研院指标的铁次化数据抽取/release/铁次结果汇总_无滞后v3.0.xlsx"
     generate_gyy_table(input_file, output_file)
-    input_file = 'data/铁次结果汇总_5h滞后处理v2.0.xlsx'
+
+    input_file = 'data/铁次结果汇总_5h滞后处理v2.1.xlsx'
     output_file = "data/钢研院指标的铁次化数据抽取/release/铁次结果汇总_5h滞后v3.0.xlsx"
     generate_gyy_table(input_file, output_file)

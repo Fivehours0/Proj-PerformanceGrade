@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
+
 # # 修补画图时 中文乱码的问题
 # plt.rcParams['font.sans-serif'] = ['SimHei']
 # plt.rcParams['axes.unicode_minus'] = False
@@ -21,9 +22,9 @@ def find_table(name: str, table: int) -> str or None:
     :return 表名
     """
 
-    if table == 19:
+    if table == 19 or table == 1:  # 如果是19年的数据或者是第一批数据
         path = 'data/19数据表各个名称罗列.xlsx'
-    elif table == 20:
+    elif table == 20 or table == 2:  # 如果是20年的部分你数据或者是第二批数据
         path = 'data/20数据表各个名称罗列.xlsx'
     else:
         raise Exception("不存在表：{}数据表各个名称罗列.xlsx".format(table))

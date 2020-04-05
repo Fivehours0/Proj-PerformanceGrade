@@ -12,22 +12,6 @@ plt.rcParams['axes.unicode_minus'] = False
 
 # if __name__ == '__main__':
 """
-对 每小时高炉利用系数进行二次处理
-"""
-# df_use_ratio = pd.read_excel(
-#     r'C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\钢研院指标的铁次化数据抽取\每小时高炉利用系数.xlsx',
-#     index_col=0)
-# df_outs = pd.read_excel(r"C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\铁次结果汇总_5h滞后处理v2.0.xlsx",
-#                         index_col=0)
-#
-# df_new = pd.merge(df_outs, df_use_ratio, how='left', left_index=True, right_index=True)
-#
-# use_ratio = df_new['每小时高炉利用系数']
-# use_ratio = use_ratio.fillna(use_ratio.mean())
-# use_ratio.to_excel(
-#     r'C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\钢研院指标的铁次化数据抽取\每小时高炉利用系数_二次处理后.xlsx')
-
-"""
 对 每小时高炉利用系数(出铁速率版)进行二次处理
 """
 from mymo.iron_product_speed import get_all_iron_speed
