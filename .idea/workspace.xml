@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/rating/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/rating/rating.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/get_things.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/get_things.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,9 +89,6 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myCluster" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\demo" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\西昌2#高炉数据19年12月-20年2月" />
@@ -97,34 +96,18 @@
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\一次性" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myCluster" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.myClusterLabel">
-    <configuration name="iron_product_speed" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.rating">
+    <configuration name="myClusterLabel" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mymo/iron_product_speed.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="myClusterLabel" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo/myCluster" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -206,16 +189,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="rating" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo/rating" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mymo/rating/rating.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.iron_product_speed" />
       <item itemvalue="Python.pan_index" />
       <item itemvalue="Python.myPCA2" />
       <item itemvalue="Python.myClusterv2" />
       <item itemvalue="Python.myClusterLabel" />
+      <item itemvalue="Python.rating" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.myClusterLabel" />
+        <item itemvalue="Python.rating" />
         <item itemvalue="Python.myClusterLabel" />
         <item itemvalue="Python.myClusterLabel" />
         <item itemvalue="Python.myClusterLabel" />
@@ -629,10 +631,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586598391162" />
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1586246391524">
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1586602793604">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1586246391524" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1586602793604" />
     <state x="532" y="118" key="FileChooserDialogImpl" timestamp="1586093723169">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -677,10 +679,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="280" key="VCS.ChangelistChooser/0.0.1366.728@0.0.1366.728" timestamp="1586598421064" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586597866119">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586602180045">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586597866119" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586602180045" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

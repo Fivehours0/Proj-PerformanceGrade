@@ -22,9 +22,9 @@ def find_table(name: str, table: int) -> str or None:
     :return 表名
     """
 
-    if table == 19 or table == 1:  # 如果是19年的数据或者是第一批数据
+    if table == 19:
         path = 'data/19数据表各个名称罗列.xlsx'
-    elif table == 20 or table == 2:  # 如果是20年的部分你数据或者是第二批数据
+    elif table == 20:
         path = 'data/20数据表各个名称罗列.xlsx'
     else:
         raise Exception("不存在表：{}数据表各个名称罗列.xlsx".format(table))
