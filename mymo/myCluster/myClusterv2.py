@@ -1,5 +1,6 @@
 """
 使用钢研院铁次化数据进行聚类分析
+聚类的两个维度分别是 利用系数与燃料比的混合指标 + 第三维度
 """
 import numpy as np
 import pandas as pd
