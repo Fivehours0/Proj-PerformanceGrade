@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mymo/myCluster/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mymo/myPCA/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/demo/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/demo/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/get_things.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/get_things.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +231,7 @@
       <workItem from="1586087816722" duration="6123000" />
       <workItem from="1586159921993" duration="1248000" />
       <workItem from="1586243673620" duration="3600000" />
-      <workItem from="1586586335759" duration="6241000" />
+      <workItem from="1586586335759" duration="6630000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -472,7 +471,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586592516581</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="增加readme&#10;修改铁次时间.xlsx 位置">
+      <created>1586593702755</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1586593702755</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView">
@@ -534,7 +540,8 @@
     <MESSAGE value="preprocess:&#10;  增加高炉利用率" />
     <MESSAGE value="在mymo中 增加聚类 PCA 模块" />
     <MESSAGE value="创建 myClusterLabel.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="创建 myClusterLabel.py" />
+    <MESSAGE value="增加readme&#10;修改铁次时间.xlsx 位置" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加readme&#10;修改铁次时间.xlsx 位置" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -553,10 +560,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586592515282">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586593701476">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586592515282" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586593701476" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1586246391524">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -601,10 +608,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585799025550" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586592524024">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586593713463">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586592524024" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586593713463" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
