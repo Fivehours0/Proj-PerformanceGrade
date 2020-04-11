@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mymo/demo/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mymo/demo/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +35,31 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -67,11 +91,11 @@
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myCluster" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\demo" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\西昌2#高炉数据19年12月-20年2月" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myPCA" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\一次性" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\proj-DailyData" />
     </key>
   </component>
   <component name="RunManager" selected="Python.myClusterLabel">
@@ -205,6 +229,8 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="" />
+      <changelist id="" name="分支测试" comment="" />
+      <changelist id="" name="分支测试" comment="" />
       <created>1582971071108</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -231,7 +257,7 @@
       <workItem from="1586087816722" duration="6123000" />
       <workItem from="1586159921993" duration="1248000" />
       <workItem from="1586243673620" duration="3600000" />
-      <workItem from="1586586335759" duration="6630000" />
+      <workItem from="1586586335759" duration="9877000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -478,7 +504,28 @@
       <option name="project" value="LOCAL" />
       <updated>1586593702755</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="创建 mymo.demo">
+      <created>1586594057472</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1586594057472</updated>
+    </task>
+    <task id="LOCAL-00037" summary="分支测试">
+      <created>1586597250696</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1586597250696</updated>
+    </task>
+    <task id="LOCAL-00038" summary="分支测试">
+      <created>1586597764150</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1586597764150</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TodoView">
@@ -509,7 +556,23 @@
       <map>
         <entry key="Branch">
           <value>
-            <list />
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="develop" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
         <entry key="User">
@@ -541,7 +604,9 @@
     <MESSAGE value="在mymo中 增加聚类 PCA 模块" />
     <MESSAGE value="创建 myClusterLabel.py" />
     <MESSAGE value="增加readme&#10;修改铁次时间.xlsx 位置" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加readme&#10;修改铁次时间.xlsx 位置" />
+    <MESSAGE value="创建 mymo.demo" />
+    <MESSAGE value="分支测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="分支测试" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -560,10 +625,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586593701476">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586598391162">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586593701476" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586598391162" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1586246391524">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -608,22 +673,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585799025550" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586593713463">
+    <state x="492" y="280" key="VCS.ChangelistChooser" timestamp="1586598421064">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586593713463" />
+    <state x="492" y="280" key="VCS.ChangelistChooser/0.0.1366.728@0.0.1366.728" timestamp="1586598421064" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586597866119">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586597866119" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1584599253025" />
-    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585396376314">
+    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586597287478">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1585396376314" />
-    <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog" timestamp="1585405846327">
+    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1586597287478" />
+    <state x="361" y="154" key="git4idea.merge.GitMergeDialog" timestamp="1586598193112">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog/0.0.1366.728@0.0.1366.728" timestamp="1585405846327" />
+    <state x="361" y="154" key="git4idea.merge.GitMergeDialog/0.0.1366.728@0.0.1366.728" timestamp="1586598193112" />
+    <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog" timestamp="1586598042860">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog/0.0.1366.728@0.0.1366.728" timestamp="1586598042860" />
     <state x="316" y="98" width="700" height="530" key="recent.locations.popup" timestamp="1584972729803">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
