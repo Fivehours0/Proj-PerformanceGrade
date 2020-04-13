@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mymo/rating/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mymo/rating/rating.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/dailyData/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/dailyData/old_code.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/get_things.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/get_things.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/myCluster/myClusterLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/myCluster/myClusterLabel.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,14 +101,11 @@
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myCluster" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.rating">
+  <component name="RunManager" selected="Python.myClusterLabel">
     <configuration name="myClusterLabel" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo/myCluster" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -217,7 +215,7 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.rating" />
+        <item itemvalue="Python.myClusterLabel" />
         <item itemvalue="Python.myClusterLabel" />
         <item itemvalue="Python.myClusterLabel" />
         <item itemvalue="Python.myClusterLabel" />
@@ -527,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586597764150</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="add rating.py">
+      <created>1586608739467</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1586608739468</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TodoView">
@@ -608,7 +613,8 @@
     <MESSAGE value="增加readme&#10;修改铁次时间.xlsx 位置" />
     <MESSAGE value="创建 mymo.demo" />
     <MESSAGE value="分支测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="分支测试" />
+    <MESSAGE value="add rating.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="add rating.py" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -627,10 +633,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586598391162">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586608738156">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586598391162" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586608738156" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1586602793604">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -679,10 +685,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="280" key="VCS.ChangelistChooser/0.0.1366.728@0.0.1366.728" timestamp="1586598421064" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586602180045">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586608748010">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586602180045" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586608748010" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -711,10 +717,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="277" y="22" key="scopes/0.0.1366.728@0.0.1366.728" timestamp="1584170700910" />
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1585397271393">
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1586765302276">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1585397271393" />
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1586765302276" />
+    <state x="405" y="272" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1586616402295">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="405" y="272" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1366.728@0.0.1366.728" timestamp="1586616402295" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BF_grading_range$preproccess.coverage" NAME="preproccess Coverage Results" MODIFIED="1583916298704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/proj-IornOrderData" />
