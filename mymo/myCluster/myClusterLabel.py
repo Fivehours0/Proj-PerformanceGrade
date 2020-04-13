@@ -32,7 +32,7 @@ if __name__ == '__main__':
     scaled_np = scaler.fit_transform(input_df)
     df_scaled = pd.DataFrame(scaled_np, index=input_df.index, columns=input_df.columns)
 
-    # 聚类
+
     X = pd.DataFrame()
     X['1/每小时高炉利用系数'] = df_scaled['每小时高炉利用系数']  # 取出 利用率,燃料比
     X['燃料比'] = df_scaled['燃料比']

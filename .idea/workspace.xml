@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mymo/dailyData/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mymo/dailyData/old_code.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/myCluster/high_dimension.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mymo/myCluster/myClusterLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/myCluster/myClusterLabel.py" afterDir="false" />
     </list>
@@ -532,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586608739468</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="增加每日数据处理模块">
+      <created>1586770422187</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1586770422188</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView">
@@ -614,7 +619,8 @@
     <MESSAGE value="创建 mymo.demo" />
     <MESSAGE value="分支测试" />
     <MESSAGE value="add rating.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="add rating.py" />
+    <MESSAGE value="增加每日数据处理模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加每日数据处理模块" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -633,18 +639,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586608738156">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586770420782">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586608738156" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586770420782" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1586602793604">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1586602793604" />
-    <state x="532" y="118" key="FileChooserDialogImpl" timestamp="1586093723169">
+    <state x="532" y="118" key="FileChooserDialogImpl" timestamp="1586771297941">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="532" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586093723169" />
+    <state x="532" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586771297941" />
     <state width="709" height="402" key="GridCell.Tab.0.bottom" timestamp="1584264493031">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -685,10 +691,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="280" key="VCS.ChangelistChooser/0.0.1366.728@0.0.1366.728" timestamp="1586598421064" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586608748010">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586770428804">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586608748010" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586770428804" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
