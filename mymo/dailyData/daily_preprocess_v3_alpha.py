@@ -69,12 +69,9 @@ class Solution:
 
     def get_coke(self):
         # 上料质量表
-        param_list = [
-            '焦炭粒度、冷强度_M40',
-            '焦炭粒度、冷强度_M10',
-            '焦炭工分_St',
-            '焦炭热性能_CRI',
-            '焦炭热性能_CSR', '焦炭工分_Ad', '焦炭水分_Mt']
+
+        param_list = "焦炭粒度、冷强度_M40  焦炭粒度、冷强度_M10  焦炭工分_St 焦炭热性能_CRI  焦炭热性能_CSR  焦炭工分_Ad 焦炭水分_Mt " \
+                     " 高炉沟下烧结矿粒度_筛分指数(<5mm) 喷吹煤粉_Ad 喷吹煤粉_Mt 喷吹煤粉_Vdaf 烧结矿性能样(粒度、强度)_转鼓指数".split()
         # param_list_id = [34, 35, 38, 36, 37]
         res = self.process_easy(param_list)
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
@@ -126,7 +123,7 @@ class Solution:
         res['R2'] = res['(CaO)'] / res['(SiO2)']
         res['R3'] = (res['(CaO)'] + res['(MgO)']) / res['(SiO2)']
         res['镁铝比'] = res['(MgO)'] / res['(Al2O3)']
-
+        res['R4'] = (res['(CaO)'] + res['(MgO)']) / (res['(SiO2)'] + res['(Al2O3)'])
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -181,13 +178,13 @@ class Solution:
         # 999999 异常值处理
         df2['采集项值'][df2['采集项值'] > 1e7] = np.nan
 
-        res['日喷煤量'] = df2.groupby('业务处理时间').mean()['采集项值']  # 先求每日的均值
-        res['日喷煤量'] = res['日喷煤量'] * 24 * 60  # 每分钟喷煤量 * 24小时 * 60分钟
+        res['喷吹速率'] = df2.groupby('业务处理时间').mean()['采集项值']  # 先求每日的均值
+        res['日喷煤量'] = res['喷吹速率'] * 24 * 60  # 每分钟喷煤量 * 24小时 * 60分钟
         # temp = df.groupby('业务处理时间').apply(np.max)
         res['煤比'] = res['日喷煤量'] / res['日产量'] * 20
 
         res['燃料比'] = res['焦比'] + res['煤比']
-
+        res['粉焦比'] = res['煤比'] / res['焦比']
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -286,35 +283,28 @@ class Solution:
         炉腹煤气发生量, 炉腹煤气指数
         :return:
         """
-        res = self.process_easy(['炉腹煤气发生量'])
+        param_list = "炉腹煤气发生量 炉顶煤气CO 炉顶煤气CO2 炉顶煤气H2".split()
+        res = self.process_easy(param_list)
         res['炉腹煤气量指数'] = res['炉腹煤气发生量'] / (9.5 * 9.5 * 3.14 / 4)
+        res['煤气利用率'] = res['炉顶煤气CO2'] / (res['炉顶煤气CO'] + res['炉顶煤气CO2'])
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
-    def get_shaojie(self):
-
-        res = self.process_easy(['高炉沟下烧结矿粒度_筛分指数(<5mm)'])
+    def get_lugang1(self):
+        param_list = "理论燃烧温度 鼓风动能".split()
+        res = self.process_easy(param_list)
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
-"""
-{'炉喉温度1',
- '炉喉温度2',
- '炉喉温度3',
- '炉喉温度4',
- '炉喉温度5',
- '炉喉温度6',
- '炉喉温度7',
- '炉喉温度8',
- '炉腹煤气发生量',
- '炉顶温度1',
- '炉顶温度2',
- '炉顶温度3',
- '炉顶温度4',
- '炉顶煤气CO',
- '炉顶煤气CO2',
- '炉顶煤气H2'}
-"""
 
+    def get_iron_temp(self):
+        """
+        [铁水温度]
+        :return:
+        """
+        param_list = "[铁水温度]".split()
+        res = self.process_easy(param_list)
+        self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
+        return res
 
 def main():
     solv = Solution(201)
@@ -328,7 +318,6 @@ def main():
     solv.get_wind()
     solv.get_gas()
     solv.get_rule()
-    solv.get_shaojie()
     dfs = solv.res
     dfs.to_excel('每日数据2月以后部分指标.xlsx')  # 暂时保存一下
 
