@@ -27,7 +27,9 @@ def find_table(name: str, table: int) -> str or None:
     elif table == 20:
         path = 'data/20数据表各个名称罗列.xlsx'
     else:
-        raise Exception("不存在表：{}数据表各个名称罗列.xlsx".format(table))
+        path = 'data/19数据表各个名称罗列.xlsx'
+        print("自动使用[19数据表各个名称罗列.xlsx]")
+        # raise Exception("不存在表：{}数据表各个名称罗列.xlsx".format(table))
 
     dic = pd.read_excel(path)
     temp = dic[dic.isin([name])].dropna(axis=1, how='all')
