@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mymo/dailyData/processDaily.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess_v2_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess_v3_alpha.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MakePickle.py" beforeDir="false" afterPath="$PROJECT_DIR$/MakePickle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess46.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess46.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/dailyData/newDataDeal多.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/dailyData/tool.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/get_things.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/get_things.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess100.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/dailyData/old_code.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/dailyData/processDaily.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/dailyData/processDaily.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,20 +110,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.setup">
-    <configuration name="MakePickle" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="base" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="D:/anaconda3/Lib/site-packages/pandas/core/indexes" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MakePickle.py" />
+      <option name="SCRIPT_NAME" value="D:/anaconda3/Lib/site-packages/pandas/core/indexes/base.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -131,7 +129,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="daily_preprocess100" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="daily_preprocess_v3_alpha" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -141,7 +139,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\dailyData\daily_preprocess100.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\dailyData\daily_preprocess_v3_alpha.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -150,20 +148,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="myPCA2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="get_things" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo/myPCA" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mymo/myPCA/myPCA2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mymo/get_things.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -214,18 +209,18 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.MakePickle" />
-      <item itemvalue="Python.myPCA2" />
       <item itemvalue="Python.rating" />
       <item itemvalue="Python.setup" />
-      <item itemvalue="Python.daily_preprocess100" />
+      <item itemvalue="Python.get_things" />
+      <item itemvalue="Python.base" />
+      <item itemvalue="Python.daily_preprocess_v3_alpha" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.setup" />
         <item itemvalue="Python.setup" />
+        <item itemvalue="Python.base" />
         <item itemvalue="Python.setup" />
-        <item itemvalue="Python.daily_preprocess100" />
         <item itemvalue="Python.setup" />
       </list>
     </recent_temporary>
@@ -265,7 +260,7 @@
       <workItem from="1586586335759" duration="9877000" />
       <workItem from="1586830461669" duration="3000" />
       <workItem from="1586830499340" duration="1444000" />
-      <workItem from="1586832272814" duration="12692000" />
+      <workItem from="1586832272814" duration="24753000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -561,7 +556,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586833479521</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="变动：&#10;get_things.py&#10;MakePickle.py">
+      <created>1586846746372</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1586846746372</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TodoView">
@@ -665,10 +667,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586833477272">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586846744561">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586833477272" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586846744561" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1586602793604">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -717,10 +719,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="280" key="VCS.ChangelistChooser/0.0.1366.728@0.0.1366.728" timestamp="1586598421064" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586833585517">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586846749946">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586833585517" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586846749946" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -749,10 +751,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="277" y="22" key="scopes/0.0.1366.728@0.0.1366.728" timestamp="1584170700910" />
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1586836768778">
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1586854109714">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1586836768778" />
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1586854109714" />
     <state x="405" y="272" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1586616402295">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
