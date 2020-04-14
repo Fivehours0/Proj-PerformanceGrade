@@ -2,16 +2,16 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
-# # 修补画图时 中文乱码的问题
-# plt.rcParams['font.sans-serif'] = ['SimHei']
-# plt.rcParams['axes.unicode_minus'] = False
 # excel 文件处理成 pkl文件后 的存放路径
 PRE_PATH = {19: 'data/西昌2#高炉数据19年10-11月/pkl/',
-            20: 'data/西昌2#高炉数据19年12月-20年2月/pkl/'}
+            20: 'data/西昌2#高炉数据19年12月-20年2月/pkl/',
+            201: 'data/西昌2#高炉数据20年2-4月/pkl/'    # 添加新路径
+            }
 
 # 铁次时间表的存放路径
 IRON_TIME = {19: 'data/西昌2#高炉数据19年10-11月/铁次时间.xlsx',
-             20: 'data/西昌2#高炉数据19年12月-20年2月/铁次时间.xlsx'}
+             20: 'data/西昌2#高炉数据19年12月-20年2月/铁次时间.xlsx',
+             201: 'data/西昌2#高炉数据20年2-4月/铁次时间.xlsx'}
 
 
 def find_table(name: str, table: int) -> str or None:
@@ -22,12 +22,14 @@ def find_table(name: str, table: int) -> str or None:
     :return 表名
     """
 
-    if table == 19 or table == 1:  # 如果是19年的数据或者是第一批数据
+    if table == 19:
         path = 'data/19数据表各个名称罗列.xlsx'
-    elif table == 20 or table == 2:  # 如果是20年的部分你数据或者是第二批数据
+    elif table == 20:
         path = 'data/20数据表各个名称罗列.xlsx'
     else:
-        raise Exception("不存在表：{}数据表各个名称罗列.xlsx".format(table))
+        path = 'data/20数据表各个名称罗列.xlsx'
+        print("自动使用[20数据表各个名称罗列.xlsx]")
+        # raise Exception("不存在表：{}数据表各个名称罗列.xlsx".format(table))
 
     dic = pd.read_excel(path)
     temp = dic[dic.isin([name])].dropna(axis=1, how='all')

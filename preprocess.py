@@ -408,6 +408,7 @@ class Solution:
         return self.res['每小时高炉利用系数']
 
 
+
 def main(five_lag=False):
     obj19 = Solution(19)
     obj20 = Solution(20)

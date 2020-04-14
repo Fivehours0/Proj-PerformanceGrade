@@ -21,7 +21,7 @@ COLORS = ['r', 'y', 'b', 'g', 'k']
 
 if __name__ == '__main__':
     N_CLUSTERS = 5  # 聚类个数
-    save_fig = False
+    save_fig = True
     # 数据读入
     file = r'D:\文件\0-NEU_Works\0-攀钢项目\2-任务-铁次整理\release3.0-钢研院版本\铁次结果汇总_5h滞后v3.0.xlsx'
     input_df = pd.read_excel(file, index_col=0)
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     scaled_np = scaler.fit_transform(input_df)
     df_scaled = pd.DataFrame(scaled_np, index=input_df.index, columns=input_df.columns)
 
-    # 聚类
+
     X = pd.DataFrame()
     X['1/每小时高炉利用系数'] = df_scaled['每小时高炉利用系数']  # 取出 利用率,燃料比
     X['燃料比'] = df_scaled['燃料比']
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     plt.legend()
 
     if save_fig:
-        plt.savefig('C:/Users/Administrator/Desktop/figs/' + X.columns[0] + "与" + X.columns[1]
+        plt.savefig('C:/Users/Administrator/Desktop/figs/'  + X.columns[1]
                     + "2D聚类散点图.png")
         plt.close()
 
@@ -79,7 +79,7 @@ if __name__ == '__main__':
         plt.legend()
         if save_fig:
             plt.savefig(
-                'C:/Users/Administrator/Desktop/figs/' + df.columns[index] + "分类效果图.png")
+                'C:/Users/Administrator/Desktop/figs/' +  str(index)+"分类效果图.png")
             plt.close()
 
         plt.show()
