@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess46.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mymo/dailyData/newDataDeal多.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mymo/dailyData/tool.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mymo/dailyData/processDaily.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MakePickle.py" beforeDir="false" afterPath="$PROJECT_DIR$/MakePickle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess46.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess46.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/dailyData/newDataDeal多.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/dailyData/tool.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mymo/get_things.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/get_things.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,18 +97,18 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myCluster" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\西昌2#高炉数据20年2-4月" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\demo" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\西昌2#高炉数据19年12月-20年2月" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myPCA" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\一次性" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myCluster" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.MakePickle">
+  <component name="RunManager" selected="Python.setup">
     <configuration name="MakePickle" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,42 +131,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="daily_preprocess46" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="daily_preprocess100" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo/dailyData" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mymo/dailyData/daily_preprocess46.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="myClusterLabel" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mymo/myCluster" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mymo/myCluster/myClusterLabel.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\dailyData\daily_preprocess100.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -217,20 +194,39 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/setup.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.MakePickle" />
-      <item itemvalue="Python.myClusterLabel" />
       <item itemvalue="Python.myPCA2" />
       <item itemvalue="Python.rating" />
-      <item itemvalue="Python.daily_preprocess46" />
+      <item itemvalue="Python.setup" />
+      <item itemvalue="Python.daily_preprocess100" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.MakePickle" />
-        <item itemvalue="Python.daily_preprocess46" />
-        <item itemvalue="Python.MakePickle" />
-        <item itemvalue="Python.myClusterLabel" />
-        <item itemvalue="Python.myClusterLabel" />
+        <item itemvalue="Python.setup" />
+        <item itemvalue="Python.setup" />
+        <item itemvalue="Python.setup" />
+        <item itemvalue="Python.daily_preprocess100" />
+        <item itemvalue="Python.setup" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +265,7 @@
       <workItem from="1586586335759" duration="9877000" />
       <workItem from="1586830461669" duration="3000" />
       <workItem from="1586830499340" duration="1444000" />
-      <workItem from="1586832272814" duration="1118000" />
+      <workItem from="1586832272814" duration="12692000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -558,7 +554,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586789714384</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="变动：&#10;get_things.py&#10;MakePickle.py">
+      <created>1586833479521</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1586833479521</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TodoView">
@@ -618,7 +621,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="加入烧结矿" />
     <MESSAGE value="整理" />
     <MESSAGE value="2D 3D 聚类图" />
     <MESSAGE value="类化 画不同角度的3D图" />
@@ -643,7 +645,8 @@
     <MESSAGE value="add rating.py" />
     <MESSAGE value="增加每日数据处理模块" />
     <MESSAGE value="高维聚类" />
-    <option name="LAST_COMMIT_MESSAGE" value="高维聚类" />
+    <MESSAGE value="变动：&#10;get_things.py&#10;MakePickle.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="变动：&#10;get_things.py&#10;MakePickle.py" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -662,10 +665,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586789712988">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586833477272">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586789712988" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586833477272" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1586602793604">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -714,10 +717,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="492" y="280" key="VCS.ChangelistChooser/0.0.1366.728@0.0.1366.728" timestamp="1586598421064" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586789718224">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586833585517">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586789718224" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586833585517" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -746,10 +749,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="277" y="22" key="scopes/0.0.1366.728@0.0.1366.728" timestamp="1584170700910" />
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1586765302276">
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1586836768778">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1586765302276" />
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1586836768778" />
     <state x="405" y="272" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1586616402295">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
     uncooked_path = 'data/西昌2#高炉数据20年2-4月/origin/'  # 没有榨菜过的数据的路径
     cooked_path = 'data/西昌2#高炉数据20年2-4月/pkl/'  # 榨好的路径
-
+    # 16个表
     file_list = ['西昌2#高炉-炉渣成分表.xlsx',
                  '西昌2#高炉-上料成分表.xlsx',
                  '西昌2#高炉采集数据表_高炉本体(炉缸3).xlsx',
@@ -45,3 +45,4 @@ if __name__ == '__main__':
     for file in file_list:
         df = load_excel(uncooked_path + file)
         df.to_pickle(cooked_path + file[:-5] + '.pkl')
+        del df  # 释放内存

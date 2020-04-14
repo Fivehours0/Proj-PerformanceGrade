@@ -2,16 +2,16 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
-# # 修补画图时 中文乱码的问题
-# plt.rcParams['font.sans-serif'] = ['SimHei']
-# plt.rcParams['axes.unicode_minus'] = False
 # excel 文件处理成 pkl文件后 的存放路径
 PRE_PATH = {19: 'data/西昌2#高炉数据19年10-11月/pkl/',
-            20: 'data/西昌2#高炉数据19年12月-20年2月/pkl/'}
+            20: 'data/西昌2#高炉数据19年12月-20年2月/pkl/',
+            201: 'data/西昌2#高炉数据20年2-4月/pkl/'    # 添加新路径
+            }
 
 # 铁次时间表的存放路径
 IRON_TIME = {19: 'data/西昌2#高炉数据19年10-11月/铁次时间.xlsx',
-             20: 'data/西昌2#高炉数据19年12月-20年2月/铁次时间.xlsx'}
+             20: 'data/西昌2#高炉数据19年12月-20年2月/铁次时间.xlsx',
+             201: 'data/西昌2#高炉数据20年2-4月/铁次时间.xlsx'}
 
 
 def find_table(name: str, table: int) -> str or None:
@@ -27,8 +27,8 @@ def find_table(name: str, table: int) -> str or None:
     elif table == 20:
         path = 'data/20数据表各个名称罗列.xlsx'
     else:
-        path = 'data/19数据表各个名称罗列.xlsx'
-        print("自动使用[19数据表各个名称罗列.xlsx]")
+        path = 'data/20数据表各个名称罗列.xlsx'
+        print("自动使用[20数据表各个名称罗列.xlsx]")
         # raise Exception("不存在表：{}数据表各个名称罗列.xlsx".format(table))
 
     dic = pd.read_excel(path)
