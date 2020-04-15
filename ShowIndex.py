@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 
 path0 = './data/西昌2#高炉数据19年10-11月/pkl/'  # 19年数据
-path1 = "./data/西昌2#高炉数据19年12月-20年2月/pkl/"  # 20年数据
+
 file_list1 = [
     '西昌2#高炉采集数据表_高炉本体(炉缸3).pkl',
     '西昌2#高炉采集数据表_高炉本体(炉缸4).pkl',
@@ -56,20 +56,33 @@ file_list0 = [
 
 
 #############耗费很多时间
+path = "data/西昌2#高炉数据19年12月-20年2月/pkl/"
 # get 20年数据中的指标名称
+# out = pd.DataFrame()
+# for i in range(len(file_list1)):
+#     ans = pd.DataFrame()
+#     df = pd.read_pickle(path1 + file_list1[i])
+#     temp = set(df['采集项名称'])
+#     ans[file_list1[i][:-4]] = sorted(temp)
+#     out = pd.merge(out, ans, how='outer', left_index=True, right_index=True)
+#
+# ## 因为 '西昌2#高炉-上料实绩表' 中的 炉顶压力1 炉顶压力2 探尺东南西 无用, 把他放在out表中最后列
+# loc = out.shape[1] - 1
+# beifen = out['西昌2#高炉-上料实绩表']  # 备份要删除的值
+# out = out.drop(columns='西昌2#高炉-上料实绩表', axis=1)
+# out.insert(loc, '西昌2#高炉-上料实绩表', beifen)
+#
+# out.to_excel("data/20数据表各个名称罗列.xlsx")
+
+
+## 自动生成第三批数据的指标分列状况
+path = "data/西昌2#高炉数据20年2-4月/pkl/"
 out = pd.DataFrame()
 for i in range(len(file_list1)):
     ans = pd.DataFrame()
-    df = pd.read_pickle(path1 + file_list1[i])
+    df = pd.read_pickle(path + file_list1[i])
     temp = set(df['采集项名称'])
     ans[file_list1[i][:-4]] = sorted(temp)
     out = pd.merge(out, ans, how='outer', left_index=True, right_index=True)
 
-## 因为 '西昌2#高炉-上料实绩表' 中的 炉顶压力1 炉顶压力2 探尺东南西 无用, 把他放在out表中最后列
-loc = out.shape[1] - 1
-beifen = out['西昌2#高炉-上料实绩表']  # 备份要删除的值
-out = out.drop(columns='西昌2#高炉-上料实绩表', axis=1)
-out.insert(loc, '西昌2#高炉-上料实绩表', beifen)
-
-out.to_excel("data/20数据表各个名称罗列.xlsx")
-
+out.to_excel("data/第三批数据表各个名称罗列.xlsx")
