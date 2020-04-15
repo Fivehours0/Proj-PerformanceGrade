@@ -1,6 +1,6 @@
 """
 :describe 按照铁次整理数据
-:author 夏尚梓
+:author 夏尚梓 auxiliary 杜智辉
 :version v1.1 add new 指标
 
 进来新数据时需要 运行MakePickle.py 转成pkl文件， 第二需要 运行ShowIndex.py 整理出指标excel对照表。
@@ -45,7 +45,6 @@ def process_iron(df, param_list, agg_func):
         res = pd.merge(res, df_pure, how="outer", left_index=True, right_index=True)
     return res
 
-
 class Solution:
     def __init__(self, table):
         """
@@ -80,6 +79,45 @@ class Solution:
             start, end = self.time_table['受铁开始时间'].iloc[i], self.time_table['受铁结束时间'].iloc[i]
             df.loc[start:end, '铁次号'] = self.time_table.index[i]
         return df
+
+    def process_business_time(self, df, param_list, range=False, agg_func=np.mean, five_lag=False, resample=False):
+        """
+        对业务处理时间型数据 预处理
+        读入数据 -> 铁次时间标定 -> 处理 -> 输出
+        :param df: 要传入的表
+        :param param_list: 要处理的指标列表 类型: list
+        :param range: 是否处理极差数据 类型: bool
+        :param agg_func: 聚合方式 类型: 函数, 例如np.mean
+        :param five_lag: 是否进行时滞处理 类型: bool
+        :param resample: 是否对该参数数据进行重采样 类型: bool
+        :return:
+        """
+        res = pd.DataFrame()
+        for param in param_list:
+            if not any(df["采集项名称"].isin([param])):
+                raise KeyError("df 中 没有 param", df.shape, param)
+            df_pure = df.groupby("采集项名称").get_group(param).rename(columns={'采集项值': param})[[param, '业务处理时间']]  # 筛选 都在同一个表里
+            df_pure[param] = pd.to_numeric(df_pure[param])
+            if resample == True:
+                df_pure['业务处理时间'] = pd.to_datetime(df_pure['业务处理时间'])
+                df_pure = df_pure.resample('1min', on='业务处理时间').mean().ffill()
+                df_pure = df_pure.reset_index()
+            df_pure = self.time2order(df_pure, five_lag=five_lag)[[param, '铁次号']][df_pure['铁次号']!=0] # 将样本用铁次进行标定，删除不在铁次内的数据
+            df_pure[param].where(df_pure[param]<1e6, np.nan, inplace=True) # 去除 999999 的异常值
+            if range == False:
+                df_pure = df_pure[param].groupby(df_pure['铁次号']).agg(agg_func)
+                nan_iron_order = set(self.time_table.index)-set(df_pure.index) # 部分铁次号没有数据导致结果中部分铁次缺失，这里把缺失的补上
+                df_pure = df_pure.append(pd.Series(np.nan, nan_iron_order)).sort_index().rename(index=param)
+            else:
+                df_pure_max = df_pure[param].groupby(df_pure['铁次号']).max() # 得出每个铁次号中值的最大值
+                df_pure_min = df_pure[param].groupby(df_pure['铁次号']).min() # 得出每个铁次号中值的最小值
+                df_pure = df_pure_max - df_pure_min
+                nan_iron_order = set(self.time_table.index)-set(df_pure.index) # 部分铁次号没有数据导致结果中部分铁次缺失，这里把缺失的补上
+                df_pure = df_pure.append(pd.Series(np.nan, nan_iron_order)).sort_index().rename(index=(param+'极差'))
+                df_pure[df_pure==0] = np.nan # 将极差为0的数据置为空值
+
+            res = pd.merge(res, df_pure, how="outer", left_index=True, right_index=True)
+        return res    
 
     def process_big_time(self, param, df=None):
         """
@@ -137,6 +175,95 @@ class Solution:
         #     df.drop(columns='系统接收时间', inplace=True)
         # df.drop_duplicates(inplace=True)
         return get_df(param, self.table)  # df
+
+    def get_noumenon0(self):
+        """
+        '炉顶温度1',  '炉顶温度2', '炉顶温度3', '炉顶温度4', 
+        '炉顶煤气CO', '炉顶煤气CO2', '炉顶煤气H2'
+        '炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6', '炉喉温度7', '炉喉温度8'
+        '炉喉温度极差', '炉顶温度极差'
+        '炉顶温度', '炉喉温度'
+        :return:
+        """
+        param_list = ['炉顶温度1',  '炉顶温度2', '炉顶温度3', '炉顶温度4', '炉顶煤气CO', '炉顶煤气CO2', '炉顶煤气H2',
+                      '炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6', '炉喉温度7', '炉喉温度8']
+        df = self.get_df(param_list[0])
+        res = self.process_business_time(df, param_list)
+        res['炉顶温度'] = res[['炉顶温度1',  '炉顶温度2', '炉顶温度3', '炉顶温度4']].mean(axis=1)
+        res['炉喉温度'] = res[['炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6', 
+                             '炉喉温度7', '炉喉温度8']].mean(axis=1)
+        res['煤气利用率'] = res['炉顶煤气CO2'] * 100 / (res['炉顶煤气CO2']+res['炉顶煤气CO'])
+
+        # 以下为极差指标处理
+        res_temp = pd.DataFrame()
+        range_param_list = ['炉顶温度1',  '炉顶温度2', '炉顶温度3', '炉顶温度4',
+                            '炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6', '炉喉温度7', '炉喉温度8']
+        res_temp = self.process_business_time(df, range_param_list, range=True)
+        res['炉顶温度极差'] = res_temp[['炉顶温度1极差',  '炉顶温度2极差', '炉顶温度3极差', '炉顶温度4极差']].mean(axis=1)
+        res['炉喉温度极差'] = res_temp[['炉喉温度1极差', '炉喉温度2极差', '炉喉温度3极差', '炉喉温度4极差', '炉喉温度5极差', 
+                                       '炉喉温度6极差', '炉喉温度7极差', '炉喉温度8极差']].mean(axis=1)
+        
+        self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
+        return res
+
+    def get_noumenon1(self):
+        """
+        ['炉腰温度1', '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6', 
+         '炉身下一层温度1', '炉身下一层温度2', '炉身下一层温度3', '炉身下一层温度4', 
+         '炉身下一层温度5', '炉身下一层温度6', '炉身下一层温度7', '炉身下一层温度8',
+         '炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4', 
+         '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8', '鼓风动能', '理论燃烧温度']
+        """
+        param_list = ['炉腰温度1', '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6', 
+                      '炉身下一层温度1', '炉身下一层温度2', '炉身下一层温度3', '炉身下一层温度4', 
+                      '炉身下一层温度5', '炉身下一层温度6', '炉身下一层温度7', '炉身下一层温度8',
+                      '炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4', 
+                      '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8', '鼓风动能', '理论燃烧温度']
+        df = self.get_df(param_list[0])
+        res = self.process_business_time(df, param_list)
+        res['炉腰温度'] = res[['炉腰温度1',  '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6']].mean(axis=1)
+        res['炉身下二段温度'] = res[['炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4', 
+                                    '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8']].mean(axis=1)
+        self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
+        return res
+
+    def get_noumenon2(self):
+        '''
+        '炉缸温度1', '炉缸温度2', '炉缸温度3', '炉缸温度4', '炉缸温度5', '炉缸温度6',
+        '炉底温度1', '炉底温度2', '炉底温度3', '炉底温度4', '炉底温度5', '炉底温度6',
+        '''
+        param_list = ['炉缸温度1', '炉缸温度2', '炉缸温度3', '炉缸温度4', '炉缸温度5', '炉缸温度6',
+                    '炉底温度1', '炉底温度2', '炉底温度3', '炉底温度4', '炉底温度5', '炉底温度6',
+                    '炉缸中心温度', ]
+        df = self.get_df(param_list[0])
+        res = self.process_business_time(df, param_list)
+        self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
+        return res
+
+    def get_iron_temp(self):
+        """
+        '铁水温度'
+        :return:
+        """
+        res = pd.DataFrame()
+        param_list = ['铁水温度(东)', '铁水温度(西)']
+        df = self.get_df(param_list[0])
+        res_temp = self.process_business_time(df, param_list, agg_func=np.mean)
+        res['铁水温度'] = res_temp.mean(axis=1)
+        self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
+        return res
+    
+    def get_coke_load(self, five_lag):
+        """
+        '焦炭负荷'
+        :return:
+        """
+        res = pd.DataFrame()
+        param_list = ['焦炭负荷']
+        df = self.get_df(param_list[0])
+        res = self.process_business_time(df, param_list, agg_func=np.mean, five_lag=five_lag, resample=True)
+        self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
+        return res        
 
     def get_molten_iron(self):
         """
@@ -224,7 +351,7 @@ class Solution:
         压差
         :return:
         """
-        res = self.process_big_time(['送风风量', '热风压力', '标准风速', '热风温度'], self.get_df('送风风量'))
+        res = self.process_big_time(['送风风量', '热风压力', '标准风速', '热风温度', '富氧量', '风口总面积', '富氧压力'], self.get_df('送风风量'))
         res2 = self.process_big_time(['炉顶压力1', '炉顶压力2'], self.get_df('炉顶压力1'))
         res['炉顶压力'] = res2.mean(axis=1)
         res['实际风速'] = res['标准风速'] * (0.101325 / 273) * ((273 + res['热风温度']) / (res['热风压力'] / 1000 + 0.101325))
@@ -408,14 +535,18 @@ class Solution:
         return self.res['每小时高炉利用系数']
 
 
-
 def main(five_lag=False):
     obj19 = Solution(19)
     obj20 = Solution(20)
     objs = [obj19, obj20]
-
+ 
     for obj in objs:  # 对每个数据对象循环
         obj.get_molten_iron()
+        obj.get_noumenon0() # 高炉本体0
+        obj.get_noumenon1() # 高炉本体1
+        obj.get_noumenon2() # 高炉本体2
+        obj.get_iron_temp() # 铁水温度
+        obj.get_coke_load(five_lag)
         obj.get_slag()
         obj.get_wind()
         obj.get_gas()
@@ -437,7 +568,7 @@ def main(five_lag=False):
 if __name__ == "__main__":
     # 主入口
     ans = main(five_lag=False)
-    ans_lag = main(five_lag=True)
+    # ans_lag = main(five_lag=True)
 
     # 拓展功能
 
