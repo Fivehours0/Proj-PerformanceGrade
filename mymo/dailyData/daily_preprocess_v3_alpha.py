@@ -306,6 +306,62 @@ class Solution:
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
+    def get_iron_count(self):
+        """
+        日出铁次数  出铁次数/出铁时间
+        需要 铁次时间表
+        :return:
+        """
+        res = pd.DataFrame()
+        path = 'data/西昌2#高炉数据20年2-4月/铁次时间.xlsx'
+        df_tb = pd.read_excel(path)
+        df_tb['受铁结束时间'] = pd.to_datetime(df_tb['受铁结束时间'])  # 格式化
+        df_tb['受铁开始时间'] = pd.to_datetime(df_tb['受铁开始时间'])  # 格式化
+
+        temp = df_tb.set_index('受铁开始时间')['铁次号']
+        res['出铁次数'] = temp.resample('1d').count()
+
+        # 出铁时间
+        df_tb['time_len'] = (df_tb['受铁结束时间'] - df_tb['受铁开始时间']) / pd.to_timedelta('1min')  # 单位分钟
+        # 对天进行重采样计算一天的累计受铁时间
+        temp = df_tb.set_index('受铁开始时间')['time_len']
+        res['出铁次数/出铁时间'] = res['日出铁次数'] / temp.resample('1d').sum()
+
+        self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
+        return res
+
+    # 没有 冶金焦（自产） 对应的 冶金焦综合样_CaO 的CaO含量
+    # def get_zha(self):
+    #     """
+    #     计算日渣量
+    #     每日渣量:
+    #     [40赤块_CaO*40赤块+冶金焦综合样_CaO*冶金焦（自产）+南非块矿_CaO*南非块矿+小块焦_CaO*小块焦+
+    #     烧结矿成分_CaO*烧结矿+白马球团_CaO*白马球团+酸性烧结矿_CaO*酸性烧结矿]/(CaO)
+    #
+    #     渣铁比,kg/t = 每日渣量 / 日产量
+    #     :return:
+    #     """
+    #
+    #     list1 = "40赤块_CaO 冶金焦综合样_CaO 南非块矿_CaO " \
+    #             "小块焦_CaO 烧结矿成分_CaO    白马球团_CaO 酸性烧结矿_CaO".split()
+    #     res = self.process_easy(list1)
+    #
+    #     param_list = "40赤块 冶金焦（自产） 南非块矿 小块焦 烧结矿 白马球团 酸性烧结矿".split()
+    #     df_coke = self.process_easy(param_list, np.sum)
+    #
+    #     res.fillna(0, inplace=True)
+    #     df_coke.fillna(0, inplace=True)
+    #
+    #     res['每日渣量'] = 0
+    #     for i in range(7):
+    #         res['每日渣量'] = res['每日渣量'] + res.iloc[:, i] * df_coke.iloc[:, i]
+    #     res['每日渣量'] = res['每日渣量'] / self.res['(CaO)']  # 问题: 铁次区间没有 加矿呢???
+    #     res['渣铁比'] = res['每日渣量'] / self.res['日产量']
+    #     self.res = pd.merge(res.loc[:, ['每日渣量', '渣铁比']], self.res, how="outer", left_index=True,
+    #                         right_index=True)
+    #     return res
+
+
 def main():
     solv = Solution(201)
     solv.get_coke()

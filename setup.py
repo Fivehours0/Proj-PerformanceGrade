@@ -9,17 +9,19 @@ if __name__ == '__main__':
     # # 测试模块
     solv = Solution(201)
     self = solv
-    # solv.get_gas()
-    # res = self.res
+    solv.get_slag()
+    solv.get_zha()
+    res = self.res
 
 
 
 
 
     # 查询表中都有什么指标 好一网打尽
-    find_table('[铁水温度]', 201)
-    df = get_df('[铁水温度]',201)
-    set(df['采集项名称'])
+    # find_table('[铁水温度]', 201)
+    # df = get_df('[铁水温度]',201)
+    # set(df['采集项名称'])
+
 
     # 调用main()
     # main()
