@@ -6,12 +6,15 @@ from matplotlib import pyplot as plt
 PRE_PATH = {19: 'data/西昌2#高炉数据19年10-11月/pkl/',
             20: 'data/西昌2#高炉数据19年12月-20年2月/pkl/',
             201: 'data/西昌2#高炉数据20年2-4月/pkl/'    # 添加新路径
+
             }
 
 # 铁次时间表的存放路径
 IRON_TIME = {19: 'data/西昌2#高炉数据19年10-11月/铁次时间.xlsx',
              20: 'data/西昌2#高炉数据19年12月-20年2月/铁次时间.xlsx',
-             201: 'data/西昌2#高炉数据20年2-4月/铁次时间.xlsx'}
+             201: 'data/西昌2#高炉数据20年2-4月/铁次时间.xlsx'
+
+             }
 
 
 def find_table(name: str, table: int) -> str or None:
