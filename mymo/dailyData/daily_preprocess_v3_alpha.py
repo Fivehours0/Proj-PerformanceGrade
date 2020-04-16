@@ -330,6 +330,47 @@ class Solution:
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
+    def get_furnace_temp(self):
+        """
+        炉温相关指标的一般处理和极差处理
+        '炉喉温度极差', '炉顶温度极差'
+        '炉顶温度', '炉喉温度', '炉腰温度', '炉身下二段温度', 
+        :return:
+        """
+        all_temp_param = [['炉顶温度1',  '炉顶温度2', '炉顶温度3', '炉顶温度4', 
+                           '炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6', '炉喉温度7', '炉喉温度8'],
+                          ['炉腰温度1', '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6', 
+                           '炉身下一层温度1', '炉身下一层温度2', '炉身下一层温度3', '炉身下一层温度4', 
+                           '炉身下一层温度5', '炉身下一层温度6', '炉身下一层温度7', '炉身下一层温度8',
+                           '炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4', 
+                           '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8'],
+                          ['炉缸温度1', '炉缸温度2', '炉缸温度3', '炉缸温度4', '炉缸温度5', '炉缸温度6',
+                           '炉底温度1', '炉底温度2', '炉底温度3', '炉底温度4', '炉底温度5', '炉底温度6', '炉缸中心温度']]
+        res = pd.DataFrame()
+        for param_list in all_temp_param:
+            tmp_res = self.process_easy(param_list)
+            res = pd.merge(res, tmp_res, how="outer", left_index=True, right_index=True)
+        
+        res['炉顶温度'] = res[['炉顶温度1',  '炉顶温度2', '炉顶温度3', '炉顶温度4']].mean(axis=1)
+        res['炉喉温度'] = res[['炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6', 
+                             '炉喉温度7', '炉喉温度8']].mean(axis=1)
+        res['炉喉温度'] = res[['炉腰温度1', '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6']].mean(axis=1)
+        res['炉身下二段温度'] = res[['炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4', 
+                                    '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8']].mean(axis=1)
+
+        # 以下为极差指标处理
+        res_temp = pd.DataFrame()
+        range_param_list = ['炉顶温度1',  '炉顶温度2', '炉顶温度3', '炉顶温度4']
+        res_temp = self.process_range(range_param_list)
+        res['炉顶温度极差'] = res_temp.mean(axis=1)
+
+        range_param_list = ['炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6', '炉喉温度7', '炉喉温度8']
+        res_temp = self.process_range(range_param_list)
+        res['炉喉温度极差'] = res_temp.mean(axis=1)
+        
+        self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
+        return res
+
     # 没有 冶金焦（自产） 对应的 冶金焦综合样_CaO 的CaO含量
     # def get_zha(self):
     #     """
@@ -374,7 +415,9 @@ def main():
     solv.get_wind()
     solv.get_gas()
     solv.get_rule()
+    solv.get_furnace_temp() 
     dfs = solv.res
+    dfs.apply(lambda x: x.fillna(x.mean(), inplace=True)) # 缺失值均值填充
     dfs.to_excel('每日数据2月以后部分指标.xlsx')  # 暂时保存一下
 
 
