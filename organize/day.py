@@ -1,23 +1,18 @@
 """
-create time : 2020-04-13 22:57:00
+create time : 2020-4-16
 author: xsz
-version: v3 alpha
+version: v4
 description:
 
 目标：进行 100每日指标整理
 
-并且完成 46，21指标的抽取
-
-以及后面的缺失异常去除
-
 依赖： 三批数据源的pkl文件， 名称罗列表
-
 
 """
 import numpy as np
 import pandas as pd
-from mymo.get_things import get_df
-from mymo.get_things import find_table
+from organize.env import get_df
+from organize.env import find_table
 from matplotlib import pyplot as plt
 
 
@@ -363,7 +358,7 @@ class Solution:
         """
         炉温相关指标的一般处理和极差处理
         '炉喉温度极差', '炉顶温度极差'
-        '炉顶温度', '炉喉温度', '炉腰温度', '炉身下二段温度', 
+        '炉顶温度', '炉喉温度', '炉腰温度', '炉身下二段温度',
         :return:
         """
         all_temp_param = [['炉顶温度1', '炉顶温度2', '炉顶温度3', '炉顶温度4',
@@ -435,8 +430,8 @@ class Solution:
 """
 
 
-def main():
-    solv = Solution(20)
+def main(table_id):
+    solv = Solution(table_id)
     solv.get_coke()
     solv.get_molten_iron()
     solv.get_deltaTi()
@@ -451,8 +446,9 @@ def main():
     solv.get_iron_count()
     solv.get_furnace_temp()
     dfs = solv.res
-    dfs.apply(lambda x: x.fillna(x.mean(), inplace=True))  # 缺失值均值填充
-    dfs.to_excel('二批数据100指标整理v1.0.xlsx')
+    # dfs.apply(lambda x: x.fillna(x.mean(), inplace=True))  # 缺失值均值填充
+    dfs.to_excel('organize/cache/每日.xlsx')
+    return None
 
 
 def test():
@@ -471,8 +467,8 @@ def test():
     # return tmp_res
 
 
-if __name__ == '__main__':
-    # 给出 数据批号代码
-    print(" ")
-
-    # 下面还有处理异常和缺失
+# if __name__ == '__main__':
+#     # 给出 数据批号代码
+#     print(" ")
+#
+#     # 下面还有处理异常和缺失

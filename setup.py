@@ -11,10 +11,15 @@ if __name__ == '__main__':
     # main(five_lag=True)
 
     # 每日处理的测试
-    res = test()
-    res.to_excel('每日数据温度结果的测试输出.xlsx')
+    res = main()
 
     # # 测试模块
+    # params = ['炉缸温度1', '炉缸温度2', '炉缸温度3', '炉缸温度4', '炉缸温度5', '炉缸温度6',
+    #           '炉底温度1', '炉底温度2', '炉底温度3', '炉底温度4', '炉底温度5', '炉底温度6', '炉缸中心温度']
+    #
+    # for i in params:
+    #     print(i, " in ", find_table(i, 201))
+
     # self = Solution(201)
     # param_list = "40赤块_CaO 40赤块_CaO 冶金焦综合样_CaO 冶金焦综合样_CaO".split()
     # df = self.get_df(param_list[0])
@@ -24,6 +29,3 @@ if __name__ == '__main__':
     # res =self.res
 
     print("Work done !")
-
-
-
