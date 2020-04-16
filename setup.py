@@ -1,13 +1,18 @@
 """
 项目代码的入口
 """
-from preprocess import *
+# from preprocess import *
 # from mymo.get_things import *
+from mymo.dailyData.daily_preprocess_v3_alpha import *
 
 if __name__ == '__main__':
 
-    # 远端部署代码
-    main(five_lag=True)
+    # 铁次处理的远端部署代码
+    # main(five_lag=True)
+
+    # 每日处理的测试
+    res = test()
+    res.to_excel('每日数据温度结果的测试输出.xlsx')
 
     # # 测试模块
     # self = Solution(201)

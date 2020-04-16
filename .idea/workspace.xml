@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="增加readme&#10;修改铁次时间.xlsx 位置">
+    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="preprocess.py 整合成功.&#10;下一步需要二次处理程序,&#10;还需考虑程序的连续性.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/get_things.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/get_things.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess_v3_alpha.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess_v3_alpha.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +42,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/project/proj-DailyData/StandardData.py" root0="SKIP_INSPECTION" />
@@ -232,7 +232,7 @@
       <workItem from="1586159921993" duration="1248000" />
       <workItem from="1586243673620" duration="3600000" />
       <workItem from="1586586335759" duration="6630000" />
-      <workItem from="1586925711629" duration="14171000" />
+      <workItem from="1586925711629" duration="22901000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -479,7 +479,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586593702755</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="preprocess.py 整合成功.&#10;下一步需要二次处理程序,&#10;还需考虑程序的连续性.">
+      <created>1586945499229</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1586945499229</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TodoView">
@@ -542,7 +549,8 @@
     <MESSAGE value="在mymo中 增加聚类 PCA 模块" />
     <MESSAGE value="创建 myClusterLabel.py" />
     <MESSAGE value="增加readme&#10;修改铁次时间.xlsx 位置" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加readme&#10;修改铁次时间.xlsx 位置" />
+    <MESSAGE value="preprocess.py 整合成功.&#10;下一步需要二次处理程序,&#10;还需考虑程序的连续性." />
+    <option name="LAST_COMMIT_MESSAGE" value="preprocess.py 整合成功.&#10;下一步需要二次处理程序,&#10;还需考虑程序的连续性." />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -561,10 +569,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586942235999">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1586946465083">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586942235999" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1586946465083" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1586246391524">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -609,18 +617,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585799025550" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586593713463">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1586946478151">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586593713463" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1586946478151" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1584599253025" />
-    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585396376314">
+    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587001503883">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1585396376314" />
+    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1587001503883" />
     <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog" timestamp="1585405846327">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
