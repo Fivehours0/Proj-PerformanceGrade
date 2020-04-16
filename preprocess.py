@@ -1,9 +1,13 @@
 """
 :describe 按照铁次整理数据
 :author 夏尚梓 auxiliary 杜智辉
-:version v1.1 add new 指标
+:version v2.0
 
-进来新数据时需要 运行MakePickle.py 转成pkl文件， 第二需要 运行ShowIndex.py 整理出指标excel对照表。
+v2.0 铁次处理整合
+
+注意：
+1. 进来新数据时需要 运行MakePickle.py 转成pkl文件，
+2. 运行ShowIndex.py 整理出指标excel对照表。不过，新数据可以直接使用 'data/20数据表各个名称罗列.xlsx'
 
 """
 import numpy as np
@@ -44,6 +48,7 @@ def process_iron(df, param_list, agg_func):
         df_pure = df_pure.groupby('铁次号').agg(agg_func).rename(columns={'采集项值': param})
         res = pd.merge(res, df_pure, how="outer", left_index=True, right_index=True)
     return res
+
 
 class Solution:
     def __init__(self, table):
@@ -96,28 +101,30 @@ class Solution:
         for param in param_list:
             if not any(df["采集项名称"].isin([param])):
                 raise KeyError("df 中 没有 param", df.shape, param)
-            df_pure = df.groupby("采集项名称").get_group(param).rename(columns={'采集项值': param})[[param, '业务处理时间']]  # 筛选 都在同一个表里
+            df_pure = df.groupby("采集项名称").get_group(param).rename(columns={'采集项值': param})[
+                [param, '业务处理时间']]  # 筛选 都在同一个表里
             df_pure[param] = pd.to_numeric(df_pure[param])
             if resample == True:
                 df_pure['业务处理时间'] = pd.to_datetime(df_pure['业务处理时间'])
                 df_pure = df_pure.resample('1min', on='业务处理时间').mean().ffill()
                 df_pure = df_pure.reset_index()
-            df_pure = self.time2order(df_pure, five_lag=five_lag)[[param, '铁次号']][df_pure['铁次号']!=0] # 将样本用铁次进行标定，删除不在铁次内的数据
-            df_pure[param].where(df_pure[param]<1e6, np.nan, inplace=True) # 去除 999999 的异常值
+            df_pure = self.time2order(df_pure, five_lag=five_lag)[[param, '铁次号']][
+                df_pure['铁次号'] != 0]  # 将样本用铁次进行标定，删除不在铁次内的数据
+            df_pure[param].where(df_pure[param] < 1e6, np.nan, inplace=True)  # 去除 999999 的异常值
             if range == False:
                 df_pure = df_pure[param].groupby(df_pure['铁次号']).agg(agg_func)
-                nan_iron_order = set(self.time_table.index)-set(df_pure.index) # 部分铁次号没有数据导致结果中部分铁次缺失，这里把缺失的补上
+                nan_iron_order = set(self.time_table.index) - set(df_pure.index)  # 部分铁次号没有数据导致结果中部分铁次缺失，这里把缺失的补上
                 df_pure = df_pure.append(pd.Series(np.nan, nan_iron_order)).sort_index().rename(index=param)
             else:
-                df_pure_max = df_pure[param].groupby(df_pure['铁次号']).max() # 得出每个铁次号中值的最大值
-                df_pure_min = df_pure[param].groupby(df_pure['铁次号']).min() # 得出每个铁次号中值的最小值
+                df_pure_max = df_pure[param].groupby(df_pure['铁次号']).max()  # 得出每个铁次号中值的最大值
+                df_pure_min = df_pure[param].groupby(df_pure['铁次号']).min()  # 得出每个铁次号中值的最小值
                 df_pure = df_pure_max - df_pure_min
-                nan_iron_order = set(self.time_table.index)-set(df_pure.index) # 部分铁次号没有数据导致结果中部分铁次缺失，这里把缺失的补上
-                df_pure = df_pure.append(pd.Series(np.nan, nan_iron_order)).sort_index().rename(index=(param+'极差'))
-                df_pure[df_pure==0] = np.nan # 将极差为0的数据置为空值
+                nan_iron_order = set(self.time_table.index) - set(df_pure.index)  # 部分铁次号没有数据导致结果中部分铁次缺失，这里把缺失的补上
+                df_pure = df_pure.append(pd.Series(np.nan, nan_iron_order)).sort_index().rename(index=(param + '极差'))
+                df_pure[df_pure == 0] = np.nan  # 将极差为0的数据置为空值
 
             res = pd.merge(res, df_pure, how="outer", left_index=True, right_index=True)
-        return res    
+        return res
 
     def process_big_time(self, param, df=None):
         """
@@ -166,14 +173,8 @@ class Solution:
         :param param: 指标名
         :return:
         """
-        # table_name = find_table(param, self.table)
-        # path = PRE_PATH[self.table] + table_name + '.pkl'
-        # df = pd.read_pickle(path)
-        #
-        # # 为了去除冗余
-        # if '系统接收时间' in df.columns:
-        #     df.drop(columns='系统接收时间', inplace=True)
-        # df.drop_duplicates(inplace=True)
+        # 如果SQL数据库中一个该指标都没有。
+
         return get_df(param, self.table)  # df
 
     def get_noumenon0(self):
@@ -185,24 +186,24 @@ class Solution:
         '炉顶温度', '炉喉温度'
         :return:
         """
-        param_list = ['炉顶温度1',  '炉顶温度2', '炉顶温度3', '炉顶温度4', '炉顶煤气CO', '炉顶煤气CO2', '炉顶煤气H2',
+        param_list = ['炉顶温度1', '炉顶温度2', '炉顶温度3', '炉顶温度4', '炉顶煤气CO', '炉顶煤气CO2', '炉顶煤气H2',
                       '炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6', '炉喉温度7', '炉喉温度8']
         df = self.get_df(param_list[0])
         res = self.process_business_time(df, param_list)
-        res['炉顶温度'] = res[['炉顶温度1',  '炉顶温度2', '炉顶温度3', '炉顶温度4']].mean(axis=1)
-        res['炉喉温度'] = res[['炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6', 
-                             '炉喉温度7', '炉喉温度8']].mean(axis=1)
-        res['煤气利用率'] = res['炉顶煤气CO2'] * 100 / (res['炉顶煤气CO2']+res['炉顶煤气CO'])
+        res['炉顶温度'] = res[['炉顶温度1', '炉顶温度2', '炉顶温度3', '炉顶温度4']].mean(axis=1)
+        res['炉喉温度'] = res[['炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6',
+                           '炉喉温度7', '炉喉温度8']].mean(axis=1)
+        res['煤气利用率'] = res['炉顶煤气CO2'] * 100 / (res['炉顶煤气CO2'] + res['炉顶煤气CO'])
 
         # 以下为极差指标处理
         res_temp = pd.DataFrame()
-        range_param_list = ['炉顶温度1',  '炉顶温度2', '炉顶温度3', '炉顶温度4',
+        range_param_list = ['炉顶温度1', '炉顶温度2', '炉顶温度3', '炉顶温度4',
                             '炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6', '炉喉温度7', '炉喉温度8']
         res_temp = self.process_business_time(df, range_param_list, range=True)
-        res['炉顶温度极差'] = res_temp[['炉顶温度1极差',  '炉顶温度2极差', '炉顶温度3极差', '炉顶温度4极差']].mean(axis=1)
-        res['炉喉温度极差'] = res_temp[['炉喉温度1极差', '炉喉温度2极差', '炉喉温度3极差', '炉喉温度4极差', '炉喉温度5极差', 
-                                       '炉喉温度6极差', '炉喉温度7极差', '炉喉温度8极差']].mean(axis=1)
-        
+        res['炉顶温度极差'] = res_temp[['炉顶温度1极差', '炉顶温度2极差', '炉顶温度3极差', '炉顶温度4极差']].mean(axis=1)
+        res['炉喉温度极差'] = res_temp[['炉喉温度1极差', '炉喉温度2极差', '炉喉温度3极差', '炉喉温度4极差', '炉喉温度5极差',
+                                  '炉喉温度6极差', '炉喉温度7极差', '炉喉温度8极差']].mean(axis=1)
+
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -214,16 +215,16 @@ class Solution:
          '炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4', 
          '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8', '鼓风动能', '理论燃烧温度']
         """
-        param_list = ['炉腰温度1', '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6', 
-                      '炉身下一层温度1', '炉身下一层温度2', '炉身下一层温度3', '炉身下一层温度4', 
+        param_list = ['炉腰温度1', '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6',
+                      '炉身下一层温度1', '炉身下一层温度2', '炉身下一层温度3', '炉身下一层温度4',
                       '炉身下一层温度5', '炉身下一层温度6', '炉身下一层温度7', '炉身下一层温度8',
-                      '炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4', 
+                      '炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4',
                       '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8', '鼓风动能', '理论燃烧温度']
         df = self.get_df(param_list[0])
         res = self.process_business_time(df, param_list)
-        res['炉腰温度'] = res[['炉腰温度1',  '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6']].mean(axis=1)
-        res['炉身下二段温度'] = res[['炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4', 
-                                    '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8']].mean(axis=1)
+        res['炉腰温度'] = res[['炉腰温度1', '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6']].mean(axis=1)
+        res['炉身下二段温度'] = res[['炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4',
+                              '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8']].mean(axis=1)
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -233,8 +234,8 @@ class Solution:
         '炉底温度1', '炉底温度2', '炉底温度3', '炉底温度4', '炉底温度5', '炉底温度6',
         '''
         param_list = ['炉缸温度1', '炉缸温度2', '炉缸温度3', '炉缸温度4', '炉缸温度5', '炉缸温度6',
-                    '炉底温度1', '炉底温度2', '炉底温度3', '炉底温度4', '炉底温度5', '炉底温度6',
-                    '炉缸中心温度', ]
+                      '炉底温度1', '炉底温度2', '炉底温度3', '炉底温度4', '炉底温度5', '炉底温度6',
+                      '炉缸中心温度', ]
         df = self.get_df(param_list[0])
         res = self.process_business_time(df, param_list)
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
@@ -252,7 +253,7 @@ class Solution:
         res['铁水温度'] = res_temp.mean(axis=1)
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
-    
+
     def get_coke_load(self, five_lag):
         """
         '焦炭负荷'
@@ -263,7 +264,7 @@ class Solution:
         df = self.get_df(param_list[0])
         res = self.process_business_time(df, param_list, agg_func=np.mean, five_lag=five_lag, resample=True)
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
-        return res        
+        return res
 
     def get_molten_iron(self):
         """
@@ -373,8 +374,16 @@ class Solution:
 
     def process_chemical(self, list2, df, five_lag=False):
         """
-        数据特点, 没有 业务处理时间 有上料批次号 处理料的化验
-        焦炭热性能_CSR 这玩意 一天一采集, 必须以数据为模板
+        专门处理只有上料批次号的指标
+
+        注意：
+            1. 数据特点, 没有 业务处理时间 有上料批次号 处理料的化验
+            2. 焦炭热性能_CSR 这玩意 一天一采集, 必须以数据为模板
+            3. 应该确保上料批次号符合这样的格式: 191013xxxxxxx-2401
+        :param list2      处理的指标集合list类型，序号为0，2这样的偶数的，为输出的指标名，奇数为SQL数据库中的指标名
+                          例如 ['M40', '焦炭粒度、冷强度_M40'] 输出的名字是'M40', 在数据表里是 '焦炭粒度、冷强度_M40'
+        :param df         需要外部处理好DataFrame对象，再传递给本函数
+        :param five_lag   是否进行5hour的滞后处理
         """
 
         def to_time(x):
@@ -400,20 +409,28 @@ class Solution:
             param = list3[i]
             group_name = list1[i]
             if item is not None:
+
                 # 需要对 检化验数据 写单独的处理函数
-                df_grouped = df.groupby("采集项名称").get_group(group_name)
-                df_grouped['业务处理时间'] = df_grouped['上料批号'].apply(to_time)  # 应该确保上料批次号符合这样的格式: 191013xxxxxxx-2401
 
-                if five_lag:  # 如果需要滞后
-                    df_grouped['业务处理时间'] = df_grouped['业务处理时间'] - pd.to_timedelta('5h')
+                # 源数据无指标的处理—————赋值为nan继续运行。
+                try:
+                    df_grouped = df.groupby("采集项名称").get_group(group_name)
+                except KeyError:
+                    print("原数据无指标"+group_name+"的任何数据")
+                    res[group_name] = None
+                else:
+                    df_grouped['业务处理时间'] = df_grouped['上料批号'].apply(to_time)  # 应该确保上料批次号符合这样的格式: 191013xxxxxxx-2401
 
-                df_grouped.set_index('业务处理时间', inplace=True)
-                df_rsp = df_grouped.resample('1T').mean().ffill()
-                res[param] = self.time_table.apply(lambda x: df_rsp.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(),
-                                                   axis=1)
-                res[param] = res[param].ffill()
+                    if five_lag:  # 如果需要滞后
+                        df_grouped['业务处理时间'] = df_grouped['业务处理时间'] - pd.to_timedelta('5h')
+
+                    df_grouped.set_index('业务处理时间', inplace=True)
+                    df_rsp = df_grouped.resample('1T').mean().ffill()
+                    res[param] = self.time_table.apply(lambda x: df_rsp.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(),
+                                                       axis=1)
+                    res[param] = res[param].ffill()
             else:
-                res[param] = None
+                res[group_name] = None  # 专门对烧结5mm的处理， 第一批数据没用 第二批数据有
 
         return res
 
@@ -432,10 +449,46 @@ class Solution:
         喷吹煤Ad,%  喷吹煤粉_Ad \
         喷吹煤St，%  喷吹煤粉_St \
         喷吹煤Vd，%  喷吹煤粉_Vdaf \
-        烧结矿转鼓强度,% 烧结矿性能样(粒度、强度)_转鼓指数".split()
-        # df = pd.concat([self.get_df('焦炭粒度、冷强度_M40'), self.get_df('白马球团_Zn')])
+        烧结矿转鼓强度,%  烧结矿性能样(粒度、强度)_转鼓指数".split()
+
         df = self.get_df('焦炭粒度、冷强度_M40')
         res = self.process_chemical(list2, df, five_lag)
+        self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
+        return res
+
+    def get_shaojie(self):
+        """
+        处理烧结<5mm数据
+            输出名               SQL库字段名
+        '烧结矿<5mm比例,%'  '高炉沟下烧结矿粒度_筛分指数(<5mm)'
+
+        注意：
+            第一批数据没有这个烧结，其采集频率为一天左右。
+        :return:
+        """
+
+        res = pd.DataFrame()
+        param = '高炉沟下烧结矿粒度_筛分指数(<5mm)'
+        out_name = '烧结矿<5mm比例,%'
+
+        # try-except 应对有时候数据里面没有烧结矿.
+        try:
+            df = self.get_df(param)
+        except TypeError:
+            print("可能SQL数据中没有 \"高炉沟下烧结矿粒度_筛分指数(<5mm)\" ")
+            res[out_name] = np.nan
+        else:
+            df = df.groupby('采集项名称').get_group(param)
+            # 格式化
+            df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
+            df['采集项值'] = pd.to_numeric(df['采集项值'])
+
+            df_mean = df.groupby('业务处理时间').mean()
+
+            df_continue = df_mean.resample('1T').mean().ffill()  # 连续化
+            res[out_name] = self.time_table.apply(lambda x: df_continue.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(),
+                                                  axis=1)
+
         self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -538,14 +591,17 @@ class Solution:
 def main(five_lag=False):
     obj19 = Solution(19)
     obj20 = Solution(20)
-    objs = [obj19, obj20]
- 
+    obj201 = Solution(201)
+
+    objs = [obj19, obj20, obj201]
+
+    ans = pd.DataFrame()
     for obj in objs:  # 对每个数据对象循环
         obj.get_molten_iron()
-        obj.get_noumenon0() # 高炉本体0
-        obj.get_noumenon1() # 高炉本体1
-        obj.get_noumenon2() # 高炉本体2
-        obj.get_iron_temp() # 铁水温度
+        obj.get_noumenon0()  # 高炉本体0
+        obj.get_noumenon1()  # 高炉本体1
+        obj.get_noumenon2()  # 高炉本体2
+        obj.get_iron_temp()  # 铁水温度
         obj.get_coke_load(five_lag)
         obj.get_slag()
         obj.get_wind()
@@ -556,8 +612,10 @@ def main(five_lag=False):
         obj.get_slag_amount(five_lag)
         obj.get_use_ratio()
 
-    ans = pd.concat([obj19.res, obj20.res])
+    ans = pd.concat([obj19.res, obj20.res, obj201.res])
     ans[ans == np.inf] = np.nan  # 因为有些铁次铁量为0 从而导致一些煤比 焦比等铁量衍生指标 算出 inf, np.nan填充
+
+    # 输出excel文件
     if not five_lag:
         ans.to_excel("data/铁次结果_无滞后处理.xlsx")  # 因为铁次产量为0 搞出不少 inf
     else:
@@ -566,12 +624,8 @@ def main(five_lag=False):
 
 
 if __name__ == "__main__":
-    # 主入口
-    ans = main(five_lag=False)
+    # # setup代码 主入口
+    # ans = main(five_lag=False)
     # ans_lag = main(five_lag=True)
-
-    # 拓展功能
-
-    # # 计算高炉利用系数
-    # obj19 = Solution(19)
-    # obj20 = Solution(20)
+    obj19 = Solution(19)
+    obj19.get_chemical(False)
