@@ -420,10 +420,12 @@ class Solution:
                     print("数据批次代码", self.table, "无指标" + group_name + "的任何数据")
                     res[group_name] = None
                 else:
-                    df_grouped['业务处理时间'] = df_grouped['上料批号'].apply(to_time)  # 应该确保上料批次号符合这样的格式: 191013xxxxxxx-2401
+
+                    # 应该确保上料批次号符合这样的格式: 191013xxxxxxx-2401
+                    df_grouped.loc[:, '业务处理时间'] = df_grouped['上料批号'].apply(to_time)
 
                     if five_lag:  # 如果需要滞后
-                        df_grouped['业务处理时间'] = df_grouped['业务处理时间'] - pd.to_timedelta('5h')
+                        df_grouped.loc[:, '业务处理时间'] = df_grouped['业务处理时间'] - pd.to_timedelta('5h')
 
                     df_grouped.set_index('业务处理时间', inplace=True)
                     df_rsp = df_grouped.resample('1T').mean().ffill()

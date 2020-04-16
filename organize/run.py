@@ -11,13 +11,13 @@ from organize.extract_and_fill import main as emain
 def main(t_id):
     # t_id = 201  # 数据的ID号
 
-    print("开始整理数据id号为{},且带有滞后5小时的铁次数据".format(t_id))
+    print("开始把数据id号为{}的数据整理成铁次数据,且带有5小时的滞后处理".format(t_id))
     imain(table_id=t_id, five_lag=True)
 
-    print("开始整理数据id号为{},且不有滞后5铁次数据".format(t_id))
+    print("开始把数据id号为{}的数据整理成铁次数据,且不带有滞后处理".format(t_id))
     imain(table_id=t_id, five_lag=False)
 
-    print("开始整理数据id号为{}每日数据".format(t_id))
+    print("开始把数据id号为{}的数据整理成每日型数据".format(t_id))
     dmain(table_id=t_id)
 
     print("开始对100指标抽取出21,41版本, 并且进行缺失填充")
@@ -25,7 +25,9 @@ def main(t_id):
     files = ["铁次无滞后.xlsx",
              "铁次5h滞后.xlsx",
              "每日.xlsx"]
-    for f in files:
-        emain(path, f)
+
+    emain(path, files[0], data_type='iron')
+    emain(path, files[1], 'iron')
+    emain(path, files[2], 'day')
 
     return None

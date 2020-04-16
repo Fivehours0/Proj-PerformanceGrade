@@ -308,7 +308,7 @@ class Solution:
         [铁水温度]
         :return:
         """
-        param_list = "[铁水温度]".split()
+        param_list = ["[铁水温度]"]
         res = self.process_easy(param_list)
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res

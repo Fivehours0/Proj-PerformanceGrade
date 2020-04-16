@@ -103,9 +103,12 @@ def get_iron_speed(table):
     df_iron_speed = get_df("出铁速率", table)
     df_iron_speed = df_iron_speed.groupby("采集项名称").get_group("出铁速率")
     # 格式化
-    df_iron_speed['采集项值'] = pd.to_numeric(df_iron_speed['采集项值'])
-    df_iron_speed["业务处理时间"] = pd.to_datetime(df_iron_speed["业务处理时间"])
-    df_iron_speed["业务处理时间"][df_iron_speed['采集项值'] > 1e7] = np.nan
+    df_iron_speed.loc[:, '采集项值'] = pd.to_numeric(df_iron_speed['采集项值'])
+    df_iron_speed.loc[:, "业务处理时间"] = pd.to_datetime(df_iron_speed["业务处理时间"])
+
+    # df_iron_speed.loc["业务处理时间"][df_iron_speed['采集项值'] > 1e7] = np.nan
+    df_iron_speed.loc[:, "业务处理时间"].where(df_iron_speed['采集项值'] < 1e7, inplace=True)
+
     df_iron_speed.dropna(inplace=True)
 
     df_time_indexed = df_iron_speed.set_index("业务处理时间").sort_index()

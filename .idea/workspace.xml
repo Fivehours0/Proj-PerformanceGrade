@@ -2,26 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.old/测试-excel是不是可以当数据库.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/organize/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/organize/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/organize/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/organize/config/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/organize/day.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/organize/env.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/organize/extract_and_fill.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/organize/iron.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/organize/make_pickle.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/organize/run.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/organize/show_index.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/organize_setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/每日100数据集构建.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/铁次结果的抽取均值填充.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess_v3_alpha.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess_v3_alpha.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/get_things.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/get_things.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/day.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/day.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/extract_and_fill.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/extract_and_fill.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/iron.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/iron.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize_setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,9 +62,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/organize" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CppBase" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -99,7 +87,7 @@
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myCluster" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.每日100数据集构建">
+  <component name="RunManager" selected="Python.organize_setup">
     <configuration name="抽取程序" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,20 +129,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ShowIndex" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="organize_setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ShowIndex.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/organize_setup.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -209,16 +194,16 @@
     </configuration>
     <list>
       <item itemvalue="Python.setup" />
-      <item itemvalue="Python.ShowIndex" />
       <item itemvalue="Python.preprocess" />
       <item itemvalue="Python.抽取程序" />
       <item itemvalue="Python.每日100数据集构建" />
+      <item itemvalue="Python.organize_setup" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.organize_setup" />
         <item itemvalue="Python.每日100数据集构建" />
         <item itemvalue="Python.抽取程序" />
-        <item itemvalue="Python.setup" />
         <item itemvalue="Python.setup" />
         <item itemvalue="Python.setup" />
       </list>
@@ -260,7 +245,7 @@
       <workItem from="1586925711629" duration="29701000" />
       <workItem from="1587012493731" duration="924000" />
       <workItem from="1587013568304" duration="6316000" />
-      <workItem from="1587031251962" duration="9377000" />
+      <workItem from="1587031251962" duration="18667000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -521,7 +506,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587005505651</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="预整理程序整合到 organize 模块中">
+      <created>1587041711237</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1587041711238</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TodoView">
@@ -586,7 +578,8 @@
     <MESSAGE value="增加readme&#10;修改铁次时间.xlsx 位置" />
     <MESSAGE value="preprocess.py 整合成功.&#10;下一步需要二次处理程序,&#10;还需考虑程序的连续性." />
     <MESSAGE value="调试部署" />
-    <option name="LAST_COMMIT_MESSAGE" value="调试部署" />
+    <MESSAGE value="预整理程序整合到 organize 模块中" />
+    <option name="LAST_COMMIT_MESSAGE" value="预整理程序整合到 organize 模块中" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -605,18 +598,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1587005504224">
+    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1587041708991">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587005504224" />
+    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587041708991" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1586246391524">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1586246391524" />
-    <state x="532" y="118" key="FileChooserDialogImpl" timestamp="1586093723169">
+    <state x="670" y="108" key="FileChooserDialogImpl" timestamp="1587051455135">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="532" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586093723169" />
+    <state x="670" y="108" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587051455135" />
     <state width="709" height="402" key="GridCell.Tab.0.bottom" timestamp="1584264493031">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -649,18 +642,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
-    <state x="186" y="6" key="SettingsEditor" timestamp="1585799025550">
+    <state x="149" y="12" key="SettingsEditor" timestamp="1587051401261">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="186" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1585799025550" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587005509767">
+    <state x="149" y="12" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587051401261" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587051654430">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587005509767" />
-    <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1584599253025">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587051654430" />
+    <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1587046559728">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1584599253025" />
+    <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1587046559728" />
     <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587001503883">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
