@@ -19,20 +19,34 @@ plt.rcParams['axes.unicode_minus'] = False
 
 COLORS = ['r', 'y', 'b', 'g', 'k']
 
-if __name__ == '__main__':
-    N_CLUSTERS = 5  # 聚类个数
-    save_fig = True
-    # 数据读入
-    file = r'D:\文件\0-NEU_Works\0-攀钢项目\2-任务-铁次整理\release3.0-钢研院版本\铁次结果汇总_5h滞后v3.0.xlsx'
-    input_df = pd.read_excel(file, index_col=0)
+IMG_SAVE_PATH = '结果图/myClusterv2/'  # 结果图存放路径
+N_CLUSTERS = 5  # 聚类个数
+IS_SAVE_FIGURE = True # 是否保存照片
 
-    input_df['每小时高炉利用系数'] = 1 / input_df['每小时高炉利用系数']
+if __name__ == '__main__':
+    """
+    
+    基于现场46个指标的新数据（铁次），使用原来的聚类方法（利用系数、燃料比）看一下是否能将不同参数的范围分开
+    """
+
+
+    # 数据读入
+    file = r'C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myCluster\铁次结果_5h滞后处理v3.0_tc.xlsx'
+    input_df = pd.read_excel(file, index_col=0, sheet_name='46')
+
+    input_df['每小时高炉利用系数'] = 1 / input_df['每小时高炉利用系数']  # 取倒数
+
+    # 处理 数据中有 inf 的情况 去除掉
+    input_df[input_df == np.inf] = np.nan
+    input_df = input_df.dropna()  # 去除
+
     # 标准化
+
     scaler = StandardScaler()
     scaled_np = scaler.fit_transform(input_df)
     df_scaled = pd.DataFrame(scaled_np, index=input_df.index, columns=input_df.columns)
 
-
+    # 对 1/每小时高炉利用系数 与 燃料比 进行聚类
     X = pd.DataFrame()
     X['1/每小时高炉利用系数'] = df_scaled['每小时高炉利用系数']  # 取出 利用率,燃料比
     X['燃料比'] = df_scaled['燃料比']
@@ -55,8 +69,8 @@ if __name__ == '__main__':
     plt.title(X.columns[0] + "与" + X.columns[1] + "2D聚类散点图")
     plt.legend()
 
-    if save_fig:
-        plt.savefig('C:/Users/Administrator/Desktop/figs/'  + X.columns[1]
+    if IS_SAVE_FIGURE:
+        plt.savefig(IMG_SAVE_PATH + X.columns[1]
                     + "2D聚类散点图.png")
         plt.close()
 
@@ -67,7 +81,7 @@ if __name__ == '__main__':
     df = input_df.copy()
     df['label'] = kmeans.labels_
 
-    for index in range(39):
+    for index in range(df.shape[1]-1):
         plt.figure()
         for j in range(N_CLUSTERS):
             temp = df.groupby('label').get_group(j)
@@ -77,9 +91,9 @@ if __name__ == '__main__':
         plt.ylabel(df.columns[index])
         plt.title(df.columns[index] + "分类效果图")
         plt.legend()
-        if save_fig:
+        if IS_SAVE_FIGURE:
             plt.savefig(
-                'C:/Users/Administrator/Desktop/figs/' +  str(index)+"分类效果图.png")
+                IMG_SAVE_PATH + str(index) + "分类效果图.png")
             plt.close()
 
         plt.show()

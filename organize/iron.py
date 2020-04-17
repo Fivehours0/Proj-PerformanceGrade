@@ -492,7 +492,7 @@ class Solution:
             res[out_name] = self.time_table.apply(lambda x: df_continue.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(),
                                                   axis=1)
 
-        self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
+            self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
         return res
 
     def get_slag_amount(self, five_lag=False):
@@ -613,15 +613,16 @@ def main(table_id, five_lag):
     obj.get_rule(five_lag)
     obj.get_slag_amount(five_lag)
     obj.get_use_ratio()
+    obj.get_shaojie()
 
     ans = obj.res
     ans[ans == np.inf] = np.nan  # 因为有些铁次铁量为0 从而导致一些煤比 焦比等铁量衍生指标 算出 inf, np.nan填充
 
     # 输出excel文件
     if not five_lag:
-        ans.to_excel("organize/cache/铁次无滞后.xlsx")  # 因为铁次产量为0 搞出不少 inf
+        ans.to_excel("organize/cache/铁次无滞后_{}.xlsx".format(table_id))  # 因为铁次产量为0 搞出不少 inf
     else:
-        ans.to_excel("organize/cache/铁次5h滞后.xlsx")  # 因为铁次产量为0 搞出不少 inf
+        ans.to_excel("organize/cache/铁次5h滞后_{}.xlsx".format(table_id))  # 因为铁次产量为0 搞出不少 inf
 
     return None
 
@@ -666,9 +667,15 @@ def main_legacy(five_lag=False):
     return ans
 
 
-# if __name__ == "__main__":
-    # # setup代码 主入口
-    # ans = main(five_lag=False)
-    # ans_lag = main(five_lag=True)
-    # obj19 = Solution(19)
-    # obj19.get_chemical(False)
+if __name__ == "__main__":
+    import os
+    path = r"C:\Users\Administrator\Documents\GitHub\BF-grading-range"
+    os.chdir(path)
+    a = os.getcwd()
+    print('working path: ', a)
+
+    # 测试为何没有烧结
+    sol = Solution(201)
+    sol.get_shaojie()
+    res = sol.res
+

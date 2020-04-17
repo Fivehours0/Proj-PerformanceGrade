@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="预整理程序整合到 organize 模块中">
+      <change afterPath="$PROJECT_DIR$/organize/legacy/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organize/legacy/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organize/合并所有批次数据.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/temp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/铁次数据缺失处理.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/organize/day.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/day.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/organize/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/organize/extract_and_fill.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/extract_and_fill.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.old/task-6HoursData/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/legacy/task-6HoursData/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.old/task-6HoursData/qazplm.txt" beforeDir="false" afterPath="$PROJECT_DIR$/legacy/task-6HoursData/qazplm.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.old/task-6HoursData/数据6小时化.py" beforeDir="false" afterPath="$PROJECT_DIR$/legacy/task-6HoursData/数据6小时化.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.old/task-6HoursData/没有处理异常.txt" beforeDir="false" afterPath="$PROJECT_DIR$/legacy/task-6HoursData/没有处理异常.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.old/task-DaliyData/数据日报表化_old.py" beforeDir="false" afterPath="$PROJECT_DIR$/legacy/task-DaliyData/数据日报表化_old.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.old/task-DaliyData/新版每日数据整理-加入新数据-异常分析.txt" beforeDir="false" afterPath="$PROJECT_DIR$/legacy/task-DaliyData/新版每日数据整理-加入新数据-异常分析.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.old/task-GetIndexRange/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/legacy/task-GetIndexRange/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.old/task-GetIndexRange/打分范围提取.py" beforeDir="false" afterPath="$PROJECT_DIR$/legacy/task-GetIndexRange/打分范围提取.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.old/temp.py" beforeDir="false" afterPath="$PROJECT_DIR$/legacy/temp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.old/数据日报表化v2.0.py" beforeDir="false" afterPath="$PROJECT_DIR$/legacy/数据日报表化v2.0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.old/测试-excel是不是可以当数据库.py" beforeDir="false" afterPath="$PROJECT_DIR$/legacy/测试-excel是不是可以当数据库.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.old/聚类与范围提取v2.0.py" beforeDir="false" afterPath="$PROJECT_DIR$/legacy/聚类与范围提取v2.0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/myCluster/myClusterLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/myCluster/myClusterLabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/myCluster/myClusterv2.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/myCluster/myClusterv2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/myPCA/myPCA.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/myPCA/legacy/myPCA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mymo/myPCA/myPCA2.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/myPCA/myPCA2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/extract_and_fill.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/legacy/extract_and_fill.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/organize/iron.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/iron.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/organize/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/organize_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize_setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +82,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CppBase" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
@@ -75,33 +95,32 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize\legacy" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myPCA\legacy" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\.old" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize\config" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\西昌2#高炉数据19年12月-20年2月" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myPCA" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data\一次性" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize\config" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myPCA" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myCluster" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.organize_setup">
-    <configuration name="抽取程序" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.iron">
+    <configuration name="合并所有批次数据" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/无滞后版本" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/无滞后版本/抽取程序.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/organize/合并所有批次数据.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -110,7 +129,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="每日100数据集构建" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="铁次数据缺失处理" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -120,7 +139,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/每日100数据集构建.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\铁次数据缺失处理.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -129,17 +148,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="organize_setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="iron" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/organize_setup.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/organize/iron.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -148,20 +167,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="preprocess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocess.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/organize/run.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -174,9 +190,6 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -193,19 +206,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.合并所有批次数据" />
       <item itemvalue="Python.setup" />
-      <item itemvalue="Python.preprocess" />
-      <item itemvalue="Python.抽取程序" />
-      <item itemvalue="Python.每日100数据集构建" />
-      <item itemvalue="Python.organize_setup" />
+      <item itemvalue="Python.铁次数据缺失处理" />
+      <item itemvalue="Python.run" />
+      <item itemvalue="Python.iron" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.organize_setup" />
-        <item itemvalue="Python.每日100数据集构建" />
-        <item itemvalue="Python.抽取程序" />
-        <item itemvalue="Python.setup" />
-        <item itemvalue="Python.setup" />
+        <item itemvalue="Python.iron" />
+        <item itemvalue="Python.iron" />
+        <item itemvalue="Python.run" />
+        <item itemvalue="Python.run" />
+        <item itemvalue="Python.铁次数据缺失处理" />
       </list>
     </recent_temporary>
   </component>
@@ -245,7 +258,7 @@
       <workItem from="1586925711629" duration="29701000" />
       <workItem from="1587012493731" duration="924000" />
       <workItem from="1587013568304" duration="6316000" />
-      <workItem from="1587031251962" duration="18667000" />
+      <workItem from="1587031251962" duration="49622000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -513,7 +526,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587041711238</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="预整理程序整合到 organize 模块中">
+      <created>1587051736087</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1587051736087</updated>
+    </task>
+    <task id="LOCAL-00040" summary="预整理程序整合到 organize 模块中">
+      <created>1587091114264</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1587091114265</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView">
@@ -598,34 +625,34 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="270" y="0" key="CommitChangelistDialog2" timestamp="1587041708991">
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587091112671">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="270" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587041708991" />
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587091112671" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1586246391524">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1586246391524" />
-    <state x="670" y="108" key="FileChooserDialogImpl" timestamp="1587051455135">
+    <state x="670" y="108" key="FileChooserDialogImpl" timestamp="1587104186523">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="670" y="108" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587051455135" />
-    <state width="709" height="402" key="GridCell.Tab.0.bottom" timestamp="1584264493031">
+    <state x="670" y="108" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587104186523" />
+    <state width="1323" height="200" key="GridCell.Tab.0.bottom" timestamp="1587134803935">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584264493031" />
-    <state width="709" height="402" key="GridCell.Tab.0.center" timestamp="1584264493030">
+    <state width="1323" height="200" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587134803935" />
+    <state width="1323" height="200" key="GridCell.Tab.0.center" timestamp="1587134803935">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
-    <state width="709" height="402" key="GridCell.Tab.0.left" timestamp="1584264493030">
+    <state width="1323" height="200" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587134803935" />
+    <state width="1323" height="200" key="GridCell.Tab.0.left" timestamp="1587134803934">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
-    <state width="709" height="402" key="GridCell.Tab.0.right" timestamp="1584264493030">
+    <state width="1323" height="200" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587134803934" />
+    <state width="1323" height="200" key="GridCell.Tab.0.right" timestamp="1587134803935">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
+    <state width="1323" height="200" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587134803935" />
     <state width="709" height="402" key="GridCell.Tab.1.bottom" timestamp="1584264493030">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -646,10 +673,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="149" y="12" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587051401261" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587051654430">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587091126831">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587051654430" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587091126831" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1587046559728">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -682,6 +709,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BF_grading_range$preproccess.coverage" NAME="preproccess Coverage Results" MODIFIED="1583916298704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/proj-IornOrderData" />
     <SUITE FILE_PATH="coverage/BF_grading_range$preprocess.coverage" NAME="preprocess Coverage Results" MODIFIED="1584083582830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BF_grading_range$iron.coverage" NAME="iron Coverage Results" MODIFIED="1587134792143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/organize" />
     <SUITE FILE_PATH="coverage/BF_grading_range$preproccess__1_.coverage" NAME="preproccess (1) Coverage Results" MODIFIED="1583917078971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
