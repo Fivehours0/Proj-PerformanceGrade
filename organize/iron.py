@@ -1,9 +1,8 @@
 """
 :describe 按照铁次整理数据
 :author 夏尚梓 auxiliary 杜智辉
-:version v2.0
+:version v3.0
 
-v2.0 铁次处理整合
 
 注意：
 1. 进来新数据时需要 运行MakePickle.py 转成pkl文件，
@@ -13,10 +12,10 @@ v2.0 铁次处理整合
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-from mymo.get_things import find_table
-from mymo.get_things import get_df
-from mymo.get_things import get_time_table
-from mymo.iron_product_speed import get_iron_speed
+from organize.env import find_table
+from organize.env import get_df
+from organize.env import get_time_table
+from organize.env import get_iron_speed
 
 # 修补画图时 中文乱码的问题
 plt.rcParams['font.sans-serif'] = ['SimHei']
@@ -181,7 +180,7 @@ class Solution:
 
     def get_noumenon0(self):
         """
-        '炉顶温度1',  '炉顶温度2', '炉顶温度3', '炉顶温度4', 
+        '炉顶温度1',  '炉顶温度2', '炉顶温度3', '炉顶温度4',
         '炉顶煤气CO', '炉顶煤气CO2', '炉顶煤气H2'
         '炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6', '炉喉温度7', '炉喉温度8'
         '炉喉温度极差', '炉顶温度极差'
@@ -211,10 +210,10 @@ class Solution:
 
     def get_noumenon1(self):
         """
-        ['炉腰温度1', '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6', 
-         '炉身下一层温度1', '炉身下一层温度2', '炉身下一层温度3', '炉身下一层温度4', 
+        ['炉腰温度1', '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6',
+         '炉身下一层温度1', '炉身下一层温度2', '炉身下一层温度3', '炉身下一层温度4',
          '炉身下一层温度5', '炉身下一层温度6', '炉身下一层温度7', '炉身下一层温度8',
-         '炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4', 
+         '炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4',
          '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8', '鼓风动能', '理论燃烧温度']
         """
         param_list = ['炉腰温度1', '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6',
@@ -421,10 +420,12 @@ class Solution:
                     print("数据批次代码", self.table, "无指标" + group_name + "的任何数据")
                     res[group_name] = None
                 else:
-                    df_grouped['业务处理时间'] = df_grouped['上料批号'].apply(to_time)  # 应该确保上料批次号符合这样的格式: 191013xxxxxxx-2401
+
+                    # 应该确保上料批次号符合这样的格式: 191013xxxxxxx-2401
+                    df_grouped.loc[:, '业务处理时间'] = df_grouped['上料批号'].apply(to_time)
 
                     if five_lag:  # 如果需要滞后
-                        df_grouped['业务处理时间'] = df_grouped['业务处理时间'] - pd.to_timedelta('5h')
+                        df_grouped.loc[:, '业务处理时间'] = df_grouped['业务处理时间'] - pd.to_timedelta('5h')
 
                     df_grouped.set_index('业务处理时间', inplace=True)
                     df_rsp = df_grouped.resample('1T').mean().ffill()
@@ -531,7 +532,7 @@ class Solution:
     def get_rule(self, five_lag=False):
         """
         # 计算的不对
-        
+
         # 计算探尺差
         # 各个探尺的悬料
         # 西昌2#高炉采集数据表_上料系统
@@ -590,7 +591,47 @@ class Solution:
         return self.res['每小时高炉利用系数']
 
 
-def main(five_lag=False):
+def main(table_id, five_lag):
+    """
+    本module 调用入口
+    :param table_id: 数据的ID号
+    :param five_lag: 是否进行5小时滞后处理
+    :return:
+    """
+    obj = Solution(table_id)
+    obj.get_molten_iron()
+    obj.get_noumenon0()  # 高炉本体0
+    obj.get_noumenon1()  # 高炉本体1
+    obj.get_noumenon2()  # 高炉本体2
+    obj.get_iron_temp()  # 铁水温度
+    obj.get_coke_load(five_lag)
+    obj.get_slag()
+    obj.get_wind()
+    obj.get_gas()
+    obj.get_ratio(five_lag)
+    obj.get_chemical(five_lag)
+    obj.get_rule(five_lag)
+    obj.get_slag_amount(five_lag)
+    obj.get_use_ratio()
+
+    ans = obj.res
+    ans[ans == np.inf] = np.nan  # 因为有些铁次铁量为0 从而导致一些煤比 焦比等铁量衍生指标 算出 inf, np.nan填充
+
+    # 输出excel文件
+    if not five_lag:
+        ans.to_excel("organize/cache/铁次无滞后.xlsx")  # 因为铁次产量为0 搞出不少 inf
+    else:
+        ans.to_excel("organize/cache/铁次5h滞后.xlsx")  # 因为铁次产量为0 搞出不少 inf
+
+    return None
+
+
+def main_legacy(five_lag=False):
+    """
+    一次性处理所有批次数据的老代码
+    :param five_lag:
+    :return:
+    """
     obj19 = Solution(19)
     obj20 = Solution(20)
     obj201 = Solution(201)
@@ -625,9 +666,9 @@ def main(five_lag=False):
     return ans
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     # # setup代码 主入口
     # ans = main(five_lag=False)
     # ans_lag = main(five_lag=True)
-    obj19 = Solution(19)
-    obj19.get_chemical(False)
+    # obj19 = Solution(19)
+    # obj19.get_chemical(False)
