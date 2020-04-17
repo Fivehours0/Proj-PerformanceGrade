@@ -84,16 +84,16 @@ class Solution:
             df.loc[start:end, '铁次号'] = self.time_table.index[i]
         return df
 
-    def process_business_time(self, df, param_list, range=False, agg_func=np.mean, five_lag=False, resample=False):
+    def process_business_time(self, df, param_list, range_=False, agg_func=np.mean, five_lag=False, resample_=False):
         """
         对业务处理时间型数据 预处理
         读入数据 -> 铁次时间标定 -> 处理 -> 输出
         :param df: 要传入的表
         :param param_list: 要处理的指标列表 类型: list
-        :param range: 是否处理极差数据 类型: bool
+        :param range_: 是否处理极差数据 类型: bool
         :param agg_func: 聚合方式 类型: 函数, 例如np.mean
         :param five_lag: 是否进行时滞处理 类型: bool
-        :param resample: 是否对该参数数据进行重采样 类型: bool
+        :param resample_: 是否对该参数数据进行重采样 类型: bool
         :return:
         """
         res = pd.DataFrame()
@@ -103,14 +103,14 @@ class Solution:
             df_pure = df.groupby("采集项名称").get_group(param).rename(columns={'采集项值': param})[
                 [param, '业务处理时间']]  # 筛选 都在同一个表里
             df_pure[param] = pd.to_numeric(df_pure[param])
-            if resample == True:
+            if resample_:
                 df_pure['业务处理时间'] = pd.to_datetime(df_pure['业务处理时间'])
                 df_pure = df_pure.resample('1min', on='业务处理时间').mean().ffill()
                 df_pure = df_pure.reset_index()
             df_pure = self.time2order(df_pure, five_lag=five_lag)[[param, '铁次号']][
                 df_pure['铁次号'] != 0]  # 将样本用铁次进行标定，删除不在铁次内的数据
             df_pure[param].where(df_pure[param] < 1e6, np.nan, inplace=True)  # 去除 999999 的异常值
-            if range == False:
+            if not range_:
                 df_pure = df_pure[param].groupby(df_pure['铁次号']).agg(agg_func)
                 nan_iron_order = set(self.time_table.index) - set(df_pure.index)  # 部分铁次号没有数据导致结果中部分铁次缺失，这里把缺失的补上
                 df_pure = df_pure.append(pd.Series(np.nan, nan_iron_order)).sort_index().rename(index=param)
@@ -200,7 +200,7 @@ class Solution:
         res_temp = pd.DataFrame()
         range_param_list = ['炉顶温度1', '炉顶温度2', '炉顶温度3', '炉顶温度4',
                             '炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6', '炉喉温度7', '炉喉温度8']
-        res_temp = self.process_business_time(df, range_param_list, range=True)
+        res_temp = self.process_business_time(df, range_param_list, range_=True)
         res['炉顶温度极差'] = res_temp[['炉顶温度1极差', '炉顶温度2极差', '炉顶温度3极差', '炉顶温度4极差']].mean(axis=1)
         res['炉喉温度极差'] = res_temp[['炉喉温度1极差', '炉喉温度2极差', '炉喉温度3极差', '炉喉温度4极差', '炉喉温度5极差',
                                   '炉喉温度6极差', '炉喉温度7极差', '炉喉温度8极差']].mean(axis=1)
@@ -221,11 +221,19 @@ class Solution:
                       '炉身下一层温度5', '炉身下一层温度6', '炉身下一层温度7', '炉身下一层温度8',
                       '炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4',
                       '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8', '鼓风动能', '理论燃烧温度']
+
+        furnace_shells2 = ['炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4',
+                           '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8']
+
         df = self.get_df(param_list[0])
         res = self.process_business_time(df, param_list)
         res['炉腰温度'] = res[['炉腰温度1', '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6']].mean(axis=1)
-        res['炉身下二段温度'] = res[['炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4',
-                              '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8']].mean(axis=1)
+        res['炉身下二段温度'] = res[furnace_shells2].mean(axis=1)
+
+        # 计算炉身下二段温度极差
+        furnace_shells2_range = self.process_business_time(df, furnace_shells2, range_=True)
+        res['炉身下二段温度极差'] = furnace_shells2_range.mean(axis=1)
+
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -263,7 +271,7 @@ class Solution:
         res = pd.DataFrame()
         param_list = ['焦炭负荷']
         df = self.get_df(param_list[0])
-        res = self.process_business_time(df, param_list, agg_func=np.mean, five_lag=five_lag, resample=True)
+        res = self.process_business_time(df, param_list, agg_func=np.mean, five_lag=five_lag, resample_=True)
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -669,13 +677,17 @@ def main_legacy(five_lag=False):
 
 if __name__ == "__main__":
     import os
+
     path = r"C:\Users\Administrator\Documents\GitHub\BF-grading-range"
     os.chdir(path)
     a = os.getcwd()
     print('working path: ', a)
 
-    # 测试为何没有烧结
-    sol = Solution(201)
-    sol.get_shaojie()
-    res = sol.res
+    # 测试时get_noumenon1
+
+    solv = Solution(201)
+    solv.get_noumenon1()
+    res = solv.res
+
+
 
