@@ -11,28 +11,28 @@ if __name__ == '__main__':
     3. 设置本程序的 table_id 值
     
     """
-    table_id = 201
-    # main(table_id)
+    table_id = 19
+    main(table_id)
 
     """
     在目录
     organize/cache/
     下
-    会生成三个文件
+    会生成N多文件
     """
 
 
 
     # test
-    from organize.extract_and_fill import main as emain
-    path = "organize/cache/"
-    files = ["铁次无滞后.xlsx",
-             "铁次5h滞后.xlsx",
-             "每日.xlsx"]
-
+    # from organize.extract_and_fill import main as emain
+    # path = "organize/cache/"
+    # files = ["铁次无滞后.xlsx",
+    #          "铁次5h滞后.xlsx",
+    #          "每日.xlsx"]
+    #
     # emain(path, files[0], data_type='iron')
     # emain(path, files[1], 'iron')
-    emain(path, files[2], 'day')
+    # emain(path, files[2], 'day')
 
 
     print("done!")
