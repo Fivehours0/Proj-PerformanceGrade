@@ -1,32 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
+    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="organize.iron 增加 炉身下二段极差">
+      <change afterPath="$PROJECT_DIR$/.idea/webResources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legacy/DrawDocPic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legacy/lag文档宏.vb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/数据的频率分布直方图/数据的频率分布直方图.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/根据攀钢给的分数标签画各个指标的散点分布/处理程序.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/BF-grading-range.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BF-grading-range.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShowIndex.py" beforeDir="false" afterPath="$PROJECT_DIR$/ShowIndex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacy/聚类与范围提取v2.0.py" beforeDir="false" afterPath="$PROJECT_DIR$/legacy/聚类与范围提取v2.0.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess_v3_alpha.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/dailyData/daily_preprocess_v3_alpha.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/demo/CheckResult.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/demo/CheckResult.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/myCluster/myClusterv2.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/myCluster/myClusterv2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/myPCA/legacy/myPCA.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/myPCA/legacy/myPCA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mymo/pan_index.py" beforeDir="false" afterPath="$PROJECT_DIR$/mymo/pan_index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/organize/day.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/day.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/organize/iron.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/iron.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/organize/合并所有批次数据.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/合并所有批次数据.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/proj-DailyData/StandardData.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/proj-DailyData/StandardData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/proj-DrowDocPic/DrawDocPic.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/proj-DrowDocPic/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/proj-Lag/lag文档宏.vb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/数据异常散点分析.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/聚类与范围提取v2.1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/铁次数据缺失处理.py" beforeDir="false" afterPath="$PROJECT_DIR$/铁次数据缺失处理.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
     <option name="GROUP_DATA_SOURCES" value="true" />
@@ -42,7 +32,10 @@
     <select />
   </component>
   <component name="FavoritesManager">
-    <favorites_list name="BF-grading-range" />
+    <favorites_list name="BF-grading-range">
+      <favorite_root url="file://$PROJECT_DIR$/proj-Lag/lag文档宏.vb" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/legacy/lag文档宏.vb" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+    </favorites_list>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -65,6 +58,7 @@
   </component>
   <component name="JupyterTrust" id="47a663c5-2d14-4ca0-99ec-b5adc2b571e1" />
   <component name="ProjectId" id="1YyVxTWZuYaHSb3RlETV4EOXZVc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -72,10 +66,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -86,11 +81,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\数据的频率分布直方图" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy\proj-DrowDocPic" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize\legacy" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myPCA\legacy" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\.old" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize\config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
@@ -100,21 +95,56 @@
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.iron">
-    <configuration name="合并所有批次数据" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.数据的频率分布直方图">
+    <configuration name="处理程序" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project/根据攀钢给的分数标签画各个指标的散点分布" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/organize/合并所有批次数据.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/根据攀钢给的分数标签画各个指标的散点分布/处理程序.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="把新的数据用红色表示原来的数据用蓝色表示把它们在燃料比和利用系数的空间中画一下发给我" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy\把新的数据用红色表示原来的数据用蓝色表示把它们在燃料比和利用系数的空间中画一下发给我.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="数据的频率分布直方图" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project/数据的频率分布直方图" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/数据的频率分布直方图/数据的频率分布直方图.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -146,6 +176,9 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -183,41 +216,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/setup.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.合并所有批次数据" />
-      <item itemvalue="Python.setup" />
       <item itemvalue="Python.run" />
       <item itemvalue="Python.iron" />
+      <item itemvalue="Python.把新的数据用红色表示原来的数据用蓝色表示把它们在燃料比和利用系数的空间中画一下发给我" />
+      <item itemvalue="Python.处理程序" />
+      <item itemvalue="Python.数据的频率分布直方图" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.iron" />
-        <item itemvalue="Python.iron" />
-        <item itemvalue="Python.iron" />
-        <item itemvalue="Python.iron" />
-        <item itemvalue="Python.run" />
+        <item itemvalue="Python.数据的频率分布直方图" />
+        <item itemvalue="Python.数据的频率分布直方图" />
+        <item itemvalue="Python.数据的频率分布直方图" />
+        <item itemvalue="Python.数据的频率分布直方图" />
+        <item itemvalue="Python.数据的频率分布直方图" />
       </list>
     </recent_temporary>
   </component>
@@ -257,7 +269,9 @@
       <workItem from="1586925711629" duration="29701000" />
       <workItem from="1587012493731" duration="924000" />
       <workItem from="1587013568304" duration="6316000" />
-      <workItem from="1587031251962" duration="52362000" />
+      <workItem from="1587031251962" duration="53574000" />
+      <workItem from="1587140355131" duration="1505000" />
+      <workItem from="1587184106749" duration="14586000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -546,17 +560,15 @@
       <option name="project" value="LOCAL" />
       <updated>1587135263721</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="organize.iron 增加 炉身下二段极差">
+      <created>1587139443812</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1587139443812</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -619,7 +631,8 @@
     <MESSAGE value="调试部署" />
     <MESSAGE value="预整理程序整合到 organize 模块中" />
     <MESSAGE value="fix 铁次整理中没有 烧结" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix 铁次整理中没有 烧结" />
+    <MESSAGE value="organize.iron 增加 炉身下二段极差" />
+    <option name="LAST_COMMIT_MESSAGE" value="organize.iron 增加 炉身下二段极差" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -630,26 +643,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="136" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1583916362496" />
-    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587037594513">
+    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587139740937">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1587037594513" />
-    <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1584325312830">
+    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1587139740937" />
+    <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587140037375">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1584325312830" />
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587135260927">
+    <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587140037375" />
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587140683898">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587135260927" />
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1586246391524">
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587140683898" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1587195864329">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1586246391524" />
-    <state x="670" y="108" key="FileChooserDialogImpl" timestamp="1587104186523">
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1587195864329" />
+    <state x="838" y="137" key="FileChooserDialogImpl" timestamp="1587193635264">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="670" y="108" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587104186523" />
+    <state x="838" y="137" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587193635264" />
     <state width="1323" height="200" key="GridCell.Tab.0.bottom" timestamp="1587134803935">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -682,14 +695,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
-    <state x="149" y="12" key="SettingsEditor" timestamp="1587051401261">
+    <state x="427" y="75" key="RollbackChangesDialog" timestamp="1587139379502">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="149" y="12" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587051401261" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587135294726">
+    <state x="427" y="75" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587139379502" />
+    <state x="149" y="12" key="SettingsEditor" timestamp="1587141223895">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587135294726" />
+    <state x="149" y="12" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587141223895" />
+    <state x="522" y="279" key="VCS.ChangelistChooser" timestamp="1587140960165">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="522" y="279" key="VCS.ChangelistChooser/0.0.1366.728@0.0.1366.728" timestamp="1587140960165" />
+    <state x="539" y="274" key="VCS.EditChangelistDialog" timestamp="1587141407171">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="539" y="274" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1587141407171" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587139460608">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587139460608" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1587046559728">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -714,10 +739,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="277" y="22" key="scopes/0.0.1366.728@0.0.1366.728" timestamp="1584170700910" />
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1586926438618">
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587192169651">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1586926438618" />
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587192169651" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BF_grading_range$preproccess.coverage" NAME="preproccess Coverage Results" MODIFIED="1583916298704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/proj-IornOrderData" />
