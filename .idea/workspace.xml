@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="organize.iron 增加 炉身下二段极差">
-      <change afterPath="$PROJECT_DIR$/.idea/webResources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/DrawDocPic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/lag文档宏.vb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/数据的频率分布直方图/数据的频率分布直方图.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/根据攀钢给的分数标签画各个指标的散点分布/处理程序.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/BF-grading-range.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BF-grading-range.iml" afterDir="false" />
+    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lag/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lag/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lag/lag_config.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lag/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lag/time_lag.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/legacy/评分散点图.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lag.py" beforeDir="false" afterPath="$PROJECT_DIR$/lag.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Python Unit Test" />
+        <option value="Python Stub" />
         <option value="Python Script" />
       </list>
     </option>
@@ -68,7 +70,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lag" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
@@ -88,34 +90,15 @@
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize\legacy" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\lag" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myPCA" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myCluster" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.数据的频率分布直方图">
-    <configuration name="处理程序" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project/根据攀钢给的分数标签画各个指标的散点分布" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/根据攀钢给的分数标签画各个指标的散点分布/处理程序.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="把新的数据用红色表示原来的数据用蓝色表示把它们在燃料比和利用系数的空间中画一下发给我" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.time_lag">
+    <configuration name="评分散点图" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -125,7 +108,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy\把新的数据用红色表示原来的数据用蓝色表示把它们在燃料比和利用系数的空间中画一下发给我.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy\评分散点图.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -172,20 +155,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="iron" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lag" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/organize/iron.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lag/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -194,20 +174,36 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="time_lag" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lag" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/organize/run.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lag/time_lag.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="unittest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lag" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lag/unittest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -217,19 +213,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.run" />
-      <item itemvalue="Python.iron" />
-      <item itemvalue="Python.把新的数据用红色表示原来的数据用蓝色表示把它们在燃料比和利用系数的空间中画一下发给我" />
-      <item itemvalue="Python.处理程序" />
       <item itemvalue="Python.数据的频率分布直方图" />
+      <item itemvalue="Python.评分散点图" />
+      <item itemvalue="Python.unittest" />
+      <item itemvalue="Python.time_lag" />
+      <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.数据的频率分布直方图" />
-        <item itemvalue="Python.数据的频率分布直方图" />
-        <item itemvalue="Python.数据的频率分布直方图" />
-        <item itemvalue="Python.数据的频率分布直方图" />
-        <item itemvalue="Python.数据的频率分布直方图" />
+        <item itemvalue="Python.time_lag" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -271,7 +267,7 @@
       <workItem from="1587013568304" duration="6316000" />
       <workItem from="1587031251962" duration="53574000" />
       <workItem from="1587140355131" duration="1505000" />
-      <workItem from="1587184106749" duration="14586000" />
+      <workItem from="1587184106749" duration="27557000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -567,7 +563,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587139443812</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="直方图分析">
+      <created>1587220045797</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1587220045797</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -607,7 +610,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="加入烧结矿" />
     <MESSAGE value="整理" />
     <MESSAGE value="2D 3D 聚类图" />
     <MESSAGE value="类化 画不同角度的3D图" />
@@ -632,7 +634,8 @@
     <MESSAGE value="预整理程序整合到 organize 模块中" />
     <MESSAGE value="fix 铁次整理中没有 烧结" />
     <MESSAGE value="organize.iron 增加 炉身下二段极差" />
-    <option name="LAST_COMMIT_MESSAGE" value="organize.iron 增加 炉身下二段极差" />
+    <MESSAGE value="直方图分析" />
+    <option name="LAST_COMMIT_MESSAGE" value="直方图分析" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -643,18 +646,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="136" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1583916362496" />
-    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587139740937">
+    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587278988825">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1587139740937" />
+    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1587278988825" />
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587140037375">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587140037375" />
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587140683898">
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587220043922">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587140683898" />
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587220043922" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1587195864329">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -695,10 +698,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
-    <state x="427" y="75" key="RollbackChangesDialog" timestamp="1587139379502">
+    <state x="427" y="75" key="RollbackChangesDialog" timestamp="1587282201056">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="427" y="75" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587139379502" />
+    <state x="427" y="75" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587282201056" />
     <state x="149" y="12" key="SettingsEditor" timestamp="1587141223895">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -711,10 +714,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="539" y="274" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1587141407171" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587139460608">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587220052517">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587139460608" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587220052517" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1587046559728">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -739,10 +742,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="277" y="22" key="scopes/0.0.1366.728@0.0.1366.728" timestamp="1584170700910" />
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587192169651">
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587273599957">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587192169651" />
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587273599957" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BF_grading_range$preproccess.coverage" NAME="preproccess Coverage Results" MODIFIED="1583916298704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/proj-IornOrderData" />
