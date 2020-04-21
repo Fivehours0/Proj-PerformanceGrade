@@ -1,6 +1,6 @@
 """
-与myPCA一样的分析
-只是数据源不同
+复现文献：
+“基于主成分分析的高炉指标评价方法_曹维超”
 """
 import numpy as np
 import pandas as pd
@@ -12,13 +12,17 @@ from sklearn.decomposition import PCA
 plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
+    """
+    2020-4-17指导：
+     基于现场46个指标的新数据（铁次），基于PCA的分值看一下规律
+    """
+    FILE = '铁次结果_5h滞后处理v3.0_tc.xlsx'
     N_COMPONENTS = 21  # 主成分个数, 需要先设定 None
 
     # 数据读入
-    file = r'D:\文件\0-NEU_Works\0-攀钢项目\2-任务-铁次整理\release3.0-钢研院版本\铁次结果汇总_5h滞后v3.0.xlsx'
-    input_df = pd.read_excel(file, index_col=0)
+    input_df = pd.read_excel(FILE, index_col=0, sheet_name='46')
 
     # 标准化
     scaler = StandardScaler()

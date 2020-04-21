@@ -15,6 +15,7 @@ plt.rcParams['axes.unicode_minus'] = False
 
 COLORS = ['r', 'y', 'b', 'g', 'k']
 
+IMG_SAVE_PATH = '结果图/myClusterv2/'  # 结果图存放路径
 
 def draw_2d_cluster(index):
     """
@@ -57,18 +58,24 @@ def draw_2d_cluster(index):
     plt.title(name + "2D聚类散点图")
     plt.legend()
 
-    plt.savefig('C:/Users/Administrator/Desktop/figs/' + str(index) + "2D聚类散点图.png")
+    plt.savefig(IMG_SAVE_PATH + str(index) + "2D聚类散点图.png")
     plt.close()
+
     plt.show()
 
 
 if __name__ == '__main__':
-    N_CLUSTERS = 3  # 聚类个数
+    N_CLUSTERS = 5  # 聚类个数
     ALPHA = 0.6  # 指标混合系数
 
     # 数据读入
-    file = r'D:\文件\0-NEU_Works\0-攀钢项目\2-任务-铁次整理\release3.0-钢研院版本\铁次结果汇总_5h滞后v3.0.xlsx'
-    input_df = pd.read_excel(file, index_col=0)
+
+    file = r'C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myCluster\铁次结果_5h滞后处理v3.0_tc.xlsx'
+    input_df = pd.read_excel(file, index_col=0, sheet_name='46')
+
+    # 处理 数据中有 inf 的情况 去除掉
+    input_df[input_df == np.inf] = np.nan
+    input_df = input_df.dropna()  # 去除
 
     # 标准化
     scaler = StandardScaler()

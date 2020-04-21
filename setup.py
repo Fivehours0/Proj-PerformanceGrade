@@ -3,15 +3,15 @@
 """
 # from preprocess import *
 # from mymo.get_things import *
-from mymo.dailyData.daily_preprocess_v3_alpha import *
+# from mymo.dailyData.daily_preprocess_v3_alpha import *
 
 if __name__ == '__main__':
 
     # 铁次处理的远端部署代码
     # main(five_lag=True)
-
+    print(" ")
     # 每日处理的测试
-    res = main()
+    # res = main()
 
     # # 测试模块
     # params = ['炉缸温度1', '炉缸温度2', '炉缸温度3', '炉缸温度4', '炉缸温度5', '炉缸温度6',
