@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lag/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lag/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lag/lag_config.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lag/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lag/time_lag.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/legacy/评分散点图.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lag.py" beforeDir="false" afterPath="$PROJECT_DIR$/lag.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lag/lag_config.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/lag/lag_config.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lag/time_lag.py" beforeDir="false" afterPath="$PROJECT_DIR$/lag/time_lag.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +97,9 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -159,6 +157,9 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lag" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -178,6 +179,9 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lag" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -197,6 +201,9 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lag" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -213,7 +220,6 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.数据的频率分布直方图" />
       <item itemvalue="Python.评分散点图" />
       <item itemvalue="Python.unittest" />
       <item itemvalue="Python.time_lag" />
@@ -222,9 +228,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.time_lag" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.time_lag" />
+        <item itemvalue="Python.time_lag" />
+        <item itemvalue="Python.time_lag" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -267,7 +273,8 @@
       <workItem from="1587013568304" duration="6316000" />
       <workItem from="1587031251962" duration="53574000" />
       <workItem from="1587140355131" duration="1505000" />
-      <workItem from="1587184106749" duration="27557000" />
+      <workItem from="1587184106749" duration="34420000" />
+      <workItem from="1587445535439" duration="896000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -570,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587220045797</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="滞后分析3.0">
+      <created>1587282470393</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1587282470394</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -610,7 +624,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="整理" />
     <MESSAGE value="2D 3D 聚类图" />
     <MESSAGE value="类化 画不同角度的3D图" />
     <MESSAGE value="添加注释" />
@@ -635,7 +648,8 @@
     <MESSAGE value="fix 铁次整理中没有 烧结" />
     <MESSAGE value="organize.iron 增加 炉身下二段极差" />
     <MESSAGE value="直方图分析" />
-    <option name="LAST_COMMIT_MESSAGE" value="直方图分析" />
+    <MESSAGE value="滞后分析3.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="滞后分析3.0" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -654,10 +668,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587140037375" />
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587220043922">
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587282467829">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587220043922" />
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587282467829" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1587195864329">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -698,10 +712,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
-    <state x="427" y="75" key="RollbackChangesDialog" timestamp="1587282201056">
+    <state x="427" y="75" key="RollbackChangesDialog" timestamp="1587282438170">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="427" y="75" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587282201056" />
+    <state x="427" y="75" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587282438170" />
     <state x="149" y="12" key="SettingsEditor" timestamp="1587141223895">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -228,21 +228,21 @@ def lag_analysis(i, j, lag_min, lag_max, img_show=False, draw_range='small'):
     lag_min: 最小滞后时间
     lag_max: 最大滞后时间
     img_show: 是否展示图像, 默认False
-    draw_range: 默认 'small'(画2月1日到2日 这两天得图); 'big': 画四个月得图
+    draw_range: 默认 'small'(画前两天的图); 'big': 传入数据中的所有区间的图
     """
     # 画图得开始与结束时间 设定:
 
     if draw_range == 'big':
-        draw_start, draw_end = '2019-10-01', '2020-02-14'
+        draw_start, draw_end = res.index[0], res.index[-1]  # 传入数据中的所有区间的图
     else:
-        draw_start, draw_end = '2020-02-01', '2020-02-02'
+        draw_start, draw_end = res.index[0], res.index[0] + pd.to_timedelta('2d')  # 画前两天的图
 
     ctrl = res[controls[i]]
     prod = res[products[j]]
 
-    plt.figure()  # 绘制没有进行滞后处理的散点图
-    ctrl_std = (ctrl - ctrl.mean()) / ctrl.std()
-
+    # 绘制没有进行滞后处理的散点连线图
+    plt.figure()
+    ctrl_std = (ctrl - ctrl.mean()) / ctrl.std()  # 正态标准化
     ctrl_std[draw_start:draw_end].plot(label=controls[i])
     prod_std = (prod - prod.mean()) / prod.std()
     prod_std[draw_start:draw_end].plot(label=products[j])
@@ -250,36 +250,40 @@ def lag_analysis(i, j, lag_min, lag_max, img_show=False, draw_range='small'):
     plt.ylabel("正态标准化数值")
     plt.legend()
 
-    plt.savefig('img/滞后/' + "{}与{}的波动图(未滞后处理)".format(products[j], controls[i]))
+    plt.savefig(FIG_SAVE_PATH + "{}与{}的波动图(未滞后处理)".format(products[j], controls[i]))
     if img_show:
         plt.show()
     else:
         plt.close()
 
-    ##  滞后图
-
+    #  滞后分析部分
     corr_list = []
     for periods in range(lag_min * 60, lag_max * 60 + 1):
         corr_list.append(ctrl.shift(periods).corr(prod))
 
+    # 滞后分析图
     plt.figure()
     plt.plot(range(lag_min * 60, lag_max * 60 + 1), np.abs(corr_list))
     plt.xlabel("滞后时间/min")
     plt.ylabel("绝对相关系数")
     np_corr_list = np.abs(np.array(corr_list))
 
-    lag_time = np_corr_list.argmax() + lag_min * 60
-    plt.scatter(lag_time, np_corr_list.max(), c='r')
+    max_corr_value = np_corr_list.argmax()  # 相关系数绝对值的最大值
+
+    lag_time = max_corr_value + lag_min * 60
+    plt.scatter(lag_time, max_corr_value, c='r')
 
     plt.title("{}与{}的滞后时间分析图(滞后结果:{}min)".format(products[j], controls[i], lag_time))
 
     print("{}与{}的滞后时间分析图(滞后结果:{}min)".format(products[j], controls[i], lag_time))
-    plt.savefig('img/滞后/' + "{}与{}的滞后时间分析图".format(products[j], controls[i], lag_time))
+
+    plt.savefig(FIG_SAVE_PATH + "{}与{}的滞后时间分析图".format(products[j], controls[i], lag_time))
     if img_show:
         plt.show()
     else:
         plt.close()
-    ## 滞后处理后的图
+
+    # 滞后处理后的图
     fig_name3 = "{}与{}的波动图(滞后处理后)".format(products[j], controls[i])
     plt.figure()
     ctrl_std[draw_start:draw_end].shift(lag_time).plot(label=controls[i])
@@ -288,12 +292,12 @@ def lag_analysis(i, j, lag_min, lag_max, img_show=False, draw_range='small'):
     plt.ylabel("正态标准化数值")
 
     plt.legend()
-    plt.savefig('img/滞后/' + fig_name3)
+    plt.savefig(FIG_SAVE_PATH + fig_name3)
     if img_show:
         plt.show()
     else:
         plt.close()
-    return lag_time
+    return lag_time, max_corr_value  # 输出滞后时间与最大绝对相关系数
 
 
 if __name__ == '__main__':
@@ -317,26 +321,27 @@ if __name__ == '__main__':
     controls = config.index
     products = [i[0] for i in config.columns][::2]
 
-    lag_res_table = pd.DataFrame(data=0, index=controls, columns=products)
+    # 存储路径
+    FIG_SAVE_PATH = 'lag/figs/'
+    if not os.path.exists(FIG_SAVE_PATH):
+        os.makedirs(FIG_SAVE_PATH)
+
+    lag_res_table = pd.DataFrame(data=0, index=controls, columns=products)  # 滞后时间的结果存放表
+    corr_value_table = pd.DataFrame(data=0, index=controls, columns=products)  # 最大相关系数的结果存放表
+    big_scale_params = ['焦炭负荷', '铁水温度']  # 对于'焦炭负荷','[铁水温度]' 这样的指标 要画大尺度时间的散点波动图
     for j in range(len(products)):
 
         for i in range(len(controls)):
-            lag_min = config.loc[controls[i], (products[j], 'min')]
-            lag_max = config.loc[controls[i], (products[j], 'max')]
-            if products[j] in ['焦炭负荷', '铁水温度']:  # 对于'焦炭负荷','[铁水温度]' 这样的指标 要画大尺度时间的散点波动图
-                lag_res_table.loc[controls[i], products[j]] = lag_analysis(i, j, lag_min, lag_max, draw_range='big')
+            lag_min = config.loc[controls[i], (products[j], 'min')]  # 时滞时间的最小值
+            lag_max = config.loc[controls[i], (products[j], 'max')]  # 最大值
+            if products[j] in big_scale_params or controls[i] in big_scale_params:
+                lag_res_table.loc[controls[i], products[j]], corr_value_table.loc[
+                    controls[i], products[j]] = lag_analysis(i, j, lag_min, lag_max, draw_range='big')
             else:
-                lag_res_table.loc[controls[i], products[j]] = lag_analysis(i, j, lag_min, lag_max)
+                lag_res_table.loc[controls[i], products[j]], corr_value_table.loc[
+                    controls[i], products[j]] = lag_analysis(i, j, lag_min, lag_max)
 
     # save table to excel
-    lag_res_table.to_excel('data/滞后结果表.xlsx')
+    lag_res_table.to_excel('lag/滞后结果表.xlsx')
+    corr_value_table.to_excel('lag/最大相关系数.xlsx')
 
-    #
-    # df = pd.read_excel(FILE, index_col=0)
-
-    # extract = df[['受铁开始时间',]]
-    # for i in params_:
-    #     if i in df.columns:
-    #         print("%s在数据中,直接抽取即可" % i)
-    #     else:
-    #         print("warning! %s不在数据中, 需要单独整理" % i)
