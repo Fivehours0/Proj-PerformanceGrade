@@ -227,7 +227,16 @@ class Solution:
         res['炉腰温度'] = res[['炉腰温度1', '炉腰温度2', '炉腰温度3', '炉腰温度4', '炉腰温度5', '炉腰温度6']].mean(axis=1)
         res['炉身下二段温度'] = res[['炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4',
                               '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8']].mean(axis=1)
+        
+        # 以下为极差指标处理
+        res_temp = pd.DataFrame()
+        range_param_list = ['炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4', 
+                            '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8']
+        res_temp = self.process_business_time(df, range_param_list, range=True)
+        res['炉身下二层温度极差'] = res_temp[['炉身下二层温度1极差', '炉身下二层温度2极差', '炉身下二层温度3极差', '炉身下二层温度4极差', 
+                                         '炉身下二层温度5极差', '炉身下二层温度6极差', '炉身下二层温度7极差', '炉身下二层温度8极差']].mean(axis=1)
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
+        
         return res
 
     def get_noumenon2(self):
