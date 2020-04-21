@@ -397,6 +397,11 @@ class Solution:
         res_temp = self.process_range(range_param_list)
         res['炉喉温度极差'] = res_temp.mean(axis=1)
 
+        range_param_list = ['炉身下二层温度1', '炉身下二层温度2', '炉身下二层温度3', '炉身下二层温度4', 
+                            '炉身下二层温度5', '炉身下二层温度6', '炉身下二层温度7', '炉身下二层温度8']
+        res_temp = self.process_range(range_param_list)
+        res['炉身下二层温度极差'] = res_temp.mean(axis=1)    
+        
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
