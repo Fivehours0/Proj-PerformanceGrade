@@ -50,6 +50,16 @@ STATUS_PARAMS = [
 ]
 
 
+# def get_data(params_, data_id):
+#     """
+#     获取数据 铁次时间表
+#     :param params_:
+#     :param data_id:
+#     :return:
+#     """
+#     df_ = get_df(params_[0], data_id)
+#     df_iron_time = get_time_table(data_id)
+#     return df_, df_iron_time
 def get_data(params_, data_id):
     """
     获取数据 铁次时间表
@@ -57,8 +67,26 @@ def get_data(params_, data_id):
     :param data_id:
     :return:
     """
-    df_ = get_df(params_[0], data_id)
-    df_iron_time = get_time_table(data_id)
+    if isinstance(data_id, int):
+        print("只使用了数据批次编码值为%d的数据" % data_id)
+        df_ = get_df(params_[0], data_id)
+        df_iron_time = get_time_table(data_id)
+
+    elif isinstance(data_id, str):
+        if data_id == 'all':  # 导入所以数据
+            df19_ = get_df(params_[0], 19)
+            df20_ = get_df(params_[0], 20)
+            df201_ = get_df(params_[0], 201)
+            df_ = pd.concat([df19_, df20_, df201_])
+
+            time_table19 = get_time_table(19)
+            time_table20 = get_time_table(20)
+            time_table201 = get_time_table(201)
+            df_iron_time = pd.concat([time_table19, time_table20, time_table201])
+        else:
+            raise UserWarning("参数data_id输入错误")
+    else:
+        raise UserWarning("参数data_id输入错误")
     return df_, df_iron_time
 
 
@@ -268,9 +296,9 @@ def lag_analysis(i, j, lag_min, lag_max, img_show=False, draw_range='small'):
     plt.ylabel("绝对相关系数")
     np_corr_list = np.abs(np.array(corr_list))
 
-    max_corr_value = np_corr_list.argmax()  # 相关系数绝对值的最大值
-
-    lag_time = max_corr_value + lag_min * 60
+    max_corr_value_id = np_corr_list.argmax()  # 相关系数绝对值的最大值
+    max_corr_value = np_corr_list.max()
+    lag_time = max_corr_value_id + lag_min * 60
     plt.scatter(lag_time, max_corr_value, c='r')
 
     plt.title("{}与{}的滞后时间分析图(滞后结果:{}min)".format(products[j], controls[i], lag_time))
@@ -305,7 +333,7 @@ if __name__ == '__main__':
     os.chdir('../')
     print(os.getcwd())
 
-    DATA_ID = 201
+    DATA_ID = 'all'
 
     # 现在能用的的参数
     operate_params = OPERATE_PARAMS[:6]
@@ -328,7 +356,7 @@ if __name__ == '__main__':
 
     lag_res_table = pd.DataFrame(data=0, index=controls, columns=products)  # 滞后时间的结果存放表
     corr_value_table = pd.DataFrame(data=0, index=controls, columns=products)  # 最大相关系数的结果存放表
-    big_scale_params = ['焦炭负荷', '铁水温度']  # 对于'焦炭负荷','[铁水温度]' 这样的指标 要画大尺度时间的散点波动图
+    big_scale_params = ['焦炭负荷', '铁水温度', '球团矿比例']  # 对于'焦炭负荷','[铁水温度]'等 这样的指标 要画大尺度时间的散点波动图
     for j in range(len(products)):
 
         for i in range(len(controls)):
@@ -344,4 +372,3 @@ if __name__ == '__main__':
     # save table to excel
     lag_res_table.to_excel('lag/滞后结果表.xlsx')
     corr_value_table.to_excel('lag/最大相关系数.xlsx')
-

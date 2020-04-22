@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lag/NewMacros.bas" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organize/拼合缺失填充.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/给胡腾辉抽铁次46版本/抽取程序.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/铁次数据的PCA的得分/铁次PCA得分.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lag/lag_config.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/lag/lag_config.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lag/time_lag.py" beforeDir="false" afterPath="$PROJECT_DIR$/lag/time_lag.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/测试-excel是不是可以当数据库.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/legacy/extract_and_fill.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/legacy/extract_and_fill.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/合并所有批次数据.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +75,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lag" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/project/给胡腾辉抽铁次46版本" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
@@ -77,36 +87,71 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\数据的频率分布直方图" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy\proj-DrowDocPic" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize\legacy" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\给胡腾辉抽铁次46版本" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\lag" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myPCA" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myCluster" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\数据的频率分布直方图" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy\proj-DrowDocPic" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize\legacy" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.time_lag">
-    <configuration name="评分散点图" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.拼合缺失填充">
+    <configuration name="抽取程序" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project/给胡腾辉抽铁次46版本" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy\评分散点图.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/给胡腾辉抽铁次46版本/抽取程序.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="拼合缺失填充" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/organize/拼合缺失填充.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="铁次PCA得分" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project/铁次数据的PCA的得分" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/铁次数据的PCA的得分/铁次PCA得分.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -153,20 +198,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lag" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lag/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/organize/run.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -179,9 +221,6 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lag" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -197,41 +236,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="unittest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lag" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lag/unittest.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.评分散点图" />
-      <item itemvalue="Python.unittest" />
       <item itemvalue="Python.time_lag" />
-      <item itemvalue="Python.test" />
+      <item itemvalue="Python.铁次PCA得分" />
+      <item itemvalue="Python.抽取程序" />
+      <item itemvalue="Python.run" />
+      <item itemvalue="Python.拼合缺失填充" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.time_lag" />
-        <item itemvalue="Python.time_lag" />
-        <item itemvalue="Python.time_lag" />
-        <item itemvalue="Python.time_lag" />
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.拼合缺失填充" />
+        <item itemvalue="Python.拼合缺失填充" />
+        <item itemvalue="Python.run" />
+        <item itemvalue="Python.抽取程序" />
+        <item itemvalue="Python.铁次PCA得分" />
       </list>
     </recent_temporary>
   </component>
@@ -274,7 +292,7 @@
       <workItem from="1587031251962" duration="53574000" />
       <workItem from="1587140355131" duration="1505000" />
       <workItem from="1587184106749" duration="34420000" />
-      <workItem from="1587445535439" duration="896000" />
+      <workItem from="1587445535439" duration="27224000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -584,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587282470394</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="在time_lag.py中增加最大相关系数的输出">
+      <created>1587446517669</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1587446517669</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +649,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2D 3D 聚类图" />
     <MESSAGE value="类化 画不同角度的3D图" />
     <MESSAGE value="添加注释" />
     <MESSAGE value="预处理" />
@@ -649,7 +673,8 @@
     <MESSAGE value="organize.iron 增加 炉身下二段极差" />
     <MESSAGE value="直方图分析" />
     <MESSAGE value="滞后分析3.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="滞后分析3.0" />
+    <MESSAGE value="在time_lag.py中增加最大相关系数的输出" />
+    <option name="LAST_COMMIT_MESSAGE" value="在time_lag.py中增加最大相关系数的输出" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -660,26 +685,26 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="136" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1583916362496" />
-    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587278988825">
+    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587526272680">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1587278988825" />
-    <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587140037375">
+    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1587526272680" />
+    <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587526316920">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587140037375" />
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587282467829">
+    <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587526316920" />
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587446511822">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587282467829" />
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587446511822" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1587195864329">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1587195864329" />
-    <state x="838" y="137" key="FileChooserDialogImpl" timestamp="1587193635264">
+    <state x="838" y="137" key="FileChooserDialogImpl" timestamp="1587532410877">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="838" y="137" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587193635264" />
+    <state x="838" y="137" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587532410877" />
     <state width="1323" height="200" key="GridCell.Tab.0.bottom" timestamp="1587134803935">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -732,10 +757,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587220052517" />
-    <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1587046559728">
+    <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1587516835121">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1587046559728" />
+    <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1587516835121" />
     <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587001503883">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -756,10 +781,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="277" y="22" key="scopes/0.0.1366.728@0.0.1366.728" timestamp="1584170700910" />
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587273599957">
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587533309685">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587273599957" />
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587533309685" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BF_grading_range$preproccess.coverage" NAME="preproccess Coverage Results" MODIFIED="1583916298704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/proj-IornOrderData" />
