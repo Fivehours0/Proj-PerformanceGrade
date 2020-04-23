@@ -1,7 +1,8 @@
-import psycopg2
 import pandas as pd
-from sqlalchemy import create_engine
+import psycopg2
 import sqlalchemy
+from sqlalchemy import create_engine
+
 
 def connect_db():
     """
