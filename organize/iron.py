@@ -525,15 +525,23 @@ class Solution:
         df_coke = self.get_df(param)
         df_coke = self.time2order(df_coke, five_lag=five_lag)
         df_coke = process_iron(df_coke, param_list, np.sum)
+
         # res['焦比'] = (df_coke['冶金焦（自产）'] + df_coke['小块焦'])
         res.fillna(0, inplace=True)
-        df_coke.fillna(0, inplace=True)
+        df_coke.fillna(0, inplace=True)  # 矿石没有数据就当是0了
+
+        # 输出整理好的 球团矿比例 和各个矿石的量
+        res[df_coke.columns] = df_coke
+        res['球团矿比例'] = df_coke['白马球团'] / df_coke.sum(axis=1)
+
         res['铁次渣量'] = 0
         for i in range(7):
             res['铁次渣量'] = res['铁次渣量'] + res.iloc[:, i] * df_coke.iloc[:, i]
         res['铁次渣量'] = res['铁次渣量'] / self.res['(CaO)']  # 问题: 铁次区间没有 加矿呢???
         res['铁次渣量 / 铁次铁量'] = res['铁次渣量'] / self.res['铁次铁量']
-        self.res = pd.merge(res.loc[:, ['铁次渣量', '铁次渣量 / 铁次铁量']], self.res, how="outer", left_index=True,
+
+        out_list = ['铁次渣量', '铁次渣量 / 铁次铁量'] + ['球团矿比例'] + list(df_coke.columns)  # 输出指标名
+        self.res = pd.merge(res.loc[:, out_list], self.res, how="outer", left_index=True,
                             right_index=True)
         return res
 
@@ -688,6 +696,3 @@ if __name__ == "__main__":
     solv = Solution(201)
     solv.get_noumenon1()
     res = solv.res
-
-
-
