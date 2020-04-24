@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/demo/dome-psycopg2/save_data2sql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/loacl_variable/TestLocalVar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/loacl_variable/test1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/BF-grading-range.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BF-grading-range.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webResources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/dome-psycopg2/first_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/dome-psycopg2/first_demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/dome-psycopg2/save_data2sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/dome-psycopg2/save_data2sql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lag/time_lag.py" beforeDir="false" afterPath="$PROJECT_DIR$/lag/time_lag.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,13 +69,22 @@
         <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="runoobdb@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="runoobdb: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="中文名测试表: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="BF-grading-range">
       <favorite_root url="file://$PROJECT_DIR$/proj-Lag/lag文档宏.vb" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-      <favorite_root url="file://$PROJECT_DIR$/legacy/lag文档宏.vb" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
     </favorites_list>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -107,10 +121,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Set Language" value="SQL" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Set Language" value="SQL&#10;Python" />
+    <property name="database.data.extractors.current.id" value="Tab-separated (TSV)_id" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/demo/dome-psycopg2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="sshConsole" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -135,21 +150,18 @@
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.save_data2sql">
-    <configuration name="抽取程序" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.test1">
+    <configuration name="TestLocalVar" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project/给胡腾辉抽铁次46版本" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo/loacl_variable" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/给胡腾辉抽铁次46版本/抽取程序.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\demo\loacl_variable\TestLocalVar.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -219,6 +231,9 @@
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo/dome-psycopg2" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -234,32 +249,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="save_data2sql" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/organize/run.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="save_data2sql" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo/dome-psycopg2" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -275,10 +271,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo/loacl_variable" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/loacl_variable/test1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test_sqlalchemy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo/demo-sqlalchemy" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -295,19 +313,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.抽取程序" />
-      <item itemvalue="Python.run" />
       <item itemvalue="Python.test_sqlalchemy" />
       <item itemvalue="Python.first_demo" />
       <item itemvalue="Python.save_data2sql" />
+      <item itemvalue="Python.test1" />
+      <item itemvalue="Python.TestLocalVar" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.save_data2sql" />
-        <item itemvalue="Python.first_demo" />
-        <item itemvalue="Python.first_demo" />
-        <item itemvalue="Python.first_demo" />
-        <item itemvalue="Python.first_demo" />
+        <item itemvalue="Python.test1" />
+        <item itemvalue="Python.test1" />
+        <item itemvalue="Python.test1" />
+        <item itemvalue="Python.test1" />
+        <item itemvalue="Python.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -315,7 +333,7 @@
     <option name="viewStates">
       <list>
         <serviceView>
-          <option name="contentProportion" value="0.17001545" />
+          <option name="contentProportion" value="0.29598147" />
           <treeState>
             <expand>
               <path>
@@ -325,7 +343,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:runoobdb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@32ccbc1b" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@ee3e4bf" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -333,6 +351,10 @@
         </serviceView>
       </list>
     </option>
+  </component>
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+    <option name="myConnectionType" value="NONE" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -375,7 +397,10 @@
       <workItem from="1587184106749" duration="34420000" />
       <workItem from="1587445535439" duration="28792000" />
       <workItem from="1587613903334" duration="554000" />
-      <workItem from="1587615565780" duration="18465000" />
+      <workItem from="1587615565780" duration="20091000" />
+      <workItem from="1587642004820" duration="1185000" />
+      <workItem from="1587643223539" duration="1235000" />
+      <workItem from="1587646568223" duration="14889000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -706,7 +731,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587638158931</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="sql演示2">
+      <created>1587640476771</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1587640476771</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -746,7 +778,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="预处理" />
     <MESSAGE value="save" />
     <MESSAGE value="备份" />
     <MESSAGE value="update README.md and lag.py&#10;add commit" />
@@ -771,7 +802,8 @@
     <MESSAGE value="在time_lag.py中增加最大相关系数的输出" />
     <MESSAGE value="add new project" />
     <MESSAGE value="sql learn" />
-    <option name="LAST_COMMIT_MESSAGE" value="sql learn" />
+    <MESSAGE value="sql演示2" />
+    <option name="LAST_COMMIT_MESSAGE" value="sql演示2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -782,74 +814,86 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#SQL_Dialects/0.0.1366.728@0.0.1366.728" timestamp="1587639968993" />
-    <state x="332" y="12" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587623664527">
+    <state x="332" y="12" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587652523989">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="332" y="12" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1587623664527" />
+    <state x="332" y="12" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1587652523989" />
     <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587526272680">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1587526272680" />
+    <state x="455" y="75" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1587653164099">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="455" y="75" key="#com.intellij.ide.macro.MacrosDialog/0.0.1366.728@0.0.1366.728" timestamp="1587653164099" />
+    <state x="70" y="125" width="474" height="461" key="#com.intellij.tools.ToolEditorDialog" timestamp="1587653354979">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="70" y="125" width="474" height="461" key="#com.intellij.tools.ToolEditorDialog/0.0.1366.728@0.0.1366.728" timestamp="1587653354979" />
+    <state x="463" y="53" key="#xdebugger.evaluate" timestamp="1587705508290">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="53" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1587705508290" />
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587526316920">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587526316920" />
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587638157172">
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587640475202">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587638157172" />
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1587195864329">
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587640475202" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1587706930745">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1587195864329" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1587706930745" />
     <state x="838" y="137" key="FileChooserDialogImpl" timestamp="1587532410877">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="838" y="137" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587532410877" />
-    <state width="1073" height="113" key="GridCell.Tab.0.bottom" timestamp="1587639994065">
+    <state width="709" height="402" key="GridCell.Tab.0.bottom" timestamp="1587705534262">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1073" height="113" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587639994065" />
-    <state width="1073" height="113" key="GridCell.Tab.0.center" timestamp="1587639994065">
+    <state width="709" height="402" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587705534262" />
+    <state width="709" height="402" key="GridCell.Tab.0.center" timestamp="1587705534262">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1073" height="113" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587639994065" />
-    <state width="1073" height="113" key="GridCell.Tab.0.left" timestamp="1587639994065">
+    <state width="709" height="402" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587705534262" />
+    <state width="709" height="402" key="GridCell.Tab.0.left" timestamp="1587705534262">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1073" height="113" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587639994065" />
-    <state width="1073" height="113" key="GridCell.Tab.0.right" timestamp="1587639994065">
+    <state width="709" height="402" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587705534262" />
+    <state width="709" height="402" key="GridCell.Tab.0.right" timestamp="1587705534262">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1073" height="113" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587639994065" />
-    <state width="709" height="402" key="GridCell.Tab.1.bottom" timestamp="1584264493030">
+    <state width="709" height="402" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587705534262" />
+    <state width="709" height="402" key="GridCell.Tab.1.bottom" timestamp="1587705534262">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
-    <state width="709" height="402" key="GridCell.Tab.1.center" timestamp="1584264493029">
+    <state width="709" height="402" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587705534262" />
+    <state width="709" height="402" key="GridCell.Tab.1.center" timestamp="1587705534262">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1584264493029" />
-    <state width="709" height="402" key="GridCell.Tab.1.left" timestamp="1584264493025">
+    <state width="709" height="402" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1587705534262" />
+    <state width="709" height="402" key="GridCell.Tab.1.left" timestamp="1587705534262">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1584264493025" />
-    <state width="709" height="402" key="GridCell.Tab.1.right" timestamp="1584264493030">
+    <state width="709" height="402" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1587705534262" />
+    <state width="709" height="402" key="GridCell.Tab.1.right" timestamp="1587705534262">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
+    <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1587705534262" />
     <state x="427" y="75" key="RollbackChangesDialog" timestamp="1587282438170">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="427" y="75" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587282438170" />
-    <state x="83" y="12" key="SettingsEditor" timestamp="1587637333279">
+    <state x="35" y="12" width="1280" height="716" key="SettingsEditor" timestamp="1587653387577">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="83" y="12" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587637333279" />
-    <state x="404" y="105" width="540" height="524" key="StructurePopup" timestamp="1587638027887">
+    <state x="35" y="12" width="1280" height="716" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587653387577" />
+    <state x="692" y="124" width="540" height="524" key="StructurePopup" timestamp="1587652458509">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="404" y="105" width="540" height="524" key="StructurePopup/0.0.1366.728@0.0.1366.728" timestamp="1587638027887" />
+    <state x="692" y="124" width="540" height="524" key="StructurePopup/0.0.1366.728@0.0.1366.728" timestamp="1587652458509" />
     <state x="522" y="279" key="VCS.ChangelistChooser" timestamp="1587140960165">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -858,14 +902,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="539" y="274" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1587141407171" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587638166298">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587640479045">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587638166298" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587640479045" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1587516835121">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1587516835121" />
+    <state x="437" y="118" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1587646803204">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="437" y="118" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1366.728@0.0.1366.728" timestamp="1587646803204" />
+    <state x="405" y="67" key="com.intellij.database.run.actions.ShowCsvFormatsAction$ForExport" timestamp="1587642348007">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="405" y="67" key="com.intellij.database.run.actions.ShowCsvFormatsAction$ForExport/0.0.1366.728@0.0.1366.728" timestamp="1587642348007" />
     <state x="399" y="3" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1587629498730">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -894,12 +946,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="277" y="22" key="scopes/0.0.1366.728@0.0.1366.728" timestamp="1584170700910" />
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587533309685">
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587653136088">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587533309685" />
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587653136088" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/BF_grading_range$test1.coverage" NAME="test1 Coverage Results" MODIFIED="1587705451266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/demo/loacl_variable" />
     <SUITE FILE_PATH="coverage/BF_grading_range$preproccess.coverage" NAME="preproccess Coverage Results" MODIFIED="1583916298704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/proj-IornOrderData" />
     <SUITE FILE_PATH="coverage/BF_grading_range$preprocess.coverage" NAME="preprocess Coverage Results" MODIFIED="1584083582830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BF_grading_range$iron.coverage" NAME="iron Coverage Results" MODIFIED="1587134792143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/organize" />

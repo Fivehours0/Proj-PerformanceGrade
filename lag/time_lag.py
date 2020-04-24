@@ -49,17 +49,9 @@ STATUS_PARAMS = [
     '料速'  # 暂时无法处理
 ]
 
+DATA_ID = 'all'
 
-# def get_data(params_, data_id):
-#     """
-#     获取数据 铁次时间表
-#     :param params_:
-#     :param data_id:
-#     :return:
-#     """
-#     df_ = get_df(params_[0], data_id)
-#     df_iron_time = get_time_table(data_id)
-#     return df_, df_iron_time
+
 def get_data(params_, data_id):
     """
     获取数据 铁次时间表
@@ -154,9 +146,10 @@ def process_iron_order_data(params_):
     return res
 
 
-def organize_lag_data():
+def organize_lag_data(lag_params):
     """
     整理出计算的滞后数据
+    :lag_params 要输出的指标名字 list
     :return:
     """
     # 热风温度 送风风量 热风压力 富氧量 理论燃烧温度 鼓风动能 喷吹速率 ============================================
@@ -328,12 +321,25 @@ def lag_analysis(i, j, lag_min, lag_max, img_show=False, draw_range='small'):
     return lag_time, max_corr_value  # 输出滞后时间与最大绝对相关系数
 
 
+def save_minute_data():
+    """
+    外部 setup进入调用 保存分钟数据
+    :return:
+    """
+    # 现在能用的的参数
+    operate_params = OPERATE_PARAMS[:6]
+    status_params = STATUS_PARAMS[:11]
+    lag_params = OPERATE_PARAMS[:6] + STATUS_PARAMS[:11]
+
+    # 整理分钟级别的数据
+    data_lag = organize_lag_data(lag_params)
+    data_lag.to_excel('./lag/时滞分析的分钟数据.xlsx')
+
+
 if __name__ == '__main__':
     # 修改工作路径
     os.chdir('../')
     print(os.getcwd())
-
-    DATA_ID = 'all'
 
     # 现在能用的的参数
     operate_params = OPERATE_PARAMS[:6]
@@ -341,7 +347,7 @@ if __name__ == '__main__':
     lag_params = OPERATE_PARAMS[:6] + STATUS_PARAMS[:11]
 
     # 整理分钟级别的数据
-    data_lag = organize_lag_data()
+    data_lag = organize_lag_data(lag_params)
     res = data_lag
 
     # read config , encoding = 'gb2312'
