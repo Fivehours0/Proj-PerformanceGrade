@@ -17,8 +17,10 @@ from organize.env import get_df
 from organize.env import get_time_table
 from organize.env import get_iron_speed
 
-# 处理上料成分表的所有指标的 依照表的文件
-ORGANIZE_CONFIG_XLSX = 'organize/config/20数据表各个名称罗列.xlsx'
+CHEMICAL_TABLE_NAME = '西昌2#高炉-上料质量表'
+
+SLAG_TABLE_NAME = '西昌2#高炉-上料成分表'  # 处理上料成分表的表名字
+ORGANIZE_CONFIG_XLSX = 'organize/config/20数据表各个名称罗列.xlsx'  # 处理上料成分表的所有指标的 依照表的文件
 
 # 修补画图时 中文乱码的问题
 plt.rcParams['font.sans-serif'] = ['SimHei']
@@ -52,15 +54,36 @@ def process_iron(df, param_list, agg_func):
     return res
 
 
+def adaptive(param_list_loading):
+    """
+    对输入的param_list进行适配 以适合被process_chemical调用
+
+    例子：
+        ['40赤块_CaO', '冶金焦综合样_CaO']
+        --->
+        ['40赤块_CaO', '40赤块_CaO','冶金焦综合样_CaO','冶金焦综合样_CaO']
+
+    :param param_list_loading:
+    :return:
+    """
+    # 适配 process_chemical 函数
+    temp = []
+    for i in param_list_loading:
+        temp.append(i)
+        temp.append(i)
+    return temp
+
+
 class Solution:
-    def __init__(self, table):
+    def __init__(self, table, five_lag=True):
         """
         初始化
         :param table: 数据源选择 取值 19 或者 20
         """
-        self.table = table
-        self.res = pd.DataFrame()
-        self.time_table = self.get_time_table()
+        self.five_lag = five_lag  # 设定滞后统一处理成5hour滞后
+        self.table = table  # 处理数据的批次号
+        self.res = pd.DataFrame()  # 结果初始化
+        self.time_table = self.get_time_table()  # 获取铁次时间表
 
     def get_time_table(self):
         """
@@ -68,9 +91,8 @@ class Solution:
         """
         return get_time_table(self.table)
 
-    def time2order(self, df, five_lag=False):
+    def time2order(self, df):
         """
-        :param five_lag: 是否滞后, 将业务处理时间推前5小时
         :param df: 要生成铁次号的 DataFrame
         :return: 添加了 铁次号的 DataFrame
         """
@@ -78,7 +100,7 @@ class Solution:
         df.sort_values('业务处理时间', inplace=True)
 
         df['铁次号'] = 0
-        if five_lag:
+        if self.five_lag:
             df['业务处理时间'] = df['业务处理时间'] - pd.to_timedelta('5h')
         # time = df['业务处理时间']  # 注意 temp 与 df['业务处理时间'] 一个地址
         df.set_index('业务处理时间', inplace=True)
@@ -87,7 +109,7 @@ class Solution:
             df.loc[start:end, '铁次号'] = self.time_table.index[i]
         return df
 
-    def process_business_time(self, df, param_list, range_=False, agg_func=np.mean, five_lag=False, resample_=False):
+    def process_business_time(self, df, param_list, range_=False, agg_func=np.mean, resample_=False):
         """
         对业务处理时间型数据 预处理
         读入数据 -> 铁次时间标定 -> 处理 -> 输出
@@ -95,7 +117,6 @@ class Solution:
         :param param_list: 要处理的指标列表 类型: list
         :param range_: 是否处理极差数据 类型: bool
         :param agg_func: 聚合方式 类型: 函数, 例如np.mean
-        :param five_lag: 是否进行时滞处理 类型: bool
         :param resample_: 是否对该参数数据进行重采样 类型: bool
         :return:
         """
@@ -110,7 +131,7 @@ class Solution:
                 df_pure['业务处理时间'] = pd.to_datetime(df_pure['业务处理时间'])
                 df_pure = df_pure.resample('1min', on='业务处理时间').mean().ffill()
                 df_pure = df_pure.reset_index()
-            df_pure = self.time2order(df_pure, five_lag=five_lag)[[param, '铁次号']][
+            df_pure = self.time2order(df_pure)[[param, '铁次号']][
                 df_pure['铁次号'] != 0]  # 将样本用铁次进行标定，删除不在铁次内的数据
             df_pure[param].where(df_pure[param] < 1e6, np.nan, inplace=True)  # 去除 999999 的异常值
             if not range_:
@@ -266,7 +287,7 @@ class Solution:
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
-    def get_coke_load(self, five_lag):
+    def get_coke_load(self):
         """
         '焦炭负荷'
         :return:
@@ -274,7 +295,7 @@ class Solution:
         res = pd.DataFrame()
         param_list = ['焦炭负荷']
         df = self.get_df(param_list[0])
-        res = self.process_business_time(df, param_list, agg_func=np.mean, five_lag=five_lag, resample_=True)
+        res = self.process_business_time(df, param_list, agg_func=np.mean, resample_=True)
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -312,7 +333,7 @@ class Solution:
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
-    def get_ratio(self, five_lag=False):
+    def get_ratio(self):
         """
         铁次铁量,喷吹速率,焦比,煤比,燃料比,出铁次数/出铁时间  粉焦比
 
@@ -336,7 +357,7 @@ class Solution:
         param_list = ['冶金焦（自产）', '小块焦']
         param = param_list[0]
         df_coke = self.get_df(param)
-        df_coke = self.time2order(df_coke, five_lag=five_lag)
+        df_coke = self.time2order(df_coke)
         df_coke = process_iron(df_coke, param_list, np.sum)
         res['焦比'] = (df_coke['冶金焦（自产）'] + df_coke['小块焦']) / res['铁次铁量'] * 1000
 
@@ -384,7 +405,7 @@ class Solution:
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
-    def process_chemical(self, list2, df, five_lag=False):
+    def process_chemical(self, list2, df):
         """
         专门处理只有上料批次号的指标
 
@@ -395,7 +416,6 @@ class Solution:
         :param list2      处理的指标集合list类型，序号为0，2这样的偶数的，为输出的指标名，奇数为SQL数据库中的指标名
                           例如 ['M40', '焦炭粒度、冷强度_M40'] 输出的名字是'M40', 在数据表里是 '焦炭粒度、冷强度_M40'
         :param df         需要外部处理好DataFrame对象，再传递给本函数
-        :param five_lag   是否进行5hour的滞后处理
         """
 
         def to_time(x):
@@ -435,7 +455,7 @@ class Solution:
                     # 应该确保上料批次号符合这样的格式: 191013xxxxxxx-2401
                     df_grouped.loc[:, '业务处理时间'] = df_grouped['上料批号'].apply(to_time)
 
-                    if five_lag:  # 如果需要滞后
+                    if self.five_lag:  # 如果需要滞后
                         df_grouped.loc[:, '业务处理时间'] = df_grouped['业务处理时间'] - pd.to_timedelta('5h')
 
                     df_grouped.set_index('业务处理时间', inplace=True)
@@ -448,25 +468,30 @@ class Solution:
 
         return res
 
-    def get_chemical(self, five_lag=False):
+    def get_chemical(self):
         """
         数据特点, 没有 业务处理时间 有上料批次号
         焦炭热性能_CSR 这玩意 一天一采集, 必须以数据为模板
+        上料质量表
         """
-        list2 = "M40 焦炭粒度、冷强度_M40 \
-        M10 焦炭粒度、冷强度_M10 \
-        CRI 焦炭热性能_CRI \
-        CSR 焦炭热性能_CSR \
-        St 焦炭工分_St \
-        Ad 焦炭工分_Ad \
-        Mt 焦炭水分_Mt \
-        喷吹煤Ad,%  喷吹煤粉_Ad \
-        喷吹煤St，%  喷吹煤粉_St \
-        喷吹煤Vd，%  喷吹煤粉_Vdaf \
-        烧结矿转鼓强度,%  烧结矿性能样(粒度、强度)_转鼓指数".split()
+        # list2 = "M40 焦炭粒度、冷强度_M40 \
+        # M10 焦炭粒度、冷强度_M10 \
+        # CRI 焦炭热性能_CRI \
+        # CSR 焦炭热性能_CSR \
+        # St 焦炭工分_St \
+        # Ad 焦炭工分_Ad \
+        # Mt 焦炭水分_Mt \
+        # 喷吹煤Ad,%  喷吹煤粉_Ad \
+        # 喷吹煤St，%  喷吹煤粉_St \
+        # 喷吹煤Vd，%  喷吹煤粉_Vdaf \
+        # 烧结矿转鼓强度,%  烧结矿性能样(粒度、强度)_转鼓指数".split()
+        # 同get_slag_amount方法的处理把所有的化验指标处理
+        param_table = pd.read_excel(ORGANIZE_CONFIG_XLSX)
+        param_list_chemical = list(param_table[CHEMICAL_TABLE_NAME])
+        param_list_loading = adaptive(param_list_chemical)  # 适配
 
-        df = self.get_df('焦炭粒度、冷强度_M40')
-        res = self.process_chemical(list2, df, five_lag)
+        df = self.get_df(param_list_chemical[0])
+        res = self.process_chemical(param_list_loading, df)
         self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -506,7 +531,7 @@ class Solution:
             self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
         return res
 
-    def get_slag_amount(self, five_lag=False):
+    def get_slag_amount(self):
         """
         铁次渣量:
         [40赤块_CaO*40赤块+冶金焦综合样_CaO*冶金焦（自产）+南非块矿_CaO*南非块矿+小块焦_CaO*小块焦+
@@ -522,27 +547,27 @@ class Solution:
         :return:
         """
         # TODO (夏尚梓) 实现上料成分表所有化验参数的整理，问题是有的化验参数一会儿有一会没有，该需求待定
-        res = pd.DataFrame()
-        list1 = "40赤块_CaO         40赤块_CaO " \
-                "冶金焦综合样_CaO   冶金焦综合样_CaO " \
-                "南非块矿_CaO       南非块矿_CaO " \
-                "小块焦_CaO         小块焦_CaO " \
-                "烧结矿成分_CaO     烧结矿成分_CaO " \
-                "白马球团_CaO       白马球团_CaO " \
-                "酸性烧结矿_CaO     酸性烧结矿_CaO".split()
+        # res = pd.DataFrame()
+        # list1 = "40赤块_CaO         40赤块_CaO " \
+        #         "冶金焦综合样_CaO   冶金焦综合样_CaO " \
+        #         "南非块矿_CaO       南非块矿_CaO " \
+        #         "小块焦_CaO         小块焦_CaO " \
+        #         "烧结矿成分_CaO     烧结矿成分_CaO " \
+        #         "白马球团_CaO       白马球团_CaO " \
+        #         "酸性烧结矿_CaO     酸性烧结矿_CaO".split()
 
         # 要处理的上料成分表指标 统一读入 organize/config/20数据表各个名称罗列.xlsx
         param_table = pd.read_excel(ORGANIZE_CONFIG_XLSX)
-
-
-        df = self.get_df(list1[0])
-
-        res = self.process_chemical(list1, df, five_lag)  # process_chemical函数能保证数据源中无指标时输出为nan
+        param_list_loading = list(param_table[SLAG_TABLE_NAME])  # 西昌2#高炉-上料成分表中所有采集项名称搞出来
+        param_list_loading = adaptive(param_list_loading)  # 适配一下
+        df = self.get_df(param_list_loading[0])
+        res = self.process_chemical(param_list_loading, df)  # process_chemical函数能保证数据源中无指标时输出为nan
+        self.res[res.columns] = res  # 输出结果
 
         param_list = "40赤块 冶金焦（自产） 南非块矿 小块焦 烧结矿 白马球团 酸性烧结矿".split()
         param = param_list[0]
         df_coke = self.get_df(param)
-        df_coke = self.time2order(df_coke, five_lag=five_lag)
+        df_coke = self.time2order(df_coke)
         df_coke = process_iron(df_coke, param_list, np.sum)
 
         # res['焦比'] = (df_coke['冶金焦（自产）'] + df_coke['小块焦'])
@@ -564,7 +589,7 @@ class Solution:
                             right_index=True)
         return res
 
-    def get_rule(self, five_lag=False):
+    def get_rule(self):
         """
         # 计算的不对
 
@@ -576,7 +601,7 @@ class Solution:
         # 格式化
         df['采集项值'] = pd.to_numeric(df['采集项值'])
         df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
-        if five_lag:  # 如果需要滞后
+        if self.five_lag:  # 如果需要滞后
             df['业务处理时间'] = df['业务处理时间'] - pd.to_timedelta('5h')
 
         # 把三个探尺高度筛选出来
@@ -626,27 +651,27 @@ class Solution:
         return self.res['每小时高炉利用系数']
 
 
-def main(table_id, five_lag):
+def main(table_id, five_lag=True):
     """
     本module 调用入口
     :param table_id: 数据的ID号
     :param five_lag: 是否进行5小时滞后处理
     :return:
     """
-    obj = Solution(table_id)
+    obj = Solution(table=table_id, five_lag=five_lag)
     obj.get_molten_iron()
     obj.get_noumenon0()  # 高炉本体0
     obj.get_noumenon1()  # 高炉本体1
     obj.get_noumenon2()  # 高炉本体2
     obj.get_iron_temp()  # 铁水温度
-    obj.get_coke_load(five_lag)
+    obj.get_coke_load()
     obj.get_slag()
     obj.get_wind()
     obj.get_gas()
-    obj.get_ratio(five_lag)
-    obj.get_chemical(five_lag)
-    obj.get_rule(five_lag)
-    obj.get_slag_amount(five_lag)
+    obj.get_ratio()
+    obj.get_chemical()
+    obj.get_rule()
+    obj.get_slag_amount()
     obj.get_use_ratio()
     obj.get_shaojie()
 
@@ -662,15 +687,15 @@ def main(table_id, five_lag):
     return None
 
 
-def main_legacy(five_lag=False):
+def main_legacy(five_lag=True):
     """
     一次性处理所有批次数据的老代码
     :param five_lag:
     :return:
     """
-    obj19 = Solution(19)
-    obj20 = Solution(20)
-    obj201 = Solution(201)
+    obj19 = Solution(19, five_lag=five_lag)
+    obj20 = Solution(20, five_lag=five_lag)
+    obj201 = Solution(201, five_lag=five_lag)
 
     objs = [obj19, obj20, obj201]
 
@@ -681,14 +706,14 @@ def main_legacy(five_lag=False):
         obj.get_noumenon1()  # 高炉本体1
         obj.get_noumenon2()  # 高炉本体2
         obj.get_iron_temp()  # 铁水温度
-        obj.get_coke_load(five_lag)
+        obj.get_coke_load()
         obj.get_slag()
         obj.get_wind()
         obj.get_gas()
-        obj.get_ratio(five_lag)
-        obj.get_chemical(five_lag)
-        obj.get_rule(five_lag)
-        obj.get_slag_amount(five_lag)
+        obj.get_ratio()
+        obj.get_chemical()
+        obj.get_rule()
+        obj.get_slag_amount()
         obj.get_use_ratio()
 
     ans = pd.concat([obj19.res, obj20.res, obj201.res])

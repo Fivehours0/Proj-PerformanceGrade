@@ -2,6 +2,7 @@
 """
 iron的测试文件
 """
+import pandas as pd
 from organize.iron import Solution
 import os
 
@@ -10,7 +11,9 @@ if __name__ == '__main__':
     print("工作路径")
     print(os.getcwd())
 
-    # sol = Solution(19)
-    # sol.get_ratio()
-    # sol.get_slag()
-    # sol.get_slag_amount()
+    sol = Solution(19)
+    sol.get_ratio()
+    sol.get_slag()
+    sol.get_slag_amount()
+
+    sol.get_chemical()
