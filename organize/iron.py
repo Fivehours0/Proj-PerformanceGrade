@@ -17,6 +17,9 @@ from organize.env import get_df
 from organize.env import get_time_table
 from organize.env import get_iron_speed
 
+# 处理上料成分表的所有指标的 依照表的文件
+ORGANIZE_CONFIG_XLSX = 'organize/config/20数据表各个名称罗列.xlsx'
+
 # 修补画图时 中文乱码的问题
 plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
@@ -397,7 +400,7 @@ class Solution:
 
         def to_time(x):
             """
-            cost many time
+            可能会花费一些时间
             191013D000402-2401 处理成 2019-10-14 00:01:00 提供apply 使用
             """
             if x[-4:-2] != '24':
@@ -510,15 +513,31 @@ class Solution:
         烧结矿成分_CaO*烧结矿+白马球团_CaO*白马球团+酸性烧结矿_CaO*酸性烧结矿]/(CaO)
 
         渣铁比,kg/t = 铁次渣量 / 铁次铁量
+
+        ※ 对本函数进行测试，运行时需要注意：
+           需要先调用 get_ratio get_slag
+            sol.get_ratio()
+            sol.get_slag()
+            sol.get_slag_amount()
         :return:
         """
+        # TODO (夏尚梓) 实现上料成分表所有化验参数的整理，问题是有的化验参数一会儿有一会没有，该需求待定
         res = pd.DataFrame()
-        list1 = "40赤块_CaO 40赤块_CaO 冶金焦综合样_CaO 冶金焦综合样_CaO 南非块矿_CaO 南非块矿_CaO " \
-                "小块焦_CaO 小块焦_CaO 烧结矿成分_CaO 烧结矿成分_CaO 白马球团_CaO 白马球团_CaO 酸性烧结矿_CaO 酸性烧结矿_CaO".split()
+        list1 = "40赤块_CaO         40赤块_CaO " \
+                "冶金焦综合样_CaO   冶金焦综合样_CaO " \
+                "南非块矿_CaO       南非块矿_CaO " \
+                "小块焦_CaO         小块焦_CaO " \
+                "烧结矿成分_CaO     烧结矿成分_CaO " \
+                "白马球团_CaO       白马球团_CaO " \
+                "酸性烧结矿_CaO     酸性烧结矿_CaO".split()
+
+        # 要处理的上料成分表指标 统一读入 organize/config/20数据表各个名称罗列.xlsx
+        param_table = pd.read_excel(ORGANIZE_CONFIG_XLSX)
+
+
         df = self.get_df(list1[0])
 
-        res = self.process_chemical(list1, df, five_lag)
-        # df1.merge(df2, how='left')
+        res = self.process_chemical(list1, df, five_lag)  # process_chemical函数能保证数据源中无指标时输出为nan
 
         param_list = "40赤块 冶金焦（自产） 南非块矿 小块焦 烧结矿 白马球团 酸性烧结矿".split()
         param = param_list[0]
