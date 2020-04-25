@@ -405,7 +405,7 @@ class Solution:
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
-    def process_chemical(self, list2, df):
+    def __process_chemical(self, list2, df):
         """
         专门处理只有上料批次号的指标
 
@@ -470,32 +470,35 @@ class Solution:
 
     def get_chemical(self):
         """
-        数据特点, 没有 业务处理时间 有上料批次号
-        焦炭热性能_CSR 这玩意 一天一采集, 必须以数据为模板
-        上料质量表
+        数据特点：没有业务处理时间但是有上料批次号
+        焦炭热性能_CSR这样一天一采集的指标必须以数据为模板。
+        上料质量表。
+
+        上料批次号有两种命名模式 分别调用了两个私有方法
         """
-        # list2 = "M40 焦炭粒度、冷强度_M40 \
-        # M10 焦炭粒度、冷强度_M10 \
-        # CRI 焦炭热性能_CRI \
-        # CSR 焦炭热性能_CSR \
-        # St 焦炭工分_St \
-        # Ad 焦炭工分_Ad \
-        # Mt 焦炭水分_Mt \
-        # 喷吹煤Ad,%  喷吹煤粉_Ad \
-        # 喷吹煤St，%  喷吹煤粉_St \
-        # 喷吹煤Vd，%  喷吹煤粉_Vdaf \
-        # 烧结矿转鼓强度,%  烧结矿性能样(粒度、强度)_转鼓指数".split()
         # 同get_slag_amount方法的处理把所有的化验指标处理
         param_table = pd.read_excel(ORGANIZE_CONFIG_XLSX)
         param_list_chemical = list(param_table[CHEMICAL_TABLE_NAME])
-        param_list_loading = adaptive(param_list_chemical)  # 适配
 
+        # 摘出去那些采集编号代字母的 __process_chemical处理不了的
+        group_can = []
+        group_cannt = []  # 高炉沟下烧结矿粒度 类的指标分到这里
+        for i in param_list_chemical:
+            if len(i) >= 9 and i[:9] == '高炉沟下烧结矿粒度':
+                group_cannt.append(i)
+            else:
+                group_can.append(i)
+
+        self.__process_shaojie(group_cannt)  # 调用__process_shaojie 处理高炉沟下烧结去
+
+        param_list_loading = adaptive(group_can)  # 适配
         df = self.get_df(param_list_chemical[0])
-        res = self.process_chemical(param_list_loading, df)
+        res = self.__process_chemical(param_list_loading, df)
+
         self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
         return res
 
-    def get_shaojie(self):
+    def __process_shaojie(self, param_list):
         """
         处理烧结<5mm数据
             输出名               SQL库字段名
@@ -507,28 +510,29 @@ class Solution:
         """
 
         res = pd.DataFrame()
-        param = '高炉沟下烧结矿粒度_筛分指数(<5mm)'
-        out_name = '烧结矿<5mm比例,%'
+        # param = param_list
+        # out_name = param_list
+        for param in param_list:
+            out_name = param  # 输出指标名
+            # try-except 应对有时候数据里面没有烧结矿.
+            try:
+                df = self.get_df(param)
+            except TypeError:
+                print("可能SQL数据中没有 %s " % param)
+                res[out_name] = np.nan
+            else:
+                df = df.groupby('采集项名称').get_group(param)
+                # 格式化
+                df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
+                df['采集项值'] = pd.to_numeric(df['采集项值'])
 
-        # try-except 应对有时候数据里面没有烧结矿.
-        try:
-            df = self.get_df(param)
-        except TypeError:
-            print("可能SQL数据中没有 \"高炉沟下烧结矿粒度_筛分指数(<5mm)\" ")
-            res[out_name] = np.nan
-        else:
-            df = df.groupby('采集项名称').get_group(param)
-            # 格式化
-            df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
-            df['采集项值'] = pd.to_numeric(df['采集项值'])
+                df_mean = df.groupby('业务处理时间').mean()
 
-            df_mean = df.groupby('业务处理时间').mean()
+                df_continue = df_mean.resample('1T').mean().ffill()  # 连续化
+                res[out_name] = self.time_table.apply(lambda x: df_continue.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(),
+                                                      axis=1)
 
-            df_continue = df_mean.resample('1T').mean().ffill()  # 连续化
-            res[out_name] = self.time_table.apply(lambda x: df_continue.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(),
-                                                  axis=1)
-
-            self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
+                self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
         return res
 
     def get_slag_amount(self):
@@ -561,7 +565,7 @@ class Solution:
         param_list_loading = list(param_table[SLAG_TABLE_NAME])  # 西昌2#高炉-上料成分表中所有采集项名称搞出来
         param_list_loading = adaptive(param_list_loading)  # 适配一下
         df = self.get_df(param_list_loading[0])
-        res = self.process_chemical(param_list_loading, df)  # process_chemical函数能保证数据源中无指标时输出为nan
+        res = self.__process_chemical(param_list_loading, df)  # process_chemical函数能保证数据源中无指标时输出为nan
         self.res[res.columns] = res  # 输出结果
 
         param_list = "40赤块 冶金焦（自产） 南非块矿 小块焦 烧结矿 白马球团 酸性烧结矿".split()
@@ -673,7 +677,7 @@ def main(table_id, five_lag=True):
     obj.get_rule()
     obj.get_slag_amount()
     obj.get_use_ratio()
-    obj.get_shaojie()
+    # obj.__get_shaojie()
 
     ans = obj.res
     ans[ans == np.inf] = np.nan  # 因为有些铁次铁量为0 从而导致一些煤比 焦比等铁量衍生指标 算出 inf, np.nan填充

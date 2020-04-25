@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/organize/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/organize/iron.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/iron.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/run.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/organize/test_iron.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/test_iron.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize_setup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,25 +171,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="铁次数据缺失处理" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\铁次数据缺失处理.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -306,7 +291,7 @@
         <item itemvalue="Python.test_iron" />
         <item itemvalue="Python.test_iron" />
         <item itemvalue="Python.test_iron" />
-        <item itemvalue="Python.organize_stoneV2" />
+        <item itemvalue="Python.test_iron" />
       </list>
     </recent_temporary>
   </component>
@@ -383,14 +368,8 @@
       <workItem from="1587643223539" duration="1235000" />
       <workItem from="1587646568223" duration="27346000" />
       <workItem from="1587780878314" duration="749000" />
-      <workItem from="1587795016334" duration="3570000" />
-    </task>
-    <task id="LOCAL-00002" summary="加入烧结矿">
-      <created>1583394101649</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1583394101649</updated>
+      <workItem from="1587795016334" duration="8612000" />
+      <workItem from="1587813646640" duration="1733000" />
     </task>
     <task id="LOCAL-00003" summary="整理">
       <created>1583481080912</created>
@@ -728,7 +707,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587795078656</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="所有的上料质量、上料成分、上料实绩的成分都整理了">
+      <created>1587798681176</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1587798681176</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -768,7 +754,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="备份" />
     <MESSAGE value="update README.md and lag.py&#10;add commit" />
     <MESSAGE value="添加新指标" />
     <MESSAGE value="create mymo" />
@@ -793,7 +778,8 @@
     <MESSAGE value="sql learn" />
     <MESSAGE value="sql演示2" />
     <MESSAGE value="导出滞后分析中的分钟数据" />
-    <option name="LAST_COMMIT_MESSAGE" value="导出滞后分析中的分钟数据" />
+    <MESSAGE value="所有的上料质量、上料成分、上料实绩的成分都整理了" />
+    <option name="LAST_COMMIT_MESSAGE" value="所有的上料质量、上料成分、上料实绩的成分都整理了" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -816,6 +802,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="455" y="75" key="#com.intellij.ide.macro.MacrosDialog/0.0.1366.728@0.0.1366.728" timestamp="1587653164099" />
+    <state x="437" y="97" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587810711795">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="437" y="97" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587810711795" />
     <state x="70" y="125" width="474" height="461" key="#com.intellij.tools.ToolEditorDialog" timestamp="1587653354979">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -828,10 +818,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587526316920" />
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587795075911">
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587798679931">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587795075911" />
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587798679931" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1587713083482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -892,14 +882,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="539" y="274" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1587141407171" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587795081305">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587798684786">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587795081305" />
-    <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1587795897936">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587798684786" />
+    <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1587814287938">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1587795897936" />
+    <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1587814287938" />
     <state x="437" y="118" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1587646803204">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -932,10 +922,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="316" y="98" width="700" height="530" key="recent.locations.popup/0.0.1366.728@0.0.1366.728" timestamp="1584972729803" />
-    <state x="424" y="6" key="refactoring.ChangeSignatureDialog" timestamp="1584108656492">
+    <state x="424" y="0" width="517" height="687" key="refactoring.ChangeSignatureDialog" timestamp="1587799078069">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="424" y="6" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1584108656492" />
+    <state x="424" y="0" width="517" height="687" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1587799078069" />
     <state x="277" y="22" key="scopes" timestamp="1584170700910">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
