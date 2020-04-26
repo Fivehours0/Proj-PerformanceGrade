@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/organize/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/organize/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/organize/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/env.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/organize/iron.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/iron.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/organize/run.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/organize/test_iron.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/test_iron.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/organize_setup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/test_iron.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/organize/拼合缺失填充.py" beforeDir="false" afterPath="$PROJECT_DIR$/organize/拼合缺失填充.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +148,7 @@
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize\legacy" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test_iron">
+  <component name="RunManager" selected="Python.test">
     <configuration name="TestLocalVar" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -237,20 +237,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/demo/loacl_variable" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/demo/loacl_variable/test1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/organize/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -279,16 +276,16 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.test1" />
       <item itemvalue="Python.TestLocalVar" />
       <item itemvalue="Python.organize_stone" />
       <item itemvalue="Python.organize_stoneV2" />
       <item itemvalue="Python.test_iron" />
+      <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_iron" />
-        <item itemvalue="Python.test_iron" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.test_iron" />
         <item itemvalue="Python.test_iron" />
         <item itemvalue="Python.test_iron" />
@@ -369,14 +366,7 @@
       <workItem from="1587646568223" duration="27346000" />
       <workItem from="1587780878314" duration="749000" />
       <workItem from="1587795016334" duration="8612000" />
-      <workItem from="1587813646640" duration="1733000" />
-    </task>
-    <task id="LOCAL-00003" summary="整理">
-      <created>1583481080912</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1583481080912</updated>
+      <workItem from="1587813646640" duration="11788000" />
     </task>
     <task id="LOCAL-00004" summary="整理">
       <created>1583481523136</created>
@@ -714,7 +704,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587798681176</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="debug 高炉沟下烧结采集编码有字母">
+      <created>1587815425940</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1587815425942</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -754,7 +751,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update README.md and lag.py&#10;add commit" />
     <MESSAGE value="添加新指标" />
     <MESSAGE value="create mymo" />
     <MESSAGE value="优化代码" />
@@ -779,7 +775,8 @@
     <MESSAGE value="sql演示2" />
     <MESSAGE value="导出滞后分析中的分钟数据" />
     <MESSAGE value="所有的上料质量、上料成分、上料实绩的成分都整理了" />
-    <option name="LAST_COMMIT_MESSAGE" value="所有的上料质量、上料成分、上料实绩的成分都整理了" />
+    <MESSAGE value="debug 高炉沟下烧结采集编码有字母" />
+    <option name="LAST_COMMIT_MESSAGE" value="debug 高炉沟下烧结采集编码有字母" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -818,10 +815,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587526316920" />
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587798679931">
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587815421805">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587798679931" />
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587815421805" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1587713083482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -882,10 +879,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="539" y="274" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1587141407171" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587798684786">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587815428160">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587798684786" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587815428160" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1587814287938">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -930,10 +927,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="277" y="22" key="scopes/0.0.1366.728@0.0.1366.728" timestamp="1584170700910" />
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587739371441">
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587815521435">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587739371441" />
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587815521435" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BF_grading_range$test1.coverage" NAME="test1 Coverage Results" MODIFIED="1587705451266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/demo/loacl_variable" />

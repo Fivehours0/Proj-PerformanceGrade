@@ -1,8 +1,9 @@
 """
 :describe 按照铁次整理数据
 :author 夏尚梓 auxiliary 杜智辉
-:version v3.0
+:version v3.4.2020042520
 
+力图可以把 三个化验表的指标全部整理进去 new bug: 高炉沟参数太多重的
 
 注意：
 1. 进来新数据时需要 运行MakePickle.py 转成pkl文件，
@@ -11,20 +12,15 @@
 """
 import numpy as np
 import pandas as pd
-from matplotlib import pyplot as plt
 from organize.env import find_table
 from organize.env import get_df
 from organize.env import get_time_table
 from organize.env import get_iron_speed
 
-CHEMICAL_TABLE_NAME = '西昌2#高炉-上料质量表'
-
+CHEMICAL_TABLE_NAME = '西昌2#高炉-上料质量表'  # 处理上料质量表的表名字
 SLAG_TABLE_NAME = '西昌2#高炉-上料成分表'  # 处理上料成分表的表名字
-ORGANIZE_CONFIG_XLSX = 'organize/config/20数据表各个名称罗列.xlsx'  # 处理上料成分表的所有指标的 依照表的文件
 
-# 修补画图时 中文乱码的问题
-plt.rcParams['font.sans-serif'] = ['SimHei']
-plt.rcParams['axes.unicode_minus'] = False
+ORGANIZE_CONFIG_XLSX = 'organize/config/20数据表各个名称罗列.xlsx'  # 处理上料成分表的所有指标的 依照表的文件
 
 
 def process_iron(df, param_list, agg_func):
@@ -86,9 +82,6 @@ class Solution:
         self.time_table = self.get_time_table()  # 获取铁次时间表
 
     def get_time_table(self):
-        """
-        获取 铁次时间表的 DataFrame 型
-        """
         return get_time_table(self.table)
 
     def time2order(self, df):
@@ -168,9 +161,6 @@ class Solution:
             df = df.set_index('业务处理时间').sort_index()
             df.where(df['采集项值'] < 1e7, inplace=True)  # 去除 999999 的异常值
 
-            # def func(x):
-            #     start, end = x['受铁开始时间'], x['受铁结束时间']
-            #     return df.loc[start:end, '采集项值'].mean()
             res[param] = self.time_table.apply(lambda x: df.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(),
                                                axis=1)
             return res
@@ -178,7 +168,6 @@ class Solution:
             df['采集项值'] = pd.to_numeric(df['采集项值'])
             df['业务处理时间'] = pd.to_datetime(df['业务处理时间'])
 
-            # df['采集项值'][df['采集项值'] > 1e7] = None  # 去除 999999 的异常值
             df.where(df['采集项值'] < 1e7, inplace=True)
 
             for item in param:
@@ -193,13 +182,6 @@ class Solution:
             return res
 
     def get_df(self, param):
-        """
-        给出 dataframe 数据
-        :param param: 指标名
-        :return:
-        """
-        # 如果SQL数据库中一个该指标都没有。
-
         return get_df(param, self.table)  # df
 
     def get_noumenon0(self):
@@ -221,7 +203,7 @@ class Solution:
         res['煤气利用率'] = res['炉顶煤气CO2'] * 100 / (res['炉顶煤气CO2'] + res['炉顶煤气CO'])
 
         # 以下为极差指标处理
-        res_temp = pd.DataFrame()
+        # res_temp = pd.DataFrame()
         range_param_list = ['炉顶温度1', '炉顶温度2', '炉顶温度3', '炉顶温度4',
                             '炉喉温度1', '炉喉温度2', '炉喉温度3', '炉喉温度4', '炉喉温度5', '炉喉温度6', '炉喉温度7', '炉喉温度8']
         res_temp = self.process_business_time(df, range_param_list, range_=True)
@@ -262,10 +244,10 @@ class Solution:
         return res
 
     def get_noumenon2(self):
-        '''
+        """
         '炉缸温度1', '炉缸温度2', '炉缸温度3', '炉缸温度4', '炉缸温度5', '炉缸温度6',
         '炉底温度1', '炉底温度2', '炉底温度3', '炉底温度4', '炉底温度5', '炉底温度6',
-        '''
+        """
         param_list = ['炉缸温度1', '炉缸温度2', '炉缸温度3', '炉缸温度4', '炉缸温度5', '炉缸温度6',
                       '炉底温度1', '炉底温度2', '炉底温度3', '炉底温度4', '炉底温度5', '炉底温度6',
                       '炉缸中心温度', ]
@@ -292,7 +274,7 @@ class Solution:
         '焦炭负荷'
         :return:
         """
-        res = pd.DataFrame()
+        # res = pd.DataFrame()
         param_list = ['焦炭负荷']
         df = self.get_df(param_list[0])
         res = self.process_business_time(df, param_list, agg_func=np.mean, resample_=True)
@@ -345,13 +327,6 @@ class Solution:
 
         res = process_iron(df, ['受铁重量'], np.sum)
         res.rename(columns={'受铁重量': '铁次铁量'}, inplace=True)  # 发现有一些铁次铁量是 0, 需要后期核查
-
-        # # 高炉每小时利用率
-        # # d = self.time_table['受铁开始时间'].shift(-1) - self.time_table['受铁开始时间']
-        # d = self.time_table['受铁结束时间'].shift(-1) - self.time_table['受铁结束时间']
-        # # temp_d = d.where(d > pd.to_timedelta('1min'))
-        # res['每小时高炉利用系数'] = res['铁次铁量'] / (d / pd.to_timedelta('60min')) / 1750
-        # # res['每小时高炉利用系数(受铁重量)'] = res['铁次铁量'] / d / pd.to_timedelta('60min')
 
         # 计算焦量, 焦比
         param_list = ['冶金焦（自产）', '小块焦']
@@ -478,7 +453,7 @@ class Solution:
         """
         # 同get_slag_amount方法的处理把所有的化验指标处理
         param_table = pd.read_excel(ORGANIZE_CONFIG_XLSX)
-        param_list_chemical = list(param_table[CHEMICAL_TABLE_NAME])
+        param_list_chemical = list(param_table[CHEMICAL_TABLE_NAME].dropna())
 
         # 摘出去那些采集编号代字母的 __process_chemical处理不了的
         group_can = []
@@ -529,11 +504,11 @@ class Solution:
                 df_mean = df.groupby('业务处理时间').mean()
 
                 df_continue = df_mean.resample('1T').mean().ffill()  # 连续化
-                res[out_name] = self.time_table.apply(lambda x: df_continue.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(),
-                                                      axis=1)
+                self.res[out_name] = self.time_table.apply(
+                    lambda x: df_continue.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(), axis=1)
 
-                self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
-        return res
+        # self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
+        return None
 
     def get_slag_amount(self):
         """
@@ -550,7 +525,6 @@ class Solution:
             sol.get_slag_amount()
         :return:
         """
-        # TODO (夏尚梓) 实现上料成分表所有化验参数的整理，问题是有的化验参数一会儿有一会没有，该需求待定
         # res = pd.DataFrame()
         # list1 = "40赤块_CaO         40赤块_CaO " \
         #         "冶金焦综合样_CaO   冶金焦综合样_CaO " \
@@ -677,10 +651,9 @@ def main(table_id, five_lag=True):
     obj.get_rule()
     obj.get_slag_amount()
     obj.get_use_ratio()
-    # obj.__get_shaojie()
 
     ans = obj.res
-    ans[ans == np.inf] = np.nan  # 因为有些铁次铁量为0 从而导致一些煤比 焦比等铁量衍生指标 算出 inf, np.nan填充
+    # ans[ans == np.inf] = np.nan  # 因为有些铁次铁量为0 从而导致一些煤比 焦比等铁量衍生指标 算出 inf, np.nan填充
 
     # 输出excel文件
     if not five_lag:
@@ -689,58 +662,3 @@ def main(table_id, five_lag=True):
         ans.to_excel("organize/cache/铁次5h滞后_{}.xlsx".format(table_id))  # 因为铁次产量为0 搞出不少 inf
 
     return None
-
-
-def main_legacy(five_lag=True):
-    """
-    一次性处理所有批次数据的老代码
-    :param five_lag:
-    :return:
-    """
-    obj19 = Solution(19, five_lag=five_lag)
-    obj20 = Solution(20, five_lag=five_lag)
-    obj201 = Solution(201, five_lag=five_lag)
-
-    objs = [obj19, obj20, obj201]
-
-    ans = pd.DataFrame()
-    for obj in objs:  # 对每个数据对象循环
-        obj.get_molten_iron()
-        obj.get_noumenon0()  # 高炉本体0
-        obj.get_noumenon1()  # 高炉本体1
-        obj.get_noumenon2()  # 高炉本体2
-        obj.get_iron_temp()  # 铁水温度
-        obj.get_coke_load()
-        obj.get_slag()
-        obj.get_wind()
-        obj.get_gas()
-        obj.get_ratio()
-        obj.get_chemical()
-        obj.get_rule()
-        obj.get_slag_amount()
-        obj.get_use_ratio()
-
-    ans = pd.concat([obj19.res, obj20.res, obj201.res])
-    ans[ans == np.inf] = np.nan  # 因为有些铁次铁量为0 从而导致一些煤比 焦比等铁量衍生指标 算出 inf, np.nan填充
-
-    # 输出excel文件
-    if not five_lag:
-        ans.to_excel("data/铁次结果_无滞后处理.xlsx")  # 因为铁次产量为0 搞出不少 inf
-    else:
-        ans.to_excel("data/铁次结果_5h滞后处理.xlsx")  # 因为铁次产量为0 搞出不少 inf
-    return ans
-
-
-if __name__ == "__main__":
-    import os
-
-    path = r"C:\Users\Administrator\Documents\GitHub\BF-grading-range"
-    os.chdir(path)
-    a = os.getcwd()
-    print('working path: ', a)
-
-    # 测试时get_noumenon1
-
-    solv = Solution(201)
-    solv.get_noumenon1()
-    res = solv.res

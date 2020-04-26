@@ -43,7 +43,8 @@ def find_table(name: str, table: int) -> str or None:
     dic = pd.read_excel(path)
     temp = dic[dic.isin([name])].dropna(axis=1, how='all')
     if temp.values.shape[1] == 0:
-        print("表:", table, "无", name, "!!!!")
+        print("{} :46行警告: 表 {} 无指标 {}".format(__file__, table, name))
+        # print("表:", table, "无", name, "!!!!")
         return None
     elif temp.values.shape[1] == 1:
         return temp.columns[0]

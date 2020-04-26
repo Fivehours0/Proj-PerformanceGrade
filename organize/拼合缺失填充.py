@@ -38,5 +38,5 @@ if __name__ == '__main__':
     print("去除 缺失程度超过 2成的 样本")
     print(list_lack)
     droped = droped.drop(index=list_lack)
-    droped.ffill().bfill()
+    droped = droped.ffill().bfill()
     droped.to_excel(PATHS[4])
