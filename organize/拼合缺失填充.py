@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import numpy as np
 
 """
 合并所有批次数据
@@ -37,6 +38,10 @@ if __name__ == '__main__':
     list_lack = list(droped.index[droped.count(axis=1) / droped.shape[1] < 0.8])
     print("去除 缺失程度超过 2成的 样本")
     print(list_lack)
-    droped = droped.drop(index=list_lack)
-    droped.ffill().bfill()
-    droped.to_excel(PATHS[4])
+    droped2 = droped.drop(index=list_lack)
+
+    droped3 = droped2.replace(np.inf)  # 去除inf
+    droped3 = droped3.ffill().bfill()  # 前向后向填充
+    droped3.to_excel(PATHS[4])
+
+    # 注意去除 铁次小于20128461的数据
