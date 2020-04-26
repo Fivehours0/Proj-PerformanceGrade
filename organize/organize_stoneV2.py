@@ -2,13 +2,15 @@
 from organize.iron import Solution
 import os
 import pandas as pd
-
+"""
+增加球团矿 各个矿石的量
+"""
 
 def get_data(table):
     solv = Solution(table)
-    solv.get_ratio(True)
+    solv.get_ratio()
     solv.get_slag()
-    solv.get_slag_amount(True)
+    solv.get_slag_amount()
     return solv.res
 
 
