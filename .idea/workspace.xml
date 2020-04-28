@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="organize.iron 增加 炉身下二段极差">
+      <change afterPath="$PROJECT_DIR$/lag/time_lag_v2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/organize/均摊每日评分代码/AddScore.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/BF-grading-range.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Proj-PerformanceGrade.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/organize/organize_stoneV2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MakePickle.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShowIndex.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/loacl_variable/TestLocalVar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/loacl_variable/test1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lag.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lag/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/lag/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lag/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lag_config.lagfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/task-GetIndexRange/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/task-GetIndexRange/打分范围提取.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/temp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/.demo/演示与学习笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/organize/均摊每日评分代码/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/铁次数据缺失处理.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/铁次结果的抽取均值填充.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,38 +71,18 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="runoobdb@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="runoobdb: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="runoobdb@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="runoobdb: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="中文名测试表: table" type="69fad909:PgImplModel$LocalTable" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="BF-grading-range">
       <favorite_root url="file://$PROJECT_DIR$/proj-Lag/lag文档宏.vb" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/legacy/lag文档宏.vb" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
     </favorites_list>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Unit Test" />
-        <option value="Python Stub" />
         <option value="Python Script" />
       </list>
     </option>
@@ -111,15 +108,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Set Language" value="SQL&#10;Python" />
-    <property name="database.data.extractors.current.id" value="Tab-separated (TSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/demo/dome-psycopg2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/organize/均摊每日评分代码" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -129,26 +123,29 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize\legacy" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\数据的频率分布直方图" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy\proj-DrowDocPic" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\demo\dome-psycopg2" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\给胡腾辉抽铁次46版本" />
-      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\lag" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize\均摊每日评分代码" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
       <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\data" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myPCA" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\mymo\myCluster" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\project\数据的频率分布直方图" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy\proj-DrowDocPic" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize\legacy" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.拼合缺失填充">
+  <component name="RunManager" selected="Python.time_lag_v2">
     <configuration name="拼合缺失填充" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
+      <module name="Proj-PerformanceGrade" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -164,20 +161,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="BF-grading-range" />
+    <configuration name="AddScore" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Proj-PerformanceGrade" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize/均摊每日评分代码" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/organize/均摊每日评分代码/AddScore.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -186,20 +183,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="organize_stone" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="把新的数据用红色表示原来的数据用蓝色表示把它们在燃料比和利用系数的空间中画一下发给我" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy\organize_stone.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\legacy\把新的数据用红色表示原来的数据用蓝色表示把它们在燃料比和利用系数的空间中画一下发给我.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -208,20 +202,36 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="organize_stoneV2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="数据的频率分布直方图" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project/数据的频率分布直方图" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\organize\organize_stoneV2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/project/数据的频率分布直方图/数据的频率分布直方图.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="铁次数据缺失处理" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Administrator\Documents\GitHub\BF-grading-range\铁次数据缺失处理.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -231,9 +241,12 @@
       <method v="2" />
     </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
+      <module name="Proj-PerformanceGrade" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -250,9 +263,12 @@
       <method v="2" />
     </configuration>
     <configuration name="test_iron" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BF-grading-range" />
+      <module name="Proj-PerformanceGrade" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/organize" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -268,49 +284,41 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="time_lag_v2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Proj-PerformanceGrade" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lag" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lag/time_lag_v2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.organize_stone" />
-      <item itemvalue="Python.organize_stoneV2" />
       <item itemvalue="Python.test_iron" />
       <item itemvalue="Python.test" />
       <item itemvalue="Python.拼合缺失填充" />
+      <item itemvalue="Python.AddScore" />
+      <item itemvalue="Python.time_lag_v2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.拼合缺失填充" />
-        <item itemvalue="Python.拼合缺失填充" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.test_iron" />
+        <item itemvalue="Python.time_lag_v2" />
+        <item itemvalue="Python.time_lag_v2" />
+        <item itemvalue="Python.time_lag_v2" />
+        <item itemvalue="Python.time_lag_v2" />
+        <item itemvalue="Python.AddScore" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <option name="contentProportion" value="0.29598147" />
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:runoobdb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:runoobdb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@ee3e4bf" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
-  <component name="SshConsoleOptionsProvider">
-    <option name="myEncoding" value="UTF-8" />
-    <option name="myConnectionType" value="NONE" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -350,16 +358,49 @@
       <workItem from="1587013568304" duration="6316000" />
       <workItem from="1587031251962" duration="53574000" />
       <workItem from="1587140355131" duration="1505000" />
-      <workItem from="1587184106749" duration="34420000" />
-      <workItem from="1587445535439" duration="28792000" />
-      <workItem from="1587613903334" duration="554000" />
-      <workItem from="1587615565780" duration="20091000" />
-      <workItem from="1587642004820" duration="1185000" />
-      <workItem from="1587643223539" duration="1235000" />
-      <workItem from="1587646568223" duration="27346000" />
-      <workItem from="1587780878314" duration="749000" />
-      <workItem from="1587795016334" duration="8612000" />
-      <workItem from="1587813646640" duration="18252000" />
+      <workItem from="1587184106749" duration="14586000" />
+      <workItem from="1587904610208" duration="3310000" />
+      <workItem from="1587981047853" duration="5690000" />
+      <workItem from="1587992375456" duration="1278000" />
+      <workItem from="1587995084463" duration="600000" />
+      <workItem from="1587997495531" duration="2428000" />
+      <workItem from="1588046455247" duration="291000" />
+      <workItem from="1588057059916" duration="4642000" />
+    </task>
+    <task id="LOCAL-00001" summary="加入烧结矿">
+      <created>1583393840988</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583393840988</updated>
+    </task>
+    <task id="LOCAL-00002" summary="加入烧结矿">
+      <created>1583394101649</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583394101649</updated>
+    </task>
+    <task id="LOCAL-00003" summary="整理">
+      <created>1583481080912</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1583481080912</updated>
+    </task>
+    <task id="LOCAL-00004" summary="整理">
+      <created>1583481523136</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1583481523136</updated>
+    </task>
+    <task id="LOCAL-00005" summary="2D 3D 聚类图">
+      <created>1583552737198</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1583552737198</updated>
     </task>
     <task id="LOCAL-00006" summary="类化 画不同角度的3D图">
       <created>1583751976061</created>
@@ -620,91 +661,7 @@
       <option name="project" value="LOCAL" />
       <updated>1587139443812</updated>
     </task>
-    <task id="LOCAL-00043" summary="直方图分析">
-      <created>1587220045797</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1587220045797</updated>
-    </task>
-    <task id="LOCAL-00044" summary="滞后分析3.0">
-      <created>1587282470393</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1587282470394</updated>
-    </task>
-    <task id="LOCAL-00045" summary="在time_lag.py中增加最大相关系数的输出">
-      <created>1587446517669</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1587446517669</updated>
-    </task>
-    <task id="LOCAL-00046" summary="add new project">
-      <created>1587562609251</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1587562609251</updated>
-    </task>
-    <task id="LOCAL-00047" summary="sql learn">
-      <created>1587638158931</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1587638158931</updated>
-    </task>
-    <task id="LOCAL-00048" summary="sql演示2">
-      <created>1587640476771</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1587640476771</updated>
-    </task>
-    <task id="LOCAL-00049" summary="导出滞后分析中的分钟数据">
-      <created>1587706976018</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1587706976018</updated>
-    </task>
-    <task id="LOCAL-00050" summary="导出滞后分析中的分钟数据">
-      <created>1587795078656</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1587795078656</updated>
-    </task>
-    <task id="LOCAL-00051" summary="所有的上料质量、上料成分、上料实绩的成分都整理了">
-      <created>1587798681176</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1587798681176</updated>
-    </task>
-    <task id="LOCAL-00052" summary="debug 高炉沟下烧结采集编码有字母">
-      <created>1587815425940</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1587815425942</updated>
-    </task>
-    <task id="LOCAL-00053" summary="三大化验数据整理成功">
-      <created>1587876844636</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1587876844640</updated>
-    </task>
-    <task id="LOCAL-00054" summary="debug 把数据中inf 转为 nan">
-      <created>1587897219704</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1587897219710</updated>
-    </task>
-    <option name="localTasksCounter" value="55" />
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -744,6 +701,17 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="加入烧结矿" />
+    <MESSAGE value="整理" />
+    <MESSAGE value="2D 3D 聚类图" />
+    <MESSAGE value="类化 画不同角度的3D图" />
+    <MESSAGE value="添加注释" />
+    <MESSAGE value="预处理" />
+    <MESSAGE value="save" />
+    <MESSAGE value="备份" />
+    <MESSAGE value="update README.md and lag.py&#10;add commit" />
+    <MESSAGE value="添加新指标" />
+    <MESSAGE value="create mymo" />
     <MESSAGE value="优化代码" />
     <MESSAGE value="复现PCA文献" />
     <MESSAGE value="update pca code" />
@@ -758,112 +726,85 @@
     <MESSAGE value="预整理程序整合到 organize 模块中" />
     <MESSAGE value="fix 铁次整理中没有 烧结" />
     <MESSAGE value="organize.iron 增加 炉身下二段极差" />
-    <MESSAGE value="直方图分析" />
-    <MESSAGE value="滞后分析3.0" />
-    <MESSAGE value="在time_lag.py中增加最大相关系数的输出" />
-    <MESSAGE value="add new project" />
-    <MESSAGE value="sql learn" />
-    <MESSAGE value="sql演示2" />
-    <MESSAGE value="导出滞后分析中的分钟数据" />
-    <MESSAGE value="所有的上料质量、上料成分、上料实绩的成分都整理了" />
-    <MESSAGE value="debug 高炉沟下烧结采集编码有字母" />
-    <MESSAGE value="三大化验数据整理成功" />
-    <MESSAGE value="debug 把数据中inf 转为 nan" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug 把数据中inf 转为 nan" />
+    <option name="LAST_COMMIT_MESSAGE" value="organize.iron 增加 炉身下二段极差" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1584545120704" />
-    <state x="275" y="22" key="#SQL_Dialects" timestamp="1587639968993">
+    <state x="136" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583916362496">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="22" key="#SQL_Dialects/0.0.1366.728@0.0.1366.728" timestamp="1587639968993" />
-    <state x="347" y="14" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587724894110">
+    <state x="136" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1583916362496" />
+    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587139740937">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="347" y="14" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1587724894110" />
-    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587736880834">
+    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1587139740937" />
+    <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587909353124">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1587736880834" />
-    <state x="455" y="75" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1587653164099">
+    <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587909353124" />
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1588046546013">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="455" y="75" key="#com.intellij.ide.macro.MacrosDialog/0.0.1366.728@0.0.1366.728" timestamp="1587653164099" />
-    <state x="437" y="97" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587810711795">
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588046546013" />
+    <state width="254" height="195" key="DatabaseViewActions_Filter" timestamp="1588058667403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="437" y="97" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587810711795" />
-    <state x="70" y="125" width="474" height="461" key="#com.intellij.tools.ToolEditorDialog" timestamp="1587653354979">
+    <state width="254" height="195" key="DatabaseViewActions_Filter/0.0.1366.728@0.0.1366.728" timestamp="1588058667403" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1587195864329">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="70" y="125" width="474" height="461" key="#com.intellij.tools.ToolEditorDialog/0.0.1366.728@0.0.1366.728" timestamp="1587653354979" />
-    <state x="463" y="53" key="#xdebugger.evaluate" timestamp="1587705508290">
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1587195864329" />
+    <state x="838" y="137" key="FileChooserDialogImpl" timestamp="1587981824162">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="53" key="#xdebugger.evaluate/0.0.1366.728@0.0.1366.728" timestamp="1587705508290" />
-    <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587526316920">
+    <state x="838" y="137" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587981824162" />
+    <state width="1323" height="200" key="GridCell.Tab.0.bottom" timestamp="1587134803935">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587526316920" />
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1587897359371">
+    <state width="1323" height="200" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587134803935" />
+    <state width="1323" height="200" key="GridCell.Tab.0.center" timestamp="1587134803935">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1587897359371" />
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1587713083482">
+    <state width="1323" height="200" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587134803935" />
+    <state width="1323" height="200" key="GridCell.Tab.0.left" timestamp="1587134803934">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1587713083482" />
-    <state x="838" y="137" key="FileChooserDialogImpl" timestamp="1587532410877">
+    <state width="1323" height="200" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587134803934" />
+    <state width="1323" height="200" key="GridCell.Tab.0.right" timestamp="1587134803935">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="838" y="137" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587532410877" />
-    <state width="910" height="204" key="GridCell.Tab.0.bottom" timestamp="1587738974045">
+    <state width="1323" height="200" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587134803935" />
+    <state width="709" height="402" key="GridCell.Tab.1.bottom" timestamp="1584264493030">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="910" height="204" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587738974045" />
-    <state width="910" height="204" key="GridCell.Tab.0.center" timestamp="1587738974045">
+    <state width="709" height="402" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
+    <state width="709" height="402" key="GridCell.Tab.1.center" timestamp="1584264493029">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="910" height="204" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587738974045" />
-    <state width="910" height="204" key="GridCell.Tab.0.left" timestamp="1587738974045">
+    <state width="709" height="402" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1584264493029" />
+    <state width="709" height="402" key="GridCell.Tab.1.left" timestamp="1584264493025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="910" height="204" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587738974045" />
-    <state width="910" height="204" key="GridCell.Tab.0.right" timestamp="1587738974045">
+    <state width="709" height="402" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1584264493025" />
+    <state width="709" height="402" key="GridCell.Tab.1.right" timestamp="1584264493030">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="910" height="204" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587738974045" />
-    <state width="709" height="402" key="GridCell.Tab.1.bottom" timestamp="1587717537648">
+    <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1584264493030" />
+    <state width="220" height="477" key="HiddenNamespacesPopup" timestamp="1587981193679">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587717537648" />
-    <state width="709" height="402" key="GridCell.Tab.1.center" timestamp="1587717537648">
+    <state width="220" height="477" key="HiddenNamespacesPopup/0.0.1366.728@0.0.1366.728" timestamp="1587981193679" />
+    <state x="427" y="75" key="RollbackChangesDialog" timestamp="1588061997974">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1587717537648" />
-    <state width="709" height="402" key="GridCell.Tab.1.left" timestamp="1587717537648">
+    <state x="427" y="75" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1588061997974" />
+    <state x="149" y="12" key="SettingsEditor" timestamp="1587141223895">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="709" height="402" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1587717537648" />
-    <state width="709" height="402" key="GridCell.Tab.1.right" timestamp="1587717537648">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="709" height="402" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1587717537648" />
-    <state x="427" y="75" key="RollbackChangesDialog" timestamp="1587282438170">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="427" y="75" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587282438170" />
-    <state x="35" y="12" width="1280" height="716" key="SettingsEditor" timestamp="1587739116789">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="35" y="12" width="1280" height="716" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587739116789" />
-    <state x="692" y="124" width="540" height="524" key="StructurePopup" timestamp="1587652458509">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="692" y="124" width="540" height="524" key="StructurePopup/0.0.1366.728@0.0.1366.728" timestamp="1587652458509" />
+    <state x="149" y="12" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587141223895" />
     <state x="522" y="279" key="VCS.ChangelistChooser" timestamp="1587140960165">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -872,64 +813,42 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="539" y="274" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1587141407171" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587897309502">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587139460608">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587897309502" />
-    <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1587814287938">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587139460608" />
+    <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1587046559728">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1587814287938" />
-    <state x="437" y="118" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1587646803204">
+    <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1587046559728" />
+    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587001503883">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="437" y="118" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1366.728@0.0.1366.728" timestamp="1587646803204" />
-    <state x="405" y="67" key="com.intellij.database.run.actions.ShowCsvFormatsAction$ForExport" timestamp="1587642348007">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="405" y="67" key="com.intellij.database.run.actions.ShowCsvFormatsAction$ForExport/0.0.1366.728@0.0.1366.728" timestamp="1587642348007" />
-    <state x="399" y="3" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1587629498730">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="399" y="3" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1587629498730" />
-    <state x="539" y="127" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1587724675599">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="539" y="127" key="com.intellij.database.view.ui.DbObjectDialog/0.0.1366.728@0.0.1366.728" timestamp="1587724675599" />
-    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587734719714">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1587734719714" />
+    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1587001503883" />
     <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog" timestamp="1585405846327">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog/0.0.1366.728@0.0.1366.728" timestamp="1585405846327" />
-    <state x="650" y="260" width="716" height="307" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1587635984203">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="650" y="260" width="716" height="307" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1366.728@0.0.1366.728" timestamp="1587635984203" />
     <state x="316" y="98" width="700" height="530" key="recent.locations.popup" timestamp="1584972729803">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="316" y="98" width="700" height="530" key="recent.locations.popup/0.0.1366.728@0.0.1366.728" timestamp="1584972729803" />
-    <state x="424" y="0" width="517" height="687" key="refactoring.ChangeSignatureDialog" timestamp="1587799078069">
+    <state x="424" y="6" key="refactoring.ChangeSignatureDialog" timestamp="1584108656492">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="424" y="0" width="517" height="687" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1587799078069" />
+    <state x="424" y="6" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1584108656492" />
     <state x="277" y="22" key="scopes" timestamp="1584170700910">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="277" y="22" key="scopes/0.0.1366.728@0.0.1366.728" timestamp="1584170700910" />
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587815521435">
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587192169651">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587815521435" />
+    <state x="287" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587192169651" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/BF_grading_range$test1.coverage" NAME="test1 Coverage Results" MODIFIED="1587705451266" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/demo/loacl_variable" />
     <SUITE FILE_PATH="coverage/BF_grading_range$preproccess.coverage" NAME="preproccess Coverage Results" MODIFIED="1583916298704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/project/proj-IornOrderData" />
     <SUITE FILE_PATH="coverage/BF_grading_range$preprocess.coverage" NAME="preprocess Coverage Results" MODIFIED="1584083582830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/BF_grading_range$organize_stoneV2.coverage" NAME="organize_stoneV2 Coverage Results" MODIFIED="1587713820892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/organize" />
     <SUITE FILE_PATH="coverage/BF_grading_range$iron.coverage" NAME="iron Coverage Results" MODIFIED="1587134792143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/organize" />
     <SUITE FILE_PATH="coverage/BF_grading_range$preproccess__1_.coverage" NAME="preproccess (1) Coverage Results" MODIFIED="1583917078971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
