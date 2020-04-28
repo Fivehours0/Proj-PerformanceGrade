@@ -15,7 +15,8 @@
 *.ppt
 
 *.ffs_db
+.git
 data
 img
-legacy
 /organize/cache/
+.idea
