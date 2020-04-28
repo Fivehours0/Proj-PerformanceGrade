@@ -1,27 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="organize.iron 增加 炉身下二段极差">
-      <change afterPath="$PROJECT_DIR$/lag/time_lag_v2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/organize/均摊每日评分代码/AddScore.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/BF-grading-range.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Proj-PerformanceGrade.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="3245ed7b-2775-45ae-ac57-1e84e8c0e934" name="Default Changelist" comment="整理代码文件">
+      <change beforePath="$PROJECT_DIR$/.idea/Proj-PerformanceGrade.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BF-grading-range.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MakePickle.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShowIndex.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/loacl_variable/TestLocalVar.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/loacl_variable/test1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lag.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lag/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/lag/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lag/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lag_config.lagfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacy/task-GetIndexRange/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacy/task-GetIndexRange/打分范围提取.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/legacy/temp.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/.demo/演示与学习笔记.txt" beforeDir="false" afterPath="$PROJECT_DIR$/organize/均摊每日评分代码/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/铁次数据缺失处理.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/铁次结果的抽取均值填充.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,8 +121,54 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.time_lag_v2">
+    <configuration default="true" type="DjangoTestsConfigurationType">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="拼合缺失填充" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Proj-PerformanceGrade" />
+      <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -162,7 +190,7 @@
       <method v="2" />
     </configuration>
     <configuration name="AddScore" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Proj-PerformanceGrade" />
+      <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -240,8 +268,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Proj-PerformanceGrade" />
+      <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -263,7 +313,7 @@
       <method v="2" />
     </configuration>
     <configuration name="test_iron" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Proj-PerformanceGrade" />
+      <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -285,9 +335,12 @@
       <method v="2" />
     </configuration>
     <configuration name="time_lag_v2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Proj-PerformanceGrade" />
+      <module name="BF-grading-range" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lag" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -301,6 +354,66 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <module name="BF-grading-range" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <list>
@@ -365,7 +478,8 @@
       <workItem from="1587995084463" duration="600000" />
       <workItem from="1587997495531" duration="2428000" />
       <workItem from="1588046455247" duration="291000" />
-      <workItem from="1588057059916" duration="4642000" />
+      <workItem from="1588057059916" duration="5206000" />
+      <workItem from="1588063070653" duration="493000" />
     </task>
     <task id="LOCAL-00001" summary="加入烧结矿">
       <created>1583393840988</created>
@@ -661,7 +775,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587139443812</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="1.稳定时间段的滞后分析 2.整理代码文件">
+      <created>1588062519735</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1588062519735</updated>
+    </task>
+    <task id="LOCAL-00044" summary="整理代码文件">
+      <created>1588062686498</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1588062686498</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,8 +829,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="加入烧结矿" />
-    <MESSAGE value="整理" />
     <MESSAGE value="2D 3D 聚类图" />
     <MESSAGE value="类化 画不同角度的3D图" />
     <MESSAGE value="添加注释" />
@@ -726,7 +852,9 @@
     <MESSAGE value="预整理程序整合到 organize 模块中" />
     <MESSAGE value="fix 铁次整理中没有 烧结" />
     <MESSAGE value="organize.iron 增加 炉身下二段极差" />
-    <option name="LAST_COMMIT_MESSAGE" value="organize.iron 增加 炉身下二段极差" />
+    <MESSAGE value="1.稳定时间段的滞后分析 2.整理代码文件" />
+    <MESSAGE value="整理代码文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="整理代码文件" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="22" key="#Notifications" timestamp="1584545120704">
@@ -745,10 +873,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="426" y="218" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587909353124" />
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1588062518210">
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2" timestamp="1588062744519">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588062518210" />
+    <state x="277" y="1" width="826" height="727" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588062744519" />
     <state width="254" height="195" key="DatabaseViewActions_Filter" timestamp="1588058667403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -757,10 +885,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1587195864329" />
-    <state x="838" y="137" key="FileChooserDialogImpl" timestamp="1587981824162">
+    <state x="838" y="137" key="FileChooserDialogImpl" timestamp="1588063484273">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="838" y="137" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587981824162" />
+    <state x="838" y="137" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1588063484273" />
     <state width="1323" height="200" key="GridCell.Tab.0.bottom" timestamp="1587134803935">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -813,18 +941,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="539" y="274" key="VCS.EditChangelistDialog/0.0.1366.728@0.0.1366.728" timestamp="1587141407171" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587139460608">
+    <state x="245" y="97" key="Vcs.Push.Dialog.v2" timestamp="1588062976724">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1587139460608" />
+    <state x="245" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588062976724" />
     <state width="584" height="340" key="XDebugger.FullValuePopup" timestamp="1587046559728">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="584" height="340" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1587046559728" />
-    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587001503883">
+    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588063224336">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1587001503883" />
+    <state x="322" y="270" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1588063224336" />
     <state x="430" y="228" key="git4idea.rebase.GitRebaseDialog" timestamp="1585405846327">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
