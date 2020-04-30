@@ -2,8 +2,6 @@
 """
 应对任务4进行的开发
 
-计划实现数据处理与滞后分析的分类
-
 """
 import os
 import numpy as np
