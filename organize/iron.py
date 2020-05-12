@@ -380,7 +380,7 @@ class Solution:
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
-    def __process_chemical(self, list2, df):
+    def _process_chemical(self, list2, df):
         """
         专门处理只有上料批次号的指标
 
@@ -464,16 +464,16 @@ class Solution:
             else:
                 group_can.append(i)
 
-        self.__process_shaojie(group_cannt)  # 调用__process_shaojie 处理高炉沟下烧结去
+        self._process_shaojie(group_cannt)  # 调用__process_shaojie 处理高炉沟下烧结去
 
         param_list_loading = adaptive(group_can)  # 适配
         df = self.get_df(param_list_chemical[0])
-        res = self.__process_chemical(param_list_loading, df)
+        res = self._process_chemical(param_list_loading, df)
 
         self.res = pd.merge(res, self.res, how="outer", left_index=True, right_index=True)
         return res
 
-    def __process_shaojie(self, param_list):
+    def _process_shaojie(self, param_list):
         """
         处理烧结<5mm数据
             输出名               SQL库字段名
@@ -518,6 +518,8 @@ class Solution:
 
         渣铁比,kg/t = 铁次渣量 / 铁次铁量
 
+        球团矿比例 和各个矿石的量
+
         ※ 对本函数进行测试，运行时需要注意：
            需要先调用 get_ratio get_slag
             sol.get_ratio()
@@ -539,7 +541,7 @@ class Solution:
         param_list_loading = list(param_table[SLAG_TABLE_NAME])  # 西昌2#高炉-上料成分表中所有采集项名称搞出来
         param_list_loading = adaptive(param_list_loading)  # 适配一下
         df = self.get_df(param_list_loading[0])
-        res = self.__process_chemical(param_list_loading, df)  # process_chemical函数能保证数据源中无指标时输出为nan
+        res = self._process_chemical(param_list_loading, df)  # process_chemical函数能保证数据源中无指标时输出为nan
         self.res[res.columns] = res  # 输出结果
 
         param_list = "40赤块 冶金焦（自产） 南非块矿 小块焦 烧结矿 白马球团 酸性烧结矿".split()
