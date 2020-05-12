@@ -1,17 +1,7 @@
-# 项目--高炉
+# pan project
 
-## 做榨菜 
+[lag](lag) 时间滞后分析
 
-[MakePickle.py](./MakePickle.py)
+[organize](organize) 铁次数据整理
 
-## 数据中指标展示
-
-[ShowIndex.py](./ShowIndex.py)
-
-## 铁次化数据整理(部分)
-
-[preprocess.py](./preprocess.py)
-
-## 时间滞后分析
-
-[lag.py](./lag.py)
+[project](project) 杂项
