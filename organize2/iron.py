@@ -14,10 +14,6 @@ import numpy as np
 import pandas as pd
 
 from organize.iron import Solution as LegacyRreIron, process_iron, adaptive
-from organize2.env import find_table
-from organize2.env import get_df
-from organize2.env import get_time_table
-from organize2.env import get_iron_speed
 
 
 # CHEMICAL_TABLE_NAME = '西昌2#高炉-上料质量表'  # 处理上料质量表的表名字
@@ -26,7 +22,7 @@ from organize2.env import get_iron_speed
 # ORGANIZE_CONFIG_XLSX = 'organize/config/20数据表各个名称罗列.xlsx'  # 处理上料成分表的所有指标的 依照表的文件
 
 
-class RreIron(LegacyRreIron):  # 充分利用继承的特性
+class PreIron(LegacyRreIron):  # 充分利用继承的特性
 
     def get_molten_iron(self):
         """
@@ -51,16 +47,19 @@ class RreIron(LegacyRreIron):  # 充分利用继承的特性
     def get_iron_temp(self):
         """
         处理以下指标：
+        出铁速率 delta(出铁速率)
         铁水温度 delta(铁水温度)
         :return:
         """
         res = pd.DataFrame()
-        param_list = ['铁水温度(东)', '铁水温度(西)']
+        param_list = ['铁水温度(东)', '铁水温度(西)', '出铁速率']
         df = self.get_df(param_list[0])
-        res_temp = self.process_business_time(df, param_list, agg_func=np.mean)
-        res['铁水温度'] = res_temp.mean(axis=1)
-        res['delta(铁水温度)'] = res['铁水温度'].diff() / res['铁水温度'].shift(1)
 
+        res_temp = self.process_business_time(df, param_list, agg_func=np.mean)
+        res['铁水温度'] = res_temp[['铁水温度(东)', '铁水温度(西)']].mean(axis=1)
+        res['delta(铁水温度)'] = res['铁水温度'].diff() / res['铁水温度'].shift(1)
+        res['出铁速率'] = res_temp['出铁速率']
+        res['delta(出铁速率)'] = res['出铁速率'].diff() / res['出铁速率'].shift(1)
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -77,8 +76,6 @@ class RreIron(LegacyRreIron):  # 充分利用继承的特性
 
         渣铁比,kg/t = 铁次渣量 / 铁次铁量
 
-        球团矿比例 和各个矿石的量
-
         ※ 对本函数进行测试，运行时需要注意：
            需要先调用 get_ratio get_slag
             sol.get_ratio()
@@ -86,46 +83,126 @@ class RreIron(LegacyRreIron):  # 充分利用继承的特性
             sol.get_slag_amount()
         :return:
         """
-        # res = pd.DataFrame()
+        res = pd.DataFrame()
         list_CaO = "40赤块_CaO 冶金焦综合样_CaO 南非块矿_CaO 小块焦_CaO 烧结矿成分_CaO 白马球团_CaO 酸性烧结矿_CaO".split()
         list_CaO = adaptive(list_CaO)  # 适配一下
         df = self.get_df(list_CaO[0])
         res_CaO = self._process_chemical(list_CaO, df)
 
+        param_list = "40赤块 冶金焦（自产） 南非块矿 小块焦 烧结矿 白马球团 酸性烧结矿".split()
+        param = param_list[0]
+        df_coke = self.get_df(param)
+        df_coke = self.time2order(df_coke)
+        df_coke = process_iron(df_coke, param_list, np.sum)
 
-        # param_list = "40赤块 冶金焦（自产） 南非块矿 小块焦 烧结矿 白马球团 酸性烧结矿".split()
-        # param = param_list[0]
-        # df_coke = self.get_df(param)
-        # df_coke = self.time2order(df_coke)
-        # df_coke = process_iron(df_coke, param_list, np.sum)
+        # 南非块矿_CaO就当0.127  冶金焦综合样_CaO 没有就当是11
+        if np.all(res_CaO['冶金焦综合样_CaO'].isna()):
+            print("冶金焦综合样_CaO 自动填充为 11")
+            res_CaO['冶金焦综合样_CaO'].fillna(11, inplace=True)
+        if np.all(res_CaO['南非块矿_CaO'].isna()):
+            print("南非块矿_CaO 自动填充为 0.127")
+            res_CaO['南非块矿_CaO'].fillna(0.127, inplace=True)
+
+        res_CaO.fillna(0, inplace=True)  # 剩下的矿石的CaO化验值填充为0
+        df_coke.fillna(0, inplace=True)  # 矿石没有数据就当是0了
         #
-        # # res['焦比'] = (df_coke['冶金焦（自产）'] + df_coke['小块焦'])
-        # res.fillna(0, inplace=True)
-        # df_coke.fillna(0, inplace=True)  # 矿石没有数据就当是0了
+        # 输出整理好的 球团矿比例 和各个矿石的量
+        res[df_coke.columns] = df_coke
+        temp_sum = df_coke.sum(axis=1)  # 矿石总量
+
+        res['球团矿比例'] = df_coke['白马球团'] / temp_sum
+        res['烧结矿比例'] = (df_coke['烧结矿'] + df_coke['酸性烧结矿']) / temp_sum
+        res['块矿比例'] = (df_coke['40赤块'] + df_coke['南非块矿']) / temp_sum
         #
-        # # 输出整理好的 球团矿比例 和各个矿石的量
-        # res[df_coke.columns] = df_coke
-        # res['球团矿比例'] = df_coke['白马球团'] / df_coke.sum(axis=1)
-        #
-        # res['铁次渣量'] = 0
-        # for i in range(7):
-        #     res['铁次渣量'] = res['铁次渣量'] + res.iloc[:, i] * df_coke.iloc[:, i]
-        # res['铁次渣量'] = res['铁次渣量'] / self.res['(CaO)']  # 问题: 铁次区间没有 加矿呢???
-        # res['铁次渣量 / 铁次铁量'] = res['铁次渣量'] / self.res['铁次铁量']
+        res['铁次渣量'] = (res_CaO['40赤块_CaO'] * df_coke['40赤块'] +
+                       res_CaO['冶金焦综合样_CaO'] * df_coke['冶金焦（自产）'] +
+                       res_CaO['南非块矿_CaO'] * df_coke['南非块矿'] +
+                       res_CaO['小块焦_CaO'] * df_coke['小块焦'] +
+                       res_CaO['烧结矿成分_CaO'] * df_coke['烧结矿'] +
+                       res_CaO['白马球团_CaO'] * df_coke['白马球团'] +
+                       res_CaO['酸性烧结矿_CaO'] * df_coke['酸性烧结矿'])
+        res['铁次渣量'] = res['铁次渣量'] / self.res['(CaO)']  # 另外运行此语句时需要 get_slag() 做前置
+        res['铁次渣量 / 铁次铁量'] = res['铁次渣量'] / self.res['铁次铁量']  # 需要 get_ratio() 前置
         #
         # out_list = ['铁次渣量', '铁次渣量 / 铁次铁量'] + ['球团矿比例'] + list(df_coke.columns)  # 输出指标名
-        # self.res = pd.merge(res.loc[:, out_list], self.res, how="outer", left_index=True,
-        #                     right_index=True)
-        return res_CaO
+        self.res = pd.merge(res, self.res, how="outer", left_index=True,
+                            right_index=True)
+        return res
+
+    def get_ratio(self):
+        """
+        铁次铁量,喷吹速率,焦比,煤比,燃料比, 粉焦比
+
+        日喷煤量： 用喷吹速率推算 铁次煤量
+
+        delta(铁次铁量)
+
+        :return:
+        """
+        # 计算铁量
+        df = self.get_df('受铁重量')
+        res = process_iron(df, ['受铁重量'], np.sum)
+        res.rename(columns={'受铁重量': '铁次铁量'}, inplace=True)  # 发现有一些铁次铁量是 0, 需要后期核查
+        res['delta(铁次铁量)'] = res['铁次铁量'].diff() / res['铁次铁量'].shift(1)
+
+        # 计算焦量, 焦比
+        param_list = ['冶金焦（自产）', '小块焦']
+        param = param_list[0]
+        df_coke = self.get_df(param)
+        df_coke = self.time2order(df_coke)
+        df_coke = process_iron(df_coke, param_list, np.sum)
+        res['焦比'] = (df_coke['冶金焦（自产）'] + df_coke['小块焦']) / res['铁次铁量'] * 1000
+
+        # 计算喷煤 煤比
+        df_mei = self.process_big_time('喷吹速率')
+        d = self.time_table['受铁结束时间'] - self.time_table['受铁开始时间']
+        df_mei['d'] = d / pd.to_timedelta('1min')
+
+        res['喷吹速率'] = df_mei['喷吹速率']
+        # res['出铁次数/出铁时间,min'] = 1 / df_mei['d']
+        res['日喷煤量'] = df_mei['d'] * df_mei['喷吹速率']
+        res['煤比'] = df_mei['d'] * df_mei['喷吹速率'] / res['铁次铁量'] * 20
+        # 燃料比
+        res['燃料比'] = res['煤比'] + res['焦比']
+
+        res['粉焦比'] = res['煤比'] / res['焦比']
+        self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
+        return res
+
+    def get_wind(self):
+        """
+        热风压力,炉顶压力,标准风速,热风温度 送风风量 '风口总面积'
+        实际风速 = 标准风速*(0.101325/273)*((273+风温)/(风压/10+0.101325))
+        透气性指数 = 送风风量 / (热风压力 - 炉顶压力1,2) * 100
+        富氧率 = ((0.21*风量)+(富氧量*0.992)) / (风量+富氧量) -0.21
+        压差
+
+
+        :return:
+        """
+        # TODO 标准风速不输出
+        # TODO 富氧量->富氧率
+        res = self.process_big_time(['送风风量', '热风压力', '标准风速', '热风温度', '富氧量', '风口总面积', '富氧压力'], self.get_df('送风风量'))
+        res2 = self.process_big_time(['炉顶压力1', '炉顶压力2'], self.get_df('炉顶压力1'))
+        res['炉顶压力'] = res2.mean(axis=1)
+        res['实际风速'] = res['标准风速'] * (0.101325 / 273) * ((273 + res['热风温度']) / (res['热风压力'] / 1000 + 0.101325))
+        res['透气性指数'] = res['送风风量'] / (res['热风压力'] - res['炉顶压力']) * 100
+        res['压差'] = res['热风压力'] - res['炉顶压力']
+        self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
+
+        return res
 
 
 def interface(table):
-    obj = RreIron(table)
+    obj = PreIron(table)
 
     obj.get_molten_iron()
     obj.get_iron_temp()
+    obj.get_slag()
+    obj.get_ratio()
     obj.get_slag_amount()
-
+    obj.get_wind()
+    obj.get_coke_load()
 
     res = obj.res
 
@@ -136,6 +213,6 @@ if __name__ == '__main__':
     os.chdir('../')
     print(os.getcwd())
 
-    sol = RreIron(201)
-    res = sol.get_slag_amount()
-    # res = sol.res
+    sol = PreIron(201)
+    sol.get_iron_temp()
+    res = sol.res
