@@ -88,6 +88,9 @@ class Solution:
         """
         :param df: 要生成铁次号的 DataFrame
         :return: 添加了 铁次号的 DataFrame
+
+        注意：
+            不在铁次时间段的样本被舍弃了
         """
         df['业务处理时间'] = df['业务处理时间'].astype('datetime64')
         df.sort_values('业务处理时间', inplace=True)
