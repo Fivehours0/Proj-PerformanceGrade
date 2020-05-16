@@ -37,7 +37,7 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
         df = self.get_df(param_list[0])
         pre_res = process_iron(df, param_list, np.mean)
 
-        res = pre_res[['[C]', '[Ti]']]
+        res = pre_res[['[C]', '[S]']]
         res['[Ti]+[Si]'] = pre_res['[Ti]'] + pre_res['[Si]']
         res['delta([Ti]+[Si])'] = res['[Ti]+[Si]'].diff() / res['[Ti]+[Si]'].shift(1)
 
@@ -47,7 +47,6 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
     def get_iron_temp(self):
         """
         处理以下指标：
-        出铁速率 delta(出铁速率)
         铁水温度 delta(铁水温度)
         :return:
         """
@@ -58,17 +57,36 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
         res_temp = self.process_business_time(df, param_list, agg_func=np.mean)
         res['铁水温度'] = res_temp[['铁水温度(东)', '铁水温度(西)']].mean(axis=1)
         res['delta(铁水温度)'] = res['铁水温度'].diff() / res['铁水温度'].shift(1)
-        res['出铁速率'] = res_temp['出铁速率']
-        res['delta(出铁速率)'] = res['出铁速率'].diff() / res['出铁速率'].shift(1)
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
+
+    def access_mine_batch(self):
+        """
+        获取矿石的批数
+        :return:
+        """
+        df = self.get_df('烧结矿')
+        df_iron = self.time2order(df)  # 找出业务处理时间对应的铁次时间
+        df_iron = df_iron.groupby('采集项名称').get_group('烧结矿')
+        df_iron_droped = df_iron.where(df_iron['铁次号'] != 0).dropna()
+        df_count = df_iron_droped.groupby('铁次号').count()
+        return df_count.iloc[:, 0]
 
     def get_slag_amount(self):
         """
         处理以下指标：
-        40赤块、冶金焦（自产）、南非块矿、小块焦、烧结矿、白马球团、
-        酸性烧结矿、块矿比例、球团矿比例、烧结比例、矿石批重
 
+        40赤块、冶金焦（自产）、南非块矿、小块焦、烧结矿、白马球团、酸性烧结矿、
+
+        块矿比例、球团矿比例、烧结比例、
+
+        矿石批重 (以烧结矿批数为准)
+
+        球团矿比例 = 白马球团 / sum(40赤块、冶金焦（自产）、南非块矿、小块焦、烧结矿、白马球团、酸性烧结矿)
+
+        块矿比例 = (南非块矿 + 40赤块)  / sum(40赤块、冶金焦（自产）、南非块矿、小块焦、烧结矿、白马球团、酸性烧结矿)
+
+        烧结比例 = (烧结矿 + 酸性烧结矿) / sum(40赤块、冶金焦（自产）、南非块矿、小块焦、烧结矿、白马球团、酸性烧结矿)
 
         铁次渣量:
         [40赤块_CaO*40赤块+冶金焦综合样_CaO*冶金焦（自产）+南非块矿_CaO*南非块矿+小块焦_CaO*小块焦+
@@ -84,11 +102,14 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
         :return:
         """
         res = pd.DataFrame()
+
+        # 利用钙平衡法计算渣量：1.获取CaO的信息
         list_CaO = "40赤块_CaO 冶金焦综合样_CaO 南非块矿_CaO 小块焦_CaO 烧结矿成分_CaO 白马球团_CaO 酸性烧结矿_CaO".split()
         list_CaO = adaptive(list_CaO)  # 适配一下
         df = self.get_df(list_CaO[0])
         res_CaO = self._process_chemical(list_CaO, df)
 
+        # 获取各个矿石量的信息
         param_list = "40赤块 冶金焦（自产） 南非块矿 小块焦 烧结矿 白马球团 酸性烧结矿".split()
         param = param_list[0]
         df_coke = self.get_df(param)
@@ -113,6 +134,13 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
         res['球团矿比例'] = df_coke['白马球团'] / temp_sum
         res['烧结矿比例'] = (df_coke['烧结矿'] + df_coke['酸性烧结矿']) / temp_sum
         res['块矿比例'] = (df_coke['40赤块'] + df_coke['南非块矿']) / temp_sum
+
+        # 矿石批重
+
+        batch = self.access_mine_batch()  # 铁次批数
+        mine_sum = df_coke[['40赤块', '南非块矿', '烧结矿', '白马球团', '酸性烧结矿']].sum(axis=1)  # 铁次矿石重量
+        res['矿石批重'] = mine_sum / batch
+
         #
         res['铁次渣量'] = (res_CaO['40赤块_CaO'] * df_coke['40赤块'] +
                        res_CaO['冶金焦综合样_CaO'] * df_coke['冶金焦（自产）'] +
@@ -125,6 +153,7 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
         res['铁次渣量 / 铁次铁量'] = res['铁次渣量'] / self.res['铁次铁量']  # 需要 get_ratio() 前置
         #
         # out_list = ['铁次渣量', '铁次渣量 / 铁次铁量'] + ['球团矿比例'] + list(df_coke.columns)  # 输出指标名
+
         self.res = pd.merge(res, self.res, how="outer", left_index=True,
                             right_index=True)
         return res
@@ -176,16 +205,14 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
         透气性指数 = 送风风量 / (热风压力 - 炉顶压力1,2) * 100
         富氧率 = ((0.21*风量)+(富氧量*0.992)) / (风量+富氧量) -0.21
         压差
-
-
         :return:
         """
-        # TODO 标准风速不输出
-        # TODO 富氧量->富氧率
-        res = self.process_big_time(['送风风量', '热风压力', '标准风速', '热风温度', '富氧量', '风口总面积', '富氧压力'], self.get_df('送风风量'))
+        res0 = self.process_big_time(['送风风量', '热风压力', '标准风速', '热风温度', '富氧量', '风口总面积'], self.get_df('送风风量'))
+        res = res0[['送风风量', '热风压力', '热风温度', '风口总面积']]
+        res['富氧率'] = ((0.21 * res0['送风风量']) + (res0['富氧量'] * 0.992)) / (res0['送风风量'] + res0['富氧量']) - 0.21
         res2 = self.process_big_time(['炉顶压力1', '炉顶压力2'], self.get_df('炉顶压力1'))
         res['炉顶压力'] = res2.mean(axis=1)
-        res['实际风速'] = res['标准风速'] * (0.101325 / 273) * ((273 + res['热风温度']) / (res['热风压力'] / 1000 + 0.101325))
+        res['实际风速'] = res0['标准风速'] * (0.101325 / 273) * ((273 + res['热风温度']) / (res['热风压力'] / 1000 + 0.101325))
         res['透气性指数'] = res['送风风量'] / (res['热风压力'] - res['炉顶压力']) * 100
         res['压差'] = res['热风压力'] - res['炉顶压力']
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
@@ -203,16 +230,26 @@ def interface(table):
     obj.get_slag_amount()
     obj.get_wind()
     obj.get_coke_load()
+    obj.get_rule()
+    obj.get_use_ratio()  # 高炉利用系数
 
-    res = obj.res
+    return obj.res
 
 
+# 测试代码区
 if __name__ == '__main__':
     import os
 
     os.chdir('../')
     print(os.getcwd())
 
-    sol = PreIron(201)
-    sol.get_iron_temp()
+    sol = PreIron(19)
+    sol.get_ratio()
+    sol.get_slag()
+    res_func = sol.get_slag_amount()
     res = sol.res
+    # res = interface(201)
+
+# TODO 缺失异常处理
+# TODO 杜负责部分的加入
+# TODO 铁次->天
