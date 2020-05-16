@@ -39,7 +39,7 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
 
         res = pre_res[['[C]', '[S]']]
         res['[Ti]+[Si]'] = pre_res['[Ti]'] + pre_res['[Si]']
-        res['delta([Ti]+[Si])'] = res['[Ti]+[Si]'].diff() / res['[Ti]+[Si]'].shift(1)
+        res['delta([Ti]+[Si])'] = res['[Ti]+[Si]'].diff()
 
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
@@ -56,7 +56,7 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
 
         res_temp = self.process_business_time(df, param_list, agg_func=np.mean)
         res['铁水温度'] = res_temp[['铁水温度(东)', '铁水温度(西)']].mean(axis=1)
-        res['delta(铁水温度)'] = res['铁水温度'].diff() / res['铁水温度'].shift(1)
+        res['delta(铁水温度)'] = res['铁水温度'].diff()
         self.res = pd.merge(self.res, res, how="outer", left_index=True, right_index=True)
         return res
 
@@ -75,19 +75,11 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
     def get_slag_amount(self):
         """
         处理以下指标：
-
         40赤块、冶金焦（自产）、南非块矿、小块焦、烧结矿、白马球团、酸性烧结矿、
-
-        块矿比例、球团矿比例、烧结比例、
-
         矿石批重 (以烧结矿批数为准)
-
         球团矿比例 = 白马球团 / sum(40赤块、冶金焦（自产）、南非块矿、小块焦、烧结矿、白马球团、酸性烧结矿)
-
         块矿比例 = (南非块矿 + 40赤块)  / sum(40赤块、冶金焦（自产）、南非块矿、小块焦、烧结矿、白马球团、酸性烧结矿)
-
         烧结比例 = (烧结矿 + 酸性烧结矿) / sum(40赤块、冶金焦（自产）、南非块矿、小块焦、烧结矿、白马球团、酸性烧结矿)
-
         铁次渣量:
         [40赤块_CaO*40赤块+冶金焦综合样_CaO*冶金焦（自产）+南非块矿_CaO*南非块矿+小块焦_CaO*小块焦+
         烧结矿成分_CaO*烧结矿+白马球团_CaO*白马球团+酸性烧结矿_CaO*酸性烧结矿]/(CaO)
@@ -172,7 +164,7 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
         df = self.get_df('受铁重量')
         res = process_iron(df, ['受铁重量'], np.sum)
         res.rename(columns={'受铁重量': '铁次铁量'}, inplace=True)  # 发现有一些铁次铁量是 0, 需要后期核查
-        res['delta(铁次铁量)'] = res['铁次铁量'].diff() / res['铁次铁量'].shift(1)
+        res['delta(铁次铁量)'] = res['铁次铁量'].diff()
 
         # 计算焦量, 焦比
         param_list = ['冶金焦（自产）', '小块焦']
@@ -294,6 +286,31 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
         self.res = pd.merge(self.res, res_temp, how="outer", left_index=True, right_index=True)
         return res_temp
 
+    def get_use_ratio(self):
+        """
+        获取高炉每小时利用系数
+        出铁速率
+        delta出铁速率
+        :return:
+        """
+        df_iron_speed = self.get_df("出铁速率")
+        df_iron_speed = df_iron_speed.groupby("采集项名称").get_group("出铁速率")
+        # 格式化
+        df_iron_speed.loc[:, '采集项值'] = pd.to_numeric(df_iron_speed['采集项值'])
+        df_iron_speed.loc[:, "业务处理时间"] = pd.to_datetime(df_iron_speed["业务处理时间"])
+        df_iron_speed.loc[:, "业务处理时间"].where(df_iron_speed['采集项值'] < 1e7, inplace=True)
+        df_iron_speed.dropna(inplace=True)
+        df_time_indexed = df_iron_speed.set_index("业务处理时间").sort_index()
+
+        time_table = self.time_table
+        res_temp = time_table.apply(lambda x: df_time_indexed.loc[x['受铁开始时间']:x['受铁结束时间'], '采集项值'].mean(),
+                                    axis=1)
+        self.res['出铁速率'] = res_temp
+        self.res['delta(出铁速率)'] = res_temp.diff()
+        self.res['每小时高炉利用系数'] = res_temp * 60 / 1750
+        return None
+
+
 
 def interface(table):
     obj = PreIron(table)
@@ -304,7 +321,7 @@ def interface(table):
     obj.get_ratio()
     obj.get_slag_amount()
     obj.get_wind()
-    obj.get_coke_load()
+    obj.get_coke_load()  # 焦炭负荷
     obj.get_rule()
     obj.get_use_ratio()  # 高炉利用系数
     obj.get_tempe_aver_and_range()
@@ -320,9 +337,9 @@ if __name__ == '__main__':
     print(os.getcwd())
 
     sol = PreIron(19)
-    sol.get_ratio()
-    sol.get_slag()
-    res_func = sol.get_slag_amount()
+    # sol.get_ratio()
+    # sol.get_slag()
+    sol.get_use_ratio()
     res = sol.res
     # res = interface(201)
 
