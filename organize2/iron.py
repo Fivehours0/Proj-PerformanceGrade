@@ -287,12 +287,13 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
         for value in direct_simple_list:
             if value == '煤气利用率':
                 res_temp[value] = all_table_mean['炉顶煤气CO2'] * 100 / (
-                            all_table_mean['炉顶煤气CO2'] + all_table_mean['炉顶煤气CO'])
+                        all_table_mean['炉顶煤气CO2'] + all_table_mean['炉顶煤气CO'])
             else:
                 res_temp[value] = all_table_mean[value]
 
         self.res = pd.merge(self.res, res_temp, how="outer", left_index=True, right_index=True)
         return res_temp
+
 
 def interface(table):
     obj = PreIron(table)
