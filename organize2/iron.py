@@ -219,6 +219,80 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
 
         return res
 
+    def get_tempe_aver_and_range(self):
+        """
+        获取获取如下温度均值和极差:
+            鼓风动能 炉腹煤气发生量 理论燃烧温度 炉顶煤气CO 炉顶煤气CO2 炉顶煤气H2 煤气利用率 炉缸中心温度
+            炉缸中心温度 炉顶平均温度 炉顶温度极差 炉喉平均温度 炉喉温度极差 炉腰平均温度 炉腰温度极差
+            炉身下一层温度	炉身下一层温度极差 炉身下二层温度 炉身下二层温度极差 炉缸平均温度 炉缸温度极差
+            炉底平均温度	炉底温度极差
+        """
+
+        def cal_temperature(data, temp_param):
+            """
+            根据铁次化后的单点温度数据, 计算平均温度或平均温度极差
+            :param data: 铁次化后的单点温度参数或者单点温度极差数据，类型：DataFrame
+            :param temp_param: 需要求的平均温度或温度极差参数列表，类型: list
+            :return: 返回平均温度或温度极差参数数据，类型: DataFrame
+            """
+            res_aver_or_range = pd.DataFrame()
+            for one_temp in temp_param:
+
+                # 特殊对待'炉身下一层平均温度'和'炉身下二层平均温度'，因为他们的名字比较特别，不能与其他指标一块处理
+                if '炉身' in one_temp:
+
+                    # 取出名称中包含有 one_temp[:5] + '温度' 的参数数据，求平均得到平均温度
+                    res_aver_or_range[one_temp] = data[
+                        list(filter(lambda x: (one_temp[:5] + '温度') in x, data.keys()))].mean(axis=1)
+
+                # '炉缸温度' in '炉缸中心温度'的值为False，故计算炉缸温度时，不会误用炉缸中心温度的数据
+                else:
+
+                    # 取出名称中包含有 one_temp[:2] + '温度' 的参数数据，求平均得到平均温度
+                    res_aver_or_range[one_temp] = data[
+                        list(filter(lambda x: (one_temp[:2] + '温度') in x, data.keys()))].mean(axis=1)
+
+            return res_aver_or_range
+
+        all_table_mean = pd.DataFrame()  # 将5个高炉本体表的铁次数据合并存储在该变量中
+        all_table_range = pd.DataFrame()  # 将5个高炉本体表的铁次极差数据合并存储在该变量中
+        res_temp = pd.DataFrame()  #
+
+        # 分别是5个高炉本体表中的一个单点温度, 用于获取df数据
+        get_df_list = ['炉喉温度1', '炉腰温度1', '炉底温度1', '炉底温度17', '炉缸温度146']
+
+        # 通过公式计算得出和无需处理的参数列表
+        direct_simple_list = ['鼓风动能', '炉腹煤气发生量', '理论燃烧温度', '炉顶煤气CO', '炉顶煤气CO2', '炉顶煤气H2', '煤气利用率', '炉缸中心温度']
+
+        # 对单点温度求平均的目标平均温度参数
+        direct_mean_list = ['炉顶平均温度', '炉喉平均温度', '炉腰平均温度', '炉身下一层平均温度', '炉身下二层平均温度', '炉缸平均温度', '炉底平均温度']
+
+        # 对单点温度极差求平均的目标极差温度参数
+        direct_range_list = ['炉顶温度极差', '炉喉温度极差', '炉腰温度极差', '炉身下一层温度极差', '炉身下二层温度极差', '炉缸温度极差', '炉底温度极差']
+
+        for value in get_df_list:
+            df = self.get_df(value)
+            param_list = list(set(df['采集项名称']))  # 获取表中所有参数名称
+
+            mean_temp = self.process_business_time(df, param_list)
+            all_table_mean = pd.merge(all_table_mean, mean_temp, how="outer", left_index=True, right_index=True)
+            range_temp = self.process_business_time(df, param_list, range_=True)
+            all_table_range = pd.merge(all_table_range, range_temp, how="outer", left_index=True, right_index=True)
+
+        res_mean = cal_temperature(all_table_mean, direct_mean_list)  # 计算平均温度
+        res_range = cal_temperature(all_table_range, direct_range_list)  # 计算温度极差
+        res_temp = pd.merge(res_temp, res_mean, how="outer", left_index=True, right_index=True)
+        res_temp = pd.merge(res_temp, res_range, how="outer", left_index=True, right_index=True)
+
+        for value in direct_simple_list:
+            if value == '煤气利用率':
+                res_temp[value] = all_table_mean['炉顶煤气CO2'] * 100 / (
+                            all_table_mean['炉顶煤气CO2'] + all_table_mean['炉顶煤气CO'])
+            else:
+                res_temp[value] = all_table_mean[value]
+
+        self.res = pd.merge(self.res, res_temp, how="outer", left_index=True, right_index=True)
+        return res_temp
 
 def interface(table):
     obj = PreIron(table)
@@ -232,6 +306,7 @@ def interface(table):
     obj.get_coke_load()
     obj.get_rule()
     obj.get_use_ratio()  # 高炉利用系数
+    obj.get_tempe_aver_and_range()
 
     return obj.res
 
