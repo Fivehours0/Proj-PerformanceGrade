@@ -311,7 +311,6 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
         return None
 
 
-
 def interface(table):
     obj = PreIron(table)
 

@@ -8,6 +8,10 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
+# 修补画图时 中文乱码的问题
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
 
 def lag_analysis(i, j, lag_min, lag_max, res, img_show=False, draw_range='small'):
     """
@@ -101,8 +105,8 @@ def chdir():
 if __name__ == '__main__':
     chdir()
 
-    date_start = '2020-1-5'
-    date_end = '2020-1-15'
+    date_start = '2019-10-01'
+    date_end = '2019-12-31'
 
     # 读取已经整理好的分钟数据 选取适合的时间段
     res = pd.read_excel('lag/时滞分析的分钟数据.xlsx')
