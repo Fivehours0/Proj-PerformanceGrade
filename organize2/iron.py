@@ -14,6 +14,7 @@ import numpy as np
 import pandas as pd
 
 from organize.iron import Solution as LegacyRreIron, process_iron, adaptive
+from mymo.iron_to_daily import IronToDaily
 
 
 # CHEMICAL_TABLE_NAME = '西昌2#高炉-上料质量表'  # 处理上料质量表的表名字
@@ -390,7 +391,7 @@ def interface(table):
     ans.to_excel("organize2/铁次5h滞后_{}.xlsx".format(table))  # 因为铁次产量为0 搞出不少 inf
     
     # 铁次数据转每日
-    iron_to_daily = IronToDaily(obj.res, table=table, save_path="organize/cache/每日无滞后_{}.xlsx".format(table))
+    iron_to_daily = IronToDaily(ans, table=table, save_path="organize/cache/每日无滞后_{}.xlsx".format(table))
     iron_to_daily.start()
     return ans
 
