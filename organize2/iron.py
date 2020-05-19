@@ -388,6 +388,10 @@ def interface(table):
 
     ans = obj.res
     ans.to_excel("organize2/铁次5h滞后_{}.xlsx".format(table))  # 因为铁次产量为0 搞出不少 inf
+    
+    # 铁次数据转每日
+    iron_to_daily = IronToDaily(obj.res, table=table, save_path="organize/cache/每日无滞后_{}.xlsx".format(table))
+    iron_to_daily.start()
     return ans
 
 
