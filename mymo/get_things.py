@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 # excel 文件处理成 pkl文件后 的存放路径
 PRE_PATH = {19: 'data/西昌2#高炉数据19年10-11月/pkl/',
             20: 'data/西昌2#高炉数据19年12月-20年2月/pkl/',
-            201: 'data/西昌2#高炉数据20年2-4月/pkl/'    # 添加新路径
+            201: 'data/西昌2#高炉数据20年2-4月/pkl/'  # 添加新路径
 
             }
 
@@ -15,6 +15,13 @@ IRON_TIME = {19: 'data/西昌2#高炉数据19年10-11月/铁次时间.xlsx',
              201: 'data/西昌2#高炉数据20年2-4月/铁次时间.xlsx'
 
              }
+
+# 系统评分与现场评分表的存放路径
+SCORE_PATH = {19: 'data/西昌2#高炉数据19年10-11月/系统评分与现场评分.xlsx',
+              20: 'data/西昌2#高炉数据19年12月-20年2月/系统评分与现场评分.xlsx',
+              201: 'data/西昌2#高炉数据20年2-4月/系统评分与现场评分.xlsx'
+
+              }
 
 
 def find_table(name: str, table: int) -> str or None:
@@ -85,3 +92,15 @@ def get_time_table(table: int) -> pd.DataFrame:
     time_table = time_table.set_index('铁次号').sort_index()
 
     return time_table
+
+
+def get_score_table(table: int) -> pd.DataFrame:
+    """
+    获取 系统评分与现场评分表的 DataFrame 型, 并且把 日期设为index
+    :param table
+    :return:
+    """
+    score_table = pd.read_excel(SCORE_PATH[table])
+    score_table = score_table.set_index('日期').sort_index()
+
+    return score_table
