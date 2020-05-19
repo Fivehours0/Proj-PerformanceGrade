@@ -310,6 +310,66 @@ class PreIron(LegacyRreIron):  # 充分利用继承的特性
         self.res['每小时高炉利用系数'] = res_temp * 60 / 1750
         return None
 
+    def get_chemical_data(self):
+        """
+        整理检化验数据
+        :return:
+        """
+        param_list = "40赤块_Al2O3 40赤块_CaO 40赤块_FeO 40赤块_H2O 40赤块_MgO 40赤块_P 40赤块_S 40赤块_SiO2 40赤块_TFe 40赤块_TiO2 " \
+                     "冶金焦综合样_C 冶金焦综合样_CaO 冶金焦综合样_FeO 冶金焦综合样_H2O 冶金焦综合样_MgO 冶金焦综合样_P 冶金焦综合样_R " \
+                     "冶金焦综合样_S 冶金焦综合样_SiO2 冶金焦综合样_TFe 冶金焦综合样_TiO2 冶金焦综合样_V2O5 " \
+                     "南非块矿_Al2O3 南非块矿_CaO 南非块矿_H2O 南非块矿_MgO 南非块矿_P 南非块矿_S 南非块矿_SiO2 南非块矿_TFe " \
+                     "喷吹无烟精煤_Fcad 喷吹烟煤_Fcad 喷吹煤粉_Fcad 喷吹煤粉_TFe 喷吹瘦煤_Fcad 小块焦_Al2O3 小块焦_CaO 小块焦_FeO " \
+                     "小块焦_MgO 小块焦_P 小块焦_RO 小块焦_S 小块焦_SiO2 小块焦_St 小块焦_TFe 小块焦_TiO2 小块焦_V2O5 烧结矿成分_Al2O3 " \
+                     "烧结矿成分_CaO 烧结矿成分_FeO 烧结矿成分_MgO 烧结矿成分_P 烧结矿成分_RO 烧结矿成分_S 烧结矿成分_SiO2 烧结矿成分_TFe " \
+                     "烧结矿成分_TiO2 烧结矿成分_V2O5 烧结矿综合样_C 烧结矿综合样_CaO 烧结矿综合样_FeO 烧结矿综合样_H2O 烧结矿综合样_MgO " \
+                     "烧结矿综合样_P 烧结矿综合样_R 烧结矿综合样_S 烧结矿综合样_SiO2 烧结矿综合样_TFe 烧结矿综合样_TiO2 烧结矿综合样_V2O5 " \
+                     "焦炭水分_Al2O3 焦炭水分_CaO 焦炭水分_FeO 焦炭水分_MgO 焦炭水分_P 焦炭水分_RO 焦炭水分_S 焦炭水分_SiO2 " \
+                     "焦炭水分_TFe 焦炭水分_TiO2 焦炭水分_V2O5 瓦斯灰_Zn " \
+                     "白马球团_Al2O3 白马球团_CaO 白马球团_FeO 白马球团_H2O 白马球团_K 白马球团_MgO 白马球团_Na 白马球团_P " \
+                     "白马球团_Pb 白马球团_S 白马球团_SiO2 白马球团_TFe 白马球团_TiO2 白马球团_V2O5 白马球团_Zn " \
+                     "酸性烧结矿_Al2O3 酸性烧结矿_CaO 酸性烧结矿_FeO 酸性烧结矿_K 酸性烧结矿_MgO 酸性烧结矿_Na 酸性烧结矿_P " \
+                     "酸性烧结矿_Pb 酸性烧结矿_RO 酸性烧结矿_S 酸性烧结矿_SiO2 酸性烧结矿_TFe 酸性烧结矿_TiO2 酸性烧结矿_V2O5 酸性烧结矿_Zn " \
+                     "钒钛球团_Al2O3 钒钛球团_As 钒钛球团_CaO 钒钛球团_Cu 钒钛球团_FeO 钒钛球团_H2O " \
+                     "钒钛球团_K 钒钛球团_MgO 钒钛球团_Na 钒钛球团_P 钒钛球团_Pb 钒钛球团_S 钒钛球团_SiO2 钒钛球团_Sn " \
+                     "钒钛球团_TFe 钒钛球团_TiO2 钒钛球团_V2O5 钒钛球团_Zn".split()
+
+        param_list2 = "45褐铁块矿_25-40mm粒度 45褐铁块矿_25mm粒度 45褐铁块矿_40-60mm粒度 45褐铁块矿_60-80mm粒度 45褐铁块矿_80mm粒度 " \
+                      "45褐铁块矿_M10 45褐铁块矿_M40 45褐铁块矿_焦末含量 冶金焦_Ad 冶金焦_Mt 冶金焦_St " \
+                      "冶金焦_Vdaf 冶金焦综合样_平均粒度(mm) 冶金焦综合样_抗磨指数 " \
+                      "冶金焦综合样_熔滴REAS 冶金焦综合样_筛分指数 冶金焦综合样_粒度10-16mm 冶金焦综合样_粒度16-25mm " \
+                      "冶金焦综合样_粒度25-40mm 冶金焦综合样_粒度5-10mm 冶金焦综合样_粒度<5mm " \
+                      "冶金焦综合样_粒度>40mm 冶金焦综合样_转鼓指数 冶金焦综合样_还原粉化率 " \
+                      "喷吹无烟精煤_Ad 喷吹无烟精煤_Mt 喷吹无烟精煤_St 喷吹无烟精煤_Vdaf " \
+                      "喷吹烟煤_Ad 喷吹烟煤_Mt 喷吹烟煤_St 喷吹烟煤_Vdaf 喷吹煤粉_Ad 喷吹煤粉_Mt 喷吹煤粉_St  喷吹煤粉_Vdaf " \
+                      "喷吹瘦煤_Ad 喷吹瘦煤_Mt 喷吹瘦煤_St 喷吹瘦煤_Vdaf 小块焦_Ad 小块焦_Mt 小块焦_Vdaf " \
+                      "烧结矿性能样(粒度、强度)_16-10mm粒度 烧结矿性能样(粒度、强度)_25-16mm粒度 烧结矿性能样(粒度、强度)_40-25mm粒度 " \
+                      "烧结矿性能样(粒度、强度)_40mm粒度 烧结矿性能样(粒度、强度)_5-10mm粒度 烧结矿性能样(粒度、强度)_5mm粒度 " \
+                      "烧结矿性能样(粒度、强度)_Ad 烧结矿性能样(粒度、强度)_St 烧结矿性能样(粒度、强度)_Vdaf 烧结矿性能样(粒度、强度)_抗磨指数 " \
+                      "烧结矿性能样(粒度、强度)_转鼓指数 烧结矿成分_Mt 烧结矿综合样_平均粒度(mm) " \
+                      "烧结矿综合样_抗磨指数 烧结矿综合样_熔滴REAS 烧结矿综合样_筛分指数 " \
+                      "烧结矿综合样_粒度10-16mm 烧结矿综合样_粒度16-25mm 烧结矿综合样_粒度25-40mm 烧结矿综合样_粒度5-10mm " \
+                      "烧结矿综合样_粒度<5mm 烧结矿综合样_粒度>40mm 烧结矿综合样_转鼓指数 烧结矿综合样_还原粉化率 " \
+                      "焦炭工分_16-10mm粒度 焦炭工分_25-16mm粒度 焦炭工分_40-25mm粒度 " \
+                      "焦炭工分_40mm粒度 焦炭工分_5-10mm粒度 焦炭工分_5mm粒度 焦炭工分_Ad 焦炭工分_St 焦炭工分_Vdaf " \
+                      "焦炭工分_抗磨指数 焦炭工分_转鼓指数 焦炭水分_Mt 焦炭热性能_CRI " \
+                      "焦炭热性能_CSR 焦炭粒度、冷强度_25-40mm粒度 焦炭粒度、冷强度_25mm粒度 焦炭粒度、冷强度_40-60mm粒度 焦炭粒度、冷强度_60-80mm粒度 " \
+                      "焦炭粒度、冷强度_80mm粒度 焦炭粒度、冷强度_M10 焦炭粒度、冷强度_M40 焦炭粒度、冷强度_焦末含量 " \
+                      "高炉沟下烧结矿粒度_10mm-5mm粒度 高炉沟下烧结矿粒度_20mm-10mm粒度 " \
+                      "高炉沟下烧结矿粒度_40mm-20mm粒度 高炉沟下烧结矿粒度_5mm-20mm粒度 高炉沟下烧结矿粒度_60mm-40mm粒度 高炉沟下烧结矿粒度_取样样重(Kg) " \
+                      "高炉沟下烧结矿粒度_大于60mm粒度 高炉沟下烧结矿粒度_平均粒度(mm) 高炉沟下烧结矿粒度_筛分指数(<5mm) 高炉沟下烧结矿粒度_筛分效率(%) " \
+                      "高炉沟下烧结矿粒度_筛前粉末 高炉沟下烧结矿粒度_返矿>5mm 高炉沟下烧结矿粒度_返矿率 ".split()
+        param_list_loading = adaptive(param_list)  # 适配一下
+        df = self.get_df(param_list_loading[0])
+        res = self._process_chemical(param_list_loading, df)  # process_chemical函数能保证数据源中无指标时输出为nan
+        self.res[res.columns] = res  # 输出结果
+
+        param_list_loading = adaptive(param_list2)  # 适配一下
+        df = self.get_df(param_list_loading[0])
+        res = self._process_chemical(param_list_loading, df)  # process_chemical函数能保证数据源中无指标时输出为nan
+        self.res[res.columns] = res  # 输出结果
+        return None
+
 
 def interface(table):
     obj = PreIron(table)
@@ -324,6 +384,7 @@ def interface(table):
     obj.get_rule()
     obj.get_use_ratio()  # 高炉利用系数
     obj.get_tempe_aver_and_range()
+    obj.get_chemical_data()
 
     ans = obj.res
     ans.to_excel("organize2/铁次5h滞后_{}.xlsx".format(table))  # 因为铁次产量为0 搞出不少 inf
@@ -340,9 +401,8 @@ if __name__ == '__main__':
     sol = PreIron(19)
     # sol.get_ratio()
     # sol.get_slag()
-    sol.get_use_ratio()
+    sol.get_chemical_data()
     res = sol.res
     # res = interface(201)
 
-# TODO 贴标签
 # TODO 铁次->天

@@ -145,8 +145,8 @@ if __name__ == "__main__":
     ironTimePath = './铁次时间.xlsx'  # 铁次时间的整合表  # 来了新数据需要添加
     scorePath = './分数.xlsx'  # 系统评分和现场评分的整合表
     tangJueLabelPath = './铁次结果汇总_5h滞后v3.0 (1).xlsx'  # 带有唐珏老师标签的数据
-    dataPath = './铁次5h滞后_v3.5.xlsx'  # 数据
-    savePath = '增加分数.xlsx'  # 数据保存的地址
+    dataPath = './铁次5h滞后_缺失填充处理后.xlsx'  # 数据
+    savePath = '铁次5h滞后_缺失填充处理后_增加分数.xlsx'  # 数据保存的地址
     # scoreRange = [100, 85, 80, 75, 0]# 四分类
     scoreRange = [100, 85, 75, 0]  # 三分类
 
