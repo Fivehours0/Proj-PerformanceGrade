@@ -1,9 +1,6 @@
 """
 :describe: 
-    可添加受铁开始时间和结束时间
-    可为铁次数据增加系统评分和现场评分
-    可添加唐珏老师的标签数据
-    可给分数添加标签
+    可为铁次数据或者每日数据增加系统评分和现场评分
 """
 import pandas as pd
 from mymo.get_things import get_time_table, get_score_table
