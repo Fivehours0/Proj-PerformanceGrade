@@ -325,7 +325,9 @@ def interface(table):
     obj.get_use_ratio()  # 高炉利用系数
     obj.get_tempe_aver_and_range()
 
-    return obj.res
+    ans = obj.res
+    ans.to_excel("organize2/铁次5h滞后_{}.xlsx".format(table))  # 因为铁次产量为0 搞出不少 inf
+    return ans
 
 
 # 测试代码区
@@ -342,6 +344,5 @@ if __name__ == '__main__':
     res = sol.res
     # res = interface(201)
 
-# TODO 缺失异常处理
-# TODO 杜负责部分的加入
+# TODO 贴标签
 # TODO 铁次->天
