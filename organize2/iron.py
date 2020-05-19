@@ -15,7 +15,7 @@ import pandas as pd
 
 from organize.iron import Solution as LegacyRreIron, process_iron, adaptive
 from mymo.iron_to_daily import IronToDaily
-
+from mymo.add_score import AddScore
 
 # CHEMICAL_TABLE_NAME = '西昌2#高炉-上料质量表'  # 处理上料质量表的表名字
 # SLAG_TABLE_NAME = '西昌2#高炉-上料成分表'  # 处理上料成分表的表名字
@@ -393,6 +393,15 @@ def interface(table):
     # 铁次数据转每日
     iron_to_daily = IronToDaily(ans, table=table, save_path="organize/cache/每日无滞后_{}.xlsx".format(table))
     iron_to_daily.start()
+    
+    # 为数据添加分数
+    iron = False  # 表示处理铁次数据
+    daily = True  # 表示处理每日数据
+    AddScore(obj.res, table=table, daily_or_iron=iron,
+             save_path="organize/cache/铁次无滞后_加评分_{}.xlsx".format(table)).start()
+    AddScore(iron_to_daily.res, table=table, daily_or_iron=daily,
+             save_path="organize/cache/每日无滞后_加评分_{}.xlsx".format(table)).start()
+    
     return ans
 
 
